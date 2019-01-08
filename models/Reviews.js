@@ -19,6 +19,12 @@ const ReviewSchema = new mongoose.Schema({
   text: { type: String, required: 'You must have a text' }
 });
 
+//PRE!!! IS A MONGODB LIFECYCLE HOOK WHEN WE CALL Business.find() THIS WILL RUN FIRST BEFORE RETURNING THE QUERY!!!
+//PRE DOCS https://mongoosejs.com/docs/middleware.html
+// WHAT IS THIS KEYWORD??
+//THIS KEYWORD IS THE MONGOOSE SCHEMA ITSELF SO YOU CAN CALL THIS.find() THIS.findOneByIdAndUpdate()
+//THIS = MONGOOSE.MODEL("BUSINESS",BUSINESSSCHEMA)
+
 ReviewSchema.pre('find', function(next) {
   this.populate('author');
   next();

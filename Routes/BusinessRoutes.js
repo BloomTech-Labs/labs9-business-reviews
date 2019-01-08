@@ -12,6 +12,9 @@ function isAuthenticated(req, res, next) {
   res.json({ message: 'You must login to do this' });
 }
 
+//MONGO DB COLLECTION METHODS DOCS!!!!
+// DOCS ---> https://docs.mongodb.com/manual/reference/method/
+
 router.post('/', isAuthenticated, async (req, res) => {
   req.body.author = req.user._id;
   const business = await new Business(req.body).save();
