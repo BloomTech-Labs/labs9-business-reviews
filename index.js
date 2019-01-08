@@ -9,18 +9,17 @@ const UserRoutes = require('./Routes/UserRoutes');
 const BusinessRoutes = require('./Routes/BusinessRoutes');
 const ReviewRoutes = require('./Routes/ReviewsRoutes');
 
+//MIDDLEWARE CONFIG
 ConfigMiddleware(server);
-server.listen(port, () => {
-  console.log(`port running on ${port}`);
-});
+//THIS WILL WILL TELL PASSPORT WHAT TO DO WHEN USER IS AUTHENTICATED/LOGGED IN
 require('./public/passport');
-require('./models/Business');
-require('./models/Users');
-require('./models/Reviews');
+
 server.use('/user', UserRoutes);
 server.use('/business', BusinessRoutes);
 server.use('/reviews', ReviewRoutes);
 
+//CONNECT TO THE DATABASE
+//COPY THE LINK TO COMPASS TO HAVE ACCESS TO THE DATABASE
 mongoose.connect(
   'mongodb://carlo:carloc1@ds049436.mlab.com:49436/business-reviews-labs',
   { useNewUrlParser: true }
@@ -30,6 +29,9 @@ mongoose.connection.once('open', () => {
   console.log('Connected to the database');
 });
 
+server.listen(port, () => {
+  console.log(`port running on ${port}`);
+});
 server.get('/', async (req, res) => {
   if (req.isAuthenticated()) {
     return res.json({ message: req.user });

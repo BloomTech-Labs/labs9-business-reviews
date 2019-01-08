@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Business = require('../models/Business');
 
+//BECAUSE OF OUR INITIAL SET UP req.isAuthenticated() req.user req.logout() ARE AVAILABLE TO US!!
+
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     console.log('yeah!');

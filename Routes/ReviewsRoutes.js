@@ -9,6 +9,9 @@ function isAuthenticated(req, res, next) {
   res.json({ message: 'You are not allowed to do that' });
 }
 
+//MONGO DB COLLECTION METHODS DOCS!!!!
+// DOCS ---> https://docs.mongodb.com/manual/reference/method/
+
 router.post('/stores/:id', isAuthenticated, async (req, res) => {
   console.log(req.params.id);
   req.body.author = req.user._id;
