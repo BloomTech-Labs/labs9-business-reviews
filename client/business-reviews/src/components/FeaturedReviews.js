@@ -1,4 +1,21 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
+
+
+export const FeaturedReviewStyles = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%;
+  height: auto;
+  h1 {
+    width: 100%;
+  }
+`;
+
+export const CardStyle = styled.div`
+  margin-left: 15px;
+`;
 
 
 class FeaturedReviews extends Component {
@@ -7,44 +24,50 @@ class FeaturedReviews extends Component {
     this.state ={ 
       reviews: [{
         id: 1,
-        name: "Araceae",
-        image: "https://source.unsplash.com/random/200x200",
-        review: "⭐⭐⭐⭐⭐"
+        image: "https://loremflickr.com/200/200/sushi",
+        name: "Ramiace",
+        review: "⭐⭐⭐⭐⭐",
+        poster: "@ktkdsfghs"
       }, {
         id: 2,
+        image: "https://loremflickr.com/200/200/storefront",
         name: "Bartramiaceae",
-        image: "https://source.unsplash.com/random/200x200",
-        review: "⭐⭐⭐"
+        review: "⭐⭐⭐",
+        poster: "@hthrtujsjk"
       }, {
         id: 3,
+        image: "https://loremflickr.com/200/200/pizza",
         name: "Umbilicariaceae",
-        image: "https://source.unsplash.com/random/200x200",
-        review: "⭐⭐⭐⭐"
+        review: "⭐⭐⭐⭐",
+        poster: "@conelieusfsdf"
       }, {
         id: 4,
+        image: "https://loremflickr.com/200/200/shop",
         name: "Asteraceae",
-        image: "https://source.unsplash.com/random/200x200",
-        review: "⭐⭐⭐⭐⭐"
+        review: "⭐⭐⭐⭐⭐",
+        poster: "@asdfadsfa"
       }, {
         id: 5,
+        image: "https://loremflickr.com/200/200/store",
         name: "Dryopteridaceae",
-        image: "https://source.unsplash.com/random/200x200",
-        review: "⭐⭐⭐⭐"
+        review: "⭐⭐⭐⭐",
+        poster: "@hahtdtuj"
       }]
     }      
   }
   render() {
     return (
-      <div>
+      <FeaturedReviewStyles>
         <h1>Featured Reviews</h1>
-        {this.state.reviews.map(({name, image, review}) => (
-          <div>
-            <h2>{name}</h2>
+        {this.state.reviews.map(({id, name, image, review, poster}) => (
+          <CardStyle key = {id}>
             <img src={image} alt="reviewed business"/>
-            <p>{review}</p>
-          </div>
+            <h1>{review}</h1>
+            <p>{name}</p>
+            <p>{poster}</p>
+          </CardStyle>
         ))}
-      </div>
+      </FeaturedReviewStyles>
     )
   }
 }
