@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 });
 
 // G E T  B Y  I D
-router.get('/id', (req, res) => {
+router.get('/:id', (req, res) => {
   const { id } = req.params;
 
   db('businesses')
