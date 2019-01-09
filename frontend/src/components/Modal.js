@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Modal extends Component {
     constructor() {
@@ -13,5 +14,11 @@ class Modal extends Component {
         )
     }
 }
+
+Modal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    show: PropTypes.bool,
+    children: PropTypes.node
+};
 
 export default Modal;
