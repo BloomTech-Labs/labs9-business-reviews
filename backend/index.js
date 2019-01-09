@@ -4,6 +4,9 @@ const cookieParser = require('cookie-parser');
 const authMiddleware = require('./authMiddlewares');
 // Please do not move or touch inside the files -- Carlo
 const userRouter = require('./user/userRouter');
+const reviewRouter = require('./reviews/reviewRouter');
+const businessRouter = require('./businesses/businessRouter');
+
 
 const server = express();
 const knex = require('knex');
