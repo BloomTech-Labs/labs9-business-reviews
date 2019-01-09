@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import FeaturedReviews from './components/FeaturedReviews'
-import PopularBusinesses from './components/PopularBusinesses'
-import PopularReviewers from './components/PopularReviewers'
+import SearchBar from './components/SearchBar'
+import LandingPage from './components/LandingPage'
 import Footer from './components/Footer'
+
+const StyledApp = styled.div`
+  margin: 0 auto;
+`;
 
 const Container = styled.div`
   margin: 0 auto;
@@ -16,14 +19,13 @@ const Container = styled.div`
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <StyledApp className="App">
         <Container>
-          <FeaturedReviews />
-          <PopularBusinesses />
-          <PopularReviewers />
+          <SearchBar />
+          <LandingPage />
           <Footer />
         </Container>
-      </div>
+      </StyledApp>
     );
   }
 }

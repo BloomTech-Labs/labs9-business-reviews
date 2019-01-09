@@ -22,37 +22,39 @@ class FeaturedReviews extends Component {
   constructor() {
     super();
     this.state ={ 
-      reviews: [{
+      reviews: [
+        {
         id: 1,
         image: "https://loremflickr.com/200/200/sushi",
         name: "Ramiace",
         review: "⭐⭐⭐⭐⭐",
         poster: "@ktkdsfghs"
-      }, {
+        }, {
         id: 2,
         image: "https://loremflickr.com/200/200/storefront",
         name: "Bartramiaceae",
         review: "⭐⭐⭐",
         poster: "@hthrtujsjk"
-      }, {
+        }, {
         id: 3,
         image: "https://loremflickr.com/200/200/pizza",
         name: "Umbilicariaceae",
         review: "⭐⭐⭐⭐",
         poster: "@conelieusfsdf"
-      }, {
+        }, {
         id: 4,
         image: "https://loremflickr.com/200/200/shop",
         name: "Asteraceae",
         review: "⭐⭐⭐⭐⭐",
         poster: "@asdfadsfa"
-      }, {
+        }, {
         id: 5,
         image: "https://loremflickr.com/200/200/store",
         name: "Dryopteridaceae",
         review: "⭐⭐⭐⭐",
         poster: "@hahtdtuj"
-      }]
+        }
+      ]
     }      
   }
   render() {

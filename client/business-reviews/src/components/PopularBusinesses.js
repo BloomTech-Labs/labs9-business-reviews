@@ -21,32 +21,34 @@ class PopularBusinesses extends Component {
   constructor() {
     super();
     this.state = {
-      reviews: [{
+      reviews: [
+        {
         id: 1,
         image: "https://loremflickr.com/200/200/mcdonalds",
         name: "McDonald's",
         review: "⭐⭐⭐⭐⭐",
-      }, {
+        }, {
         id: 2,
         image: "https://loremflickr.com/200/200/kmart",
         name: "KMart",
         review: "⭐⭐⭐",
-      }, {
+        }, {
         id: 3,
         image: "https://loremflickr.com/200/200/walmart",
         name: "Walmart",
         review: "⭐⭐⭐⭐",
-      }, {
+        }, {
         id: 4,
         image: "https://loremflickr.com/200/200/target",
         name: "Target",
         review: "⭐⭐⭐⭐⭐",
-      }, {
+        }, {
         id: 5,
         image: "https://loremflickr.com/200/200/tacobell",
         name: "Taco Bell",
         review: "⭐⭐⭐⭐",
-      }]
+        }
+      ]
     }
   }
   render() {
