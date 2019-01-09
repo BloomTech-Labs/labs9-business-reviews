@@ -34,8 +34,15 @@ router.get('/id', (req, res) => {
   db('businesses')
     .where({ id: id })
     .first()
-    .then(business => res.status(200).json(business))
-    .catch(err => res.status(500).json(err));
+    .then(business => {
+      if (business)
+        db('businesses')
+          .where({ id: id })
+          .then(business => {
+            res.status(200).json(business);
+          })
+          .catch(err => res.status(500).json(err));
+    });
 });
 
 // U P D A T E  B U S I N E S S
