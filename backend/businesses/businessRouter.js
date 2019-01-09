@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const knex = require('knex');
-const knexConfig = require('../db/knexfile');
+const knexConfig = require('../knexfile');
 
 const db = knex(knexConfig.development);
 

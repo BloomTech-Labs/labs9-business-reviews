@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
 });
 
 //DELETE
-server.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
 	const { id } = req.params;
     db('reviews')
         .where({ id })
@@ -56,3 +56,5 @@ server.delete('/:id', (req, res) => {
 		});
 	});
 });
+
+module.exports = router;
