@@ -5,12 +5,14 @@ const authMiddleware = require('./authMiddlewares');
 // Please do not move or touch inside the files -- Carlo
 const userRouter = require('./user/userRouter');
 const reviewRouter = require('./review/reviewRouter');
+const cors = require('cors');
 
 const server = express();
 const port = 9000 || process.env.PORT;
 
 server.use(cookieParser());
 server.use(express.json());
+server.use(cors());
 
 authMiddleware(server);
 
