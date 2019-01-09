@@ -1,6 +1,5 @@
 const express = require('express');
 const server = express();
-const knex = require('knex');
 const port = 9000;
 
 server.use(express.json());
