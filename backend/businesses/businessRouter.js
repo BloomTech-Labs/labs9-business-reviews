@@ -19,3 +19,50 @@ router.post('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+// G E T   A L L  B U I S N E S S E S
+router.get('/', (req, res) => {
+  db('businesses')
+    .then(business => res.status(200).json(business))
+    .catch(err => res.status(500).json(err));
+});
+
+// G E T  B Y  I D
+router.get('/id', (req, res) => {
+  const { id } = req.params;
+
+  db('businesses')
+    .where({ id: id })
+    .first()
+    .then(business => res.status(200).json(business))
+    .catch(err => res.status(500).json(err));
+});
+
+// U P D A T E  B U S I N E S S
+router.put('/:id', (req, res) => {
+  const changes = req.body;
+  const { id } = req.params;
+
+  db('businesses')
+    .where({ id: id })
+    .update(changes)
+    .then(count => {
+      res.status(200).json(count);
+    })
+    .catch(err => res.status(500).json(err));
+});
+
+// D E L E T E  B U S I N E S S
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
+
+  db('businesses')
+    .where({ id: id })
+    .del()
+    .then(count => {
+      res.status(200).json(count);
+    })
+    .catch(err => res.status(500).json(err));
+});
+
+module.exports = router;
