@@ -55,14 +55,6 @@ class PopularReviewers extends Component {
         id: 8,
         name: "BirdGuy",
         image: "https://loremflickr.com/200/200/bird",
-        }, {
-        id: 9,
-        name: "BabyGuy",
-        image: "https://loremflickr.com/200/200/baby",
-        }, {
-        id: 10,
-        name: "GoatGuy",
-        image: "https://loremflickr.com/200/200/Goat",
         }
       ]
     }

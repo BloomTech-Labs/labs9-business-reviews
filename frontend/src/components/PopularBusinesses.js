@@ -42,11 +42,6 @@ class PopularBusinesses extends Component {
         image: "https://loremflickr.com/200/200/target",
         name: "Target",
         review: "⭐⭐⭐⭐⭐",
-        }, {
-        id: 5,
-        image: "https://loremflickr.com/200/200/tacobell",
-        name: "Taco Bell",
-        review: "⭐⭐⭐⭐",
         }
       ]
     }

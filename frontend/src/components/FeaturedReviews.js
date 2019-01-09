@@ -47,12 +47,6 @@ class FeaturedReviews extends Component {
         name: "Asteraceae",
         review: "⭐⭐⭐⭐⭐",
         poster: "@asdfadsfa"
-        }, {
-        id: 5,
-        image: "https://loremflickr.com/200/200/store",
-        name: "Dryopteridaceae",
-        review: "⭐⭐⭐⭐",
-        poster: "@hahtdtuj"
         }
       ]
     }      
