@@ -4,7 +4,6 @@ const db = require('./db/dbinit');
 
 module.exports = server => {
   server.use((req, res, next) => {
-    console.log(req.cookies);
     if (!req.cookies.tokenId) {
       return next();
     }
@@ -16,7 +15,7 @@ module.exports = server => {
     server.use(async (req, res, next) => {
       if (req.userId) {
         const [singleUser] = await db
-          .select('id', 'name', ' email')
+          .select('id', 'name', ' email', 'gravatar')
           .from('users')
           .where({ id: req.userId });
         req.user = singleUser;
