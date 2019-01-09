@@ -2,13 +2,25 @@ import React from 'react'
 import ProfileNav from './ProfileNav'
 import SideBar from './SideBar'
 import MyReviews from './MyReviews'
+import styled from 'styled-components'
+
+const StyledContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 600px;
+  margin-top: 20px;
+  
+`;
 
 function UserProfile() {
   return (
     <div>
       <ProfileNav />
-      <SideBar />
-      <MyReviews />
+      <StyledContainer>
+        <SideBar />
+        <MyReviews />
+      </StyledContainer>
     </div>
   )
 }

@@ -1,17 +1,40 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledNav = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .left-nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    a {
+      margin-right: 10px;
+    }
+    p {
+      margin-right: 10px;
+    }
+  }
+  .right-nav {
+    display: flex;
+    align-items: center;
+  }
+`;
 
 function ProfileNav() {
   return (
-    <div className="nav-bar">
+    <StyledNav >
       <div className="left-nav">
-        <a>Home</a>
+        <NavLink to="/">Home</NavLink>
         <p>></p>
-        <p>MyReviews</p>
+        <p>My Reviews</p>
       </div>
       <div className="right-nav">
         <a>Sign Out</a>
       </div>
-    </div>
+    </StyledNav>
   )
 }
 
