@@ -14,6 +14,7 @@ const SearchBarStyles = styled.div`
       width: 45%;
       height: 20px;
       border-radius: 100px;
+      padding-left: 15px;
     }
   }
   .button-container {
@@ -32,7 +33,7 @@ function SearchBar() {
   return (
     <SearchBarStyles>
       <form>
-        <input placeholder="    Search..."/>
+        <input placeholder="Search..."/>
       </form>
       <div className="button-container">
         <button className="button">Review</button>
