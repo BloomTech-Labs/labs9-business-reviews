@@ -63,7 +63,7 @@ class PopularReviewers extends Component {
     return (
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
-        {this.state.reviews.map(({id, name, image, review}) => (
+        {this.state.reviews.map(({id, name, image}) => (
           <CardStyle key={id}>
             <img src={image} alt="reviewers"/>
             <p>{name}</p>
