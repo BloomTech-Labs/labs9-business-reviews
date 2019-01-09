@@ -55,4 +55,8 @@ router.get('/me', async (req, res) => {
   res.json(req.user);
 });
 
+router.get('/logout', (req, res) => {
+  req.clearCookie('tokenId');
+  res.json({ message: 'Bye!' });
+});
 module.exports = router;
