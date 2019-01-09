@@ -1,33 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components'
-import SearchBar from './components/SearchBar'
+import { Route, Switch } from "react-router-dom"
 import LandingPage from './components/LandingPage'
-import Footer from './components/Footer'
+import UserProfile from './components/UserProfile'
 
 const StyledApp = styled.div`
   margin: 0 auto;
+  max-width: 1200px;
 `;
 
-const Container = styled.div`
-  margin: 0 auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  width: 100%;
-`;
-
-class App extends Component {
-  render() {
-    return (
-      <StyledApp className="App">
-        <Container>
-          <SearchBar />
-          <LandingPage />
-          <Footer />
-        </Container>
-      </StyledApp>
-    );
-  }
+function App() {
+  return (
+    <StyledApp className="App">
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/user" component={UserProfile} />
+      </Switch>
+    </StyledApp>
+  )
 }
 
 export default App;

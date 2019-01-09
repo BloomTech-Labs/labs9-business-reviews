@@ -6,7 +6,6 @@ const SearchBarStyles = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin-top: 100px;  
   form {
     display: flex;    
     justify-content: center;
