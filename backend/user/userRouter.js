@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const md5 = require('md5');
 const router = express.Router();
-const userModel = require('../db/userModel/userModel');
+const userModel = require('./userModel');
 const generateToken = require('../generateToken');
 
 router.post('/register', async (req, res) => {
@@ -28,15 +28,19 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  if (req.cookies.tokenId) return res.json({ message: 'Already logged in!' });
   if (!req.body.email)
     return res.json({ message: 'You are missing a email field' });
   if (!req.body.password)
     return res.json({ message: 'You are missing a password field' });
   const [singleUser] = await userModel.verifyLoginEmail(req.body.email);
+  if (!singleUser) return res.json({ message: 'No user found!' });
   const comparePasswords = bcrypt.compareSync(
     req.body.password,
     singleUser.password
   );
+  if (!comparePasswords)
+    return res.status(500).json({ message: 'WRONG PASSWORD' });
   if (singleUser && comparePasswords) {
     //if authenticated return this!
     const tokenId = generateToken(singleUser.id);

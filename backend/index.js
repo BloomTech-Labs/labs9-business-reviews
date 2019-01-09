@@ -4,9 +4,10 @@ const cookieParser = require('cookie-parser');
 const authMiddleware = require('./authMiddlewares');
 // Please do not move or touch inside the files -- Carlo
 const userRouter = require('./user/userRouter');
+const businessRouter = require('./businesses/businessRouter');
+// const reviewRouter = require('./review/reviewRouter');
 
 const server = express();
-const knex = require('knex');
 const port = 9000 || process.env.PORT;
 
 server.use(cookieParser());
@@ -17,7 +18,7 @@ authMiddleware(server);
 // R O U T E S
 server.use('/api/business', businessRouter);
 server.use('/api/user', userRouter);
-server.use('/api/review', reviewRouter);
+// server.use('/api/review', reviewRouter);
 // R O O T  R O U T E
 server.get('/', (req, res) => {
   res.send('API root.');

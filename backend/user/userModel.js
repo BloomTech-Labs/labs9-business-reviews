@@ -1,4 +1,4 @@
-const db = require('../dbinit');
+const db = require('../db/dbinit');
 
 module.exports = { register, getUsers, verifyLoginEmail };
 
