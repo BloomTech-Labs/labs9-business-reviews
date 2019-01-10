@@ -20,7 +20,6 @@ const StyledContainer = styled.div`
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = { isOpen: false };
   }
 
@@ -29,8 +28,6 @@ class UserProfile extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
-
-
   render() {
     return (
       <div>
@@ -41,23 +38,11 @@ class UserProfile extends React.Component {
           <button className="openModal" onClick={this.toggleModal}>
             Open Modal
           </button>
-
-          <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-            <div>
-              <h1>A Business</h1>
-              <p>Review by: ReviewGuy</p>
-              <form>
-                <textarea>
-                  This place sucks!
-                </textarea>
-              </form>
-            </div>
-          </Modal>
+          <Modal show={this.state.isOpen} onClose={this.toggleModal} />
         </StyledContainer>
       </div>
     )
-  }
-  
+  }  
 }
 
 export default UserProfile;
