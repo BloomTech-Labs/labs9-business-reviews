@@ -37,7 +37,15 @@ class Modal extends Component {
       <BackdropStyle>
         <div className="modal">
           {this.props.children}
-
+          <div>
+            <h1>A Business</h1>
+            <p>Review by: ReviewGuy</p>
+              <form>
+              <textarea>
+                This place sucks!
+              </textarea>
+            </form>
+          </div>
           <div className="footer">
             <button className="close-button" onClick={this.props.onClose}>
               Close
