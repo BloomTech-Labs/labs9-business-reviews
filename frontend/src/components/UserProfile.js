@@ -39,7 +39,15 @@ class UserProfile extends React.Component {
           </button>
 
           <Modal show={this.state.isOpen} onClose={this.toggleModal}>
-            A generic message for my Modal!
+            <div>
+              <h1>A Business</h1>
+              <p>Review by: ReviewGuy</p>
+              <form>
+                <textarea>
+                  This place sucks!
+                </textarea>
+              </form>
+            </div>
           </Modal>
         </StyledContainer>
       </div>

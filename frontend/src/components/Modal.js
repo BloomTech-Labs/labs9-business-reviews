@@ -13,8 +13,8 @@ const BackdropStyle = styled.div`
   align-items: center;
   background: rgba(4, 0, 0, 0.7);
   .modal{
-    width: 30%;
-    height: 150px;
+    width: 350px;
+    height: 500px;
     border: 1px solid grey;
     display: flex;
     flex-flow: row wrap;
