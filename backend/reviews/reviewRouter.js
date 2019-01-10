@@ -49,12 +49,15 @@ router.delete('/:id', (req, res) => {
     db('reviews')
         .where({ id })
         .del()
-        .then((count) => {
-            res.status(200).json(count)
+		.then(count => 
+			count
+			? res.status(200).json({message: 'Deleted'})
+			: res.status(404).json({ message: 'Could not find that review' })
+		)
         .catch((err) => {
-			res.status(500).json(err);
-		});
-	});
+			res.status(500).json({err});
+		});	
 });
+
 
 module.exports = router;
