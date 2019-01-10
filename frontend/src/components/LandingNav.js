@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../assets/logo.png'
 
 const NavBar = styled.div`
   width: 100%;
@@ -14,7 +15,10 @@ const NavBar = styled.div`
   margin-bottom: 2rem;
 
   .menu__logo--logo {
-    font-size: 3.8rem;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
   }
 
   .menu__menuItems {
@@ -44,7 +48,7 @@ const NavBar = styled.div`
 function LandingNav() {
   return (
     <NavBar>
-      <h2 class='menu__logo--logo'>Bonafide.biz</h2>
+      <img src={logo} class='menu__logo--logo'></img>
       <div class='menu__menuItems'>
         <a>add a review</a>
         <a>categories</a>
