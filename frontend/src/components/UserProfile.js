@@ -11,6 +11,10 @@ const StyledContainer = styled.div`
   justify-content: space-between;
   height: 600px;
   margin-top: 20px;
+  .openModal{
+    width: 200px;
+    height: 100px;
+  }
 `;
 
 class UserProfile extends React.Component {
@@ -34,7 +38,7 @@ class UserProfile extends React.Component {
         <StyledContainer>
           <SideBar />
           <MyReviews />
-          <button onClick={this.toggleModal}>
+          <button className="openModal" onClick={this.toggleModal}>
             Open Modal
           </button>
 
