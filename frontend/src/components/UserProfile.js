@@ -3,7 +3,7 @@ import ProfileNav from './ProfileNav'
 import SideBar from './SideBar'
 import MyReviews from './MyReviews'
 import styled from 'styled-components'
-import Modal from './Modal';
+import Modal from './Modal'
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -38,7 +38,7 @@ class UserProfile extends React.Component {
             Open Modal
           </button>
 
-          <Modal show={this.state.isOpen} onClose={this.togglemodal}>
+          <Modal show={this.state.isOpen} onClose={this.toggleModal}>
             A generic message for my Modal!
           </Modal>
         </StyledContainer>
