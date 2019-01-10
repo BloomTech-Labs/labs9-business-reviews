@@ -15,12 +15,14 @@ router.post('/register', async (req, res) => {
     //http://en.gravatar.com/site/implement/images/ getting gravatar docs
     const email = req.body.email;
     email.toLowerCase();
-    console.log(email, 'email');
     const gravatarHashedEmail = await md5(email);
     const gravatarLink = `https://www.gravatar.com/avatar/${gravatarHashedEmail}?s=200`;
     req.body.gravatar = gravatarLink;
-    console.log(gravatarLink, 'gravatarlink');
     const registerUserId = await userModel.register(req.body);
+    if (!registerUserId)
+      return res
+        .status(500)
+        .json({ message: `User with email ${email} already exists!` });
     res.json({
       message: `Successfully completed adding a user with id of ${registerUserId}`
     });
@@ -37,6 +39,12 @@ router.post('/login', async (req, res) => {
     req.body.password,
     singleUser.password
   );
+  if (!singleUser) {
+    return res.status(500).json({ message: 'no user found with such email' });
+  }
+  if (!comparePasswords) {
+    return res.status(500).json({ message: 'inputted password dont match!' });
+  }
   if (singleUser && comparePasswords) {
     //if authenticated return this!
     const tokenId = generateToken(singleUser.id);
@@ -56,6 +64,9 @@ router.get('/me', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
+  if (!req.cookies.tokenId) {
+    return res.status(500).json({ message: 'Cant logout without logging in!' });
+  }
   req.clearCookie('tokenId');
   res.json({ message: 'Bye!' });
 });

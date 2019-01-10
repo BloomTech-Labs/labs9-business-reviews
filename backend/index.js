@@ -6,7 +6,7 @@ const authMiddleware = require('./authMiddlewares');
 const userRouter = require('./user/userRouter');
 const reviewRouter = require('./reviews/reviewRouter');
 const businessRouter = require('./businesses/businessRouter');
-
+const cors = require('cors');
 
 const server = express();
 const knex = require('knex');
@@ -14,6 +14,7 @@ const port = 9000 || process.env.PORT;
 
 server.use(cookieParser());
 server.use(express.json());
+server.use(cors());
 
 authMiddleware(server);
 
