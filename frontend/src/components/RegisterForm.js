@@ -1,5 +1,44 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const AuthInput = styled.input`
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  margin: 10px auto;
+`;
+const RegisterDiv = styled.div`
+  display: flex;
+  max-width: 500px;
+  align-self: flex-end;
+  margin: auto;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+  height: 500px;
+`;
+const AuthForm = styled.form`
+  width: 100%;
+  padding: 2rem;
+
+  label {
+    font-family: sans-serif;
+  }
+  input[type='submit'] {
+    background-color: #ffc40e;
+    font-weight: 600;
+    font-family: 'roboto';
+    margin: 10px auto;
+    padding: 10px;
+    float: center;
+    width: 95%;
+  }
+`;
+
+const AuthHeader = styled.h1`
+  padding-bottom: 25px;
+  font-family: 'roboto';
+  font-weight: 500;
+`;
 
 class RegisterForm extends Component {
   state = {
@@ -20,30 +59,26 @@ class RegisterForm extends Component {
       'http://localhost:9000/api/user/register',
       this.state
     );
+    if (!id) {
+      alert('error');
+    }
     console.log(id);
+    alert(`Authenticated ${id}`);
   };
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <h1> Register for a account!</h1>
-          <label htmlFor="email">
-            {' '}
-            Email
-            <input type="email" name="email" onChange={this.handleChange} />
-          </label>
-          <label htmlFor="password">
-            {' '}
-            Password
-            <input type="text" name="password" onChange={this.handleChange} />
-          </label>
-          <label htmlFor="name">
-            Name
-            <input type="text" name="name" onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Login!" />
-        </form>
-      </div>
+      <RegisterDiv>
+        <AuthForm onSubmit={this.handleSubmit}>
+          <AuthHeader> Register for a account!</AuthHeader>
+          <label htmlFor="email"> Email</label>
+          <AuthInput type="email" name="email" onChange={this.handleChange} />
+          <label htmlFor="password"> Password</label>
+          <AuthInput type="text" name="password" onChange={this.handleChange} />
+          <label htmlFor="name">Name</label>
+          <AuthInput type="text" name="name" onChange={this.handleChange} />
+          <input type="submit" value="Register 🡆 " />
+        </AuthForm>
+      </RegisterDiv>
     );
   }
 }

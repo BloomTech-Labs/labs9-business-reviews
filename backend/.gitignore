@@ -1,2 +1,6 @@
 node_modules
-.vscode
+<<<<<<< HEAD
+=======
+DS_Store
+.sqlite3
+>>>>>>> 9305c6897c6f3a07e6a30a441d7bbcc408176bef
