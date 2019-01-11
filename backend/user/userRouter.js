@@ -5,6 +5,11 @@ const router = express.Router();
 const userModel = require('../db/userModel/userModel');
 const generateToken = require('../generateToken');
 
+router.get('/', async (req, res) => {
+  const res = await userModel.getUsers();
+  res.status(200).json(res);
+});
+
 router.post('/register', async (req, res) => {
   if (!req.body.name || !req.body.email || !req.body.password) {
     res.json({ message: 'You are missing one of these fields' });
