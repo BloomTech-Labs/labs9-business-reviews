@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import SideBar from './SideBar';
 import ProfileNav from './ProfileNav';
+import BillingForm from './BillingForm';
 
 const StyledBilling = styled.div`
   width: 80%;
@@ -79,7 +80,9 @@ class BillingPage extends Component {
                   <p>1 Month Subscription - $0.99</p>
                 </div>
               </form>
-              <button>Buy Now</button>
+              <BillingForm>
+                <button>Buy Now</button>
+              </BillingForm>
             </div>
           </StyledBilling>
         </div>
