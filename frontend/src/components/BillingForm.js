@@ -11,6 +11,7 @@ class BillingForm extends React.Component {
   onToken = (res) => {
     console.log('On Token Called!');
     console.log(res);
+    console.log(res.id);
   }
 
   render() {
