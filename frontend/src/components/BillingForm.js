@@ -9,7 +9,10 @@ import PropTypes from 'prop-types';
 class BillingForm extends React.Component {
     render() {
         return(
-           <StripeCheckout>
+           <StripeCheckout
+                name="Bonafind"
+                description="Purchase Subscription"
+           >
                {this.props.children}
            </StripeCheckout> 
         )

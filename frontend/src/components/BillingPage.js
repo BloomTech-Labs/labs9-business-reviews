@@ -28,12 +28,6 @@ const StyledBilling = styled.div`
     display: flex;
     justify-content: center;
   }
-  .checkbox{
-    display: flex;
-  }
-  .checkbox p{
-    margin-left: 5px;
-  }
   button{
     padding: 30px;
     font-size: 20px;
@@ -71,14 +65,8 @@ class BillingPage extends Component {
                 </div>
               </form>
               <form>
-                <div className="checkbox">
-                  <input type="checkbox" />
-                  <p>1 Year Subscription - $9.99</p>
-                </div>
-                <div className="checkbox">
-                  <input type="checkbox" />
-                  <p>1 Month Subscription - $0.99</p>
-                </div>
+                <input type="radio" name="subscription" value="yearly" />1 Year Subscription - $9.99 <br/>
+                <input type="radio" name="subscription" value="yearly" />1 Month Subscription - $0.99
               </form>
               <BillingForm>
                 <button>Buy Now</button>
