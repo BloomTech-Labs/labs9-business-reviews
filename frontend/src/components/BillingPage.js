@@ -37,45 +37,45 @@ const StyledBilling = styled.div`
 `;
 
 class BillingPage extends Component {
-    constructor() {
-        super();
-    }
+  constructor() {
+      super();
+  }
 
-    render() {
-      return(
-        <div>
-          <ProfileNav />
-          <StyledBilling>
-            <SideBar />
-            <div className="billing">
-              <h1>Billing</h1>
-              <h4>Payment Info</h4>
-              <form className="payment-form">
-                <div className="input-div">
-                  <p>CC#</p>
-                  <input placeholder="####-####-####-####" />
-                </div>
-                <div className="input-div">
-                  <p>EXP</p>
-                  <input placeholder="MM/YY" />
-                </div>
-                <div className="input-div">
-                  <p>CVV</p>
-                  <input placeholder="###" />
-                </div>
-              </form>
-              <form>
-                <input type="radio" name="subscription" value="yearly" />1 Year Subscription - $9.99 <br/>
-                <input type="radio" name="subscription" value="yearly" />1 Month Subscription - $0.99
-              </form>
-              <BillingForm>
-                <button>Buy Now</button>
-              </BillingForm>
-            </div>
-          </StyledBilling>
-        </div>
-      )
-    }
+  render() {
+    return(
+      <div>
+        <ProfileNav />
+        <StyledBilling>
+          <SideBar />
+          <div className="billing">
+            {/* <h1>Billing</h1>
+            <h4>Payment Info</h4>
+            <form className="payment-form">
+              <div className="input-div">
+                <p>CC#</p>
+                <input placeholder="####-####-####-####" />
+              </div>
+              <div className="input-div">
+                <p>EXP</p>
+                <input placeholder="MM/YY" />
+              </div>
+              <div className="input-div">
+                <p>CVV</p>
+                <input placeholder="###" />
+              </div>
+            </form> */}
+            <form>
+              <input type="radio" name="subscription" value="yearly" />1 Year Subscription - $9.99 <br/>
+              <input type="radio" name="subscription" value="yearly" />1 Month Subscription - $0.99 <br/>
+            </form>
+            <BillingForm>
+              <button>Buy Now</button>
+            </BillingForm>
+          </div>
+        </StyledBilling>
+      </div>
+    )
+  }
 }
 
 export default BillingPage;
