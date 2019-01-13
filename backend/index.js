@@ -10,7 +10,7 @@ const cors = require('cors');
 
 const server = express();
 const knex = require('knex');
-const port = 9000 || process.env.PORT;
+const port = process.env.PORT || 9000;
 
 server.use(cookieParser());
 server.use(express.json());

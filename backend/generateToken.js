@@ -9,5 +9,6 @@ module.exports = id => {
     expiresIn: '60m'
   };
 
+
   return jwt.sign(jwtPayload, jwtSecret, jwtOptions);
 };
