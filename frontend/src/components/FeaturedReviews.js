@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 export const FeaturedReviewStyles = styled.div`
@@ -15,6 +16,10 @@ export const FeaturedReviewStyles = styled.div`
 
 export const CardStyle = styled.div`
   margin-left: 15px;
+  a {
+    text-decoration: none;
+    color: black
+  }
 `;
 
 
@@ -58,9 +63,9 @@ class FeaturedReviews extends Component {
         {this.state.reviews.map(({id, name, image, review, poster}) => (
           <CardStyle key = {id}>
             <img src={image} alt="reviewed business"/>
-            <h1>{review}</h1>
-            <p>{name}</p>
-            <p>{poster}</p>
+            <h1>{review}</h1><p>{name}</p>
+            <Link to={`/user/${poster}`}><p>{poster}</p></Link>
+            
           </CardStyle>
         ))}
       </FeaturedReviewStyles>
