@@ -44,15 +44,15 @@ const NavBar = styled.div`
 function LandingNav() {
   return (
     <NavBar>
-      <h2 class='menu__logo--logo'>Bonafide.biz</h2>
-      <div class='menu__menuItems'>
+      <h2 className='menu__logo--logo'>Bonafide.biz</h2>
+      <div className='menu__menuItems'>
         <a>add a review</a>
         <a>categories</a>
         <a>top rated</a>
       </div>
       <div className='menu__user'>
-        <a class='menu__user--text'>Sign Up</a>
-        <a class='menu__user--text'>Sign In</a>
+        <a className='menu__user--text'>Sign Up</a>
+        <a className='menu__user--text'>Sign In</a>
       </div>
     </NavBar>
   );
