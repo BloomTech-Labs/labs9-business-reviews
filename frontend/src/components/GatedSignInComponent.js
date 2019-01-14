@@ -12,7 +12,6 @@ export default class GatedSignIn extends Component {
     const res = await axios.get('http://localhost:9000/api/user/me', {
       withCredentials: 'include'
     });
-    console.log(res.data.user);
     if (res.data.user) {
       this.setState({ user: res.data.user });
     }
