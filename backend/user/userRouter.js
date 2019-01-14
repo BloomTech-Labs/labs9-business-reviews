@@ -6,8 +6,8 @@ const userModel = require('../db/userModel/userModel');
 const generateToken = require('../generateToken');
 
 router.get('/', async (req, res) => {
-  const resp = await userModel.getUsers();
-  res.status(200).json(resp);
+  const response = await userModel.getUsers();
+  res.status(200).json(response);
 });
 
 router.post('/register', async (req, res) => {
