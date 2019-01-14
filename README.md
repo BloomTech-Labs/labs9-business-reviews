@@ -61,6 +61,7 @@ $ npm run start
 * [knex.js](https://knexjs.org/) - SQL query builder
 * [md5](https://www.npmjs.com/package/md5) - a JavaScript function for hashing messages with MD5.
 * [sqlite3](https://www.sqlite.org/index.html) - Library that implements SQL database engine
+* [Stripe](https://stripe.com/docs) - Library to implement Stripes billing functionality
 
 ## Data Model
 
