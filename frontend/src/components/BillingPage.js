@@ -37,10 +37,6 @@ const StyledBilling = styled.div`
 `;
 
 class BillingPage extends Component {
-  constructor() {
-      super();
-  }
-
   render() {
     return(
       <div>
