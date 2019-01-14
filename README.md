@@ -6,13 +6,9 @@ Bonafind is an application that will allow users to find and review local busine
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-Requires Node.js which comes with npm
-
 ### Installing
 
-Follow these instructions to run the application locally
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 #### Front End
 
@@ -46,16 +42,25 @@ $ npm run start
 
 ## Built With
 
-###Front End
+### Front End
 
-* [React](https://reactjs.org/) - Javascript framework
+* [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+* [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
+* [React Router](https://reacttraining.com/react-router/web/guides/quick-start) - Routing Library
+* [React Stripe Checkout](https://www.npmjs.com/package/react-stripe-checkout) - Stripe Checkout for React apps
+* [Styled Components](https://www.styled-components.com/) - Styling library for CSS in JS
 
 ### Back End
 
 * [Node.js](https://nodejs.org/) - Back end JavaScript runtime
-
-
-
+* [BCryptJS](https://www.npmjs.com/package/bcryptjs) - Module to hash passwords
+* [Cookie Parser](https://www.npmjs.com/package/cookie-parser) - Parses cookie info
+* [cors](https://www.npmjs.com/package/cors) - package for providing a Express middleware that can be used to enable CORS 
+* [expressjs](https://expressjs.com/) - Node.js framework
+* [json web token](https://www.npmjs.com/package/jsonwebtoken) - Implements JSON web tokens
+* [knex.js](https://knexjs.org/) - SQL query builder
+* [md5](https://www.npmjs.com/package/md5) - a JavaScript function for hashing messages with MD5.
+* [sqlite3](https://www.sqlite.org/index.html) - Library that implements SQL database engine
 
 ## Authors
 |   [**Edd Burke**](https://github.com/bummings)  |   [**Carlo Clamucha**](https://github.com/CarloC24)   |    [**Alex Dykas**](https://github.com/udykas)    |   [**Brad Mortensen**](https://github.com/brad-mortensen)  |     [**Sean Won**](https://github.com/swon8)
@@ -66,10 +71,8 @@ $ npm run start
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+
