@@ -7,6 +7,12 @@ import PropTypes from 'prop-types';
 // import gql from 'graphql-tag';
 
 class BillingForm extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      amount: 10,
+    };
+  }
 
   onToken = (res) => {
     console.log('On Token Called!');
@@ -17,6 +23,7 @@ class BillingForm extends React.Component {
   render() {
     return(
       <StripeCheckout
+        amount={this.state.amount}
         name="Bonafind"
         description="Purchase Subscription"
         stripeKey="pk_test_YRDXagNKMjZOXlX2ULVNUWbT"
