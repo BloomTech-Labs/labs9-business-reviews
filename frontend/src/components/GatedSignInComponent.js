@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import LoginForm from './LoginForm';
 
 export default class GatedSignIn extends Component {
-  state = {
-    loggedIn: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = { user: {} };
+  }
+
   async componentDidMount() {
     const res = await axios.get('http://localhost:9000/api/user/me', {
       withCredentials: 'include'
     });
-    console.log(res.data);
+    console.log(res.data.user);
     if (res.data.user) {
-      this.setState({ loggedIn: true });
+      this.setState({ user: res.data.user });
     }
   }
   render() {
     return (
       <>
-        {this.state.loggedIn ? (
-          <div>
-            <p>Im logged in</p>
-          </div>
+        {this.state.user.length > 0 ? (
+          <>{this.props.children}</>
         ) : (
-          <div>
-            <p>Not logged in</p>
-          </div>
+          <LoginForm />
         )}
       </>
     );
