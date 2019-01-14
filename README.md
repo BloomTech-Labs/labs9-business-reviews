@@ -62,19 +62,14 @@ Add additional notes about how to deploy this on a live system
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
-## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+|   [**Edd Burke**](https://github.com/bummings)  |   [**Carlo Clamucha**](https://github.com/CarloC24)   |    [**Alex Dykas**](https://github.com/udykas)    |   [**Brad Mortensen**](https://github.com/brad-mortensen)  |     [**Sean Won**](https://github.com/swon8)
+|:----------------:|:----------------:|:---------------:|:---------------:|:---------------:|
+| [<img src="https://avatars2.githubusercontent.com/u/34618112?s=80" width="80">](https://github.com/bummings) | [<img src="https://avatars3.githubusercontent.com/u/41533016?s=80" width="80">](https://github.com/CarloC24)  | [<img src="https://avatars2.githubusercontent.com/u/34108291?s=80" width="80">](https://github.com/udykas) | [<img src="https://avatars1.githubusercontent.com/u/40773193?s=80" width="80">](https://github.com/brad-mortensen) | [<img src="https://avatars2.githubusercontent.com/u/7283332?s=80" width="80">](https://github.com/swon8) |
+| [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/bummings)  |  [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/CarloC24) | [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/udykas)  | [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/brad-mortensen) | [<img src="https://github.com/favicon.ico" width="15"> Github](https://github.com/swon8) |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> LinkedIn](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> LinkedIn](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> LinkedIn](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> LinkedIn](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> LinkedIn](https://www.linkedin.com/) |
 
 ## License
 
