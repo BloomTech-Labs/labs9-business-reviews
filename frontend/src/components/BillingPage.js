@@ -44,10 +44,6 @@ class BillingPage extends Component {
         <StyledBilling>
           <SideBar />
           <div className="billing">
-            <form>
-              <input type="radio" name="subscription" value="yearly" />1 Year Subscription - $9.99 <br/>
-              <input type="radio" name="subscription" value="yearly" />1 Month Subscription - $0.99 <br/>
-            </form>
             <BillingForm>
               <button>Buy Now</button>
             </BillingForm>
