@@ -24,10 +24,6 @@ const BackdropStyle = styled.div`
 `;
 
 class Modal extends Component {
-  constructor() {
-    super();
-  }
-
   render () {
     if(!this.props.show) {
       return null;
