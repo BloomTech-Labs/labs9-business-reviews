@@ -62,6 +62,11 @@ $ npm run start
 * [md5](https://www.npmjs.com/package/md5) - a JavaScript function for hashing messages with MD5.
 * [sqlite3](https://www.sqlite.org/index.html) - Library that implements SQL database engine
 
+## Data Model
+
+![Data Model](https://user-images.githubusercontent.com/40773193/51134170-097a9b80-17f4-11e9-8329-8d6e230b18fe.png)
+
+
 ## Authors
 |   [**Edd Burke**](https://github.com/bummings)  |   [**Carlo Clamucha**](https://github.com/CarloC24)   |    [**Alex Dykas**](https://github.com/udykas)    |   [**Brad Mortensen**](https://github.com/brad-mortensen)  |     [**Sean Won**](https://github.com/swon8)
 |:----------------:|:----------------:|:---------------:|:---------------:|:---------------:|
