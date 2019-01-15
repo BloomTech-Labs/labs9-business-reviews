@@ -1,0 +1,336 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> matches snapshot 1`] = `
+<div
+  className="App sc-eNQAEJ HLyMB"
+>
+  <div
+    className="sc-bdVaJa fFQAZv"
+  >
+    <h2
+      className="menu__logo--logo"
+    >
+      Bonafide.biz
+    </h2>
+    <div
+      className="menu__menuItems"
+    >
+      \\
+      <a>
+        add a review
+      </a>
+      <a>
+        categories
+      </a>
+      <a>
+        top rated
+      </a>
+    </div>
+    <div
+      className="menu__user"
+    >
+      <a
+        className="menu__user--text"
+      >
+        Sign Up
+      </a>
+      <a
+        className="menu__user--text"
+      >
+        Sign In
+      </a>
+    </div>
+  </div>
+  <div
+    className="sc-dnqmqq byOlbM"
+  >
+    <div
+      className="sc-bwzfXH fXLiti"
+    >
+      <form>
+        <input
+          placeholder="Search..."
+        />
+      </form>
+      <div
+        className="button-container"
+      >
+        <button
+          className="button"
+        >
+          Review
+        </button>
+        <button
+          className="button"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        className="sc-bZQynM hcklJe"
+      >
+        <h1>
+          Featured Reviews
+        </h1>
+        <div
+          className="sc-gzVnrw bgMTQM"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/sushi"
+          />
+          <h1>
+            ⭐⭐⭐⭐⭐
+          </h1>
+          <p>
+            Ramiace
+          </p>
+          <a
+            href="/user/@ktkdsfghs"
+            onClick={[Function]}
+          >
+            <p>
+              @ktkdsfghs
+            </p>
+          </a>
+        </div>
+        <div
+          className="sc-gzVnrw bgMTQM"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/storefront"
+          />
+          <h1>
+            ⭐⭐⭐
+          </h1>
+          <p>
+            Bartramiaceae
+          </p>
+          <a
+            href="/user/@hthrtujsjk"
+            onClick={[Function]}
+          >
+            <p>
+              @hthrtujsjk
+            </p>
+          </a>
+        </div>
+        <div
+          className="sc-gzVnrw bgMTQM"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/pizza"
+          />
+          <h1>
+            ⭐⭐⭐⭐
+          </h1>
+          <p>
+            Umbilicariaceae
+          </p>
+          <a
+            href="/user/@conelieusfsdf"
+            onClick={[Function]}
+          >
+            <p>
+              @conelieusfsdf
+            </p>
+          </a>
+        </div>
+        <div
+          className="sc-gzVnrw bgMTQM"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/shop"
+          />
+          <h1>
+            ⭐⭐⭐⭐⭐
+          </h1>
+          <p>
+            Asteraceae
+          </p>
+          <a
+            href="/user/@asdfadsfa"
+            onClick={[Function]}
+          >
+            <p>
+              @asdfadsfa
+            </p>
+          </a>
+        </div>
+      </div>
+      <div
+        className="sc-ifAKCX doBRCR"
+      >
+        <h1>
+          Popular Businesses
+        </h1>
+        <div
+          className="sc-EHOje ckZctU"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/mcdonalds"
+          />
+          <h1>
+            ⭐⭐⭐⭐⭐
+          </h1>
+          <p>
+            McDonald's
+          </p>
+        </div>
+        <div
+          className="sc-EHOje ckZctU"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/kmart"
+          />
+          <h1>
+            ⭐⭐⭐
+          </h1>
+          <p>
+            KMart
+          </p>
+        </div>
+        <div
+          className="sc-EHOje ckZctU"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/walmart"
+          />
+          <h1>
+            ⭐⭐⭐⭐
+          </h1>
+          <p>
+            Walmart
+          </p>
+        </div>
+        <div
+          className="sc-EHOje ckZctU"
+        >
+          <img
+            alt="reviewed business"
+            src="https://loremflickr.com/200/200/target"
+          />
+          <h1>
+            ⭐⭐⭐⭐⭐
+          </h1>
+          <p>
+            Target
+          </p>
+        </div>
+      </div>
+      <div
+        className="sc-htpNat IohGC"
+      >
+        <h1>
+          Popular Reviewers
+        </h1>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/man"
+          />
+          <p>
+            ManGuy
+          </p>
+        </div>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/dog"
+          />
+          <p>
+            DogGuy
+          </p>
+        </div>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/woman"
+          />
+          <p>
+            WomanGuy
+          </p>
+        </div>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/kid"
+          />
+          <p>
+            KidGuy
+          </p>
+        </div>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/cat"
+          />
+          <p>
+            CatGuy
+          </p>
+        </div>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/person"
+          />
+          <p>
+            PersonGuy
+          </p>
+        </div>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/human"
+          />
+          <p>
+            HumanGuy
+          </p>
+        </div>
+        <div
+          className="sc-bxivhb kXvwFe"
+        >
+          <img
+            alt="reviewers"
+            src="https://loremflickr.com/200/200/bird"
+          />
+          <p>
+            BirdGuy
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-htoDjs dkzXYj"
+    >
+      <a
+        href="www.google.com"
+      >
+        Meet the Team
+      </a>
+    </div>
+  </div>
+</div>
+`;

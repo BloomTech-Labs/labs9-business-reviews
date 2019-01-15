@@ -32,7 +32,7 @@ function ProfileNav() {
         <p>My Reviews</p>
       </div>
       <div className="right-nav">
-        <a>Sign Out</a>
+        <a href="/signout">Sign Out</a>
       </div>
     </StyledNav>
   )

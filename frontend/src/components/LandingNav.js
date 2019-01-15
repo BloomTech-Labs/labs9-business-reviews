@@ -29,6 +29,7 @@ const NavBar = styled.div`
     flex-direction: row;
     text-transform: uppercase;
     a {
+      color: black;
       text-decoration: none;
       margin: 10px;
     }
@@ -42,6 +43,7 @@ const NavBar = styled.div`
 
   .menu__user--text {
     margin-right: 1rem;
+    color: black;
   }
 `;
 
@@ -49,15 +51,15 @@ function LandingNav() {
   return (
     <NavBar>
 
-      <h2 className='menu__logo--logo'>Bonafide.biz</h2>
+      <img src={logo} alt="logo" className="menu__logo--logo"/>
       <div className='menu__menuItems'>\
-        <a>add a review</a>
-        <a>categories</a>
-        <a>top rated</a>
+        <a href="/addreview">add a review</a>
+        <a href="/categories">categories</a>
+        <a href="/toprated">top rated</a>
       </div>
       <div className='menu__user'>
-        <a className='menu__user--text'>Sign Up</a>
-        <a className='menu__user--text'>Sign In</a>
+        <a href="/signup" className='menu__user--text'>Sign Up</a>
+        <a href="/signin" className='menu__user--text'>Sign In</a>
       </div>
     </NavBar>
   );

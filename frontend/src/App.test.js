@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer'
+import { shallow } from 'enzyme'
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+
+describe('<App />', () => {
+	it('renders without crashing', () => {
+		shallow(<App />);
+  });
+  it.skip('matches snapshot', () => {
+    const snapshot = renderer.create(<App />).toJSON();
+    expect(snapshot).toMatchSnapshot();
+	});
 });
