@@ -12,11 +12,10 @@ const server = express();
 const knex = require('knex');
 const port = process.env.PORT || 9000;
 
+server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 server.use(cookieParser());
-server.use(express.json());
-server.use(cors());
-
 authMiddleware(server);
+server.use(express.json());
 
 // R O U T E S
 server.use('/api/business', businessRouter);

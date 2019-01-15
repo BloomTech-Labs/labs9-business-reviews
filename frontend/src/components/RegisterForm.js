@@ -55,15 +55,13 @@ class RegisterForm extends Component {
     if (!this.state.email || !this.state.password || !this.state.name) {
       return alert('fields cannot be empty');
     }
-    const id = await axios.post(
-      'http://localhost:9000/api/user/register',
-      this.state
-    );
-    if (!id) {
-      alert('error');
+
+    await axios.post('http://localhost:9000/api/user/register', this.state);
+    try {
+      alert(`Successful Registered your account!`);
+    } catch (err) {
+      alert(err);
     }
-    console.log(id);
-    alert(`Authenticated ${id}`);
   };
   render() {
     return (

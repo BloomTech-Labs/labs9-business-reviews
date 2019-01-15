@@ -53,11 +53,16 @@ router.post('/login', async (req, res) => {
   if (singleUser && comparePasswords) {
     //if authenticated return this!
     const tokenId = generateToken(singleUser.id);
-    res.cookie('tokenId', tokenId, { httpOnly: true, maxAge: 1000 * 60 * 60 });
-    res.json({
-      message: `You are now authenticated ${singleUser.name}`,
-      singleUser
-    });
+    console.log('authenticated');
+    res
+      .cookie('tokenId', tokenId, {
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60
+      })
+      .json({
+        message: `You are now authenticated ${singleUser.name}`,
+        singleUser
+      });
   }
 });
 
@@ -65,7 +70,7 @@ router.get('/me', async (req, res) => {
   if (!req.user) {
     res.json('No user logged in please login');
   }
-  res.json(req.user);
+  res.json({ user: req.user });
 });
 
 router.get('/logout', (req, res) => {

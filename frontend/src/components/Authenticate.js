@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import GatedSignIn from './GatedSignInComponent';
 import styled from 'styled-components';
 
 const AuthWrapper = styled.div`
@@ -21,6 +22,9 @@ const Authenticate = () => {
     <AuthWrapper>
       <LoginForm />
       <RegisterForm />
+      <GatedSignIn>
+        This will render whatever component if the user is logged in!
+      </GatedSignIn>
     </AuthWrapper>
   );
 };

@@ -49,11 +49,15 @@ class LoginForm extends Component {
   };
   handleSubmit = async e => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:9000/api/user/login', {
-      email: this.state.email,
-      password: this.state.password
-    });
-    if (res.data.statusCode === 500) {
+    const res = await axios.post(
+      'http://localhost:9000/api/user/login',
+      {
+        email: this.state.email,
+        password: this.state.password
+      },
+      { withCredentials: 'include' }
+    );
+    if (res.status === 500) {
       return alert(
         'No record found on either email or password inputted please login again or register!'
       );
