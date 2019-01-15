@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import LandingNav from './LandingNav'
 import SearchBar from './SearchBar'
 import MainContent from './MainContent'
 import Footer from './Footer'

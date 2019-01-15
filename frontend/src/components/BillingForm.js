@@ -4,7 +4,6 @@ import styled from 'styled-components'
 // import { Mutation } from 'react-apollo';
 // import Router from 'next/router';
 // import NProgress from 'NProgress';
-import PropTypes from 'prop-types';
 // import gql from 'graphql-tag';
 
 const StyledBillingForm = styled.div`
@@ -12,7 +11,7 @@ const StyledBillingForm = styled.div`
     
     padding: 20px;
     max-width: 550px;
-  },
+  }
 `;
 
 class BillingForm extends React.Component {
@@ -61,7 +60,6 @@ class BillingForm extends React.Component {
           </StripeCheckout>
         </div>
       </StyledBillingForm>
-         
     )
   }
 }

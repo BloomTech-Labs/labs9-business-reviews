@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import {Link} from 'react-router-dom'
 const StyledSidebar = styled.div`
   box-sizing: border-box;
   border: 1px solid black;
@@ -17,10 +17,10 @@ const StyledSidebar = styled.div`
 function SideBar() {
   return (
     <StyledSidebar>
-      <a>Search</a>
-      <a>My Reviews</a>
-      <a>Billing</a>
-      <a>Settings</a>
+      <a href="/search">Search</a>
+      <a href="/myreviews">My Reviews</a>
+      <Link to="/billing">Billing</Link>
+      <a href="settings">Settings</a>
     </StyledSidebar>
   )
 }
