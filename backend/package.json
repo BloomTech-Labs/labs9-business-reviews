@@ -4,7 +4,8 @@
   "description": "Business",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest --watch --verbose"
   },
   "keywords": [],
   "author": "carlo",
@@ -17,8 +18,10 @@
     "jsonwebtoken": "^8.4.0",
     "knex": "^0.16.3",
     "md5": "^2.2.1",
-    "nodemon": "^1.18.9",
-    "sqlite3": "^4.0.4",
-    "stripe": "^6.20.0"
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "supertest": "^3.3.0"
   }
 }
