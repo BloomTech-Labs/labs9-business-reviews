@@ -29,7 +29,8 @@ router.post('/register', async (req, res) => {
         .status(500)
         .json({ message: `User with email ${email} already exists!` });
     res.json({
-      message: `Successfully completed adding a user with id of ${registerUserId}`
+      message: `Successfully completed adding a user with id of ${registerUserId}`,
+      id: `${registerUserId}`
     });
   }
 });
@@ -79,5 +80,11 @@ router.get('/logout', (req, res) => {
   }
   req.clearCookie('tokenId');
   res.json({ message: 'Bye!' });
+});
+
+router.get('/:id', async (req, res) => {
+  const [singleUser] = await userModel.getUserById(req.params.id);
+  if (!singleUser) res.status(500).json({ message: 'No user found' });
+  res.status(200).json({ singleUser });
 });
 module.exports = router;
