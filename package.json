@@ -2,9 +2,9 @@
   "name": "business-reviews",
   "version": "1.0.0",
   "description": "Business",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app/index.js"
   },
   "keywords": [],
   "author": "carlo",
