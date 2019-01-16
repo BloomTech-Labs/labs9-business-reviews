@@ -3,7 +3,7 @@ const router = express.Router();
 const knex = require('knex');
 const knexConfig = require('../knexfile');
 
-const db = knex(knexConfig.development);
+const db = knex(knexConfig.production);
 
 // P O S T
 router.post('/', (req, res) => {
