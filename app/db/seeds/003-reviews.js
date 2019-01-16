@@ -1,7 +1,7 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('reviews').truncate()
+  return knex('reviews').del()
     .then(function () {
       // Inserts seed entries
       return knex('reviews').insert([{"title":"Etiam justo.","body":"Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.","rating":4.8,"business_id":35,"reviewer_id":71},
