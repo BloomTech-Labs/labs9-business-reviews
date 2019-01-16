@@ -38,6 +38,7 @@ router.post('/register', authConfig.checkCreds, async (req, res) => {
 
 router.post(
   '/login',
+  authConfig.alreadyLoggedIn,
   passport.authenticate('local', {
     successMessage: 'done',
     failureMessage: 'nope'

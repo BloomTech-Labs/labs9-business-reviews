@@ -21,7 +21,8 @@ function isLoggedIn(req, res, next) {
 }
 
 function alreadyLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) return res.send('Already logged in');
+  if (req.isAuthenticated())
+    return res.send('Already logged in y you trying to log in again');
   return next();
 }
 
