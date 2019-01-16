@@ -15,6 +15,9 @@ export const PopularBusinessesStyles = styled.div`
 
 export const CardStyle = styled.div`
   margin-left: 15px;
+  img {
+    max-width: 200;
+  }
 `;
 
 
@@ -30,7 +33,7 @@ class PopularBusinesses extends Component {
       .get(`http://bonafind.herokuapp.com/api/business`)
       .then(response =>{
         const filtered = response.data.filter(review => review.rating > 4.6); 
-        this.setState(() => ({ users: filtered })); 
+        this.setState(() => ({ businesses: filtered })); 
       })
       .catch(err => {
         console.error('Server error: could not access users', err)
@@ -40,11 +43,11 @@ class PopularBusinesses extends Component {
     return (
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
-        {this.state.reviews.map(({id, name, image, review}) => (
+        {this.state.businesses.map(({id, name, rating, image}) => (
           <CardStyle key={id}>
             <img src={image} alt="reviewed business"/>
-            <h1>{review}</h1>
-            <p>{name}</p>
+            <h1>{name}</h1>
+            <p>{rating}</p>
           </CardStyle>
         ))}
       </PopularBusinessesStyles>
