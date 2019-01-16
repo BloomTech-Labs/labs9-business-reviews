@@ -45,10 +45,11 @@ class UserTest extends Component {
 }
 
 function UserDetails({ user }) {
-  const { id, name, email } = user;
+  const { id, name, email, gravatar } = user;
   return(
     <div>
       <StyledUsers>
+        <img src={gravatar} alt=""/>
         <h2>{name}</h2>
         <h4>{email}</h4>
         <h6>{id}</h6>
