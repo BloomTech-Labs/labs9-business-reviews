@@ -8,7 +8,7 @@ const expressValidator = require('express-validator');
 const sessionConfig = {
   secret: 'keyboard cat',
   resave: false,
-  key: 'Cool',
+  key: 'Bonafind',
   saveUninitialized: false,
   // cookie: { maxAge: 1000 * 60 * 60 },
   store: authConfig.store

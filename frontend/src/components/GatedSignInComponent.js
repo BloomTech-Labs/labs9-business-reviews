@@ -12,9 +12,11 @@ export default class GatedSignIn extends Component {
     const res = await axios.get('http://localhost:9000/api/user/me', {
       withCredentials: 'include'
     });
-    if (res.data.user.id.name) {
-      this.setState({ user: res.data.user.id });
+    console.log(res);
+    if (!res.data.user) {
+     return null;
     }
+    this.setState({ user: res.data.user.id });
   }
   render() {
     return (
