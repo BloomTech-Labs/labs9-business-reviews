@@ -8,7 +8,7 @@ class ReviewsTest extends Component {
       reviews: []
     };
   }
-
+  //wtf
   componentDidMount() {
     axios
       .get(`http://bonafind.herokuapp.com/api/review`)
