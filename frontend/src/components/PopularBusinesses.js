@@ -33,8 +33,11 @@ class PopularBusinesses extends Component {
     axios
       .get(`http://bonafind.herokuapp.com/api/business`)
       .then(response =>{
+        //save response data in a new variable
         const data = [...response.data]
+        //sorts and slices correct number of businesses
         const sortedAndSliced = data.sort((a, b) => a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0).slice(0,4);
+        //sets sorted array to this.state.businesses
         this.setState(() => ({ businesses: sortedAndSliced }));
       })
       .catch(err => {
