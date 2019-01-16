@@ -3,11 +3,11 @@ const LocalStrategy = require('passport-local');
 const userModel = require('../db/userModel/userModel');
 const bcrypt = require('bcryptjs');
 
-passport.serializeUser(function(user_id, done) {
-  done(null, user_id);
+passport.serializeUser(function(user, done) {
+  done(null, user);
 });
-passport.deserializeUser(function(user_id, done) {
-  done(null, { id: user_id });
+passport.deserializeUser(function(user, done) {
+  done(null, { id: user });
 });
 
 passport.use(

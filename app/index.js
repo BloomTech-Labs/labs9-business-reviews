@@ -12,8 +12,8 @@ const server = express();
 const knex = require('knex');
 const port = process.env.PORT || 9000;
 
-// server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
-server.use(cors());
+server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+// server.use(cors());
 server.use(cookieParser());
 authMiddleware(server);
 server.use(express.json());
