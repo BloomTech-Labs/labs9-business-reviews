@@ -1,26 +1,22 @@
 //DO NOT TOUCH MADE BY CARLO
 const jwt = require('jsonwebtoken');
-const db = require('./db/dbinit');
+const authConfig = require('./user/authConfig');
+const session = require('express-session');
+const passport = require('passport');
+const expressValidator = require('express-validator');
+
+const sessionConfig = {
+  secret: 'keyboard cat',
+  resave: false,
+  key: 'Bonafind',
+  saveUninitialized: false,
+  // cookie: { maxAge: 1000 * 60 * 60 },
+  store: authConfig.store
+};
 
 module.exports = server => {
-  server.use((req, res, next) => {
-    if (!req.cookies.tokenId) {
-      return next();
-    }
-    const { tokenId } = req.cookies;
-    const token = jwt.verify(tokenId, 'secret-code');
-    req.userId = token.id;
-    next();
-  }),
-    server.use(async (req, res, next) => {
-      if (req.userId) {
-        const [singleUser] = await db
-          .select('id', 'name', ' email', 'gravatar')
-          .from('users')
-          .where({ id: req.userId });
-        req.user = singleUser;
-        next();
-      }
-      return next();
-    });
+  server.use(session(sessionConfig)),
+    server.use(expressValidator()),
+    server.use(passport.initialize()),
+    server.use(passport.session());
 };

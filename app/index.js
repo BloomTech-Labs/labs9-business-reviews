@@ -12,8 +12,8 @@ const server = express();
 const knex = require('knex');
 const port = process.env.PORT || 9000;
 
-// server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
-server.use(cors());
+server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+// server.use(cors());
 server.use(cookieParser());
 authMiddleware(server);
 server.use(express.json());
@@ -22,6 +22,8 @@ server.use(express.json());
 server.use('/api/business', businessRouter);
 server.use('/api/user', userRouter);
 server.use('/api/review', reviewRouter);
+require('./user/passport');
+
 // R O O T  R O U T E
 server.get('/', (req, res) => {
   res.send('API root.');
