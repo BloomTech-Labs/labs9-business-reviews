@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 
 const NavBar = styled.div`
   width: 100%;
@@ -18,7 +18,6 @@ const NavBar = styled.div`
     height: 150px;
     width: 150px;
     border-radius: 50%;
-
   }
 
   .menu__menuItems {
@@ -50,16 +49,19 @@ const NavBar = styled.div`
 function LandingNav() {
   return (
     <NavBar>
-
-      <img src={logo} alt="logo" className="menu__logo--logo"/>
-      <div className='menu__menuItems'>\
-        <a href="/addreview">add a review</a>
-        <a href="/categories">categories</a>
-        <a href="/toprated">top rated</a>
+      <img src={logo} alt='logo' className='menu__logo--logo' />
+      <div className='menu__menuItems'>
+        <a href='/addreview'>add a review</a>
+        <a href='/categories'>categories</a>
+        <a href='/toprated'>top rated</a>
       </div>
       <div className='menu__user'>
-        <a href="/signup" className='menu__user--text'>Sign Up</a>
-        <a href="/signin" className='menu__user--text'>Sign In</a>
+        <a href='/signup' className='menu__user--text'>
+          Sign Up
+        </a>
+        <a href='/signin' className='menu__user--text'>
+          Sign In
+        </a>
       </div>
     </NavBar>
   );
