@@ -38,7 +38,7 @@ class PopularBusinesses extends Component {
         this.setState(() => ({ businesses: sortedAndSliced }));
       })
       .catch(err => {
-        console.error('Server error: could not access users', err)
+        console.error('Error:', err)
     })
   }
   render() {
@@ -49,7 +49,7 @@ class PopularBusinesses extends Component {
           <CardStyle key={id}>
             <img src={image} alt="reviewed business"/>
             <p>{name}</p>
-            <p>{rating}</p>
+            <h3>{rating}</h3>
           </CardStyle>
         ))}
       </PopularBusinessesStyles>
