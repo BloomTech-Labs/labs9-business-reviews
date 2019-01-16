@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 export const PopularBusinessesStyles = styled.div`
   margin: 0 auto;
@@ -21,30 +22,19 @@ class PopularBusinesses extends Component {
   constructor() {
     super();
     this.state = {
-      reviews: [
-        {
-        id: 1,
-        image: "https://loremflickr.com/200/200/mcdonalds",
-        name: "McDonald's",
-        review: "⭐⭐⭐⭐⭐",
-        }, {
-        id: 2,
-        image: "https://loremflickr.com/200/200/kmart",
-        name: "KMart",
-        review: "⭐⭐⭐",
-        }, {
-        id: 3,
-        image: "https://loremflickr.com/200/200/walmart",
-        name: "Walmart",
-        review: "⭐⭐⭐⭐",
-        }, {
-        id: 4,
-        image: "https://loremflickr.com/200/200/target",
-        name: "Target",
-        review: "⭐⭐⭐⭐⭐",
-        }
-      ]
+      reviews: []
     }
+  }
+  componentDidMount() {
+    axios
+      .get(`http://bonafind.herokuapp.com/api/business`)
+      .then(response =>{
+        const filtered = response.data.filter(review => review.rating > 4.6); 
+        console.log(filtered)       
+      })
+      .catch(err => {
+        console.error('Server error: could not access users', err)
+    })
   }
   render() {
     return (
