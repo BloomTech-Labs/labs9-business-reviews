@@ -22,7 +22,7 @@ class PopularBusinesses extends Component {
   constructor() {
     super();
     this.state = {
-      reviews: []
+      businesses: []
     }
   }
   componentDidMount() {
@@ -30,7 +30,7 @@ class PopularBusinesses extends Component {
       .get(`http://bonafind.herokuapp.com/api/business`)
       .then(response =>{
         const filtered = response.data.filter(review => review.rating > 4.6); 
-        console.log(filtered)       
+        this.setState(() => ({ users: filtered })); 
       })
       .catch(err => {
         console.error('Server error: could not access users', err)
