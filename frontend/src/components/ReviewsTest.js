@@ -6,30 +6,30 @@ class ReviewsTest extends Component {
     super();
     this.state = {
       reviews: []
-    }
+    };
   }
-}
 
-componentDidMount() {
-  axios
-    .get(`http://bonafind.herokuapp.com/api/review`)
-    .then(response => {
-      this.setState(() => ({ reviews: response.data }));
-    })
-    .catch(err => {
-      console.log('oh no, what have you done!!', err)
-    })
+  componentDidMount() {
+    axios
+      .get(`http://bonafind.herokuapp.com/api/review`)
+      .then(response => {
+        this.setState(() => ({ reviews: response.data }));
+      })
+      .catch(err => {
+        console.log('oh no, what have you done!!', err);
+      });
+  }
 
-    render() {
-      console.log(this.state.reviews)
-      return (
-        <div>
-          {this.state.reviews.map(review => {
-            return <ReviewDetails key={review.id} review={review} />
-          })}
-        </div>
-      )
-    }
+  render() {
+    console.log(this.state.reviews);
+    return (
+      <div>
+        {this.state.reviews.map(review => {
+          return <ReviewDetails key={review.id} review={review} />;
+        })}
+      </div>
+    );
+  }
 }
 
 function ReviewDetails({ review }) {
@@ -40,7 +40,7 @@ function ReviewDetails({ review }) {
       <h2>{title}</h2>
       <h2>{body}</h2>
     </div>
-  )
+  );
 }
 
 export default ReviewsTest;
