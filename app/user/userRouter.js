@@ -4,6 +4,7 @@ const md5 = require('md5');
 const router = express.Router();
 const userModel = require('../db/userModel/userModel');
 const generateToken = require('../generateToken');
+const passport = require('passport');
 
 router.get('/', async (req, res) => {
   const response = await userModel.getUsers();
@@ -28,44 +29,51 @@ router.post('/register', async (req, res) => {
       return res
         .status(500)
         .json({ message: `User with email ${email} already exists!` });
-    res.json({
-      message: `Successfully completed adding a user with id of ${registerUserId}`,
-      id: `${registerUserId}`
+    const [singleUser] = await userModel.verifyLoginEmail(email);
+    await req.login(singleUser.id, function(err) {
+      if (err) {
+        console.log(err);
+        return res.status(500).json({ message: 'Internal server error' });
+      }
+      res.json({ message: 'Done' });
     });
   }
 });
 
-router.post('/login', async (req, res) => {
-  if (!req.body.email)
-    return res.json({ message: 'You are missing a email field' });
-  if (!req.body.password)
-    return res.json({ message: 'You are missing a password field' });
-  const [singleUser] = await userModel.verifyLoginEmail(req.body.email);
-  const comparePasswords = bcrypt.compareSync(
-    req.body.password,
-    singleUser.password
-  );
-  if (!singleUser) {
-    return res.status(500).json({ message: 'no user found with such email' });
+router.post(
+  '/login',
+  passport.authenticate('local', {
+    successMessage: 'done',
+    failureMessage: 'nope'
+  }),
+  async (req, res) => {
+    if (req.user) {
+      return res.json({ user: req.user });
+    }
+    res.json({ message: 'internal server error' });
   }
-  if (!comparePasswords) {
-    return res.status(500).json({ message: 'inputted password dont match!' });
-  }
-  if (singleUser && comparePasswords) {
-    //if authenticated return this!
-    const tokenId = generateToken(singleUser.id);
-    console.log('authenticated');
-    res
-      .cookie('tokenId', tokenId, {
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60
-      })
-      .json({
-        message: `You are now authenticated ${singleUser.name}`,
-        singleUser
-      });
-  }
-});
+);
+
+// router.post('/login', async (req, res) => {
+//   if (!req.body.email)
+//     return res.json({ message: 'You are missing a email field' });
+//   if (!req.body.password)
+//     return res.json({ message: 'You are missing a password field' });
+//   const [singleUser] = await userModel.verifyLoginEmail(req.body.email);
+//   const comparePasswords = bcrypt.compareSync(
+//     req.body.password,
+//     singleUser.password
+//   );
+//   if (!singleUser) {
+//     return res.status(500).json({ message: 'no user found with such email' });
+//   }
+//   if (!comparePasswords) {
+//     return res.status(500).json({ message: 'inputted password dont match!' });
+//   }
+//   if (singleUser && comparePasswords) {
+//     //if authenticated return this!
+//   }
+// });
 
 router.get('/me', async (req, res) => {
   if (!req.user) {

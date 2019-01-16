@@ -22,6 +22,8 @@ server.use(express.json());
 server.use('/api/business', businessRouter);
 server.use('/api/user', userRouter);
 server.use('/api/review', reviewRouter);
+require('./user/passport');
+
 // R O O T  R O U T E
 server.get('/', (req, res) => {
   res.send('API root.');
