@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import axios from 'axios';
 
 export const PopularReviewersStyles = styled.div`
   margin: 0 auto;
@@ -13,7 +14,14 @@ export const PopularReviewersStyles = styled.div`
 `;
 
 export const CardStyle = styled.div`
-  margin-left: 15px;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid black;
+  height: 180px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 
@@ -21,6 +29,7 @@ class PopularReviewers extends Component {
   constructor() {
     super();
     this.state = {
+      users: [],
       reviews: [
         {
         id: 1,
@@ -59,15 +68,29 @@ class PopularReviewers extends Component {
       ]
     }
   }
+
+  componentDidMount() {
+    axios
+      .get(`http://bonafind.herokuapp.com/api/user`)
+      .then(response => {
+        const userData = [...response.data]
+        const slicedUserData = userData.slice(0,8);
+        this.setState(() => ({ users: slicedUserData }));
+      })
+      .catch(err => {
+        console.error('Server error: could not access users', err)
+    })
+  }
+
   render() {
     return (
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
-        {this.state.reviews.map(({id, name, image}) => (
-          <CardStyle key={id}>
-            <img src={image} alt="reviewers"/>
-            <p>{name}</p>
-          </CardStyle>
+        {this.state.users.map(({id, name, gravatar}) => (
+            <CardStyle key={id}>
+              <img src={gravatar} alt="reviewer's profile picture"/>
+              <p>{name}</p>
+            </CardStyle>
         ))}
       </PopularReviewersStyles>
     )
