@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const knex = require('knex');
-const knexConfig = require('../knexfile');
 
-const db = knex(knexConfig.production);
+const db = require('../db/dbinit');
 
 //CREATE
 router.post('/', (req, res) => {
