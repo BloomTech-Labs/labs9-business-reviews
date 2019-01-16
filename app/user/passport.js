@@ -4,6 +4,7 @@ const userModel = require('../db/userModel/userModel');
 const bcrypt = require('bcryptjs');
 
 passport.serializeUser(function(user, done) {
+  console.log('reached me');
   done(null, user);
 });
 passport.deserializeUser(function(user, done) {

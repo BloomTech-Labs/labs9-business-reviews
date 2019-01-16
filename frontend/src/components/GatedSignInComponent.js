@@ -14,7 +14,7 @@ export default class GatedSignIn extends Component {
     });
     console.log(res);
     if (!res.data.user) {
-     return null;
+      return null;
     }
     this.setState({ user: res.data.user.id });
   }
