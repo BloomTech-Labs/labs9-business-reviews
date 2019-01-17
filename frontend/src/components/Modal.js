@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
-const BackdropStyle = styled.div`
+export const BackdropStyle = styled.div`
   position: fixed;
   top: 0;
   left: 0;
