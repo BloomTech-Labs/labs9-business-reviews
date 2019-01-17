@@ -14,11 +14,9 @@ export const PopularReviewersStyles = styled.div`
 `;
 
 export const CardStyle = styled.div`
-  margin: 15px;
-  padding: 10px;
-  border: 1px solid black;
-  height: 180px;
-  width: 180px;
+  margin-left: 15px;
+  height: 200px;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
