@@ -8,6 +8,7 @@ import Authenticate from './components/Authenticate';
 import LandingNav from './components/LandingNav';
 import UserTest from './components/UserTest';
 import ReviewsTest from './components/ReviewsTest';
+import Footer from './components/Footer';
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -18,8 +19,7 @@ function App() {
   return (
     <div className='App'>
       <LandingNav />
-      <StyledContainer className="container">
-        
+      <StyledContainer className="container">        
         <BrowserRouter>
           <Switch>
             <Route exact path='/' component={LandingPage} />
@@ -31,6 +31,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </StyledContainer>
+      <Footer />
     </div>
   );
 }

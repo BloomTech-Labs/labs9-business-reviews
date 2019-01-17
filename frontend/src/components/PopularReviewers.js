@@ -2,12 +2,17 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import axios from 'axios';
 
-export const PopularReviewersStyles = styled.div`
+const PopularReviewersStyles = styled.div`
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
   width: 80%;
   height: auto;
+  @media(max-width:900px){
+    background-color: white;
+    width: 100%;
+    justify-content: space-around;
+  }
   h1 {
     width: 100%;
   }
@@ -26,43 +31,7 @@ class PopularReviewers extends Component {
   constructor() {
     super();
     this.state = {
-      users: [],
-      reviews: [
-        {
-        id: 1,
-        name: "ManGuy",
-        image: "https://loremflickr.com/200/200/man",
-        }, {
-        id: 2,
-        name: "DogGuy",
-        image: "https://loremflickr.com/200/200/dog",
-        }, {
-        id: 3,
-        name: "WomanGuy",
-        image: "https://loremflickr.com/200/200/woman",
-        }, {
-        id: 4,
-        name: "KidGuy",
-        image: "https://loremflickr.com/200/200/kid",
-        }, {
-        id: 5,
-        name: "CatGuy",
-        image: "https://loremflickr.com/200/200/cat",
-        },
-        {
-        id: 6,
-        name: "PersonGuy",
-        image: "https://loremflickr.com/200/200/person",
-        }, {
-        id: 7,
-        name: "HumanGuy",
-        image: "https://loremflickr.com/200/200/human",
-        }, {
-        id: 8,
-        name: "BirdGuy",
-        image: "https://loremflickr.com/200/200/bird",
-        }
-      ]
+      users: []
     }
   }
 
