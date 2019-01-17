@@ -6,14 +6,15 @@ const SearchBarStyles = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   form {
     display: flex;    
     justify-content: center;
-    width: 100%;
+    width: 100%;    
     input {
-      width: 45%;
-      height: 20px;
-      border-radius: 100px;
+      width: 60%;
+      height: 30px;
       padding-left: 15px;
     }
   }

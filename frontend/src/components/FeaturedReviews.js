@@ -9,6 +9,10 @@ export const FeaturedReviewStyles = styled.div`
   flex-flow: row wrap;
   width: 80%;
   height: auto;
+  @media(max-width:900px){
+    background-color: white;
+    width: 100%;
+  }
   h1 {
     width: 100%;
   }
@@ -63,7 +67,8 @@ class FeaturedReviews extends Component {
         {this.state.reviews.map(({id, name, image, review, poster}) => (
           <CardStyle key = {id}>
             <img src={image} alt="reviewed business"/>
-            <h1>{review}</h1><p>{name}</p>
+            <h1>{review}</h1>
+            <p>{name}</p>
             <Link to={`/user/${poster}`}><p>{poster}</p></Link>
             
           </CardStyle>
