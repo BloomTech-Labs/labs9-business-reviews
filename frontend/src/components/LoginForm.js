@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { backendLink } from '../assets/config';
 
 const LoginDiv = styled.div`
   display: flex;
@@ -50,7 +51,7 @@ class LoginForm extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     const res = await axios.post(
-      'http://localhost:9000/api/user/login',
+      `${backendLink}/api/user/login`,
       {
         email: this.state.email,
         password: this.state.password

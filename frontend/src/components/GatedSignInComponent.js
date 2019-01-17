@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import LoginForm from './LoginForm';
+import { backendLink } from '../assets/config';
 
 export default class GatedSignIn extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class GatedSignIn extends Component {
   }
 
   async componentDidMount() {
-    const res = await axios.get('http://localhost:9000/api/user/me', {
+    const res = await axios.get(`${backendLink}/api/user/me`, {
       withCredentials: 'include'
     });
     console.log(res);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { backendLink } from '../assets/config';
 
 const AuthInput = styled.input`
   width: 90%;
@@ -56,7 +57,7 @@ class RegisterForm extends Component {
       return alert('fields cannot be empty');
     }
 
-    await axios.post('http://localhost:9000/api/user/register', this.state);
+    await axios.post(`${backendLink}/api/user/register`, this.state);
     try {
       alert(`Successful Registered your account!`);
     } catch (err) {
