@@ -12,6 +12,7 @@ export const FeaturedReviewStyles = styled.div`
   @media(max-width:900px){
     background-color: white;
     width: 100%;
+    justify-content: space-around;
   }
   h1 {
     width: 100%;
@@ -20,6 +21,13 @@ export const FeaturedReviewStyles = styled.div`
 
 export const CardStyle = styled.div`
   margin-left: 15px;
+  @media(max-width:900px){
+    margin: 0;
+  }
+  img {
+    max-width: 400px;
+    height: 400px;
+  }
   a {
     text-decoration: none;
     color: black
