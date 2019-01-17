@@ -40,7 +40,7 @@ class PopularReviewers extends Component {
       .get(`https://bonafind.herokuapp.com/api/user`)
       .then(response => {
         const userData = [...response.data]
-        const slicedUserData = userData.slice(0,8);
+        const slicedUserData = userData.slice(105,8);
         this.setState(() => ({ users: slicedUserData }));
       })
       .catch(err => {
