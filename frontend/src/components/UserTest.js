@@ -22,7 +22,7 @@ class UserTest extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://bonafind.herokuapp.com/api/user`)
+      .get(`https://bonafind.herokuapp.com/api/user`)
       .then(response => {
         this.setState(() => ({ users: response.data }));
       })

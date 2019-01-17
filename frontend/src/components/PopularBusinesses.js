@@ -36,7 +36,7 @@ class PopularBusinesses extends Component {
   }
   componentDidMount() {
     axios
-      .get(`http://bonafind.herokuapp.com/api/business`)
+      .get(`https://bonafind.herokuapp.com/api/business`)
       .then(response =>{
         //save response data in a new variable
         const data = [...response.data]

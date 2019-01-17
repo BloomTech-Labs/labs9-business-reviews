@@ -71,7 +71,7 @@ class PopularReviewers extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://bonafind.herokuapp.com/api/user`)
+      .get(`https://bonafind.herokuapp.com/api/user`)
       .then(response => {
         const userData = [...response.data]
         const slicedUserData = userData.slice(0,8);
