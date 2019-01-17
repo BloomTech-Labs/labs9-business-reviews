@@ -22,11 +22,16 @@ export const FeaturedReviewStyles = styled.div`
 export const CardStyle = styled.div`
   margin-left: 15px;
   @media(max-width:900px){
+    width: 40%;
     margin: 0;
   }
   img {
-    max-width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
+    @media(max-width:900px){
+      width: 400px;
+      height: 400px;
+    }    
   }
   a {
     text-decoration: none;
@@ -42,25 +47,25 @@ class FeaturedReviews extends Component {
       reviews: [
         {
         id: 1,
-        image: "https://loremflickr.com/200/200/sushi",
+        image: "https://loremflickr.com/400/400/sushi",
         name: "Ramiace",
         review: "⭐⭐⭐⭐⭐",
         poster: "@ktkdsfghs"
         }, {
         id: 2,
-        image: "https://loremflickr.com/200/200/storefront",
+        image: "https://loremflickr.com/400/400/storefront",
         name: "Bartramiaceae",
         review: "⭐⭐⭐",
         poster: "@hthrtujsjk"
         }, {
         id: 3,
-        image: "https://loremflickr.com/200/200/pizza",
+        image: "https://loremflickr.com/400/400/pizza",
         name: "Umbilicariaceae",
         review: "⭐⭐⭐⭐",
         poster: "@conelieusfsdf"
         }, {
         id: 4,
-        image: "https://loremflickr.com/200/200/shop",
+        image: "https://loremflickr.com/400/400/shop",
         name: "Asteraceae",
         review: "⭐⭐⭐⭐⭐",
         poster: "@asdfadsfa"
