@@ -43,7 +43,7 @@ const NavBar = styled.div`
       @media(max-width: 900px){
       width: 100%;  
       flex-direction: column;
-      font-size: 3rem;
+      font-size: 2.6rem;
       }
       a {        
         color: black;
@@ -54,13 +54,14 @@ const NavBar = styled.div`
         @media(max-width: 900px){
           background: #142E41;
           color: white;
+          padding: 5px;
           margin: 0;
         }
       }
       a:hover {
         letter-spacing: 2px;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
         transition: all 280ms ease-in-out;
       }
     }
@@ -83,6 +84,12 @@ const NavBar = styled.div`
         margin-right: 10px;
         @media(max-width: 900px){
           color: white;
+          :hover {
+            letter-spacing: 2px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white; 
+            transition: all 280ms ease-in-out;
+          }
         }
       }
     }  
