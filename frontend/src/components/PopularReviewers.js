@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
-import SingleBusiness from './SingleBusiness'
+import axios from 'axios';
 
-
-export const PopularBusinessesStyles = styled.div`
+export const PopularReviewersStyles = styled.div`
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
@@ -16,57 +14,87 @@ export const PopularBusinessesStyles = styled.div`
 `;
 
 export const CardStyle = styled.div`
-  margin-left: 15px;
-  img {
-    max-width: 200px;
-    height: 200px;
-  }
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid black;
+  height: 180px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 
-class PopularBusinesses extends Component {
+class PopularReviewers extends Component {
   constructor() {
     super();
     this.state = {
-      businesses: [],
-      isOpen: false
+      users: [],
+      reviews: [
+        {
+        id: 1,
+        name: "ManGuy",
+        image: "https://loremflickr.com/200/200/man",
+        }, {
+        id: 2,
+        name: "DogGuy",
+        image: "https://loremflickr.com/200/200/dog",
+        }, {
+        id: 3,
+        name: "WomanGuy",
+        image: "https://loremflickr.com/200/200/woman",
+        }, {
+        id: 4,
+        name: "KidGuy",
+        image: "https://loremflickr.com/200/200/kid",
+        }, {
+        id: 5,
+        name: "CatGuy",
+        image: "https://loremflickr.com/200/200/cat",
+        },
+        {
+        id: 6,
+        name: "PersonGuy",
+        image: "https://loremflickr.com/200/200/person",
+        }, {
+        id: 7,
+        name: "HumanGuy",
+        image: "https://loremflickr.com/200/200/human",
+        }, {
+        id: 8,
+        name: "BirdGuy",
+        image: "https://loremflickr.com/200/200/bird",
+        }
+      ]
     }
   }
+
   componentDidMount() {
     axios
-      .get(`http://bonafind.herokuapp.com/api/business`)
-      .then(response =>{
-        //save response data in a new variable
-        const data = [...response.data]
-        //sorts and slices correct number of businesses
-        const sortedAndSliced = data.sort((a, b) => a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0).slice(0,4);
-        //sets sorted array to this.state.businesses
-        this.setState(() => ({ businesses: sortedAndSliced }));
+      .get(`http://bonafind.herokuapp.com/api/user`)
+      .then(response => {
+        const userData = [...response.data]
+        const slicedUserData = userData.slice(0,8);
+        this.setState(() => ({ users: slicedUserData }));
       })
       .catch(err => {
-        console.error('Error:', err)
+        console.error('Server error: could not access users', err)
     })
   }
-  toggleModal = (e) => {
-    e.preventDefault();
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+
   render() {
-    return (      
-      <PopularBusinessesStyles>
-        <h1>Popular Businesses</h1>
-        {this.state.businesses.map(({id, name, rating, image}) => (
-          <CardStyle key={id} onClick={this.toggleModal} >
-            <img src={image} alt="reviewed business"/>
-            <p>{name}</p>
-            <h3>{rating}</h3>
-          </CardStyle>
+    return (
+      <PopularReviewersStyles>
+        <h1>Popular Reviewers</h1>
+        {this.state.users.map(({id, name, gravatar}) => (
+            <CardStyle key={id}>
+              <img src={gravatar} alt="reviewer's profile picture"/>
+              <p>{name}</p>
+            </CardStyle>
         ))}
-        {this.state.isOpen ? <SingleBusiness toggleModal={this.toggleModal} /> : null}     
-      </PopularBusinessesStyles>
+      </PopularReviewersStyles>
     )
   }
 }
-export default PopularBusinesses;
+
+export default PopularReviewers;

@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
+import SingleBusiness from './SingleBusiness'
+
+
 
 export const PopularBusinessesStyles = styled.div`
   margin: 0 auto;
@@ -26,7 +30,8 @@ class PopularBusinesses extends Component {
   constructor() {
     super();
     this.state = {
-      businesses: []
+      businesses: [],
+      isOpen: false
     }
   }
   componentDidMount() {
@@ -44,17 +49,24 @@ class PopularBusinesses extends Component {
         console.error('Error:', err)
     })
   }
+  toggleModal = (e) => {
+    e.preventDefault();
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
-    return (
+    return (      
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
-        {this.state.businesses.map(({id, name, rating, image}) => (
-          <CardStyle key={id}>
-            <img src={image} alt="reviewed business"/>
-            <p>{name}</p>
-            <h3>{rating}</h3>
+        {this.state.businesses.map(({id, name, rating, image}) => (          
+          <CardStyle key={id} id={id} onClick={this.toggleModal} >
+              <img src={image} alt="reviewed business"/>
+              <p>{name}</p>
+              <h3>{rating}</h3>
           </CardStyle>
         ))}
+        {this.state.isOpen ? <SingleBusiness toggleModal={this.toggleModal} /> : null}     
       </PopularBusinessesStyles>
     )
   }
