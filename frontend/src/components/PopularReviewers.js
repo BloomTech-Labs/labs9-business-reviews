@@ -15,11 +15,10 @@ export const PopularReviewersStyles = styled.div`
 
 export const CardStyle = styled.div`
   margin-left: 15px;
-  height: 200px;
-  max-width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  img {
+    max-width: 200px;
+    height: 200px;
+  }
 `;
 
 
