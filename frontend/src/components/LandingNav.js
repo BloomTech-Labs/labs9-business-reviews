@@ -16,7 +16,6 @@ const NavBar = styled.div`
     align-items: center;
     flex-direction: row;
     font-family: 'Quicksand';
-    margin-bottom: 2rem;
     @media(max-width: 900px){
       flex-direction: column;
       padding: 0;

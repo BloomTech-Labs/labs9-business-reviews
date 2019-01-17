@@ -10,6 +10,8 @@ const Container = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
+  border: 1px solid blue;
+  padding-top: 2rem;
 `;
 
 export default function LandingPage() {
