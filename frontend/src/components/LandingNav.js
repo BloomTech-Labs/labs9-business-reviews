@@ -33,7 +33,7 @@ const NavBar = styled.div`
       }    
     }
     .menu__menuItems {
-      width: 100%;
+      width: 60%;
       height: auto;
       font-size: 1.4rem;
       display: flex;
@@ -41,6 +41,7 @@ const NavBar = styled.div`
       flex-direction: row;
       text-transform: uppercase;
       @media(max-width: 900px){
+      width: 100%;  
       flex-direction: column;
       font-size: 3rem;
       }
@@ -48,6 +49,7 @@ const NavBar = styled.div`
         color: black;
         width: 100%;
         text-decoration: none;
+        text-align: center;
         margin: 10px;
         @media(max-width: 900px){
           background: #142E41;
@@ -61,12 +63,31 @@ const NavBar = styled.div`
         border-bottom: 1px solid black;
         transition: all 280ms ease-in-out;
       }
+    }
+    .menu__user {
+      margin-right: 1rem;
+      color: black;
+      width: 15%;
+      padding: 10px;      
+      @media(max-width: 900px){
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background: #142E41;
+        color: white;
+        margin: 0;
+      }
+      .menu__user--text {
+        text-decoration: none;
+        color: black;
+        margin-right: 10px;
+        @media(max-width: 900px){
+          color: white;
+        }
+      }
     }  
   }
-  .menu__user--text {
-    margin-right: 1rem;
-    color: black;
-  }
+  
 `;
 
 function LandingNav() {
