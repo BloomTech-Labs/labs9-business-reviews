@@ -12,7 +12,6 @@ import ReviewsTest from './components/ReviewsTest';
 const StyledContainer = styled.div`
   margin: 0 auto;
   max-width: 1200px;
-  border: 1px solid blue;
 `;
 
 function App() {

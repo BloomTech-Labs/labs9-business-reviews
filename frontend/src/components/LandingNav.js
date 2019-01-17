@@ -4,10 +4,11 @@ import logo from '../assets/logo.png';
 
 const NavBar = styled.div`
   width: 100%;
+  height: auto;
   @import url('https://fonts.googleapis.com/css?family=Quicksand:300,500');
   background-color: #eed974;  
   .inner-nav-container{
-    max-width: 1200px;
+    max-width: 1200px;    
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
@@ -16,22 +17,43 @@ const NavBar = styled.div`
     flex-direction: row;
     font-family: 'Quicksand';
     margin-bottom: 2rem;
+    @media(max-width: 900px){
+      flex-direction: column;
+      padding: 0;
+    }
     .menu__logo--logo {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      @media(max-width: 900px){
+        height: 400px;
+        width: 400px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }    
     }
     .menu__menuItems {
-      height: 20px;
+      width: 100%;
+      height: auto;
       font-size: 1.4rem;
       display: flex;
       align-items: center;
       flex-direction: row;
       text-transform: uppercase;
-      a {
+      @media(max-width: 900px){
+      flex-direction: column;
+      font-size: 3rem;
+      }
+      a {        
         color: black;
+        width: 100%;
         text-decoration: none;
         margin: 10px;
+        @media(max-width: 900px){
+          background: #142E41;
+          color: white;
+          margin: 0;
+        }
       }
       a:hover {
         letter-spacing: 2px;
