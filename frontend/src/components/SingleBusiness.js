@@ -2,7 +2,6 @@ import React from 'react'
 import { BackdropStyle } from './Modal'
 
 
-
 function SingleBusiness({ toggleModal }) {
   return (
     <BackdropStyle className="single-business">
