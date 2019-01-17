@@ -6,7 +6,10 @@ const NavBar = styled.div`
   width: 100%;
   height: auto;
   @import url('https://fonts.googleapis.com/css?family=Quicksand:300,500');
-  background-color: #eed974;  
+  background-color: #eed974;
+  @media(max-width: 900px){
+    background-color: white;
+  }  
   .inner-nav-container{
     max-width: 1200px;    
     margin: 0 auto;
@@ -29,6 +32,7 @@ const NavBar = styled.div`
         width: 400px;
         margin-bottom: 20px;
         margin-top: 20px;
+        border-radius: 0;
       }    
     }
     .menu__menuItems {

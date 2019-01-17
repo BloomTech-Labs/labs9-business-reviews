@@ -12,6 +12,11 @@ export const PopularBusinessesStyles = styled.div`
   flex-flow: row wrap;
   width: 80%;
   height: auto;
+  @media(max-width:900px){
+    background-color: white;
+    width: 100%;
+    justify-content: space-around;
+  }
   h1 {
     width: 100%;
   }
@@ -19,9 +24,21 @@ export const PopularBusinessesStyles = styled.div`
 
 export const CardStyle = styled.div`
   margin-left: 15px;
+  @media(max-width:900px){
+    width: 40%;
+    margin: 0;
+  }
   img {
-    max-width: 200px;
+    width: 200px;
     height: 200px;
+    @media(max-width:900px){
+      width: 400px;
+      height: 400px;
+    }    
+  }
+  a {
+    text-decoration: none;
+    color: black
   }
 `;
 

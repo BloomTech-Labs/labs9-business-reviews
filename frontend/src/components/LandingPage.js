@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import SearchBar from './SearchBar'
 import MainContent from './MainContent'
-import Footer from './Footer'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -10,7 +9,9 @@ const Container = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
-  padding-top: 2rem;
+  @media(max-width:900px){
+    background-color: #eed974;
+  }
 `;
 
 export default function LandingPage() {
@@ -18,7 +19,6 @@ export default function LandingPage() {
     <Container>
       <SearchBar />
       <MainContent />
-      <Footer />
     </Container>
   )
 }
