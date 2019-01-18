@@ -69,4 +69,16 @@ router.get('/:id', async (req, res) => {
   if (!singleUser) res.status(500).json({ message: 'No user found' });
   res.status(200).json({ singleUser });
 });
+
+router.put('/:id', async (req, res) => {
+  const hash = bcrypt.hashSync(req.body.password, 3);
+  req.body.password = hash;
+  const email = req.body.email;
+  email.toLowerCase();
+  const gravatarHashedEmail = await md5(email);
+  const gravatarLink = `https://www.gravatar.com/avatar/${gravatarHashedEmail}?s=200`;
+  req.body.gravatar = gravatarLink;
+  await userModel.updateUser(req.params.id, req.body);
+  res.json({ message: 'Successfully updated' });
+});
 module.exports = router;

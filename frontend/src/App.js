@@ -8,6 +8,7 @@ import Authenticate from './components/Authenticate';
 import LandingNav from './components/LandingNav';
 import UserTest from './components/UserTest';
 import ReviewsTest from './components/ReviewsTest';
+import UpdateUser from './components/UpdateUser';
 
 const StyledApp = styled.div`
   margin: 0 auto;
@@ -16,16 +17,17 @@ const StyledApp = styled.div`
 
 function App() {
   return (
-    <StyledApp className='App'>
+    <StyledApp className="App">
       <LandingNav />
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={LandingPage} />
-          <Route path='/user' component={UserProfile} />
-          <Route path='/billing' component={BillingPage} />
-          <Route path='/authenticate' component={Authenticate} />
-          <Route path='/test' component={UserTest} />
-          <Route path='/reviews' component={ReviewsTest} />
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/user" component={UserProfile} />
+          <Route path="/billing" component={BillingPage} />
+          <Route path="/authenticate" component={Authenticate} />
+          <Route path="/test" component={UserTest} />
+          <Route path="/updateuser" component={UpdateUser} />
+          <Route path="/reviews" component={ReviewsTest} />
         </Switch>
       </BrowserRouter>
     </StyledApp>
