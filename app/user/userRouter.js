@@ -79,6 +79,8 @@ router.put('/:id', async (req, res) => {
   const gravatarLink = `https://www.gravatar.com/avatar/${gravatarHashedEmail}?s=200`;
   req.body.gravatar = gravatarLink;
   await userModel.updateUser(req.params.id, req.body);
+  req.logout();
+  req.session.destroy();
   res.json({ message: 'Successfully updated' });
 });
 module.exports = router;
