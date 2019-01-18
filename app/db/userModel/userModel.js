@@ -1,6 +1,13 @@
 const db = require('../dbinit');
 
-module.exports = { register, getUsers, verifyLoginEmail, getUserById };
+module.exports = {
+  register,
+  getUsers,
+  verifyLoginEmail,
+  getUserById,
+  updateUser,
+  deleteUser
+};
 
 function register(user) {
   return db('users').insert(user);
