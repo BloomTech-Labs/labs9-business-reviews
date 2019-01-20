@@ -11,7 +11,7 @@ class ReviewsTest extends Component {
   //wtf
   componentDidMount() {
     axios
-      .get(`http://bonafind.herokuapp.com/api/review`)
+      .get(`https://bonafind.herokuapp.com/api/review`)
       .then(response => {
         this.setState(() => ({ reviews: response.data }));
       })
