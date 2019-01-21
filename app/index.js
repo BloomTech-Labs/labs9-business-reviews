@@ -9,7 +9,6 @@ const businessRouter = require('./businesses/businessRouter');
 const cors = require('cors');
 
 const server = express();
-const knex = require('knex');
 const port = process.env.PORT || 9000;
 
 // server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
