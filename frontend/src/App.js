@@ -8,6 +8,8 @@ import Authenticate from './components/Authenticate';
 import LandingNav from './components/LandingNav';
 import UserTest from './components/UserTest';
 import ReviewsTest from './components/ReviewsTest';
+import Footer from './components/Footer';
+import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
 import ResetPassword from './components/ResetPassword';
 
@@ -18,21 +20,28 @@ const StyledContainer = styled.div`
 
 function App() {
   return (
-    <StyledApp className="App">
+    <div className="App">
       <LandingNav />
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/user" component={UserProfile} />
-          <Route path="/billing" component={BillingPage} />
-          <Route path="/authenticate" component={Authenticate} />
-          <Route path="/test" component={UserTest} />
-          <Route path="/updateuser" component={UpdateUser} />
-          <Route path="/reviews" component={ReviewsTest} />
-          <Route path="/resetpassword" component={ResetPassword} />
-        </Switch>
-      </BrowserRouter>
-    </StyledApp>
+      <StyledContainer className="container">
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route path="/user" component={UserProfile} />
+            <Route path="/billing" component={BillingPage} />
+            <Route path="/authenticate" component={Authenticate} />
+            <Route path="/test" component={UserTest} />
+            <Route path="/updateuser" component={UpdateUser} />
+            <Route path="/reviews" component={ReviewsTest} />
+            <Route path="/resetpassword" component={ResetPassword} />
+            <Route
+              path="/business/:id"
+              render={props => <SearchResult {...props} />}
+            />
+          </Switch>
+        </BrowserRouter>
+      </StyledContainer>
+      <Footer />
+    </div>
   );
 }
 
