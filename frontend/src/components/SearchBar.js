@@ -68,7 +68,7 @@ class SearchBar extends React.Component {
         </form>
         <div className='button-container'>
           <button className='button'>Review</button>
-          <Link to={`/business/${this.state.business.id}`}>
+          <Link to={`/business/${this.state.business.place_id}`}>
             <button className='button'>Search</button>
           </Link>
         </div>
