@@ -71,15 +71,17 @@ router.get('/:id', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  const hash = bcrypt.hashSync(req.body.password, 3);
-  req.body.password = hash;
   const email = req.body.email;
+  const emailExists = await userModel.verifyLoginEmail(email);
+  const DoesEmailExist = emailExists.length > 0 ? true : false;
+  if (DoesEmailExist) {
+    return res.json({ error: 'Email Already Exists' });
+  }
   email.toLowerCase();
   const gravatarHashedEmail = await md5(email);
   const gravatarLink = `https://www.gravatar.com/avatar/${gravatarHashedEmail}?s=200`;
   req.body.gravatar = gravatarLink;
   await userModel.updateUser(req.params.id, req.body);
-  console.log('reached me');
   res.json({ message: 'Successfully updated' });
 });
 module.exports = router;
