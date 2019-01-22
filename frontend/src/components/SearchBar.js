@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SearchResult from '../components/SearchResult';
 
 const SearchBarStyles = styled.div`
   width: 100%;
@@ -61,15 +62,18 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <SearchBarStyles>
-        <form>
-          <input id='dropdown' placeholder='Search...' />
-        </form>
-        <div className='button-container'>
-          <button className='button'>Review</button>
-          <button className='button'>Search</button>
-        </div>
-      </SearchBarStyles>
+      <div>
+        <SearchBarStyles>
+          <form>
+            <input id='dropdown' placeholder='Search...' />
+          </form>
+          <div className='button-container'>
+            <button className='button'>Review</button>
+            <button className='button'>Search</button>
+          </div>
+        </SearchBarStyles>
+        <SearchResult business={this.state.business} />
+      </div>
     );
   }
 }

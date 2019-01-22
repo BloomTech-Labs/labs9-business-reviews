@@ -19,7 +19,7 @@ function App() {
   return (
     <div className='App'>
       <LandingNav />
-      <StyledContainer className="container">        
+      <StyledContainer className='container'>
         <BrowserRouter>
           <Switch>
             <Route exact path='/' component={LandingPage} />
