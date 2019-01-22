@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
+import { withRouter } from 'react-router-dom';
 
 const LoginDiv = styled.div`
   display: flex;
@@ -63,7 +64,7 @@ class LoginForm extends Component {
         'No record found on either email or password inputted please login again or register!'
       );
     }
-    alert(`Authenticated!${res.data}`);
+    alert(`Authenticated!`);
   };
 
   render() {

@@ -27,7 +27,7 @@ router.post('/register', authConfig.checkCreds, async (req, res) => {
       .status(500)
       .json({ message: `User with email ${email} already exists!` });
   const [singleUser] = await userModel.verifyLoginEmail(email);
-  await req.login(singleUser, function(err) {
+  req.login(singleUser.id, function(err) {
     if (err) {
       console.log(err);
       return res.status(500).json({ message: 'Internal server error' });
@@ -53,7 +53,7 @@ router.post(
 
 router.get('/me', async (req, res) => {
   if (!req.user) {
-    res.json('No user logged in please login');
+    return res.json('No user logged in please login');
   }
   res.json({ user: req.user });
 });
@@ -68,5 +68,30 @@ router.get('/:id', async (req, res) => {
   const [singleUser] = await userModel.getUserById(req.params.id);
   if (!singleUser) res.status(500).json({ message: 'No user found' });
   res.status(200).json({ singleUser });
+});
+
+router.put('/:id', async (req, res) => {
+  const email = req.body.email;
+  const emailExists = await userModel.verifyLoginEmail(email);
+  const DoesEmailExist = emailExists.length > 0 ? true : false;
+  if (DoesEmailExist) {
+    return res.json({ error: 'Email Already Exists' });
+  }
+  email.toLowerCase();
+  const gravatarHashedEmail = await md5(email);
+  const gravatarLink = `https://www.gravatar.com/avatar/${gravatarHashedEmail}?s=200`;
+  req.body.gravatar = gravatarLink;
+  await userModel.updateUser(req.params.id, req.body);
+  res.json({ message: 'Successfully updated' });
+});
+
+router.post('/verify', async (req, res) => {
+  const email = req.body.email;
+  const emailExists = await userModel.verifyLoginEmail(email);
+  const DoesEmailExist = emailExists.length > 0 ? true : false;
+  if (!DoesEmailExist) {
+    return res.json({ error: 'email does not exist' });
+  }
+  res.json({ message: 'Reset token ready' });
 });
 module.exports = router;

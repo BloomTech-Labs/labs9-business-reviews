@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import SingleBusiness from './SingleBusiness';
+import { backendLink } from '../assets/config';
 
 export const PopularBusinessesStyles = styled.div`
   margin: 0 auto;
@@ -49,8 +51,7 @@ class PopularBusinesses extends Component {
   }
   componentDidMount() {
     axios
-      // .get(`https://bonafind.herokuapp.com/api/business`)
-      .get(`http://localhost:9000/api/business`)
+      .get(`${backendLink}/api/business`)
       .then(response => {
         //save response data in a new variable
         const data = [...response.data];
@@ -79,7 +80,7 @@ class PopularBusinesses extends Component {
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
           <CardStyle key={id} id={id} onClick={this.toggleModal}>
-            <img src={image} alt='reviewed business' />
+            <img src={image} alt="reviewed business" />
             <p>{name}</p>
             <h3>{rating}</h3>
           </CardStyle>
