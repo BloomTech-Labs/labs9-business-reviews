@@ -21,7 +21,7 @@ class SearchResult extends React.Component {
   }
 
   render() {
-    console.log('yo: ', this.state.business.photos);
+    console.log('yo: ', this.state.business);
     return (
       <div>
         <h1>testin'</h1>

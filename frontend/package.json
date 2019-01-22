@@ -31,5 +31,6 @@
   ],
   "devDependencies": {
     "react-test-renderer": "^16.7.0"
-  }
+  },
+  "proxy": "http://localhost:9000"
 }
