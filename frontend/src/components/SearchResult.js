@@ -1,5 +1,11 @@
 import React from 'react';
+import styled from 'styled-components'
 import Axios from 'axios';
+
+const StyledBusiness = styled.div`
+  border: 1px solid grey;
+  background: white;
+`;
 
 class SearchResult extends React.Component {
   constructor(props) {
@@ -24,12 +30,9 @@ class SearchResult extends React.Component {
     console.log('yo: ', this.state.business);
     return (
       <div>
-        <h1>testin'</h1>
-        <h1>{this.state.business.id}</h1>
+        <h1>{this.state.business.name}</h1>
         <h2>{this.state.business.rating}</h2>
-        {/* {this.state.business.photos.map(photo => (
-          
-        } */}
+        <p>{this.state.business.formatted_address}</p>
       </div>
     );
   }
