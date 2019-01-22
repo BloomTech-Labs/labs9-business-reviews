@@ -3,12 +3,16 @@ const LocalStrategy = require('passport-local');
 const userModel = require('../db/userModel/userModel');
 const bcrypt = require('bcryptjs');
 
-passport.serializeUser(function(user, done) {
-  console.log('reached me');
-  done(null, user);
+passport.serializeUser(function(user_id, done) {
+  console.log('tested login serialize route');
+  done(null, user_id);
 });
-passport.deserializeUser(function(user, done) {
-  done(null, { id: user });
+passport.deserializeUser(function(user_id, done) {
+  console.log(user_id);
+  userModel.getUserById(user_id).then(user => {
+    console.log(user);
+    return done(null, user);
+  });
 });
 
 passport.use(
@@ -31,7 +35,7 @@ passport.use(
       }
       if (singleUser && comparePasswords) {
         //if authenticated return this!
-        done(null, singleUser);
+        done(null, singleUser.id);
       }
     }
   )

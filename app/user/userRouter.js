@@ -27,7 +27,7 @@ router.post('/register', authConfig.checkCreds, async (req, res) => {
       .status(500)
       .json({ message: `User with email ${email} already exists!` });
   const [singleUser] = await userModel.verifyLoginEmail(email);
-  await req.login(singleUser, function(err) {
+  req.login(singleUser.id, function(err) {
     if (err) {
       console.log(err);
       return res.status(500).json({ message: 'Internal server error' });
@@ -53,7 +53,7 @@ router.post(
 
 router.get('/me', async (req, res) => {
   if (!req.user) {
-    res.json('No user logged in please login');
+    return res.json('No user logged in please login');
   }
   res.json({ user: req.user });
 });
@@ -79,8 +79,6 @@ router.put('/:id', async (req, res) => {
   const gravatarLink = `https://www.gravatar.com/avatar/${gravatarHashedEmail}?s=200`;
   req.body.gravatar = gravatarLink;
   await userModel.updateUser(req.params.id, req.body);
-  req.logout();
-  req.session.destroy();
   res.json({ message: 'Successfully updated' });
 });
 module.exports = router;
