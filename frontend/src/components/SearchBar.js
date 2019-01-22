@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Route, Link } from 'react-router-dom';
 
 const SearchBarStyles = styled.div`
   width: 100%;
@@ -67,7 +68,9 @@ class SearchBar extends React.Component {
         </form>
         <div className='button-container'>
           <button className='button'>Review</button>
-          <button className='button'>Search</button>
+          <Link to={`/business/${this.state.business.id}`}>
+            <button className='button'>Search</button>
+          </Link>
         </div>
       </SearchBarStyles>
     );
