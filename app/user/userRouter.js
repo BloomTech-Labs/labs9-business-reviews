@@ -84,4 +84,14 @@ router.put('/:id', async (req, res) => {
   await userModel.updateUser(req.params.id, req.body);
   res.json({ message: 'Successfully updated' });
 });
+
+router.post('/verify', async (req, res) => {
+  const email = req.body.email;
+  const emailExists = await userModel.verifyLoginEmail(email);
+  const DoesEmailExist = emailExists.length > 0 ? true : false;
+  if (!DoesEmailExist) {
+    return res.json({ error: 'email does not exist' });
+  }
+  res.json({ message: 'Reset token ready' });
+});
 module.exports = router;
