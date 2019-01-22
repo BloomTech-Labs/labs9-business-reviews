@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
+import { withRouter } from 'react-router-dom';
 
 const LoginDiv = styled.div`
   display: flex;

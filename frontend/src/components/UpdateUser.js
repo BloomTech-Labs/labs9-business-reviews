@@ -6,7 +6,7 @@ export default class UpdateUser extends Component {
   render() {
     return (
       <GatedSignInComponent>
-        <UserUpdateForm/>
+        <UserUpdateForm />
       </GatedSignInComponent>
     );
   }
