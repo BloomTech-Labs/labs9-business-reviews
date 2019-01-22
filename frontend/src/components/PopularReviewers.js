@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
 
 const PopularReviewersStyles = styled.div`
@@ -8,7 +8,7 @@ const PopularReviewersStyles = styled.div`
   flex-flow: row wrap;
   width: 80%;
   height: auto;
-  @media(max-width:900px){
+  @media (max-width: 900px) {
     background-color: white;
     width: 100%;
     justify-content: space-around;
@@ -26,40 +26,40 @@ export const CardStyle = styled.div`
   }
 `;
 
-
 class PopularReviewers extends Component {
   constructor() {
     super();
     this.state = {
       users: []
-    }
+    };
   }
 
   componentDidMount() {
     axios
-      .get(`https://bonafind.herokuapp.com/api/user`)
+      // .get(`https://bonafind.herokuapp.com/api/user`)
+      .get(`http://localhost:9000/api/business`)
       .then(response => {
-        const userData = [...response.data]
-        const slicedUserData = userData.slice(105,8);
+        const userData = [...response.data];
+        const slicedUserData = userData.slice(105, 8);
         this.setState(() => ({ users: slicedUserData }));
       })
       .catch(err => {
-        console.error('Server error: could not access users', err)
-    })
+        console.error('Server error: could not access users', err);
+      });
   }
 
   render() {
     return (
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
-        {this.state.users.map(({id, name, gravatar}) => (
-            <CardStyle key={id}>
-              <img src={gravatar} alt="reviewer's profile picture"/>
-              <p>{name}</p>
-            </CardStyle>
+        {this.state.users.map(({ id, name, gravatar }) => (
+          <CardStyle key={id}>
+            <img src={gravatar} alt="reviewer's profile" />
+            <p>{name}</p>
+          </CardStyle>
         ))}
       </PopularReviewersStyles>
-    )
+    );
   }
 }
 
