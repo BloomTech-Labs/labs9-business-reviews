@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
 import MainContent from './MainContent';
-import SearchResult from './SearchResult';
-import { Route } from 'react-router-dom';
 
 const Container = styled.div`
   margin: 0 auto;
