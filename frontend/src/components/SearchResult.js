@@ -29,11 +29,11 @@ class SearchResult extends React.Component {
   render() {
     console.log('yo: ', this.state.business);
     return (
-      <div>
+      <StyledBusiness>
         <h1>{this.state.business.name}</h1>
         <h2>{this.state.business.rating}</h2>
         <p>{this.state.business.formatted_address}</p>
-      </div>
+      </StyledBusiness>
     );
   }
 }
