@@ -1,20 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+<<<<<<< HEAD
 import scriptLoader from 'react-async-script-loader';
+=======
+import { Route, Link } from 'react-router-dom';
+>>>>>>> d87c8f32b96343c6df08e0f6450deeec7175bb6e
 
 const SearchBarStyles = styled.div`
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   form {
     display: flex;
     justify-content: center;
     width: 100%;
     input {
-      width: 45%;
-      height: 20px;
-      border-radius: 100px;
+      width: 60%;
+      height: 30px;
       padding-left: 15px;
     }
   }
@@ -32,15 +37,55 @@ const SearchBarStyles = styled.div`
 `;
 
 class SearchBar extends React.Component {
+<<<<<<< HEAD
+=======
+  constructor() {
+    super();
+    this.state = {
+      business: [
+        {
+          id: '',
+          adr_address: '',
+          photos: [],
+          place_id: '',
+          rating: 0,
+          website: ''
+        }
+      ]
+    };
+  }
+
+  componentDidMount() {
+    const input = document.querySelector('#dropdown'); /// yooooooooo
+    const dropdown = new window.google.maps.places.Autocomplete(input);
+    dropdown.addListener('place_changed', () => {
+      const place = dropdown.getPlace();
+      this.setState({ business: place });
+      console.log(this.state.business.id);
+      // id, adr_address, photos, place_id, rating, website
+    });
+  }
+
+>>>>>>> d87c8f32b96343c6df08e0f6450deeec7175bb6e
   render() {
     return (
       <SearchBarStyles>
         <form>
+<<<<<<< HEAD
           <input placeholder="Search..." id="dropdown" />
         </form>
         <div className="button-container">
           <button className="button">Review</button>
           <button className="button">Search</button>
+=======
+          <input id='dropdown' placeholder='Search...' />
+        </form>
+        <div className='button-container'>
+          <button className='button'>Review</button>
+          <Link to={`/business/${this.state.business.id}`}>
+            <button className='button'>Search</button>
+          </Link>
+>>>>>>> d87c8f32b96343c6df08e0f6450deeec7175bb6e
         </div>
       </SearchBarStyles>
     );

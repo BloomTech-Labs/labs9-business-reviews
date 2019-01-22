@@ -9,6 +9,11 @@ export const FeaturedReviewStyles = styled.div`
   flex-flow: row wrap;
   width: 80%;
   height: auto;
+  @media(max-width:900px){
+    background-color: white;
+    width: 100%;
+    justify-content: space-around;
+  }
   h1 {
     width: 100%;
   }
@@ -16,6 +21,18 @@ export const FeaturedReviewStyles = styled.div`
 
 export const CardStyle = styled.div`
   margin-left: 15px;
+  @media(max-width:900px){
+    width: 40%;
+    margin: 0;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+    @media(max-width:900px){
+      width: 400px;
+      height: 400px;
+    }    
+  }
   a {
     text-decoration: none;
     color: black
@@ -30,25 +47,25 @@ class FeaturedReviews extends Component {
       reviews: [
         {
         id: 1,
-        image: "https://loremflickr.com/200/200/sushi",
+        image: "https://loremflickr.com/400/400/sushi",
         name: "Ramiace",
         review: "⭐⭐⭐⭐⭐",
         poster: "@ktkdsfghs"
         }, {
         id: 2,
-        image: "https://loremflickr.com/200/200/storefront",
+        image: "https://loremflickr.com/400/400/storefront",
         name: "Bartramiaceae",
         review: "⭐⭐⭐",
         poster: "@hthrtujsjk"
         }, {
         id: 3,
-        image: "https://loremflickr.com/200/200/pizza",
+        image: "https://loremflickr.com/400/400/pizza",
         name: "Umbilicariaceae",
         review: "⭐⭐⭐⭐",
         poster: "@conelieusfsdf"
         }, {
         id: 4,
-        image: "https://loremflickr.com/200/200/shop",
+        image: "https://loremflickr.com/400/400/shop",
         name: "Asteraceae",
         review: "⭐⭐⭐⭐⭐",
         poster: "@asdfadsfa"
@@ -63,7 +80,8 @@ class FeaturedReviews extends Component {
         {this.state.reviews.map(({id, name, image, review, poster}) => (
           <CardStyle key = {id}>
             <img src={image} alt="reviewed business"/>
-            <h1>{review}</h1><p>{name}</p>
+            <h1>{review}</h1>
+            <p>{name}</p>
             <Link to={`/user/${poster}`}><p>{poster}</p></Link>
             
           </CardStyle>
