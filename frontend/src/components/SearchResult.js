@@ -47,6 +47,8 @@ class SearchResult extends React.Component {
 					<h1>{this.state.business.name}</h1>
 					<h2>{this.state.business.rating}</h2>
 					<p>{this.state.business.formatted_address}</p>
+					<p>{this.state.business.formatted_phone_number}</p>
+					<a href={this.state.business.website}>Website</a>
 				</div>
 			</StyledBusiness>
 		);
