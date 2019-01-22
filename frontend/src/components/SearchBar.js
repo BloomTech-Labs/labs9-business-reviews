@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import scriptLoader from 'react-async-script-loader';
 
 const SearchBarStyles = styled.div`
   width: 100%;
@@ -7,7 +8,7 @@ const SearchBarStyles = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   form {
-    display: flex;    
+    display: flex;
     justify-content: center;
     width: 100%;
     input {
@@ -24,23 +25,26 @@ const SearchBarStyles = styled.div`
       width: 120px;
       background: whitesmoke;
       margin-right: 20px;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
   }
 `;
 
-function SearchBar() {
-  return (
-    <SearchBarStyles>
-      <form>
-        <input placeholder="Search..."/>
-      </form>
-      <div className="button-container">
-        <button className="button">Review</button>
-        <button className="button">Search</button>
-      </div>
-    </SearchBarStyles>
-  )
+class SearchBar extends React.Component {
+  render() {
+    return (
+      <SearchBarStyles>
+        <form>
+          <input placeholder="Search..." id="dropdown" />
+        </form>
+        <div className="button-container">
+          <button className="button">Review</button>
+          <button className="button">Search</button>
+        </div>
+      </SearchBarStyles>
+    );
+  }
 }
 
 export default SearchBar;

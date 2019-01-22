@@ -9,6 +9,7 @@ import LandingNav from './components/LandingNav';
 import UserTest from './components/UserTest';
 import ReviewsTest from './components/ReviewsTest';
 import UpdateUser from './components/UpdateUser';
+import ResetPassword from './components/ResetPassword';
 
 const StyledApp = styled.div`
   margin: 0 auto;
@@ -28,6 +29,7 @@ function App() {
           <Route path="/test" component={UserTest} />
           <Route path="/updateuser" component={UpdateUser} />
           <Route path="/reviews" component={ReviewsTest} />
+          <Route path="/resetpassword" component={ResetPassword} />
         </Switch>
       </BrowserRouter>
     </StyledApp>

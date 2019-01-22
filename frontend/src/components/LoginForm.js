@@ -63,7 +63,7 @@ class LoginForm extends Component {
         'No record found on either email or password inputted please login again or register!'
       );
     }
-    alert(`Authenticated!${res.data}`);
+    alert(`Authenticated!`);
   };
 
   render() {
