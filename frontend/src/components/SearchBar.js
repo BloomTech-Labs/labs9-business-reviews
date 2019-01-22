@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-<<<<<<< HEAD
-import scriptLoader from 'react-async-script-loader';
-=======
 import { Route, Link } from 'react-router-dom';
->>>>>>> d87c8f32b96343c6df08e0f6450deeec7175bb6e
 
 const SearchBarStyles = styled.div`
   width: 100%;
@@ -37,8 +33,6 @@ const SearchBarStyles = styled.div`
 `;
 
 class SearchBar extends React.Component {
-<<<<<<< HEAD
-=======
   constructor() {
     super();
     this.state = {
@@ -66,18 +60,10 @@ class SearchBar extends React.Component {
     });
   }
 
->>>>>>> d87c8f32b96343c6df08e0f6450deeec7175bb6e
   render() {
     return (
       <SearchBarStyles>
         <form>
-<<<<<<< HEAD
-          <input placeholder="Search..." id="dropdown" />
-        </form>
-        <div className="button-container">
-          <button className="button">Review</button>
-          <button className="button">Search</button>
-=======
           <input id='dropdown' placeholder='Search...' />
         </form>
         <div className='button-container'>
@@ -85,7 +71,6 @@ class SearchBar extends React.Component {
           <Link to={`/business/${this.state.business.place_id}`}>
             <button className='button'>Search</button>
           </Link>
->>>>>>> d87c8f32b96343c6df08e0f6450deeec7175bb6e
         </div>
       </SearchBarStyles>
     );
