@@ -92,6 +92,7 @@ router.post('/verify', async (req, res) => {
   if (!DoesEmailExist) {
     return res.json({ error: 'email does not exist' });
   }
+  console.log(DoesEmailExist);
   res.json({ message: 'Reset token ready' });
 });
 module.exports = router;
