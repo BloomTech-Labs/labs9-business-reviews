@@ -15,7 +15,7 @@ const FooterStyles = styled.div`
 function Footer() {
   return (
     <FooterStyles>
-      <a href="www.google.com">Meet the Team</a>
+      <a href="https://github.com/Lambda-School-Labs/labs9-business-reviews">Meet the Team</a>
     </FooterStyles>
   )
 }

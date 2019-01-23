@@ -78,7 +78,7 @@ class SearchResult extends React.Component {
 			<StyledBusiness>
 				<div className="business-card">
 					<h1>{this.state.business.name}</h1>
-					<h2>{this.state.business.rating}</h2>
+					<h2>{this.state.business.rating} stars</h2>
 					<p>{this.state.business.formatted_address}</p>
 					<p>{this.state.business.formatted_phone_number}</p>
 					<a href={this.state.business.website}>Website</a>
