@@ -3,21 +3,25 @@ import styled from 'styled-components';
 import Axios from 'axios';
 
 const StyledBusiness = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  .business-card{
-    border: 1px solid grey;
-	  background: white;
-	  border-radius: 5px;
-    width: 60%;
-    margin-top: 40px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    flex-flow: column wrap;
-  }
-	
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	.business-card {
+		border: 1px solid grey;
+		background: white;
+		border-radius: 5px;
+		width: 80%;
+		margin-top: 40px;
+		padding: 15px;
+		display: flex;
+		align-items: center;
+		flex-flow: column wrap;
+		.review-container {
+			.review {
+				width: 25%;
+			}
+		}
+	}
 `;
 
 class SearchResult extends React.Component {
@@ -49,6 +53,24 @@ class SearchResult extends React.Component {
 					<p>{this.state.business.formatted_address}</p>
 					<p>{this.state.business.formatted_phone_number}</p>
 					<a href={this.state.business.website}>Website</a>
+					<div className="review-container">
+						<h1>Reviews</h1>
+						<div className="review">
+							<div className="review-img1"></div>
+							<p>⭐⭐⭐</p>
+							<h3>@eddbunk</h3>
+						</div>
+						<div className="review">
+							<div className="review-img2"></div>
+							<p>⭐⭐⭐⭐⭐</p>
+							<h3>@alixjones</h3>
+						</div>
+						<div className="review">
+							<div className="review-img3"></div>
+							<p>⭐⭐</p>
+							<h3>@carloG</h3>
+						</div>
+					</div>
 				</div>
 			</StyledBusiness>
 		);
