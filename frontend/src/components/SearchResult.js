@@ -6,6 +6,7 @@ const StyledBusiness = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  font-family: Quicksand;
   .business-card {
     border: 1px solid grey;
     background: white;
@@ -44,7 +45,7 @@ class SearchResult extends React.Component {
       <StyledBusiness>
         <div className='business-card'>
           <h1>{this.state.business.name}</h1>
-          <h2>{this.state.business.rating}</h2>
+          <h1>{this.state.business.rating}</h1>
           <p>
             <svg
               xmlns='http://www.w3.org/2000/svg'
