@@ -55,7 +55,6 @@ class SearchBar extends React.Component {
     dropdown.addListener('place_changed', () => {
       const place = dropdown.getPlace();
       this.setState({ business: place });
-      console.log(this.state.business.id);
       // id, adr_address, photos, place_id, rating, website
     });
   }
