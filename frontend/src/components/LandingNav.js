@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
-import { Link } from 'react-router-dom';
 
 const NavBar = styled.div`
   width: 100%;
@@ -104,9 +103,9 @@ function LandingNav() {
   return (
     <NavBar>
       <div className='inner-nav-container'>
-        <Link to='/'>
+        <a href='/'>
           <img src={logo} alt='logo' className='menu__logo--logo' />
-        </Link>
+        </a>
         <div className='menu__menuItems'>
           <a href='/addreview'>add a review</a>
           <a href='/categories'>categories</a>
