@@ -31,7 +31,6 @@ class AddReviewModal extends React.Component {
     }
   }
   changeHandler =(e) => {
-    console.log("value", e.target.value,"name", e.target.name)
     this.setState({[e.target.name]:e.target.value})
   }
 	render() {
