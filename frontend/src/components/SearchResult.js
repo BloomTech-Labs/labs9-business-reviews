@@ -79,7 +79,8 @@ class SearchResult extends React.Component {
 						<h2>{this.state.business.rating} stars</h2>
 						<p>{this.state.business.formatted_address}</p>
 						<p>{this.state.business.formatted_phone_number}</p>
-						<a href={this.state.business.website}>Website</a>
+						{this.state.business.website?<a href={this.state.business.website}>Website</a>:null}
+						
 						<div className="review-container">
 							<h1>Reviews</h1>
 							<div className="reviews">
