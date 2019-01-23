@@ -110,6 +110,7 @@ router.put('/updatepassword/:token', async (req, res) => {
   const [user] = await userModel.getByResetToken(req.params.token);
   const hash = bcrypt.hashSync(req.body.password, 3);
   user.password = hash;
+  user.reset_token = null;
   try {
     await userModel.updateUser(user.id, user);
     res.json({ message: 'Updated the user' });

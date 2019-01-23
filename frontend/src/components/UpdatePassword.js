@@ -19,10 +19,20 @@ class UpdatePassword extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
     if (this.state.password !== this.state.confirm_password)
       return alert('passwords must match');
+    try {
+      const res = await axios.put(
+        `${backendLink}/api/user/updatepassword/${this.props.match.params.id}`,
+        { password: this.state.password },
+        { withCredentials: 'include' }
+      );
+      console.log(res);
+    } catch (err) {
+      alert(err);
+    }
   };
   render() {
     return (
