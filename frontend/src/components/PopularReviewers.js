@@ -96,7 +96,7 @@ class PopularReviewers extends Component {
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
           <CardStyle key={id}>
-            <img src={gravatar} alt="reviewer's profile picture" />
+            <img src={gravatar} alt="reviewer's profile" />
             <p>{name}</p>
           </CardStyle>
         ))}
