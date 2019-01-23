@@ -78,7 +78,7 @@ class PopularBusinesses extends Component {
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
-          <CardStyle key={id} id={id} onClick={this.toggleModal}>
+          <CardStyle key={Math.random()} id={id} onClick={this.toggleModal}>
             <img src={image} alt="reviewed business" />
             <p>{name}</p>
             <h3>{rating}</h3>
