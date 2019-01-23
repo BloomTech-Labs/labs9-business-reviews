@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     user.string('email').unique();
     user.string('password').notNullable();
     user.string('billing_id').unique();
+    user.string('reset_token');
     user.string('gravatar');
   });
 };
