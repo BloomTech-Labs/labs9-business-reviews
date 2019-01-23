@@ -8,7 +8,7 @@ const StyledBusiness = styled.div`
   justify-content: center;
   font-family: Quicksand;
   line-height: 1.75;
-  .business__card {
+  .card {
     border: 1px solid grey;
     background: white;
     border-radius: 5px;
@@ -69,16 +69,21 @@ class SearchResult extends React.Component {
     Axios.get(
       `https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE&placeid=${id}`
     )
-      // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
   }
 
   render() {
     console.log('yo: ', this.state.business);
+    console.log(this.state.business.opening_hours);
+
+    // why in the world can I NOT access anything in the
+    // returned JSON deeper than 2 layers?
+    // opening_hours.open_now is
+
     return (
       <StyledBusiness>
-        <div className='business__card'>
+        <div className='card'>
           <h1 className='business__name'>{this.state.business.name}</h1>
 
           <h1 className='business__rating'>{this.state.business.rating}</h1>
