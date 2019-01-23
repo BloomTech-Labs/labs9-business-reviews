@@ -72,19 +72,12 @@ router.delete('/:id', (req, res) => {
 // G E T  B U S I N E S S  R A T I N G S
 router.get('/:id/reviews', (req, res) => {
   const { id } = req.params;
-
-  db('businesses')
-    .where({ id: id })
-    .first()
-    .then(business => {
-      if (business)
-        db('reviews')
-          .where({ id: id })
-          .then(reviews => {
-            res.status(200).json(reviews);
-          })
-          .catch(err => res.status(500).json(err));
-    });
+  db('reviews')
+  .where({business_id:id})
+  .then(reviews => {
+    res.status(200).json(reviews)
+  })
+  .catch(err=>res.status(500).json(err))
 });
 
 module.exports = router;

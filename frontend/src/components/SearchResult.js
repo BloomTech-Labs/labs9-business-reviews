@@ -121,7 +121,7 @@ class SearchResult extends React.Component {
       id: `${id}`,
       name: this.state.business.name,
       rating: this.state.business.rating,
-      image: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE`
+      image: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`
     })
       .then(res => {
         console.log('Successfully sent business to db!', res.status);
