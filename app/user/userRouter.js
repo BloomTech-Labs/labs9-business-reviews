@@ -90,14 +90,16 @@ router.put('/:id', async (req, res) => {
 router.post('/verify', async (req, res) => {
   const email = req.body.email;
   const emailExists = await userModel.verifyLoginEmail(email);
+  const [singleUser] = [...emailExists];
   const DoesEmailExist = emailExists.length > 0 ? true : false;
+  console.log(emailExists);
   if (!DoesEmailExist) {
     return res.json({ error: 'email does not exist' });
   }
-  console.log(DoesEmailExist);
   const promisifiedRandomBytes = promisify(randomBytes);
-  req.body.reset_token = (await promisifiedRandomBytes(20)).toString('hex');
-  console.log(req.body.reset_token);
-  res.json({ message: 'Reset token ready' });
+  singleUser.reset_token = (await promisifiedRandomBytes(20)).toString('hex');
+
+  await userModel.updateUser(singleUser.id, singleUser);
+  res.json({ id: singleUser.reset_token });
 });
 module.exports = router;
