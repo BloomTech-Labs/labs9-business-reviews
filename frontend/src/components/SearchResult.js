@@ -200,9 +200,7 @@ class SearchResult extends React.Component {
               <button onClick={this.toggleReviewing}>Add a Review</button>
             </div>
           </div>
-          {this.state.reviewing ? (
-            <AddReviewModal toggleReviewing={this.toggleReviewing} />
-          ) : null}
+          {this.state.reviewing ? <AddReviewModal businessId={this.props.match.params} toggleReviewing={this.toggleReviewing}/> : null}
         </StyledBusiness>
       );
     }
