@@ -104,7 +104,7 @@ function LandingNav() {
   return (
     <NavBar>
       <div className="inner-nav-container">
-        <img src={logo} alt='logo' className='menu__logo--logo' />
+        <a href='/'><img src={logo} alt='logo' className='menu__logo--logo' /></a>
         <div className='menu__menuItems'>
           <a href='/addreview'>add a review</a>
           <a href='/categories'>categories</a>
