@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     user.string('name').notNullable();
     user.string('email').unique();
     user.string('password').notNullable();
-    user.string('billing_id').unique();
+    user.string('billing_id').defaultTo(null).unique();
     user.string('reset_token');
     user.string('gravatar');
   });
