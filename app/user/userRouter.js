@@ -5,6 +5,8 @@ const bcrypt = require('bcryptjs');
 const userModel = require('../db/userModel/userModel');
 const passport = require('passport');
 const authConfig = require('./authConfig');
+const { randomBytes } = require('crypto');
+const { promisify } = require('util');
 
 router.get('/', async (req, res) => {
   const response = await userModel.getUsers();
@@ -93,6 +95,9 @@ router.post('/verify', async (req, res) => {
     return res.json({ error: 'email does not exist' });
   }
   console.log(DoesEmailExist);
+  const promisifiedRandomBytes = promisify(randomBytes);
+  req.body.reset_token = (await promisifiedRandomBytes(20)).toString('hex');
+  console.log(req.body.reset_token);
   res.json({ message: 'Reset token ready' });
 });
 module.exports = router;
