@@ -28,7 +28,7 @@ class AddReviewModal extends React.Component {
 		this.state = {
 			title: '',
       body: '',
-      rating: 0
+      rating: 0,
 		};
 	}
 	handleSubmit = (e) => {
@@ -36,12 +36,23 @@ class AddReviewModal extends React.Component {
     Axios.post(`http://localhost:9000/api/review`, {
       title: this.state.title,
       body: this.state.body,
-      rating: this.state.rating
+      rating: this.state.rating,
+      business_id:this.props.businessId,
+      reviewer_id: 69
     })
+    .then(res => {
+      console.log("Success!", res.status);
+      this.setState({title:'',body:'',rating:0})
+      this.props.toggleReviewing();
+    })
+    .catch(err=>console.log('error', err))
   };
 	changeHandler = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
-	};
+  };
+  componentDidMount=()=>{
+    console.log('businessid', this.props.businessId)
+  }
 	render() {
 		return (
 			<ModalStyles>
