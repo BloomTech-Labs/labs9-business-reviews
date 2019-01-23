@@ -19,22 +19,24 @@ const StyledContainer = styled.div`
 `;
 
 function App() {
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  console.log('where is my API Key', API_KEY);
   return (
-    <div className="App">
+    <div className='App'>
       <LandingNav />
-      <StyledContainer className="container">
+      <StyledContainer className='container'>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route path="/user" component={UserProfile} />
-            <Route path="/billing" component={BillingPage} />
-            <Route path="/authenticate" component={Authenticate} />
-            <Route path="/test" component={UserTest} />
-            <Route path="/updateuser" component={UpdateUser} />
-            <Route path="/reviews" component={ReviewsTest} />
-            <Route path="/resetpassword" component={ResetPassword} />
+            <Route exact path='/' component={LandingPage} />
+            <Route path='/user' component={UserProfile} />
+            <Route path='/billing' component={BillingPage} />
+            <Route path='/authenticate' component={Authenticate} />
+            <Route path='/test' component={UserTest} />
+            <Route path='/updateuser' component={UpdateUser} />
+            <Route path='/reviews' component={ReviewsTest} />
+            <Route path='/resetpassword' component={ResetPassword} />
             <Route
-              path="/business/:id"
+              path='/business/:id'
               render={props => <SearchResult {...props} />}
             />
           </Switch>
