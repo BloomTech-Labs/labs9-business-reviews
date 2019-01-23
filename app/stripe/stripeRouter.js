@@ -9,8 +9,10 @@ const {token} = req.query;
 const res = await stripe.create.charges({
     amount:'999',
     source: token,
-    currency:'USD'
+    currency:'USD',
+    description: 'test charge',
 })
+console.log(res);
 res.json({res});
 });
 

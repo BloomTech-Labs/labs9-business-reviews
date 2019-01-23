@@ -35,8 +35,8 @@ class BillingForm extends React.Component {
     console.log(res.id);
     axios
       .post(`http:localhost:9000/api/billing/yearly?token=${res.id}`)
-      .then(res => consoloe.log(res))
-      .catech(err => console.log(err))
+      .then(response => console.log(response))
+      .catch(err => console.log(err))
   };
 
   render() {
