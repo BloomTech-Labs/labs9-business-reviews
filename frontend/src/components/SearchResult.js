@@ -106,12 +106,17 @@ class SearchResult extends React.Component {
       
   }
   addBusiness =()=> {
+    if(this.state.business.photos){
+      const photos = this.state.business.photos;
+      const references = [];
+      photos.map(photo => references.push(photo.photo_reference));
+    } 
     const { id } = this.props.match.params;
     Axios.post(`http://localhost:9000/api/business`, {
       id:`${id}`,
       name: this.state.business.name,			
       rating: this.state.business.rating,
-      image: ''
+      image: `${}`
     })
       .then((res) => {
         console.log('Successfully sent business to db!', res.status);
@@ -123,9 +128,7 @@ class SearchResult extends React.Component {
     this.setState({ reviewing: !this.state.reviewing });
   };
 
-  render() {
-    console.log(this.state.business);
-
+  render() {  
     if (!this.state.business) return <p>Loading business...</p>;
     else {
       return (
