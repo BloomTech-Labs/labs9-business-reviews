@@ -16,7 +16,6 @@ const StyledBusiness = styled.div`
     margin-top: 40px;
     padding: 15px;
     display: flex;
-    /* align-items: center; */
     flex-flow: column wrap;
     .business__name {
       font-size: 2.6rem;
@@ -24,12 +23,6 @@ const StyledBusiness = styled.div`
     .business__rating {
       font-size: 2.6rem;
       margin-top: -2rem;
-    }
-
-    svg {
-      height: 35px;
-      width: 35px;
-      margin-right: 1.7rem;
     }
 
     .business__details {
@@ -51,6 +44,11 @@ const StyledBusiness = styled.div`
           text-decoration: none;
         }
       }
+    }
+    svg {
+      height: 35px;
+      width: 35px;
+      margin-right: 1.7rem;
     }
   }
 `;
@@ -79,7 +77,7 @@ class SearchResult extends React.Component {
 
     // why in the world can I NOT access anything in the
     // returned JSON deeper than 2 layers?
-    // opening_hours.open_now is
+    // opening_hours.open_now simply refuses to render.
 
     return (
       <StyledBusiness>
