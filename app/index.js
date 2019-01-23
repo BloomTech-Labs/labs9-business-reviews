@@ -6,6 +6,7 @@ const authMiddleware = require('./authMiddlewares');
 const userRouter = require('./user/userRouter');
 const reviewRouter = require('./reviews/reviewRouter');
 const businessRouter = require('./businesses/businessRouter');
+const stripeRouter = require('./stripe/stripeRouter');
 const cors = require('cors');
 
 const server = express();
@@ -16,7 +17,7 @@ server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.json({data: [1,2,3,4]})
+  next();
 });
 // server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // server.use(cors());
@@ -30,6 +31,7 @@ server.use(express.json());
 server.use('/api/business', businessRouter);
 server.use('/api/user', userRouter);
 server.use('/api/review', reviewRouter);
+server.use('/api/billing', stripeRouter);
 require('./user/passport');
 
 // R O O T  R O U T E
