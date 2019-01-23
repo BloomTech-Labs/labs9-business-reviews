@@ -27,11 +27,17 @@ class AddReviewModal extends React.Component {
 		super();
 		this.state = {
 			title: '',
-			body: ''
+      body: '',
+      rating: 0
 		};
 	}
 	handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    Axios.post(`http://localhost:9000/api/review`, {
+      title: this.state.title,
+      body: this.state.body,
+      rating: this.state.rating
+    })
   };
 	changeHandler = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -50,12 +56,19 @@ class AddReviewModal extends React.Component {
 							className="review-title"
 						/>
 						<label htmlFor="review-body" />
-						<input
+						<textarea
 							onChange={this.changeHandler}
 							name="body"
 							value={this.state.body}
 							className="review-body"
 						/>
+            <select onChange={this.changeHandler} name="rating" value={this.state.rating}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option defaultValue="5">5</option>
+            </select>
 						<button onClick={this.handleSubmit}>Submit Review</button>
 						<button onClick={this.props.toggleReviewing}>Cancel</button>
 					</form>
