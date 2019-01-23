@@ -92,14 +92,24 @@ router.post('/verify', async (req, res) => {
   const emailExists = await userModel.verifyLoginEmail(email);
   const [singleUser] = [...emailExists];
   const DoesEmailExist = emailExists.length > 0 ? true : false;
-  console.log(emailExists);
   if (!DoesEmailExist) {
     return res.json({ error: 'email does not exist' });
   }
   const promisifiedRandomBytes = promisify(randomBytes);
   singleUser.reset_token = (await promisifiedRandomBytes(20)).toString('hex');
-
   await userModel.updateUser(singleUser.id, singleUser);
   res.json({ id: singleUser.reset_token });
+});
+
+router.put('/updatepassword/:token', async (req, res) => {
+  const [user] = await userModel.getByResetToken(req.params.token);
+  const hash = bcrypt.hashSync(req.body.password, 3);
+  user.password = hash;
+  try {
+    await userModel.updateUser(user.id, user);
+    res.json({ message: 'Updated the user' });
+  } catch {
+    res.json({ error: 'not authenticated' });
+  }
 });
 module.exports = router;
