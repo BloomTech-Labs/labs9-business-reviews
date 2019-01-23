@@ -7,6 +7,7 @@ const StyledBusiness = styled.div`
   display: flex;
   justify-content: center;
   font-family: Quicksand;
+  line-height: 1.75;
   .business__card {
     border: 1px solid grey;
     background: white;
@@ -15,29 +16,37 @@ const StyledBusiness = styled.div`
     margin-top: 40px;
     padding: 15px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-flow: column wrap;
     .business__name {
       font-size: 2.6rem;
     }
     .business__rating {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
+      margin-top: -2rem;
+    }
+
+    svg {
+      height: 35px;
+      width: 35px;
+      margin-right: 1.7rem;
     }
 
     .business__details {
-      border: 3px solid red;
-
       .business__details--address {
         display: flex;
         align-items: center;
+        margin-bottom: 1rem;
       }
       .business__details--phone {
         display: flex;
         align-items: center;
+        margin-bottom: 1rem;
       }
       .business__details--website {
         display: flex;
         align-items: center;
+        margin-bottom: 1rem;
         .business__website--text {
           text-decoration: none;
         }
