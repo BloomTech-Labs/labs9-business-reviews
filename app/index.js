@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 // TO AVOID USING SESSIONS WE WILL JUST USE COOKIES TO HAVE LESS CODE FOR AUTHENTICATION AND STORING THE USER DATA ON REQ.USER FOR EVERY REQUEST IN THE DATABASE
 const cookieParser = require('cookie-parser');
@@ -8,6 +9,7 @@ const reviewRouter = require('./reviews/reviewRouter');
 const businessRouter = require('./businesses/businessRouter');
 const stripeRouter = require('./stripe/stripeRouter');
 const cors = require('cors');
+
 
 const server = express();
 const port = process.env.PORT || 9000;
