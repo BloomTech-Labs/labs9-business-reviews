@@ -70,17 +70,17 @@ router.delete('/:id', (req, res) => {
 });
 
 // G E T  B U S I N E S S  R A T I N G S 
-router.get('/:id/reviews', (req, res) => {
-  .where({ id: id })
-  .first()
-  .then(business => {
-    if (business)
-    .where({ id: id })
-    .then (business => {
-      res.status(200).json(business)
-    })
-    .catch(err => res.status(500).json(err));
-  });
-})
+// router.get('/:id/reviews', (req, res) => {
+//   .where({ id: id })
+//   .first()
+//   .then(business => {
+//     if (business)
+//     .where({ id: id })
+//     .then (business => {
+//       res.status(200).json(business)
+//     })
+//     .catch(err => res.status(500).json(err));
+//   });
+// })
 
 module.exports = router;

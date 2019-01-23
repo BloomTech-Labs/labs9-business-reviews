@@ -16,7 +16,7 @@ server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 server.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.json({data: [1,2,3,4]})
+  next();
 });
 // server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // server.use(cors());
