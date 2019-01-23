@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const ModalStyles = styled.div`
 	position: fixed;
 	top: 0;
@@ -21,22 +22,35 @@ const ModalStyles = styled.div`
 		background-color: white;
 	}
 `;
-function AddReviewModal({toggleReviewing}) {
-	return (
-		<ModalStyles>
-			<div className="review-modal">
-        <h1>Add A Review</h1>
-				<form>
-					<label htmlFor="review-title">Title</label>
-					<input className="review-title" />
-					<label htmlFor="review-body" />
-					<input className="review-body" />
-					<button>Submit Review</button>
-					<button onClick={toggleReviewing}>Cancel</button>
-				</form>
-			</div>
-		</ModalStyles>
-	);
+class AddReviewModal extends React.Component {
+  constructor(){
+    super();
+    this.state= {
+      title: '',
+      body:''
+    }
+  }
+  changeHandler =(e) => {
+    console.log("value", e.target.value,"name", e.target.name)
+    this.setState({[e.target.name]:e.target.value})
+  }
+	render() {
+		return (
+			<ModalStyles>
+				<div className="review-modal">
+					<h1>Add A Review</h1>
+					<form>
+						<label htmlFor="review-title">Title</label>
+						<input onChange={this.changeHandler} name="title" value={this.state.title} className="review-title" />
+						<label htmlFor="review-body" />
+						<input onChange={this.changeHandler} name="body" value={this.state.body} className="review-body" />
+						<button>Submit Review</button>
+						<button onClick={this.props.toggleReviewing}>Cancel</button>
+					</form>
+				</div>
+			</ModalStyles>
+		);
+	}
 }
 
 export default AddReviewModal;
