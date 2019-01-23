@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Axios from 'axios';
 
 const ModalStyles = styled.div`
 	position: fixed;
@@ -23,27 +23,40 @@ const ModalStyles = styled.div`
 	}
 `;
 class AddReviewModal extends React.Component {
-  constructor(){
-    super();
-    this.state= {
-      title: '',
-      body:''
-    }
-  }
-  changeHandler =(e) => {
-    this.setState({[e.target.name]:e.target.value})
-  }
+	constructor() {
+		super();
+		this.state = {
+			title: '',
+			body: ''
+		};
+	}
+	handleSubmit = (e) => {
+    e.preventDefault()
+  };
+	changeHandler = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
 	render() {
 		return (
 			<ModalStyles>
 				<div className="review-modal">
 					<h1>Add A Review</h1>
-					<form>
+					<form onSubmit={this.handleSubmit}>
 						<label htmlFor="review-title">Title</label>
-						<input onChange={this.changeHandler} name="title" value={this.state.title} className="review-title" />
+						<input
+							onChange={this.changeHandler}
+							name="title"
+							value={this.state.title}
+							className="review-title"
+						/>
 						<label htmlFor="review-body" />
-						<input onChange={this.changeHandler} name="body" value={this.state.body} className="review-body" />
-						<button>Submit Review</button>
+						<input
+							onChange={this.changeHandler}
+							name="body"
+							value={this.state.body}
+							className="review-body"
+						/>
+						<button onClick={this.handleSubmit}>Submit Review</button>
 						<button onClick={this.props.toggleReviewing}>Cancel</button>
 					</form>
 				</div>
