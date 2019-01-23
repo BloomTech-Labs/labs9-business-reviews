@@ -33,10 +33,17 @@ class BillingForm extends React.Component {
     console.log('On Token Called!');
     console.log(res);
     console.log(res.id);
-    axios
-      .post(`http:localhost:9000/api/billing/yearly?token=${res.id}`)
-      .then(response => console.log(response))
-      .catch(err => console.log(err))
+    if(this.state.amount === 99) {
+      axios
+        .post(`http:localhost:9000/api/billing/monthly?token=${res.id}`)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    } else if(this.state.amount === 999) {
+      axios
+        .post(`http:localhost:9000/api/billing/yearly?token=${res.id}`)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    } else return null
   };
 
   render() {

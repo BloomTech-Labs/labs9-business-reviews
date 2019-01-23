@@ -10,10 +10,22 @@ const res = await stripe.create.charges({
     amount:'999',
     source: token,
     currency:'USD',
-    description: 'test charge',
+    description: 'test charge, yearly',
 })
 console.log(res);
 res.json({res});
+});
+
+router.post('/monthly', async(req, res) => {
+  const {token} = req.query;
+  const res = await stripe.create.charges({
+    amount:'99',
+    source: token,
+    currency:'USD',
+    description: 'test charge, monthly',
+  })
+  console.log(res);
+  res.json({res});
 });
 
 
