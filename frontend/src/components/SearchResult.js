@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
   width: 100%;
@@ -98,7 +99,7 @@ class SearchResult extends React.Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     Axios.get(
-      `https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE&placeid=${id}`
+      `https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
       // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
