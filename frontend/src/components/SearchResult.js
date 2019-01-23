@@ -71,40 +71,38 @@ class SearchResult extends React.Component {
 
 	render() {
 		if (!this.state.business) return <p>Loading business...</p>;
-		else {
-			return (
-				<StyledBusiness>
-					<div className="business-card">
-						<h1>{this.state.business.name}</h1>
-						<h2>{this.state.business.rating} stars</h2>
-						<p>{this.state.business.formatted_address}</p>
-						<p>{this.state.business.formatted_phone_number}</p>
-						{this.state.business.website?<a href={this.state.business.website}>Website</a>:null}
-						
-						<div className="review-container">
-							<h1>Reviews</h1>
-							<div className="reviews">
-								<div className="review">
-									<div className="review-img1" />
-									<p>⭐⭐⭐</p>
-									<h3>@eddbunk</h3>
-								</div>
-								<div className="review">
-									<div className="review-img2" />
-									<p>⭐⭐⭐⭐⭐</p>
-									<h3>@alixjones</h3>
-								</div>
-								<div className="review">
-									<div className="review-img3" />
-									<p>⭐⭐</p>
-									<h3>@carloG</h3>
-								</div>
+		return (
+			<StyledBusiness>
+				<div className="business-card">
+					<h1>{this.state.business.name}</h1>
+					<h2>{this.state.business.rating} stars</h2>
+					<p>{this.state.business.formatted_address}</p>
+					<p>{this.state.business.formatted_phone_number}</p>
+					{this.state.business.website ? <a href={this.state.business.website}>Website</a> : null}
+
+					<div className="review-container">
+						<h1>Reviews</h1>
+						<div className="reviews">
+							<div className="review">
+								<div className="review-img1" />
+								<p><span role="img" aria-label="stars">⭐⭐⭐</span></p>
+								<h3>@eddbunk</h3>
+							</div>
+							<div className="review">
+								<div className="review-img2" />
+								<p><span role="img" aria-label="stars">⭐⭐⭐⭐⭐</span></p>
+								<h3>@alixjones</h3>
+							</div>
+							<div className="review">
+								<div className="review-img3" />
+								<p><span role="img" aria-label="stars">⭐⭐</span></p>
+								<h3>@carloG</h3>
 							</div>
 						</div>
 					</div>
-				</StyledBusiness>
-			);
-		}
+				</div>
+			</StyledBusiness>
+		);
 	}
 }
 
