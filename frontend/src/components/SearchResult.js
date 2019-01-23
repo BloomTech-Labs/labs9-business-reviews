@@ -64,11 +64,7 @@ class SearchResult extends React.Component {
     Axios.get(
       `https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE&placeid=${id}`
     )
-      // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
-      // .then(this.state.business.photo.map(photo => {
-      // 	photoRefs.push(photo.photo_reference)
-      // }))
       .catch(err => console.log(err));
   }
 
