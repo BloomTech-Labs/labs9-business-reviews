@@ -14,9 +14,12 @@ const port = process.env.PORT || 9000;
 // /* uncomment this when on development on localhost:3000 */
 server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 server.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.json({data: [1,2,3,4]})
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
 });
 // server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // server.use(cors());
