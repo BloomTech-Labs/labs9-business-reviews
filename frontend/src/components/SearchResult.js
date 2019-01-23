@@ -117,6 +117,7 @@ class SearchResult extends React.Component {
                   <h3>@carloG</h3>
                 </div>
               </div>
+							<button>Add a Review</button>
             </div>
           </div>
         </StyledBusiness>
