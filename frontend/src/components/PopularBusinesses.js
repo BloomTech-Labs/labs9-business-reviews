@@ -18,7 +18,11 @@ export const PopularBusinessesStyles = styled.div`
 	}
 	h1 {
 		width: 100%;
-	}
+  }
+  .link {
+    text-decoration:none;
+    color: black;
+  }
 `;
 
 export const CardStyle = styled.div`
@@ -40,6 +44,7 @@ export const CardStyle = styled.div`
 		color: black;
 	}
 `;
+
 
 class PopularBusinesses extends Component {
 	constructor() {
@@ -71,7 +76,7 @@ class PopularBusinesses extends Component {
 			<PopularBusinessesStyles>
 				<h1>Popular Businesses</h1>
 				{this.state.businesses.map(({ id, name, rating, image }) => (
-					<Link key={Math.random()} to={`/business/${id}`}>
+					<Link className="link"key={Math.random()} to={`/business/${id}`}>
 						<CardStyle  id={id}>
 							<img src={image} alt="reviewed business" />
 							<p>{name}</p>
