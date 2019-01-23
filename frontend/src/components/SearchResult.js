@@ -66,43 +66,61 @@ class SearchResult extends React.Component {
 		)
 			// .then(res => console.log(res.data.result.formatted_phone_number))
 			.then((res) => this.setState({ business: res.data.result }))
+			// .then(this.state.business.photo.map(photo => {
+			// 	photoRefs.push(photo.photo_reference)
+			// }))
 			.catch((err) => console.log(err));
 	}
 
 	render() {
 		if (!this.state.business) return <p>Loading business...</p>;
-		return (
-			<StyledBusiness>
-				<div className="business-card">
-					<h1>{this.state.business.name}</h1>
-					<h2>{this.state.business.rating} stars</h2>
-					<p>{this.state.business.formatted_address}</p>
-					<p>{this.state.business.formatted_phone_number}</p>
-					{this.state.business.website ? <a href={this.state.business.website}>Website</a> : null}
+		else {
+			return (
+				<StyledBusiness>
+					<div className="business-card">
+						<h1>{this.state.business.name}</h1>
+						<h2>{this.state.business.rating} stars</h2>
+						{/* {open.open_now?<p>Open Now</p>:<p>Closed Now</p>} */}
+						<p>{this.state.business.formatted_address}</p>
+						<p>{this.state.business.formatted_phone_number}</p>
+						{this.state.business.website ? <a href={this.state.business.website}>Website</a> : null}
 
-					<div className="review-container">
-						<h1>Reviews</h1>
-						<div className="reviews">
-							<div className="review">
-								<div className="review-img1" />
-								<p><span role="img" aria-label="stars">⭐⭐⭐</span></p>
-								<h3>@eddbunk</h3>
-							</div>
-							<div className="review">
-								<div className="review-img2" />
-								<p><span role="img" aria-label="stars">⭐⭐⭐⭐⭐</span></p>
-								<h3>@alixjones</h3>
-							</div>
-							<div className="review">
-								<div className="review-img3" />
-								<p><span role="img" aria-label="stars">⭐⭐</span></p>
-								<h3>@carloG</h3>
+						<div className="review-container">
+							<h1>Reviews</h1>
+							<div className="reviews">
+								<div className="review">
+									<div className="review-img1" />
+									<p>
+										<span role="img" aria-label="stars">
+											⭐⭐⭐
+										</span>
+									</p>
+									<h3>@eddbunk</h3>
+								</div>
+								<div className="review">
+									<div className="review-img2" />
+									<p>
+										<span role="img" aria-label="stars">
+											⭐⭐⭐⭐⭐
+										</span>
+									</p>
+									<h3>@alixjones</h3>
+								</div>
+								<div className="review">
+									<div className="review-img3" />
+									<p>
+										<span role="img" aria-label="stars">
+											⭐⭐
+										</span>
+									</p>
+									<h3>@carloG</h3>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</StyledBusiness>
-		);
+				</StyledBusiness>
+			);
+		}
 	}
 }
 
