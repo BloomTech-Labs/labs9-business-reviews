@@ -4,9 +4,8 @@ const router = express.Router();
 const db = require('../db/dbinit');
 
 // P O S T
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   const business = req.body;
-
   db('businesses')
     .insert(business)
     .returning('id')

@@ -90,7 +90,8 @@ class SearchResult extends React.Component {
 
     this.state = {
       business: [],
-      reviewing: false
+      reviewing: false,
+      reviews:[]
     };
   }
 
@@ -100,11 +101,22 @@ class SearchResult extends React.Component {
       `https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE&placeid=${id}`
     )
       // .then(res => console.log(res.data.result.formatted_phone_number))
-      .then(res => this.setState({ business: res.data.result }))
-      // .then(this.state.business.photo.map(photo => {
-      //     photoRefs.push(photo.photo_reference)
-      // }))
+      .then(res => this.setState({ business: res.data.result }))      
       .catch(err => console.log(err));
+      
+  }
+  addBusiness =()=> {
+    const { id } = this.props.match.params;
+    Axios.post(`http://localhost:9000/api/business`, {
+      id:`${id}`,
+      name: this.state.business.name,			
+      rating: this.state.business.rating,
+      image: ''
+    })
+      .then((res) => {
+        console.log('Successfully sent business to db!', res.status);
+      })
+      .catch((err) => console.log('error', err));
   }
   toggleReviewing = e => {
     e.preventDefault();
@@ -200,7 +212,7 @@ class SearchResult extends React.Component {
               <button onClick={this.toggleReviewing}>Add a Review</button>
             </div>
           </div>
-          {this.state.reviewing ? <AddReviewModal businessId={this.props.match.params} toggleReviewing={this.toggleReviewing}/> : null}
+          {this.state.reviewing ? <AddReviewModal addBusiness={this.addBusiness}businessId={this.props.match.params} toggleReviewing={this.toggleReviewing}/> : null}
         </StyledBusiness>
       );
     }
