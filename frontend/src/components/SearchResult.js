@@ -105,13 +105,23 @@ class SearchResult extends React.Component {
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
   }
-  addBusiness = () => {
+
+  addBusiness =()=> {
+    let imageCC ='';
+    if(this.state.business.photos){
+      const photos = this.state.business.photos;
+      const references = [];
+      photos.map(photo => references.push(photo.photo_reference));
+      imageCC = references[0];
+    } 
+    console.log('image ref', imageCC)
+
     const { id } = this.props.match.params;
     Axios.post(`http://localhost:9000/api/business`, {
       id: `${id}`,
       name: this.state.business.name,
       rating: this.state.business.rating,
-      image: ''
+      image: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`
     })
       .then(res => {
         console.log('Successfully sent business to db!', res.status);
@@ -123,9 +133,7 @@ class SearchResult extends React.Component {
     this.setState({ reviewing: !this.state.reviewing });
   };
 
-  render() {
-    console.log(this.state.business);
-
+  render() {  
     if (!this.state.business) return <p>Loading business...</p>;
     else {
       return (
