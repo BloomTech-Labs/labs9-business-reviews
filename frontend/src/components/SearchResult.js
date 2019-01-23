@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
   width: 100%;
@@ -90,22 +91,33 @@ class SearchResult extends React.Component {
 
     this.state = {
       business: [],
-      reviewing: false
+      reviewing: false,
+      reviews: []
     };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
     Axios.get(
-      `https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE&placeid=${id}`
+      `https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
       // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
-      // .then(this.state.business.photo.map(photo => {
-      //     photoRefs.push(photo.photo_reference)
-      // }))
       .catch(err => console.log(err));
   }
+  addBusiness = () => {
+    const { id } = this.props.match.params;
+    Axios.post(`http://localhost:9000/api/business`, {
+      id: `${id}`,
+      name: this.state.business.name,
+      rating: this.state.business.rating,
+      image: ''
+    })
+      .then(res => {
+        console.log('Successfully sent business to db!', res.status);
+      })
+      .catch(err => console.log('error', err));
+  };
   toggleReviewing = e => {
     e.preventDefault();
     this.setState({ reviewing: !this.state.reviewing });
@@ -201,7 +213,11 @@ class SearchResult extends React.Component {
             </div>
           </div>
           {this.state.reviewing ? (
-            <AddReviewModal toggleReviewing={this.toggleReviewing} />
+            <AddReviewModal
+              addBusiness={this.addBusiness}
+              businessId={this.props.match.params}
+              toggleReviewing={this.toggleReviewing}
+            />
           ) : null}
         </StyledBusiness>
       );

@@ -1,10 +1,7 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import styled from 'styled-components'
-// import { Mutation } from 'react-apollo';
-// import Router from 'next/router';
-// import NProgress from 'NProgress';
-// import gql from 'graphql-tag';
+import axios from 'axios';
 
 const StyledBillingForm = styled.div`
   .billing-form{
@@ -36,7 +33,18 @@ class BillingForm extends React.Component {
     console.log('On Token Called!');
     console.log(res);
     console.log(res.id);
-  }
+    if(this.state.amount === 99) {
+      axios
+        .post(`http://localhost:9000/api/billing/monthly?token=${res.id}`)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    } else if(this.state.amount === 999) {
+      axios
+        .post(`http://localhost:9000/api/billing/yearly?token=${res.id}`)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    } else return null
+  };
 
   render() {
     return(

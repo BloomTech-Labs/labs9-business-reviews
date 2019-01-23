@@ -4,9 +4,8 @@ const router = express.Router();
 const db = require('../db/dbinit');
 
 // P O S T
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   const business = req.body;
-
   db('businesses')
     .insert(business)
     .returning('id')
@@ -68,6 +67,24 @@ router.delete('/:id', (req, res) => {
       res.status(200).json(count);
     })
     .catch(err => res.status(500).json(err));
+});
+
+// G E T  B U S I N E S S  R A T I N G S
+router.get('/:id/reviews', (req, res) => {
+  const { id } = req.params;
+
+  db('businesses')
+    .where({ id: id })
+    .first()
+    .then(business => {
+      if (business)
+        db('reviews')
+          .where({ id: id })
+          .then(reviews => {
+            res.status(200).json(reviews);
+          })
+          .catch(err => res.status(500).json(err));
+    });
 });
 
 module.exports = router;
