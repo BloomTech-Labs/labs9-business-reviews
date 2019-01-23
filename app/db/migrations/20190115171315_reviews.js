@@ -8,7 +8,6 @@ exports.up = function(knex, Promise) {
       review.integer('reviewer_id').references('id').inTable('users');
   });
 };
-
 exports.down = function(knex, Promise) {
   return knex.schema.dropTable('reviews');
 };
