@@ -101,6 +101,11 @@ router.post('/verify', async (req, res) => {
   res.json({ id: singleUser.reset_token });
 });
 
+router.get('/tokenuser/:token', async (req, res) => {
+  const [user] = await userModel.getByResetToken(req.params.token);
+  res.json({ user });
+});
+
 router.put('/updatepassword/:token', async (req, res) => {
   const [user] = await userModel.getByResetToken(req.params.token);
   const hash = bcrypt.hashSync(req.body.password, 3);
