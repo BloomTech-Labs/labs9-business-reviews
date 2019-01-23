@@ -17,9 +17,38 @@ const StyledBusiness = styled.div`
 		align-items: center;
 		flex-flow: column wrap;
 		.review-container {
-			.review {
-				width: 25%;
+			display: flex;
+			width: 100%;
+			flex-flow: row wrap;
+			h1 {
+				width: 100%;
 			}
+			.reviews {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+				.review {
+					width: 25%;
+					.review-img1 {
+						width: 85%;
+						height: 100px;
+						background: blue;
+					}
+					.review-img2 {
+						width: 85%;
+						height: 100px;
+						background: red;
+
+					}
+					.review-img3 {
+						width: 85%;
+						height: 100px;
+						background: green;
+						
+					}
+				}
+			}
+			
 		}
 	}
 `;
@@ -55,20 +84,22 @@ class SearchResult extends React.Component {
 					<a href={this.state.business.website}>Website</a>
 					<div className="review-container">
 						<h1>Reviews</h1>
-						<div className="review">
-							<div className="review-img1"></div>
-							<p>⭐⭐⭐</p>
-							<h3>@eddbunk</h3>
-						</div>
-						<div className="review">
-							<div className="review-img2"></div>
-							<p>⭐⭐⭐⭐⭐</p>
-							<h3>@alixjones</h3>
-						</div>
-						<div className="review">
-							<div className="review-img3"></div>
-							<p>⭐⭐</p>
-							<h3>@carloG</h3>
+						<div className="reviews">
+							<div className="review">
+								<div className="review-img1"></div>
+								<p>⭐⭐⭐</p>
+								<h3>@eddbunk</h3>
+							</div>
+							<div className="review">
+								<div className="review-img2"></div>
+								<p>⭐⭐⭐⭐⭐</p>
+								<h3>@alixjones</h3>
+							</div>
+							<div className="review">
+								<div className="review-img3"></div>
+								<p>⭐⭐</p>
+								<h3>@carloG</h3>
+							</div>
 						</div>
 					</div>
 				</div>
