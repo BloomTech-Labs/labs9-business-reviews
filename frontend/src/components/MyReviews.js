@@ -38,7 +38,11 @@ class MyReviews extends Component {
   }
   componentDidMount() {
     const id = this.props.id;
-    
+    Axios.get(
+      `${backendLink}/api/user/${id}/reviews`
+    )
+      .then(res => this.setState({ reviews: res.data }))
+      .catch(err => console.log(err));  
   }
   render() {
     return (

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
 import PlaceHolderReviews from './PlaceHolderReviews';
+import { backendLink } from '../assets/config';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
@@ -106,7 +107,7 @@ class SearchResult extends React.Component {
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
       Axios.get(
-        `http://localhost:9000/api/business/${id}/reviews`
+        `${backendLink}/api/business/${id}/reviews`
       )
         // .then(res => console.log(res.data.result.formatted_phone_number))
         .then(res => this.setState({ reviews: res.data }))
