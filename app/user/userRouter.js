@@ -118,4 +118,14 @@ router.put('/updatepassword/:token', async (req, res) => {
     res.json({ error: 'not authenticated' });
   }
 });
+
+router.get('/:id/reviews', (req, res) => {
+  const { id } = req.params;
+  db('reviews')
+  .where({reviewer_id:id})
+  .then(reviews => {
+    res.status(200).json(reviews)
+  })
+  .catch(err=>res.status(500).json(err))
+});
 module.exports = router;
