@@ -35,7 +35,7 @@ const NavBar = styled.div`
         border-radius: 0;
       }
     }
-    .menu__menuItems {
+    .menu__menuItems {      
       width: 60%;
       height: auto;
       font-size: 1.4rem;
@@ -49,6 +49,7 @@ const NavBar = styled.div`
         font-size: 2.6rem;
       }
       a {
+        box-sizing:border-box;
         color: black;
         width: 100%;
         text-decoration: none;
@@ -69,7 +70,7 @@ const NavBar = styled.div`
       }
     }
     .menu__user {
-      margin-right: 1rem;
+      box-sizing:border-box;
       color: black;
       width: 15%;
       padding: 10px;

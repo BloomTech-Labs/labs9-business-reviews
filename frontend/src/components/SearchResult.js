@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
+import PlaceHolderReviews from './PlaceHolderReviews';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
@@ -104,8 +105,13 @@ class SearchResult extends React.Component {
       // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
+      Axios.get(
+        `http://localhost:9000/api/business/${id}/reviews`
+      )
+        // .then(res => console.log(res.data.result.formatted_phone_number))
+        .then(res => this.setState({ reviews: res.data }))
+        .catch(err => console.log(err));  
   }
-
   addBusiness =()=> {
     let imageCC ='';
     if(this.state.business.photos){
@@ -114,7 +120,6 @@ class SearchResult extends React.Component {
       photos.map(photo => references.push(photo.photo_reference));
       imageCC = references[0];
     } 
-    console.log('image ref', imageCC)
 
     const { id } = this.props.match.params;
     Axios.post(`http://localhost:9000/api/business`, {
@@ -185,37 +190,15 @@ class SearchResult extends React.Component {
                 </a>
               </div>
             </div>
-
             <div className='review-container'>
               <h1>Reviews</h1>
-              <div className='reviews'>
-                <div className='review'>
-                  <div className='review-img1' />
-                  <p>
-                    <span role='img' aria-label='stars'>
-                      ⭐⭐⭐
-                    </span>
-                  </p>
-                  <h3>@eddbunk</h3>
-                </div>
-                <div className='review'>
-                  <div className='review-img2' />
-                  <p>
-                    <span role='img' aria-label='stars'>
-                      ⭐⭐⭐⭐⭐
-                    </span>
-                  </p>
-                  <h3>@alixjones</h3>
-                </div>
-                <div className='review'>
-                  <div className='review-img3' />
-                  <p>
-                    <span role='img' aria-label='stars'>
-                      ⭐⭐
-                    </span>
-                  </p>
-                  <h3>@carloG</h3>
-                </div>
+              <div className="reviews">
+                {this.state.reviews?this.state.reviews.map(({title, image, id, rating}) => (                <div key={id}className='review'>
+                      <h4>{title}</h4>
+                      <div className='review-img1' />
+                      <p>{`${rating} stars`}</p>            
+                    </div>                  
+                )):<PlaceHolderReviews/>}
               </div>
               <button onClick={this.toggleReviewing}>Add a Review</button>
             </div>
