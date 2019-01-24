@@ -33,9 +33,24 @@ const UpdatePasswordDiv = styled.div`
       padding: 5px;
       align-self: center;
       border: none;
+
       border-bottom: 1px dashed #83a4c5;
+      transition: all 0.3s;
       &:focus {
         box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+      }
+    }
+    input[type='submit'] {
+      margin: 20px auto;
+      padding: 10px;
+      width: 30%;
+      transition: all 0.3s;
+      cursor: pointer;
+      box-shadow: 0 2px #0e83cd;
+      background-color: #0e83cd;
+      &:hover {
+        background: white;
+        box-shadow: 0 2px black;
       }
     }
   }
