@@ -36,14 +36,7 @@ class MyReviews extends Component {
     }
   }
   componentDidMount() {
-    const id = this.props.id;
-    console.log('my reviews', id)
-      // Axios.get(
-      //   `http://localhost:9000/api/business/${id}/reviews`
-      // )
-      //   // .then(res => console.log(res.data.result.formatted_phone_number))
-      //   .then(res => this.setState({ reviews: res.data }))
-      //   .catch(err => console.log(err));   
+    const id = this.props.id; 
   }
   render() {
     return (
