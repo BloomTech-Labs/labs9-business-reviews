@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Axios from 'axios'
 import { backendLink } from '../assets/config';
+import PlaceHolderReviews from './PlaceHolderReviews'
 
 const StyledReviews = styled.div`
   width: 80%;
@@ -47,8 +48,12 @@ class MyReviews extends Component {
   render() {
     return (
       <StyledReviews>
-        <div className="add-review">
-        </div>
+        {this.state.reviews?this.state.reviews.map(({title, body, image, id, rating}) => (                <div key={id}className='review'>                      
+          <div className='review-img1' />
+          <h4>{title}</h4>
+          <p>{body}</p>
+          <p>{`${rating} stars`}</p>            
+        </div>)):<PlaceHolderReviews/>}
       </StyledReviews>
     )
   }
