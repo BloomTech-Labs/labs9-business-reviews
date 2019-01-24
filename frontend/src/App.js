@@ -12,6 +12,7 @@ import ResetPassword from './components/ResetPassword';
 import UpdatePassword from './components/UpdatePassword';
 import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
+import EditReview from './components/EditReview';
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -35,8 +36,12 @@ function App() {
             render={props => <SearchResult {...props} />}
           />
           <Route
-            path='/user/:id'
+            exact path='/user/:id'
             render={props => <UserProfile {...props} />}
+          />
+          <Route
+            path='/user/:userId/review/:reviewId'
+            render={props => <EditReview {...props} />}
           />
           <Route path='/register' component={RegisterForm} />
       </StyledContainer>
