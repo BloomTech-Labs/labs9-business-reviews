@@ -28,6 +28,9 @@ const StyledReviews = styled.div`
 `;
 
 class MyReviews extends Component {
+  constructor(){
+    super();
+  }
   render() {
     return (
       <StyledReviews>
