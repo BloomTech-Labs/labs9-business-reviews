@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
+import {Link} from 'react-router-dom';
 import { backendLink } from '../assets/config';
 import PlaceHolderReviews from './PlaceHolderReviews';
 
@@ -54,13 +55,14 @@ class MyReviews extends Component {
 		return (
 			<StyledReviews>
 				{this.state.reviews ? (
-					this.state.reviews.map(({ title, body, image, id, rating }) => (
-						<div key={id} className="review">
-							<div className="review-img" />
-							<h4>{title}</h4>
+					this.state.reviews.map(({ title, body, business_image, business_name, id, rating }) => (
+						<Link to={`/review/${id}`}key={id} className="review">
+							<img className="review-img" src={business_image} />
+							<h3>{business_name}</h3>
+							<p>{title}</p>
 							<p>{body}</p>
 							<h4>{`${rating} stars`}</h4>
-						</div>
+						</Link>
 					))
 				) : (
 					<PlaceHolderReviews />
