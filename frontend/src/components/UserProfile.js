@@ -1,7 +1,7 @@
 import React from 'react';
+
 import SideBar from './SideBar';
 import MyReviews from './MyReviews';
-import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   width: 100%;
