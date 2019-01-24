@@ -7,6 +7,7 @@ const passport = require('passport');
 const authConfig = require('./authConfig');
 const { randomBytes } = require('crypto');
 const { promisify } = require('util');
+const db = require('../db/dbinit');
 
 router.get('/', async (req, res) => {
   const response = await userModel.getUsers();

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Axios from 'axios'
+import { backendLink } from '../assets/config';
 
 const StyledReviews = styled.div`
   width: 80%;
@@ -36,7 +37,8 @@ class MyReviews extends Component {
     }
   }
   componentDidMount() {
-    const id = this.props.id; 
+    const id = this.props.id;
+    
   }
   render() {
     return (
