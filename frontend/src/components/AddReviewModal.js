@@ -37,6 +37,7 @@ class AddReviewModal extends React.Component {
 			title: this.state.title,
 			body: this.state.body,
 			rating: this.state.rating,
+			// business_image:th
 			business_id: this.props.businessId,
 			reviewer_id: 69
 		})
@@ -49,9 +50,6 @@ class AddReviewModal extends React.Component {
 	};
 	changeHandler = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
-	};
-	componentDidMount = () => {
-		console.log('businessid', this.props.businessId);
 	};
 	render() {
 		return (

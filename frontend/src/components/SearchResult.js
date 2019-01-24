@@ -136,6 +136,15 @@ class SearchResult extends React.Component {
 	};
 
 	render() {
+    let imageCC = '';
+    let imageUrl='';
+		if (this.state.business.photos) {
+			const photos = this.state.business.photos;
+			const references = [];
+			photos.map((photo) => references.push(photo.photo_reference));
+      imageCC = references[0];
+      imageUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`
+    }
 		if (!this.state.business) return <p>Loading business...</p>;
 		else {
 			return (
@@ -189,6 +198,7 @@ class SearchResult extends React.Component {
 					</div>
 					{this.state.reviewing ? (
 						<AddReviewModal
+              imageUrl={imageUrl}
 							addBusiness={this.addBusiness}
 							businessId={this.props.match.params}
 							toggleReviewing={this.toggleReviewing}
