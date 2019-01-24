@@ -10,7 +10,6 @@ const StyledReviews = styled.div`
 	display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
-  border: 1px solid blue;
 	.review {
     box-sizing: border-box;
     padding: 10px;
@@ -20,16 +19,20 @@ const StyledReviews = styled.div`
     width: 30%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
     .review-img {
       width: 80%;
       height: 100px;
-      background: darkmagenta;
       border: 1px solid black;
+    }
+    p {
+      height: auto;
     }
     h4 {
       width: 100%;
+      height: auto;
       text-align: center;
-      border: 1px solid black;
     }
   }
 `;
