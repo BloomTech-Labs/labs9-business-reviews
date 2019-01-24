@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
-import UserProfile from './components/UserProfile';
 import BillingPage from './components/BillingPage';
 import Authenticate from './components/Authenticate';
 import LandingNav from './components/LandingNav';
@@ -11,7 +10,9 @@ import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
 import ResetPassword from './components/ResetPassword';
 import UpdatePassword from './components/UpdatePassword';
+import UserProfile from './components/UserProfile'
 import RegisterForm from './components/RegisterForm';
+
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -26,7 +27,6 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route exact path='/' component={LandingPage} />
-            <Route path='/user' component={UserProfile} />
             <Route path='/billing' component={BillingPage} />
             <Route path='/authenticate' component={Authenticate} />
             <Route path='/updateuser' component={UpdateUser} />
@@ -35,6 +35,10 @@ function App() {
             <Route
               path='/business/:id'
               render={props => <SearchResult {...props} />}
+            />
+            <Route
+              path="/user/:id"
+              render={props => <UserProfile {...props} />}
             />
             <Route path='/register' component={RegisterForm} />
           </Switch>
