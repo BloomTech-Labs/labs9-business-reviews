@@ -30,6 +30,9 @@ const StyledReviews = styled.div`
 class MyReviews extends Component {
   constructor(){
     super();
+    this.state={
+      reviews:[]
+    }
   }
   render() {
     return (

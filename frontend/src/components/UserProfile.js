@@ -3,7 +3,6 @@ import ProfileNav from './ProfileNav'
 import SideBar from './SideBar'
 import MyReviews from './MyReviews'
 import styled from 'styled-components'
-import Modal from './Modal'
 
 const StyledContainer = styled.div`
   width: 100%;
