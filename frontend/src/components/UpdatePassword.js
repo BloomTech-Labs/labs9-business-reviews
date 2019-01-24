@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
+import styled from 'styled-components';
+
+const UpdatePasswordDiv = styled.div`
+  margin: 0 auto;
+  width: 600px;
+  .image-container {
+    background-image: url('https://i.imgur.com/81RTZEw.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
+    transform-origin: bottom-left;
+    transform: skew(-30deg, 0deg);
+    &:after {
+    }
+  }
+`;
 
 class UpdatePassword extends Component {
   state = {
@@ -36,8 +52,10 @@ class UpdatePassword extends Component {
   };
   render() {
     return (
-      <div>
-        <h1> Hey {this.state.user.name} wanna reset your password?</h1>
+      <UpdatePasswordDiv>
+        <div className="image-container">
+          <h1> Hey {this.state.user.name} wanna reset your password?</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>Password</label>
           <input
@@ -55,7 +73,7 @@ class UpdatePassword extends Component {
           />
           <input type="submit" value="update password" />
         </form>
-      </div>
+      </UpdatePasswordDiv>
     );
   }
 }
