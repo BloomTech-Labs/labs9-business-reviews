@@ -104,8 +104,13 @@ class SearchResult extends React.Component {
       // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
+      Axios.get(
+        `http://localhost:9000/api/business/${id}/reviews`
+      )
+        // .then(res => console.log(res.data.result.formatted_phone_number))
+        .then(res => this.setState({ reviews: res.data }))
+        .catch(err => console.log(err));  
   }
-
   addBusiness =()=> {
     let imageCC ='';
     if(this.state.business.photos){
@@ -184,7 +189,6 @@ class SearchResult extends React.Component {
                 </a>
               </div>
             </div>
-
             <div className='review-container'>
               <h1>Reviews</h1>
               <div className='reviews'>
