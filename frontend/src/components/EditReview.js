@@ -6,16 +6,17 @@ export default class EditReview extends Component {
   constructor(){
     super();
     this.state={
-      reviews: []
+      review: []
     } 
   }
   componentDidMount(){
-    const {id} = this.props.match.params;
-    Axios.get(`${backendLink}/api/review/${id}`)
-			.then((res) => this.setState({ reviews: res.data }))
+    const {reviewId} = this.props.match.params;
+    Axios.get(`${backendLink}/api/review/${reviewId}`)
+			.then((res) => this.setState({ review: res.data }))
 			.catch((err) => console.log(err));
   }
   render() {
+    console.log(this.state.review)
     return (
       <div className="edit-container">
         <form>

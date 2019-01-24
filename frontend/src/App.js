@@ -36,11 +36,11 @@ function App() {
             render={props => <SearchResult {...props} />}
           />
           <Route
-            path='/user/:id'
+            exact path='/user/:id'
             render={props => <UserProfile {...props} />}
           />
           <Route
-            path='/review/:id'
+            path='/user/:userId/review/:reviewId'
             render={props => <EditReview {...props} />}
           />
           <Route path='/register' component={RegisterForm} />

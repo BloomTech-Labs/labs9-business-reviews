@@ -56,7 +56,7 @@ class MyReviews extends Component {
 			<StyledReviews>
 				{this.state.reviews ? (
 					this.state.reviews.map(({ title, body, business_image, business_name, id, rating }) => (
-						<Link to={`/review/${id}`} key={id} className="review">
+						<Link to={`/user/${this.props.id}/review/${id}`} key={id} className="review">
 							<img className="review-img" src={business_image} />
 							<h3>{business_name}</h3>
 							<p>{title}</p>
