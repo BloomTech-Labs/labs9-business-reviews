@@ -4,7 +4,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
 const db = require('../db/dbinit');
 
-router.post('/yearly', async(req, res) => {
+router.post('/yearly', async (req, res) => {
 const {token} = req.query;
 const response = await stripe.charges.create({
     amount:'999',
@@ -16,7 +16,7 @@ const response = await stripe.charges.create({
   res.json({response});
 });
 
-router.post('/monthly', async(req, res) => {
+router.post('/monthly', async (req, res) => {
   const {token} = req.query;
   const response = await stripe.charges.create({
     amount:'99',
