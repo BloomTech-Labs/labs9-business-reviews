@@ -23,8 +23,8 @@ function App() {
     <div className='App'>
       <LandingNav />
       <StyledContainer className='container'>
-        <BrowserRouter>
-          <Switch>
+        {/* <BrowserRouter> */}
+          {/* <Switch> */}
             <Route exact path='/' component={LandingPage} />
             <Route path='/billing' component={BillingPage} />
             {/* <Route path='/login' exact component={Login} /> */}
@@ -41,8 +41,8 @@ function App() {
               render={props => <UserProfile {...props} />}
             />
             <Route path='/register' component={RegisterForm} />
-          </Switch>
-        </BrowserRouter>
+          {/* </Switch> */}
+        {/* </BrowserRouter> */}
       </StyledContainer>
       <Footer />
     </div>
