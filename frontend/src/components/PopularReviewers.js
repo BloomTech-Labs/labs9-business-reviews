@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 import { backendLink } from '../assets/config';
 
 const PopularReviewersStyles = styled.div`
@@ -17,6 +18,10 @@ const PopularReviewersStyles = styled.div`
   h1 {
     width: 100%;
   }
+  .link{
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 export const CardStyle = styled.div`
@@ -31,49 +36,7 @@ class PopularReviewers extends Component {
   constructor() {
     super();
     this.state = {
-      users: [],
-      reviews: [
-        {
-          id: 1,
-          name: 'ManGuy',
-          image: 'https://loremflickr.com/200/200/man'
-        },
-        {
-          id: 2,
-          name: 'DogGuy',
-          image: 'https://loremflickr.com/200/200/dog'
-        },
-        {
-          id: 3,
-          name: 'WomanGuy',
-          image: 'https://loremflickr.com/200/200/woman'
-        },
-        {
-          id: 4,
-          name: 'KidGuy',
-          image: 'https://loremflickr.com/200/200/kid'
-        },
-        {
-          id: 5,
-          name: 'CatGuy',
-          image: 'https://loremflickr.com/200/200/cat'
-        },
-        {
-          id: 6,
-          name: 'PersonGuy',
-          image: 'https://loremflickr.com/200/200/person'
-        },
-        {
-          id: 7,
-          name: 'HumanGuy',
-          image: 'https://loremflickr.com/200/200/human'
-        },
-        {
-          id: 8,
-          name: 'BirdGuy',
-          image: 'https://loremflickr.com/200/200/bird'
-        }
-      ]
+      users: []
     };
   }
 
@@ -95,10 +58,12 @@ class PopularReviewers extends Component {
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
-          <CardStyle key={id}>
-            <img src={gravatar} alt="reviewer's profile" />
-            <p>{name}</p>
-          </CardStyle>
+          <link className="link" key={id}>
+            <CardStyle >
+              <img src={gravatar} alt="reviewer's profile" />
+              <p>{name}</p>
+            </CardStyle>
+          </link>
         ))}
       </PopularReviewersStyles>
     );

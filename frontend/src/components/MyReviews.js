@@ -32,8 +32,6 @@ class MyReviews extends Component {
     return (
       <StyledReviews>
         <div className="add-review">
-          <h1>Add A New Review </h1>
-          <button>+</button>
         </div>
       </StyledReviews>
     )

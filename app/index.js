@@ -15,10 +15,10 @@ const port = process.env.PORT || 9000;
 
 // /* uncomment this when on development on localhost:3000 */
 // server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
-// server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // server.use(cors());
 /* use this cors on production */
-server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com' }));
+// server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com' }));
 server.use(cookieParser());
 authMiddleware(server);
 server.use(express.json());

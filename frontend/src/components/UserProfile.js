@@ -35,10 +35,7 @@ class UserProfile extends React.Component {
         <StyledContainer>
           <SideBar />
           <MyReviews />
-          <button className="openModal" onClick={this.toggleModal}>
-            Open Modal
-          </button>
-          <Modal show={this.state.isOpen} onClose={this.toggleModal} />
+          
         </StyledContainer>
       </div>
     )
