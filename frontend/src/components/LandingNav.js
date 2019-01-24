@@ -117,7 +117,7 @@ function LandingNav() {
 					<Link to="/login" className="menu__user--text">
 						Sign In
 					</Link>
-					<Link to="/signup" className="menu__user--text">
+					<Link to="/register" className="menu__user--text">
 						Sign Up
 					</Link>
 				</div>
