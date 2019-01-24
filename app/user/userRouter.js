@@ -7,6 +7,7 @@ const passport = require('passport');
 const authConfig = require('./authConfig');
 const { randomBytes } = require('crypto');
 const { promisify } = require('util');
+const db = require('../db/dbinit');
 
 router.get('/', async (req, res) => {
   const response = await userModel.getUsers();
@@ -117,5 +118,15 @@ router.put('/updatepassword/:token', async (req, res) => {
   } catch (err) {
     res.json({ error: 'not authenticated' });
   }
+});
+
+router.get('/:id/reviews', (req, res) => {
+  const { id } = req.params;
+  db('reviews')
+  .where({reviewer_id:id})
+  .then(reviews => {
+    res.status(200).json(reviews)
+  })
+  .catch(err=>res.status(500).json(err))
 });
 module.exports = router;
