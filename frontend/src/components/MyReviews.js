@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Axios from 'axios'
 
 const StyledReviews = styled.div`
   width: 80%;
@@ -28,12 +29,19 @@ const StyledReviews = styled.div`
 `;
 
 class MyReviews extends Component {
+  constructor(){
+    super();
+    this.state={
+      reviews:[]
+    }
+  }
+  componentDidMount() {
+    const id = this.props.id; 
+  }
   render() {
     return (
       <StyledReviews>
         <div className="add-review">
-          <h1>Add A New Review </h1>
-          <button>+</button>
         </div>
       </StyledReviews>
     )
