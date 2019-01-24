@@ -42,17 +42,4 @@ router.post('/monthly', async(req, res) => {
   res.json({response});
 })
 
-// router.post('/monthly', async (req, res) => {
-//   const {token} = req.query;
-//   const response = await stripe.charges.create({
-//     amount:'99',
-//     source: token,
-//     currency:'USD',
-//     description: 'test charge, monthly',
-//   })
-//   console.log(response);
-//   res.json({response});
-// });
-
-
 module.exports = router;
