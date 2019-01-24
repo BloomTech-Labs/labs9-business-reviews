@@ -191,34 +191,41 @@ class SearchResult extends React.Component {
             </div>
             <div className='review-container'>
               <h1>Reviews</h1>
-              <div className='reviews'>
-                <div className='review'>
-                  <div className='review-img1' />
-                  <p>
-                    <span role='img' aria-label='stars'>
-                      ⭐⭐⭐
-                    </span>
-                  </p>
-                  <h3>@eddbunk</h3>
-                </div>
-                <div className='review'>
-                  <div className='review-img2' />
-                  <p>
-                    <span role='img' aria-label='stars'>
-                      ⭐⭐⭐⭐⭐
-                    </span>
-                  </p>
-                  <h3>@alixjones</h3>
-                </div>
-                <div className='review'>
-                  <div className='review-img3' />
-                  <p>
-                    <span role='img' aria-label='stars'>
-                      ⭐⭐
-                    </span>
-                  </p>
-                  <h3>@carloG</h3>
-                </div>
+              <div className="reviews">
+                {this.state.reviews?this.state.reviews.map(({title, image, id, rating}) => (                <div key={id}className='review'>
+                      <h4>{title}</h4>
+                      <div className='review-img1' />
+                      <p>{`${rating} stars`}</p>                      
+                    </div>                  
+                )):(<div className='reviews'>
+                  <div className='review'>
+                    <div className='review-img1' />
+                    <p>
+                      <span role='img' aria-label='stars'>
+                        ⭐⭐⭐
+                      </span>
+                    </p>
+                    <h3>@eddbunk</h3>
+                  </div>
+                  <div className='review'>
+                    <div className='review-img2' />
+                    <p>
+                      <span role='img' aria-label='stars'>
+                        ⭐⭐⭐⭐⭐
+                      </span>
+                    </p>
+                    <h3>@alixjones</h3>
+                  </div>
+                  <div className='review'>
+                    <div className='review-img3' />
+                    <p>
+                      <span role='img' aria-label='stars'>
+                        ⭐⭐
+                      </span>
+                    </p>
+                    <h3>@carloG</h3>
+                  </div>
+                </div>)}
               </div>
               <button onClick={this.toggleReviewing}>Add a Review</button>
             </div>
