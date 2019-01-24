@@ -37,7 +37,8 @@ class AddReviewModal extends React.Component {
 			title: this.state.title,
 			body: this.state.body,
 			rating: this.state.rating,
-			// business_image:th
+			business_image:this.props.imageUrl,
+			business_name:this.props.businessName,
 			business_id: this.props.businessId,
 			reviewer_id: 69
 		})
