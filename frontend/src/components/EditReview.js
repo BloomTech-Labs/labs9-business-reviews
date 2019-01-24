@@ -14,8 +14,20 @@ export default class EditReview extends Component {
   changeHandler = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
   };
-  handleSubmit = () => {
-    
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const {reviewId} =this.props.match.params 
+		Axios.put(`${backendLink}/api/review/${reviewId}`, {
+			title: this.state.title,
+			body: this.state.body,
+			rating: this.state.rating,
+			reviewer_id: `${this.props.match.params.userId}`
+		})
+			.then((res) => {
+				console.log('Success!', res.status);
+				this.setState({ title: '', body: '', rating: 1 });
+			})
+			.catch((err) => console.log('error', err));
   }
   componentDidMount(){
     const {reviewId} = this.props.match.params;
