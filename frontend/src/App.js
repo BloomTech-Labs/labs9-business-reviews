@@ -3,16 +3,15 @@ import styled from 'styled-components';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import BillingPage from './components/BillingPage';
-import Authenticate from './components/Authenticate';
+import Login from './components/Login';
 import LandingNav from './components/LandingNav';
 import Footer from './components/Footer';
 import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
 import ResetPassword from './components/ResetPassword';
 import UpdatePassword from './components/UpdatePassword';
-import UserProfile from './components/UserProfile'
+import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
-
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -28,7 +27,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={LandingPage} />
             <Route path='/billing' component={BillingPage} />
-            <Route path='/authenticate' component={Authenticate} />
+            <Route path='/login' component={Login} />
             <Route path='/updateuser' component={UpdateUser} />
             <Route path='/resetpassword' component={ResetPassword} />
             <Route path='/updatepassword/:id' component={UpdatePassword} />
@@ -37,7 +36,7 @@ function App() {
               render={props => <SearchResult {...props} />}
             />
             <Route
-              path="/user/:id"
+              path='/user/:id'
               render={props => <UserProfile {...props} />}
             />
             <Route path='/register' component={RegisterForm} />
