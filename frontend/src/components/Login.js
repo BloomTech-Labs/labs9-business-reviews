@@ -1,6 +1,5 @@
 import React from 'react';
 import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
 import GatedSignIn from './GatedSignInComponent';
 import styled from 'styled-components';
 
@@ -17,7 +16,7 @@ const AuthWrapper = styled.div`
   }
 `;
 
-const Authenticate = () => {
+const Login = () => {
   return (
     <AuthWrapper>
       <LoginForm />
@@ -29,4 +28,4 @@ const Authenticate = () => {
   );
 };
 
-export default Authenticate;
+export default Login;

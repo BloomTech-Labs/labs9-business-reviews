@@ -23,26 +23,22 @@ function App() {
     <div className='App'>
       <LandingNav />
       <StyledContainer className='container'>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path='/' component={LandingPage} />
-            <Route path='/billing' component={BillingPage} />
-            {/* <Route path='/login' exact component={Login} /> */}
-            <Route path='/updateuser' component={UpdateUser} />
-            <Route path='/resetpassword' component={ResetPassword} />
-            <Route path='/updatepassword/:id' component={UpdatePassword} />
-            <Route
-              path='/business/:id'
-              render={props => <SearchResult {...props} />}
-            />
-            <Route
-              path='/user/:id'
-              render={props => <UserProfile {...props} />}
-            />
-            <Route path='/login' render={props => <Login {...props} />} />
-            <Route path='/register' component={RegisterForm} />
-          </Switch>
-        </BrowserRouter>
+          <Route exact path='/' component={LandingPage} />
+          <Route path='/billing' component={BillingPage} />
+          {/* <Route path='/login' exact component={Login} /> */}
+          <Route path='/updateuser' component={UpdateUser} />
+          <Route path='/resetpassword' component={ResetPassword} />
+          <Route path='/login' component={Login} />
+          <Route path='/updatepassword/:id' component={UpdatePassword} />
+          <Route
+            path='/business/:id'
+            render={props => <SearchResult {...props} />}
+          />
+          <Route
+            path='/user/:id'
+            render={props => <UserProfile {...props} />}
+          />
+          <Route path='/register' component={RegisterForm} />
       </StyledContainer>
       <Footer />
     </div>
