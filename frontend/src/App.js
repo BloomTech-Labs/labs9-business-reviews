@@ -10,7 +10,7 @@ import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
 import ResetPassword from './components/ResetPassword';
 import UpdatePassword from './components/UpdatePassword';
-
+import UserProfile from './components/UserProfile'
 import RegisterForm from './components/RegisterForm';
 
 
@@ -26,22 +26,21 @@ function App() {
       <StyledContainer className='container'>
         <BrowserRouter>
           <Switch>
-
             <Route exact path='/' component={LandingPage} />
-            <Route path='/user' component={UserProfile} />
             <Route path='/billing' component={BillingPage} />
             <Route path='/authenticate' component={Authenticate} />
             <Route path='/updateuser' component={UpdateUser} />
             <Route path='/resetpassword' component={ResetPassword} />
             <Route path='/updatepassword/:id' component={UpdatePassword} />
-
             <Route
               path='/business/:id'
               render={props => <SearchResult {...props} />}
             />
-
+            <Route
+              path="/user/:id"
+              render={props => <UserProfile {...props} />}
+            />
             <Route path='/register' component={RegisterForm} />
-
           </Switch>
         </BrowserRouter>
       </StyledContainer>
