@@ -4,6 +4,8 @@ exports.up = function(knex, Promise) {
       review.string('title').notNullable();
       review.string('body', 1000).notNullable();
       review.float('rating');
+      review.string('business_image');
+      review.string('business_name');
       review.integer('business_id').references('id').inTable('businesses');
       review.integer('reviewer_id').references('id').inTable('users');
   });

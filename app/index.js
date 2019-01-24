@@ -8,17 +8,21 @@ const userRouter = require('./user/userRouter');
 const reviewRouter = require('./reviews/reviewRouter');
 const businessRouter = require('./businesses/businessRouter');
 const stripeRouter = require('./stripe/stripeRouter');
+const billingRouter = require('./stripe/billingRouter');
 const cors = require('cors');
 
 const server = express();
 const port = process.env.PORT || 9000;
 
 // /* uncomment this when on development on localhost:3000 */
-// server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
-// server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+
+server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // server.use(cors());
+
 /* use this cors on production */
-server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com' }));
+// server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com' }));
+
+
 server.use(cookieParser());
 authMiddleware(server);
 server.use(express.json());
@@ -28,6 +32,7 @@ server.use('/api/business', businessRouter);
 server.use('/api/user', userRouter);
 server.use('/api/review', reviewRouter);
 server.use('/api/billing', stripeRouter);
+server.use('/api/checkout', billingRouter);
 require('./user/passport');
 
 // R O O T  R O U T E
