@@ -22,9 +22,9 @@ const Authenticate = () => {
     <AuthWrapper>
       <LoginForm />
       {/* <RegisterForm /> */}
-      {/* <GatedSignIn>
+      <GatedSignIn>
         This will render whatever component if the user is logged in!
-      </GatedSignIn> */}
+      </GatedSignIn>
     </AuthWrapper>
   );
 };

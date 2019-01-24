@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
@@ -114,10 +114,7 @@ function LandingNav() {
           <a href='/toprated'>top rated</a>
         </div>
         <div className='menu__user'>
-          <Link to='/authenticate'>Sign In</Link>
-          {/* <a href='/signin' className='menu__user--text'>
-            Sign In
-          </a> */}
+          <NavLink to='login'>Sign In</NavLink>
           <a href='/signup' className='menu__user--text'>
             Sign Up
           </a>
