@@ -16,6 +16,7 @@ const RegisterDiv = styled.div`
   margin: auto;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   height: 500px;
+  margin-top: 50px;
 `;
 const AuthForm = styled.form`
   width: 100%;
@@ -69,13 +70,13 @@ class RegisterForm extends Component {
       <RegisterDiv>
         <AuthForm onSubmit={this.handleSubmit}>
           <AuthHeader> Register for a account!</AuthHeader>
-          <label htmlFor="email"> Email</label>
-          <AuthInput type="email" name="email" onChange={this.handleChange} />
-          <label htmlFor="password"> Password</label>
-          <AuthInput type="text" name="password" onChange={this.handleChange} />
-          <label htmlFor="name">Name</label>
-          <AuthInput type="text" name="name" onChange={this.handleChange} />
-          <input type="submit" value="Register 🡆 " />
+          <label htmlFor='email'> Email</label>
+          <AuthInput type='email' name='email' onChange={this.handleChange} />
+          <label htmlFor='password'> Password</label>
+          <AuthInput type='text' name='password' onChange={this.handleChange} />
+          <label htmlFor='name'>Name</label>
+          <AuthInput type='text' name='name' onChange={this.handleChange} />
+          <input type='submit' value='Register 🡆 ' />
         </AuthForm>
       </RegisterDiv>
     );
