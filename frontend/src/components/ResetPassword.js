@@ -15,6 +15,10 @@ class ResetPassword extends Component {
       withCredentials: true
     });
     console.log(res);
+    if (res.data.error) {
+      return alert(res.data.error);
+    }
+    this.props.history.push(`/updatepassword/${res.data.id}`);
   };
   render() {
     return (

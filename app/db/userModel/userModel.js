@@ -6,7 +6,8 @@ module.exports = {
   verifyLoginEmail,
   getUserById,
   updateUser,
-  deleteUser
+  deleteUser,
+  getByResetToken
 };
 
 function register(user) {
@@ -35,4 +36,8 @@ function deleteUser(id) {
   return db('users')
     .where({ id })
     .del();
+}
+
+function getByResetToken(reset_token) {
+  return db('users').where({ reset_token });
 }

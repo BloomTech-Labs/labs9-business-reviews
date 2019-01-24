@@ -5,6 +5,8 @@ const bcrypt = require('bcryptjs');
 const userModel = require('../db/userModel/userModel');
 const passport = require('passport');
 const authConfig = require('./authConfig');
+const { randomBytes } = require('crypto');
+const { promisify } = require('util');
 
 router.get('/', async (req, res) => {
   const response = await userModel.getUsers();
@@ -88,10 +90,32 @@ router.put('/:id', async (req, res) => {
 router.post('/verify', async (req, res) => {
   const email = req.body.email;
   const emailExists = await userModel.verifyLoginEmail(email);
+  const [singleUser] = [...emailExists];
   const DoesEmailExist = emailExists.length > 0 ? true : false;
   if (!DoesEmailExist) {
     return res.json({ error: 'email does not exist' });
   }
-  res.json({ message: 'Reset token ready' });
+  const promisifiedRandomBytes = promisify(randomBytes);
+  singleUser.reset_token = (await promisifiedRandomBytes(20)).toString('hex');
+  await userModel.updateUser(singleUser.id, singleUser);
+  res.json({ id: singleUser.reset_token });
+});
+
+router.get('/tokenuser/:token', async (req, res) => {
+  const [user] = await userModel.getByResetToken(req.params.token);
+  res.json({ user });
+});
+
+router.put('/updatepassword/:token', async (req, res) => {
+  const [user] = await userModel.getByResetToken(req.params.token);
+  const hash = bcrypt.hashSync(req.body.password, 3);
+  user.password = hash;
+  user.reset_token = null;
+  try {
+    await userModel.updateUser(user.id, user);
+    res.json({ message: 'Updated the user' });
+  } catch {
+    res.json({ error: 'not authenticated' });
+  }
 });
 module.exports = router;
