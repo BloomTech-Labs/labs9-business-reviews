@@ -114,7 +114,7 @@ router.put('/updatepassword/:token', async (req, res) => {
   try {
     await userModel.updateUser(user.id, user);
     res.json({ message: 'Updated the user' });
-  } catch {
+  } catch (err) {
     res.json({ error: 'not authenticated' });
   }
 });

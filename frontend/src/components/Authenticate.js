@@ -21,10 +21,10 @@ const Authenticate = () => {
   return (
     <AuthWrapper>
       <LoginForm />
-      <RegisterForm />
-      <GatedSignIn>
+      {/* <RegisterForm /> */}
+      {/* <GatedSignIn>
         This will render whatever component if the user is logged in!
-      </GatedSignIn>
+      </GatedSignIn> */}
     </AuthWrapper>
   );
 };
