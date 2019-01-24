@@ -201,7 +201,7 @@ class SearchResult extends React.Component {
               imageUrl={imageUrl}
               businessName ={this.state.business.name}
 							addBusiness={this.addBusiness}
-							businessId={this.props.match.params}
+							businessId={this.state.business.place_id}
 							toggleReviewing={this.toggleReviewing}
 						/>
 					) : null}
