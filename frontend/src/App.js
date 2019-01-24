@@ -12,6 +12,7 @@ import ResetPassword from './components/ResetPassword';
 import UpdatePassword from './components/UpdatePassword';
 import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
+import Authenticate from './components/Login';
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -39,7 +40,7 @@ function App() {
               path='/user/:id'
               render={props => <UserProfile {...props} />}
             />
-            <Route path='/login' render={props => <Login {...props} />} />
+            <Route exact path='/login' render={props => <Authenticate {...props} />} />
             <Route path='/register' component={RegisterForm} />
           </Switch>
         </BrowserRouter>
