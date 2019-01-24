@@ -2,12 +2,9 @@ const express = require('express');
 const router = express.Router();
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
-const db = require('../db/dbinit');
-
 router.post('/yearly', async(req, res) => {
   const {token} = req.query;
   const email = token.email;
-  console.log("EMAIL: ", email);
   const response = await stripe.customers.create({
     email: email,
     source: token
@@ -26,7 +23,6 @@ router.post('/yearly', async(req, res) => {
 router.post('/monthly', async(req, res) => {
   const {token} = req.query;
   const email = token.email;
-  console.log("EMAIL: ", email);
   const response = await stripe.customers.create({
     email: email,
     source: token
