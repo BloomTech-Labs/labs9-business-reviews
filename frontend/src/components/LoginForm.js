@@ -71,11 +71,15 @@ class LoginForm extends Component {
       <LoginDiv>
         <AuthForm onSubmit={this.handleSubmit}>
           <AuthHeader> Signed up already?</AuthHeader>
-          <label htmlFor="email"> Email</label>
-          <AuthInput type="email" name="email" onChange={this.handleChange} />
-          <label htmlFor="password"> Password</label>
-          <AuthInput type="text" name="password" onChange={this.handleChange} />
-          <input type="submit" value="Login 🡆" />
+          <label htmlFor='email'> Email</label>
+          <AuthInput type='email' name='email' onChange={this.handleChange} />
+          <label htmlFor='password'> Password</label>
+          <AuthInput
+            type='password'
+            name='password'
+            onChange={this.handleChange}
+          />
+          <input type='submit' value='Login 🡆' />
         </AuthForm>
       </LoginDiv>
     );
