@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
           body: 'this aint no fish',
           rating: 1,
           business_image:
-            'https://www.dibrunocatering.com/wp-content/uploads/2014/07/theoriginalphoto-2048x1418.jpg',
+            'https://vista.today/wp-content/uploads/2018/10/Philly_LaColombe-Fishtown2_0.jpg',
           business_name: 'La Columbe Fishtown',
           business_id: 'ChIJWXerz2vIxokRkue1--XSK5M',
           reviewer_id: 1
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
           body: 'the most cheese ive ever had',
           rating: 4.7,
           business_image:
-            'http://localhost:3000/business/ChIJfXqUmjHGxokReInkqMednds',
+            'https://www.dibrunocatering.com/wp-content/uploads/2014/07/theoriginalphoto-2048x1418.jpg',
           business_name: 'DiBruno Brothers',
           business_id: 'ChIJfXqUmjHGxokReInkqMednds',
           reviewer_id: 1
