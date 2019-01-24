@@ -183,13 +183,11 @@ class SearchResult extends React.Component {
 							<div className="reviews">
 								{this.state.reviews ? (
 									this.state.reviews.map(({ title, image, id, rating }) => (
-										<Link to={id} key={id}>
-                      <div  className="review">
-                        <h4>{title}</h4>
-                        <div className="review-img1" />
-                        <p>{`${rating} stars`}</p>
-                      </div>
-                    </Link>
+										<div key={id} className="review">
+											<h4>{title}</h4>
+											<div className="review-img1" />
+											<p>{`${rating} stars`}</p>
+										</div>
 									))
 								) : (
 									<PlaceHolderReviews />
