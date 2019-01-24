@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
@@ -35,7 +36,7 @@ const NavBar = styled.div`
         border-radius: 0;
       }
     }
-    .menu__menuItems {      
+    .menu__menuItems {
       width: 60%;
       height: auto;
       font-size: 1.4rem;
@@ -49,7 +50,7 @@ const NavBar = styled.div`
         font-size: 2.6rem;
       }
       a {
-        box-sizing:border-box;
+        box-sizing: border-box;
         color: black;
         width: 100%;
         text-decoration: none;
@@ -70,7 +71,7 @@ const NavBar = styled.div`
       }
     }
     .menu__user {
-      box-sizing:border-box;
+      box-sizing: border-box;
       color: black;
       width: 15%;
       padding: 10px;
@@ -103,21 +104,22 @@ const NavBar = styled.div`
 function LandingNav() {
   return (
     <NavBar>
-        <div className='inner-nav-container'>
-          <a href='/'>
-            <img src={logo} alt='logo' className='menu__logo--logo' />
-          </a>
+      <div className='inner-nav-container'>
+        <a href='/'>
+          <img src={logo} alt='logo' className='menu__logo--logo' />
+        </a>
         <div className='menu__menuItems'>
           <a href='/addreview'>add a review</a>
           <a href='/categories'>categories</a>
           <a href='/toprated'>top rated</a>
         </div>
         <div className='menu__user'>
+          <Link to='/authenticate'>Sign In</Link>
+          {/* <a href='/signin' className='menu__user--text'>
+            Sign In
+          </a> */}
           <a href='/signup' className='menu__user--text'>
             Sign Up
-          </a>
-          <a href='/signin' className='menu__user--text'>
-            Sign In
           </a>
         </div>
       </div>
