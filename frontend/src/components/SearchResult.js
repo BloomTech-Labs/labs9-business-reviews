@@ -114,7 +114,6 @@ class SearchResult extends React.Component {
       photos.map(photo => references.push(photo.photo_reference));
       imageCC = references[0];
     } 
-    console.log('image ref', imageCC)
 
     const { id } = this.props.match.params;
     Axios.post(`http://localhost:9000/api/business`, {
