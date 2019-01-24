@@ -27,7 +27,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={LandingPage} />
             <Route path='/billing' component={BillingPage} />
-            <Route path='/login' component={Login} />
+            {/* <Route path='/login' exact component={Login} /> */}
             <Route path='/updateuser' component={UpdateUser} />
             <Route path='/resetpassword' component={ResetPassword} />
             <Route path='/updatepassword/:id' component={UpdatePassword} />
@@ -39,6 +39,7 @@ function App() {
               path='/user/:id'
               render={props => <UserProfile {...props} />}
             />
+            <Route path='/login' render={props => <Login {...props} />} />
             <Route path='/register' component={RegisterForm} />
           </Switch>
         </BrowserRouter>
