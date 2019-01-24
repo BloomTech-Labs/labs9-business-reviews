@@ -6,13 +6,12 @@ import UserProfile from './components/UserProfile';
 import BillingPage from './components/BillingPage';
 import Authenticate from './components/Authenticate';
 import LandingNav from './components/LandingNav';
-import UserTest from './components/UserTest';
-import ReviewsTest from './components/ReviewsTest';
 import Footer from './components/Footer';
 import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
 import ResetPassword from './components/ResetPassword';
 import UpdatePassword from './components/UpdatePassword';
+import RegisterForm from './components/RegisterForm';
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -30,15 +29,14 @@ function App() {
             <Route path='/user' component={UserProfile} />
             <Route path='/billing' component={BillingPage} />
             <Route path='/authenticate' component={Authenticate} />
-            <Route path='/test' component={UserTest} />
             <Route path='/updateuser' component={UpdateUser} />
-            <Route path='/reviews' component={ReviewsTest} />
             <Route path='/resetpassword' component={ResetPassword} />
             <Route path='/updatepassword/:id' component={UpdatePassword} />
             <Route
               path='/business/:id'
               render={props => <SearchResult {...props} />}
             />
+            <Route path='/register' component={RegisterForm} />
           </Switch>
         </BrowserRouter>
       </StyledContainer>

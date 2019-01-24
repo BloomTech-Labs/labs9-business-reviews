@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
@@ -59,9 +60,7 @@ class LoginForm extends Component {
       { withCredentials: 'include' }
     );
     if (res.status === 500) {
-      return alert(
-        'No record found on either email or password inputted please login again or register!'
-      );
+      return alert('Login incorrect, please try again.');
     }
     alert(`Authenticated!`);
   };
@@ -70,7 +69,10 @@ class LoginForm extends Component {
     return (
       <LoginDiv>
         <AuthForm onSubmit={this.handleSubmit}>
-          <AuthHeader> Signed up already?</AuthHeader>
+          <AuthHeader>Log in</AuthHeader>
+          <h4>
+            Don't have an account? <Link to='/register'>Register here!</Link>
+          </h4>
           <label htmlFor='email'> Email</label>
           <AuthInput type='email' name='email' onChange={this.handleChange} />
           <label htmlFor='password'> Password</label>
