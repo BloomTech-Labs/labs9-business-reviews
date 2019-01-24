@@ -7,13 +7,36 @@ const UpdatePasswordDiv = styled.div`
   margin: 0 auto;
   width: 600px;
   .image-container {
+    height: 200px;
     background-image: url('https://i.imgur.com/81RTZEw.png');
-    background-repeat: no-repeat;
     background-size: cover;
-    height: 150px;
-    transform-origin: bottom-left;
-    transform: skew(-30deg, 0deg);
-    &:after {
+    clip-path: polygon(0 0, 1600px 0, 1600px 67%, 0 100%);
+    width: 100%;
+    h1 {
+      font-weight: 100;
+      font-size: 30px;
+      text-align: center;
+      padding: 10px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    label {
+      text-align: center;
+      margin: 10px 0px;
+    }
+    input[type='text'] {
+      width: 90%;
+      padding: 5px;
+      align-self: center;
+      border: none;
+      border-bottom: 1px dashed #83a4c5;
+      &:focus {
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+      }
     }
   }
 `;
