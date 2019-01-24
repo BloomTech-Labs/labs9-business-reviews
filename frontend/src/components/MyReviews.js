@@ -7,8 +7,17 @@ import PlaceHolderReviews from './PlaceHolderReviews';
 const StyledReviews = styled.div`
 	width: 80%;
 	display: flex;
-	justify-content: center;
-	
+  justify-content: space-around;
+  flex-flow: row wrap;
+  
+	.review {
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid black;
+    background:white;
+    max-height: 250px;
+    width: 30%;
+  }
 `;
 
 class MyReviews extends Component {
