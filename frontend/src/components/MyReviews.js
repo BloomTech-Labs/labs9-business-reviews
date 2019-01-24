@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Axios from 'axios'
 
 const StyledReviews = styled.div`
   width: 80%;
@@ -33,6 +34,16 @@ class MyReviews extends Component {
     this.state={
       reviews:[]
     }
+  }
+  componentDidMount() {
+    const id = this.props.id;
+    console.log('my reviews', id)
+      // Axios.get(
+      //   `http://localhost:9000/api/business/${id}/reviews`
+      // )
+      //   // .then(res => console.log(res.data.result.formatted_phone_number))
+      //   .then(res => this.setState({ reviews: res.data }))
+      //   .catch(err => console.log(err));   
   }
   render() {
     return (

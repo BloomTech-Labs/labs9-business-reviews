@@ -16,16 +16,20 @@ const StyledContainer = styled.div`
 	}
 `;
 
-function UserProfile() {
-	return (
-		<div>
-			<ProfileNav />
-			<StyledContainer>
-				<SideBar />
-				<MyReviews />
-			</StyledContainer>
-		</div>
-	);
+class UserProfile extends React.Component {
+	render() {
+    const { id } = this.props.match.params;
+    console.log(id)
+		return (
+			<div>
+				<ProfileNav />
+				<StyledContainer>
+					<SideBar />
+					<MyReviews id={id} />
+				</StyledContainer>
+			</div>
+		);
+	}
 }
 
 export default UserProfile;
