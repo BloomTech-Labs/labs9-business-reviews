@@ -16,7 +16,7 @@ class CheckoutForm extends Component {
         body: token.id
     });
 
-    if (response.ok) console.log("Purchase Complete!")
+    if (response.ok) this.setState({complete: true});
   }
 
   render() {
