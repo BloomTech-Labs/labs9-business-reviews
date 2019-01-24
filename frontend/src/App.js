@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
 `;
 
 function App() {
-  // const API_KEY = process.env.REACT_APP_API_KEY;
+  const API_KEY = process.env.REACT_APP_API_KEY;
   return (
     <div className="App">
       <LandingNav />
