@@ -10,7 +10,7 @@ router.post("/monthly", async (req, res) => {
       description: "Monthly Subscription Charge",
       source: req.body
     });
-
+    console.log(status)
     res.json({status});
   } catch (err) {
     res.status(500).end();

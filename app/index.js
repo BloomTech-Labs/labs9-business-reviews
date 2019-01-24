@@ -8,6 +8,7 @@ const userRouter = require('./user/userRouter');
 const reviewRouter = require('./reviews/reviewRouter');
 const businessRouter = require('./businesses/businessRouter');
 const stripeRouter = require('./stripe/stripeRouter');
+const billingRouter = require('./stripe/billingRouter');
 const cors = require('cors');
 
 
@@ -29,6 +30,7 @@ server.use('/api/business', businessRouter);
 server.use('/api/user', userRouter);
 server.use('/api/review', reviewRouter);
 server.use('/api/billing', stripeRouter);
+server.use('/api/checkout', billingRouter);
 require('./user/passport');
 
 // R O O T  R O U T E
