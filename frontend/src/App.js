@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
 import ResetPassword from './components/ResetPassword';
+import CheckoutPage from './components/CheckoutPage';
 
 const StyledContainer = styled.div`
   margin: 0 auto;
@@ -39,6 +40,7 @@ function App() {
               path='/business/:id'
               render={props => <SearchResult {...props} />}
             />
+            <Route path='/checkout' component={CheckoutPage} />
           </Switch>
         </BrowserRouter>
       </StyledContainer>
