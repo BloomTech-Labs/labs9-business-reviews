@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
+import PlaceHolderReviews from './PlaceHolderReviews';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
@@ -195,37 +196,9 @@ class SearchResult extends React.Component {
                 {this.state.reviews?this.state.reviews.map(({title, image, id, rating}) => (                <div key={id}className='review'>
                       <h4>{title}</h4>
                       <div className='review-img1' />
-                      <p>{`${rating} stars`}</p>                      
+                      <p>{`${rating} stars`}</p>            
                     </div>                  
-                )):(<div className='reviews'>
-                  <div className='review'>
-                    <div className='review-img1' />
-                    <p>
-                      <span role='img' aria-label='stars'>
-                        ⭐⭐⭐
-                      </span>
-                    </p>
-                    <h3>@eddbunk</h3>
-                  </div>
-                  <div className='review'>
-                    <div className='review-img2' />
-                    <p>
-                      <span role='img' aria-label='stars'>
-                        ⭐⭐⭐⭐⭐
-                      </span>
-                    </p>
-                    <h3>@alixjones</h3>
-                  </div>
-                  <div className='review'>
-                    <div className='review-img3' />
-                    <p>
-                      <span role='img' aria-label='stars'>
-                        ⭐⭐
-                      </span>
-                    </p>
-                    <h3>@carloG</h3>
-                  </div>
-                </div>)}
+                )):<PlaceHolderReviews/>}
               </div>
               <button onClick={this.toggleReviewing}>Add a Review</button>
             </div>
