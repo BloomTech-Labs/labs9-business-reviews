@@ -88,8 +88,8 @@ class PopularBusinesses extends Component {
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
-          <div className='business'>
-            <Link className='link' key={id} to={`/business/${id}`}>
+          <div className='business' key={id}>
+            <Link className='link'  to={`/business/${id}`}>
               <CardStyle id={id}>
                 <img
                   className='business__img'

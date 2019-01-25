@@ -65,8 +65,8 @@ class PopularReviewers extends Component {
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
-          <div className='users'>
-            <Link to={`/user/${id}`} className='link' key={id}>
+          <div className='users'key={id}>
+            <Link to={`/user/${id}`} className='link' >
               <CardStyle>
                 <img src={gravatar} alt="reviewer's profile" />
                 <p className='users__name'>{name}</p>
