@@ -1,5 +1,4 @@
 import React from 'react';
-import LoginForm from './LoginForm';
 import GatedSignIn from './GatedSignInComponent';
 import styled from 'styled-components';
 

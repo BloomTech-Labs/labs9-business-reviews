@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import BillingPage from './components/BillingPage';
 import Login from './components/Login';
