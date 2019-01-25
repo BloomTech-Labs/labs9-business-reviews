@@ -83,8 +83,24 @@ const NavBar = styled.div`
         color: white;
         margin: 0;
       }
-      .menu__user--text {
+      .menu__user--login {
         text-decoration: none;
+        color: black;
+        margin-right: 30px;
+        @media (max-width: 900px) {
+          color: white;
+          :hover {
+            letter-spacing: 2px;
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+            transition: all 280ms ease-in-out;
+          }
+        }
+      }
+      .menu__user--signup {
+        text-decoration: none;
+        border: 2px solid black;
+        padding: 8px;
         color: black;
         margin-right: 30px;
         @media (max-width: 900px) {
@@ -114,10 +130,10 @@ function LandingNav() {
           <Link to='/toprated'>top rated</Link>
         </div>
         <div className='menu__user'>
-          <Link to='/login' className='menu__user--text'>
+          <Link to='/login' className='menu__user--login'>
             Login
           </Link>
-          <Link to='/register' className='menu__user--text'>
+          <Link to='/register' className='menu__user--signup'>
             Sign Up
           </Link>
         </div>
