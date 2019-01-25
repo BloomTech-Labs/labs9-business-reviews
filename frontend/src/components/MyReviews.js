@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
@@ -27,6 +28,8 @@ const StyledReviews = styled.div`
     align-items: center;
     margin-bottom: 50px;
     line-height: 0.2;
+    text-decoration: none;
+    color: black;
 
     .review__imgContainer {
       width: 250px;
@@ -91,7 +94,11 @@ class MyReviews extends Component {
         {this.state.reviews ? (
           this.state.reviews.map(
             ({ title, body, business_image, business_name, id, rating }) => (
-              <div key={id} className='review'>
+              <Link
+                to={`/user/${this.props.id}/review/${id}`}
+                key={id}
+                className='review'
+              >
                 <div className='review__imgContainer'>
                   <img
                     className='review__imgContainer--img'
@@ -108,7 +115,7 @@ class MyReviews extends Component {
                 <div className='review__ratingContainer'>
                   <p className='review__ratingContainer--rating'>{`${rating} stars`}</p>
                 </div>
-              </div>
+              </Link>
             )
           )
         ) : (
