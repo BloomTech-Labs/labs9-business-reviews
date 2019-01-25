@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
