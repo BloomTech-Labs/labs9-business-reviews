@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
 import PlaceHolderReviews from './PlaceHolderReviews';
 
@@ -124,6 +125,7 @@ class MyReviews extends Component {
       </StyledReviews>
     );
   }
+
 }
 
 export default MyReviews;

@@ -1,6 +1,60 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
+import styled from 'styled-components';
+
+const UpdatePasswordDiv = styled.div`
+  margin: 0 auto;
+  width: 600px;
+  .image-container {
+    height: 200px;
+    background-image: url('https://i.imgur.com/81RTZEw.png');
+    background-size: cover;
+    clip-path: polygon(0 0, 1600px 0, 1600px 67%, 0 100%);
+    width: 100%;
+    h1 {
+      font-weight: 100;
+      font-size: 30px;
+      text-align: center;
+      padding: 10px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    label {
+      text-align: center;
+      margin: 10px 0px;
+    }
+    input[type='text'] {
+      width: 90%;
+      padding: 5px;
+      align-self: center;
+      border: none;
+
+      border-bottom: 1px dashed #83a4c5;
+      transition: all 0.3s;
+      &:focus {
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
+      }
+    }
+    input[type='submit'] {
+      margin: 20px auto;
+      padding: 10px;
+      width: 30%;
+      transition: all 0.3s;
+      cursor: pointer;
+      box-shadow: 0 2px #0e83cd;
+      background-color: #0e83cd;
+      &:hover {
+        background: white;
+        box-shadow: 0 2px black;
+      }
+    }
+  }
+`;
 
 class UpdatePassword extends Component {
   state = {
@@ -36,8 +90,10 @@ class UpdatePassword extends Component {
   };
   render() {
     return (
-      <div>
-        <h1> Hey {this.state.user.name} wanna reset your password?</h1>
+      <UpdatePasswordDiv>
+        <div className="image-container">
+          <h1> Hey {this.state.user.name} wanna reset your password?</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>Password</label>
           <input
@@ -55,7 +111,7 @@ class UpdatePassword extends Component {
           />
           <input type="submit" value="update password" />
         </form>
-      </div>
+      </UpdatePasswordDiv>
     );
   }
 }

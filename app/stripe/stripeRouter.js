@@ -2,31 +2,40 @@ const express = require('express');
 const router = express.Router();
 const stripe = require("stripe")(process.env.STRIPE_SECRET);
 
-const db = require('../db/dbinit');
-
 router.post('/yearly', async(req, res) => {
-const {token} = req.query;
-const response = await stripe.charges.create({
-    amount:'999',
-    source: token,
-    currency:'USD',
-    description: 'test charge, yearly',
+  const {token} = req.query;
+  const email = token.email;
+  const response = await stripe.customers.create({
+    email: email,
+    source: token
   })
-  console.log(response);
+  .then(customer => {
+    stripe.charges.create({
+      amount: 999,
+      description: "Yearly Subscription Charge",
+      currency: "usd",
+      customer: customer.id
+    })
+  })
   res.json({response});
-});
+})
 
 router.post('/monthly', async(req, res) => {
   const {token} = req.query;
-  const response = await stripe.charges.create({
-    amount:'99',
-    source: token,
-    currency:'USD',
-    description: 'test charge, monthly',
+  const email = token.email;
+  const response = await stripe.customers.create({
+    email: email,
+    source: token
   })
-  console.log(response);
+  .then(customer => {
+    stripe.charges.create({
+      amount: 99,
+      description: "Monthly Subscription Charge",
+      currency: "usd",
+      customer: customer.id
+    })
+  })
   res.json({response});
-});
-
+})
 
 module.exports = router;
