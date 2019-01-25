@@ -6,14 +6,8 @@ exports.up = function(knex, Promise) {
     review.float('rating');
     review.string('business_image');
     review.string('business_name');
-    review
-      .integer('business_id')
-      .references('id')
-      .inTable('businesses');
-    review
-      .integer('reviewer_id')
-      .references('id')
-      .inTable('users');
+    review.string('business_id');
+    review.integer('reviewer_id');
   });
 };
 exports.down = function(knex, Promise) {
