@@ -13,11 +13,6 @@ export const PopularBusinessesStyles = styled.div`
   width: 85%;
   height: auto;
 
-  @media (max-width: 950px) {
-    width: 100%;
-    flex-flow: column;
-    align-items: center;
-  }
   h1 {
     width: 100%;
   }
@@ -46,9 +41,7 @@ export const PopularBusinessesStyles = styled.div`
 
 export const CardStyle = styled.div`
   margin-left: 20px;
-  @media (max-width: 900px) {
-    width: 40%;
-  }
+
   img {
     width: 200px;
     height: 200px;
