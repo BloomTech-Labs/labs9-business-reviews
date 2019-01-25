@@ -22,8 +22,12 @@ const PopularReviewersStyles = styled.div`
     text-decoration: none;
     color: black;
   }
-  .name {
-    font-size: 1.2rem;
+  .users {
+    width: 200px;
+    margin-right: 25px;
+    .users__name {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -61,12 +65,14 @@ class PopularReviewers extends Component {
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
-          <Link to={`/user/${id}`} className='link' key={id}>
-            <CardStyle>
-              <img src={gravatar} alt="reviewer's profile" />
-              <p className='name'>{name}</p>
-            </CardStyle>
-          </Link>
+          <div className='users'>
+            <Link to={`/user/${id}`} className='link' key={id}>
+              <CardStyle>
+                <img src={gravatar} alt="reviewer's profile" />
+                <p className='users__name'>{name}</p>
+              </CardStyle>
+            </Link>
+          </div>
         ))}
       </PopularReviewersStyles>
     );
