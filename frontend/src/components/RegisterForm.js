@@ -23,23 +23,25 @@ const AuthForm = styled.form`
   padding: 2rem;
 
   label {
-    font-family: sans-serif;
+    font-family: Quicksand;
   }
   input[type='submit'] {
-    background-color: #ffc40e;
-    font-weight: 600;
-    font-family: 'roboto';
+    background-color: #eed974;
+    font-size: 1.25rem;
+    font-family: Quicksand;
     margin: 10px auto;
     padding: 10px;
     float: center;
+    height: 70px;
     width: 95%;
+    margin-bottom: 15px;
   }
 `;
 
 const AuthHeader = styled.h1`
   padding-bottom: 25px;
-  font-family: 'roboto';
-  font-weight: 500;
+  font-family: Quicksand;
+  letter-spacing: 1.2px;
 `;
 
 class RegisterForm extends Component {
@@ -76,7 +78,7 @@ class RegisterForm extends Component {
           <AuthInput type='text' name='password' onChange={this.handleChange} />
           <label htmlFor='name'>Name</label>
           <AuthInput type='text' name='name' onChange={this.handleChange} />
-          <input type='submit' value='Register 🡆 ' />
+          <input type='submit' value='Register' className='btn' />
         </AuthForm>
       </RegisterDiv>
     );
