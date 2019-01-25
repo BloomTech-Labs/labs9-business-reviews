@@ -4,11 +4,15 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
 
-const LoginDiv = styled.div`
+const Login = styled.div`
   display: flex;
   max-width: 500px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   height: 500px;
+
+  .Login__text--link {
+    color: black;
+  }
 `;
 
 const AuthInput = styled.input`
@@ -69,11 +73,14 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <LoginDiv>
+      <Login>
         <AuthForm onSubmit={this.handleSubmit}>
           <AuthHeader>Login to your account</AuthHeader>
-          <h4>
-            Don't have an account? <Link to='/register'>Register here!</Link>
+          <h4 className='Login__text'>
+            Don't have an account?{' '}
+            <Link to='/register' className='Login__text--link'>
+              Register here!
+            </Link>
           </h4>
           <label htmlFor='email'> Email</label>
           <AuthInput type='email' name='email' onChange={this.handleChange} />
@@ -85,7 +92,7 @@ class LoginForm extends Component {
           />
           <input type='submit' value='Login' />
         </AuthForm>
-      </LoginDiv>
+      </Login>
     );
   }
 }
