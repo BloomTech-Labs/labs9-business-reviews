@@ -16,7 +16,7 @@ const NavBar = styled.div`
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     font-family: 'Quicksand';
@@ -44,6 +44,11 @@ const NavBar = styled.div`
       align-items: center;
       flex-direction: row;
       text-transform: uppercase;
+
+      @media (max-width: 1130px) {
+        font-size: 1rem;
+      }
+
       @media (max-width: 900px) {
         width: 100%;
         flex-direction: column;
@@ -78,6 +83,7 @@ const NavBar = styled.div`
       @media (max-width: 900px) {
         display: flex;
         justify-content: center;
+        align-items: center;
         width: 100%;
         background: #142e41;
         color: white;
@@ -87,6 +93,11 @@ const NavBar = styled.div`
         text-decoration: none;
         color: black;
         margin-right: 30px;
+
+        @media (max-width: 1130px) {
+          font-size: 0.7rem;
+        }
+
         @media (max-width: 900px) {
           color: white;
           :hover {
@@ -103,6 +114,13 @@ const NavBar = styled.div`
         padding: 8px;
         color: black;
         margin-right: 30px;
+
+        @media (max-width: 1130px) {
+          font-size: 0.7rem;
+          border: 1px solid black;
+          padding: 2px;
+        }
+
         @media (max-width: 900px) {
           color: white;
           :hover {

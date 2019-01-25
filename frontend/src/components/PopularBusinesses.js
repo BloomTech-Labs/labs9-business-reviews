@@ -12,10 +12,11 @@ export const PopularBusinessesStyles = styled.div`
   flex-flow: row wrap;
   width: 85%;
   height: auto;
-  @media (max-width: 900px) {
-    background-color: white;
+
+  @media (max-width: 950px) {
     width: 100%;
-    justify-content: space-around;
+    flex-flow: column;
+    align-items: center;
   }
   h1 {
     width: 100%;
@@ -27,6 +28,16 @@ export const PopularBusinessesStyles = styled.div`
   .business {
     width: 200px;
     margin-right: 25px;
+
+    @media (max-width: 850px) {
+      height: 80%;
+      width: 80%;
+      background-color: white;
+    }
+
+    .business__img {
+    }
+
     .business__name {
       font-size: 1.2rem;
     }
@@ -87,7 +98,11 @@ class PopularBusinesses extends Component {
           <div className='business'>
             <Link className='link' key={id} to={`/business/${id}`}>
               <CardStyle id={id}>
-                <img src={image} alt='reviewed business' />
+                <img
+                  className='business__img'
+                  src={image}
+                  alt='reviewed business'
+                />
                 <p className='business__name'>{name}</p>
                 <h2>{rating}</h2>
               </CardStyle>
