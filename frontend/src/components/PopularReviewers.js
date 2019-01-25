@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
 
 const PopularReviewersStyles = styled.div`
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
-  width: 80%;
+  width: 85%;
   height: auto;
   @media (max-width: 900px) {
     background-color: white;
@@ -18,9 +18,12 @@ const PopularReviewersStyles = styled.div`
   h1 {
     width: 100%;
   }
-  .link{
+  .link {
     text-decoration: none;
     color: black;
+  }
+  .name {
+    font-size: 1.2rem;
   }
 `;
 
@@ -58,10 +61,10 @@ class PopularReviewers extends Component {
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
-          <Link to={`/user/${id}`} className="link" key={id}>
-            <CardStyle >
+          <Link to={`/user/${id}`} className='link' key={id}>
+            <CardStyle>
               <img src={gravatar} alt="reviewer's profile" />
-              <p>{name}</p>
+              <p className='name'>{name}</p>
             </CardStyle>
           </Link>
         ))}

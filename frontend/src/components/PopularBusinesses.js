@@ -24,13 +24,17 @@ export const PopularBusinessesStyles = styled.div`
     text-decoration: none;
     color: black;
   }
-  .name {
-    font-size: 1.2rem;
+  .business {
+    width: 200px;
+    margin-right: 25px;
+    .business__name {
+      font-size: 1.2rem;
+    }
   }
 `;
 
 export const CardStyle = styled.div`
-  margin-left: 15px;
+  margin-left: 20px;
   @media (max-width: 900px) {
     width: 40%;
   }
@@ -80,13 +84,15 @@ class PopularBusinesses extends Component {
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
-          <Link className='link' key={id} to={`/business/${id}`}>
-            <CardStyle id={id}>
-              <img src={image} alt='reviewed business' />
-              <p className='name'>{name}</p>
-              <h2>{rating}</h2>
-            </CardStyle>
-          </Link>
+          <div className='business'>
+            <Link className='link' key={id} to={`/business/${id}`}>
+              <CardStyle id={id}>
+                <img src={image} alt='reviewed business' />
+                <p className='business__name'>{name}</p>
+                <h2>{rating}</h2>
+              </CardStyle>
+            </Link>
+          </div>
         ))}
         {this.state.isOpen ? (
           <SingleBusiness toggleModal={this.toggleModal} />
