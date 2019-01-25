@@ -4,11 +4,15 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
 
-const LoginDiv = styled.div`
+const Login = styled.div`
   display: flex;
   max-width: 500px;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   height: 500px;
+
+  .Login__text--link {
+    color: black;
+  }
 `;
 
 const AuthInput = styled.input`
@@ -19,8 +23,8 @@ const AuthInput = styled.input`
 `;
 const AuthHeader = styled.h1`
   padding-bottom: 25px;
-  font-family: 'roboto';
-  font-weight: 500;
+  font-family: Quicksand;
+  letter-spacing: 1.2px;
 `;
 
 const AuthForm = styled.form`
@@ -28,16 +32,18 @@ const AuthForm = styled.form`
   padding: 2rem;
 
   label {
-    font-family: sans-serif;
+    font-family: Quicksand;
   }
   input[type='submit'] {
-    background-color: #ffc40e;
-    font-weight: 600;
-    font-family: 'roboto';
+    background-color: #eed974;
+    font-size: 1.25rem;
+    font-family: Quicksand;
     margin: 10px auto;
     padding: 10px;
     float: center;
+    height: 70px;
     width: 95%;
+    margin-bottom: 15px;
   }
 `;
 
@@ -67,11 +73,14 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <LoginDiv>
+      <Login>
         <AuthForm onSubmit={this.handleSubmit}>
-          <AuthHeader>Log in</AuthHeader>
-          <h4>
-            Don't have an account? <Link to='/register'>Register here!</Link>
+          <AuthHeader>Login to your account</AuthHeader>
+          <h4 className='Login__text'>
+            Don't have an account?{' '}
+            <Link to='/register' className='Login__text--link'>
+              Register here!
+            </Link>
           </h4>
           <label htmlFor='email'> Email</label>
           <AuthInput type='email' name='email' onChange={this.handleChange} />
@@ -81,9 +90,9 @@ class LoginForm extends Component {
             name='password'
             onChange={this.handleChange}
           />
-          <input type='submit' value='Login 🡆' />
+          <input type='submit' value='Login' />
         </AuthForm>
-      </LoginDiv>
+      </Login>
     );
   }
 }

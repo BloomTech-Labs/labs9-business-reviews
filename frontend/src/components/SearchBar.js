@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SearchBarStyles = styled.div`
   width: 100%;
@@ -15,19 +15,26 @@ const SearchBarStyles = styled.div`
     width: 100%;
     input {
       width: 60%;
-      height: 30px;
+      height: 40px;
       padding-left: 15px;
+      border: 2px solid #bfbfbf;
+      border-radius: 5px;
+      font-size: 1.15rem;
     }
   }
   .button-container {
     margin-top: 20px;
     .button {
+      border-radius: 8px;
       height: 40px;
       width: 120px;
       background: whitesmoke;
       margin-right: 20px;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      background-color: #eed974;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2),
+        0 4px 15px 0 rgba(0, 0, 0, 0.19);
     }
   }
 `;
@@ -50,12 +57,11 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    const input = document.querySelector('#dropdown'); /// yooooooooo
+    const input = document.querySelector('#dropdown');
     const dropdown = new window.google.maps.places.Autocomplete(input);
     dropdown.addListener('place_changed', () => {
       const place = dropdown.getPlace();
       this.setState({ business: place });
-      // id, adr_address, photos, place_id, rating, website
     });
   }
 
@@ -63,7 +69,7 @@ class SearchBar extends React.Component {
     return (
       <SearchBarStyles>
         <form>
-          <input id='dropdown' placeholder='Search...' />
+          <input id='dropdown' placeholder='What are you looking for?' />
         </form>
         <div className='button-container'>
           <button className='button'>Review</button>
