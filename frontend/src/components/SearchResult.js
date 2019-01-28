@@ -140,12 +140,10 @@ class SearchResult extends React.Component {
     let imageURL = '';
     if (this.state.business.photos) {
       const photos = this.state.business.photos;
-      const attributions = [];
-      console.log(this.state.business);
-      photos.map(photo => attributions.push(photo.html_attributions));
-      imageCC = attributions[0];
+      const references = [];
+      photos.map(photo => references.push(photo.photo_reference));
+      imageCC = references[0];
       imageURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`;
-      console.log(imageURL);
     }
     if (!this.state.business) return <p>Loading business...</p>;
     else {
@@ -202,10 +200,10 @@ class SearchResult extends React.Component {
               <h1>Reviews</h1>
               <div className='reviews'>
                 {this.state.reviews ? (
-                  this.state.reviews.map(({ title, image, id, rating }) => (
+                  this.state.reviews.map(({ title, business_image, id, rating }) => (
                     <div key={id} className='review'>
                       <h4>{title}</h4>
-                      <div className='review-img1' />
+                      <img src={business_image} alt="reviewed business" className='review-img1' />
                       <p>{`${rating} stars`}</p>
                     </div>
                   ))
