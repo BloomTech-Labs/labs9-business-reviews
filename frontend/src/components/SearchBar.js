@@ -15,14 +15,26 @@ const SearchBarStyles = styled.div`
     width: 100%;
     input {
       width: 60%;
-      height: 30px;
+      height: 40px;
       padding-left: 15px;
+      border: 2px solid #bfbfbf;
+      border-radius: 5px;
+      font-size: 1.15rem;
     }
-
-    .search__input {
-      height: 50px;
-      width: 550px;
-      font-size: 1.4rem;
+  }
+  .button-container {
+    margin-top: 20px;
+    .button {
+      border-radius: 8px;
+      height: 40px;
+      width: 120px;
+      background: whitesmoke;
+      margin-right: 20px;
+      background-color: #eed974;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2),
+        0 4px 15px 0 rgba(0, 0, 0, 0.19);
     }
   }
   .button {
@@ -54,7 +66,7 @@ class SearchBar extends React.Component {
   }
 
   componentDidMount() {
-    const input = document.querySelector('#dropdown'); /// yooooooooo
+    const input = document.querySelector('#dropdown');
     const dropdown = new window.google.maps.places.Autocomplete(input);
     dropdown.addListener('place_changed', () => {
       const place = dropdown.getPlace();
@@ -66,11 +78,6 @@ class SearchBar extends React.Component {
     return (
       <SearchBarStyles>
         <form>
-          <input
-            className='search__input'
-            id='dropdown'
-            placeholder='What are you looking for?'
-          />
         </form>
         <Link to={`/business/${this.state.business.place_id}`}>
           <button className='button'>Search</button>

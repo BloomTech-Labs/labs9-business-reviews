@@ -4,13 +4,16 @@ import {Link} from 'react-router-dom'
 const StyledSidebar = styled.div`
   box-sizing: border-box;
   border: 1px solid black;
+  background: white;
   width: 15%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;
   a {
     margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
   }
 `;
 

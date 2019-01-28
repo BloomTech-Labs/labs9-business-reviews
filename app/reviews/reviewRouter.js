@@ -5,15 +5,15 @@ const db = require('../db/dbinit');
 
 //CREATE
 router.post('/', (req, res) => {
-    const review = req.body;
-    db('reviews')
-        .insert(review)
-        .then((ids) => {
-            res.status(201).json(ids)
-        })
-        .catch((err) => {
-			res.status(500).json(err);
+	const review = req.body;
+	db('reviews')
+		.insert(review)
+		.then((ids) => {
+			res.status(201).json(ids);
 		})
+		.catch((err) => {
+			res.status(500).json(err);
+		});
 });
 
 //GET ALL
@@ -24,9 +24,8 @@ router.get('/', (req, res) => {
 		})
 		.catch((err) => {
 			res.status(500).json(err);
-		})
+		});
 });
-
 
 //GET BY ID
 router.get('/:id', (req, res) => {
@@ -40,22 +39,34 @@ router.get('/:id', (req, res) => {
 			res.status(500).json(err);
 		});
 });
+//PUT
+router.put('/:id', (req, res) => {
+	const changes = req.body;
+	const { id } = req.params;
 
+	db('reviews')
+		.where({ id: id })
+		.update(changes)
+		.then((count) => {
+			res.status(200).json(count);
+		})
+		.catch((err) => res.status(500).json(err));
+});
 //DELETE
 router.delete('/:id', (req, res) => {
 	const { id } = req.params;
-    db('reviews')
-        .where({ id })
-        .del()
-		.then(count => 
-			count
-			? res.status(200).json({message: 'Deleted'})
-			: res.status(404).json({ message: 'Could not find that review' })
+	db('reviews')
+		.where({ id })
+		.del()
+		.then(
+			(count) =>
+				count
+					? res.status(200).json({ message: 'Deleted' })
+					: res.status(404).json({ message: 'Could not find that review' })
 		)
-        .catch((err) => {
-			res.status(500).json({err});
-		});	
+		.catch((err) => {
+			res.status(500).json({ err });
+		});
 });
-
 
 module.exports = router;

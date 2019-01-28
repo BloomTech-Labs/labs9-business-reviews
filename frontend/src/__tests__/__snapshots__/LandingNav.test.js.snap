@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LandingNavComponent /> matches snapshot 1`] = `
+<styled.div>
+  <div
+    className="inner-nav-container"
+  >
+    <Link
+      replace={false}
+      to="/"
+    >
+      <img
+        alt="logo"
+        className="menu__logo--logo"
+        src="logo.png"
+      />
+    </Link>
+    <div
+      className="menu__menuItems"
+    >
+      <Link
+        replace={false}
+        to="/addreview"
+      >
+        add a review
+      </Link>
+      <Link
+        replace={false}
+        to="/categories"
+      >
+        categories
+      </Link>
+      <Link
+        replace={false}
+        to="/toprated"
+      >
+        top rated
+      </Link>
+    </div>
+    <div
+      className="menu__user"
+    >
+      <Link
+        className="menu__user--login"
+        replace={false}
+        to="/login"
+      >
+        Login
+      </Link>
+      <Link
+        className="menu__user--signup"
+        replace={false}
+        to="/register"
+      >
+        Sign Up
+      </Link>
+    </div>
+  </div>
+</styled.div>
+`;

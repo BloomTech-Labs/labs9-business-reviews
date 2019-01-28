@@ -16,29 +16,32 @@ const RegisterDiv = styled.div`
   margin: auto;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   height: 500px;
+  margin-top: 50px;
 `;
 const AuthForm = styled.form`
   width: 100%;
   padding: 2rem;
 
   label {
-    font-family: sans-serif;
+    font-family: Quicksand;
   }
   input[type='submit'] {
-    background-color: #ffc40e;
-    font-weight: 600;
-    font-family: 'roboto';
+    background-color: #eed974;
+    font-size: 1.25rem;
+    font-family: Quicksand;
     margin: 10px auto;
     padding: 10px;
     float: center;
+    height: 70px;
     width: 95%;
+    margin-bottom: 15px;
   }
 `;
 
 const AuthHeader = styled.h1`
   padding-bottom: 25px;
-  font-family: 'roboto';
-  font-weight: 500;
+  font-family: Quicksand;
+  letter-spacing: 1.2px;
 `;
 
 class RegisterForm extends Component {
@@ -69,13 +72,13 @@ class RegisterForm extends Component {
       <RegisterDiv>
         <AuthForm onSubmit={this.handleSubmit}>
           <AuthHeader> Register for a account!</AuthHeader>
-          <label htmlFor="email"> Email</label>
-          <AuthInput type="email" name="email" onChange={this.handleChange} />
-          <label htmlFor="password"> Password</label>
-          <AuthInput type="text" name="password" onChange={this.handleChange} />
-          <label htmlFor="name">Name</label>
-          <AuthInput type="text" name="name" onChange={this.handleChange} />
-          <input type="submit" value="Register 🡆 " />
+          <label htmlFor='email'> Email</label>
+          <AuthInput type='email' name='email' onChange={this.handleChange} />
+          <label htmlFor='password'> Password</label>
+          <AuthInput type='text' name='password' onChange={this.handleChange} />
+          <label htmlFor='name'>Name</label>
+          <AuthInput type='text' name='name' onChange={this.handleChange} />
+          <input type='submit' value='Register' className='btn' />
         </AuthForm>
       </RegisterDiv>
     );

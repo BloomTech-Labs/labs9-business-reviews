@@ -80,6 +80,8 @@ class AddReviewModal extends React.Component {
       title: this.state.title,
       body: this.state.body,
       rating: this.state.rating,
+      business_image: this.props.imageUrl,
+      business_name: this.props.businessName,
       business_id: this.props.businessId,
       reviewer_id: 69
     })
@@ -93,6 +95,7 @@ class AddReviewModal extends React.Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   componentDidMount = () => {
     console.log('businessid', this.props.businessId);
   };
@@ -100,6 +103,7 @@ class AddReviewModal extends React.Component {
     return (
       <ModalStyles>
         <div className='review__modal'>
+
           <div className='container'>
             <h1>Add a Review</h1>
             <form class='review__modal--form' onSubmit={this.handleSubmit}>
@@ -144,6 +148,36 @@ class AddReviewModal extends React.Component {
               </div>
             </form>
           </div>
+          <h1>Add a Review</h1>
+          <form className='review__modal--form' onSubmit={this.handleSubmit}>
+            <label className='review__modal--label'>Title</label>
+            <input
+              onChange={this.changeHandler}
+              name='title'
+              value={this.state.title}
+              className='review__form--title'
+            />
+            <label htmlFor='review-body' />
+            <textarea
+              onChange={this.changeHandler}
+              name='body'
+              value={this.state.body}
+              className='review-body'
+            />
+            <select
+              onChange={this.changeHandler}
+              name='rating'
+              value={this.state.rating}
+            >
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option defaultValue='5'>5</option>
+            </select>
+            <button onClick={this.handleSubmit}>Submit Review</button>
+            <button onClick={this.props.toggleReviewing}>Cancel</button>
+          </form>
         </div>
       </ModalStyles>
     );

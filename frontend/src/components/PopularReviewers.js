@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
 
 const PopularReviewersStyles = styled.div`
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
-  width: 80%;
+  width: 85%;
   height: auto;
   @media (max-width: 900px) {
     background-color: white;
@@ -16,6 +17,17 @@ const PopularReviewersStyles = styled.div`
   }
   h1 {
     width: 100%;
+  }
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+  .users {
+    width: 200px;
+    margin-right: 25px;
+    .users__name {
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -31,49 +43,7 @@ class PopularReviewers extends Component {
   constructor() {
     super();
     this.state = {
-      users: [],
-      reviews: [
-        {
-          id: 1,
-          name: 'ManGuy',
-          image: 'https://loremflickr.com/200/200/man'
-        },
-        {
-          id: 2,
-          name: 'DogGuy',
-          image: 'https://loremflickr.com/200/200/dog'
-        },
-        {
-          id: 3,
-          name: 'WomanGuy',
-          image: 'https://loremflickr.com/200/200/woman'
-        },
-        {
-          id: 4,
-          name: 'KidGuy',
-          image: 'https://loremflickr.com/200/200/kid'
-        },
-        {
-          id: 5,
-          name: 'CatGuy',
-          image: 'https://loremflickr.com/200/200/cat'
-        },
-        {
-          id: 6,
-          name: 'PersonGuy',
-          image: 'https://loremflickr.com/200/200/person'
-        },
-        {
-          id: 7,
-          name: 'HumanGuy',
-          image: 'https://loremflickr.com/200/200/human'
-        },
-        {
-          id: 8,
-          name: 'BirdGuy',
-          image: 'https://loremflickr.com/200/200/bird'
-        }
-      ]
+      users: []
     };
   }
 
@@ -95,10 +65,14 @@ class PopularReviewers extends Component {
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
-          <CardStyle key={id}>
-            <img src={gravatar} alt="reviewer's profile" />
-            <p>{name}</p>
-          </CardStyle>
+          <div className='users'key={id}>
+            <Link to={`/user/${id}`} className='link' >
+              <CardStyle>
+                <img src={gravatar} alt="reviewer's profile" />
+                <p className='users__name'>{name}</p>
+              </CardStyle>
+            </Link>
+          </div>
         ))}
       </PopularReviewersStyles>
     );

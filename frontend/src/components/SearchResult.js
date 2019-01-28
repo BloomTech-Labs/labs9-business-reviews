@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
 import PlaceHolderReviews from './PlaceHolderReviews';
+import { backendLink } from '../assets/config';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
@@ -100,13 +101,12 @@ class SearchResult extends React.Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     Axios.get(
-      `https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
+      `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
-      // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
-    Axios.get(`http://localhost:9000/api/business/${id}/reviews`)
-      // .then(res => console.log(res.data.result.formatted_phone_number))
+    Axios.get(`${backendLink}/api/business/${id}/reviews`)
+
       .then(res => this.setState({ reviews: res.data }))
       .catch(err => console.log(err));
   }
@@ -120,7 +120,7 @@ class SearchResult extends React.Component {
     }
 
     const { id } = this.props.match.params;
-    Axios.post(`http://localhost:9000/api/business`, {
+    Axios.post(`${backendLink}/api/business`, {
       id: `${id}`,
       name: this.state.business.name,
       rating: this.state.business.rating,
@@ -137,6 +137,15 @@ class SearchResult extends React.Component {
   };
 
   render() {
+    let imageCC = '';
+    let imageURL = '';
+    if (this.state.business.photos) {
+      const photos = this.state.business.photos;
+      const references = [];
+      photos.map(photo => references.push(photo.photo_reference));
+      imageCC = references[0];
+      imageURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`;
+    }
     if (!this.state.business) return <p>Loading business...</p>;
     else {
       return (
@@ -192,10 +201,10 @@ class SearchResult extends React.Component {
               <h1>Reviews</h1>
               <div className='reviews'>
                 {this.state.reviews ? (
-                  this.state.reviews.map(({ title, image, id, rating }) => (
+                  this.state.reviews.map(({ title, business_image, id, rating }) => (
                     <div key={id} className='review'>
                       <h4>{title}</h4>
-                      <div className='review-img1' />
+                      <img src={business_image} alt="reviewed business" className='review-img1' /
                       <p>{`${rating} stars`}</p>
                     </div>
                   ))
@@ -208,8 +217,10 @@ class SearchResult extends React.Component {
           </div>
           {this.state.reviewing ? (
             <AddReviewModal
+              imageURL={imageURL}
+              businessName={this.state.business.name}
               addBusiness={this.addBusiness}
-              businessId={this.props.match.params}
+              businessId={this.state.business.place_id}
               toggleReviewing={this.toggleReviewing}
             />
           ) : null}
