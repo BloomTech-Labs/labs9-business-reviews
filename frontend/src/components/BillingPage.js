@@ -6,26 +6,9 @@ const StyledBilling = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  // background-color: #142e41;
+  margin-top: 40px;
   .billing {
-    padding-left: 20px;
-  }
-  .payment-form {
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-
-    border: 1px solid black;
-    padding: 10px;
-  }
-  .payment-form input {
-    width: 180px;
-    margin: 10px;
-    padding: 6px;
-  }
-  .input-div {
-    display: flex;
-    justify-content: center;
+    border: solid black 1px;
   }
   button {
     padding: 30px;
