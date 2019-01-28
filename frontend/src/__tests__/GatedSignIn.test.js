@@ -3,7 +3,7 @@ import toJSON from 'enzyme-to-json';
 import React from 'react';
 import GatedSignInComponent from '../components/GatedSignInComponent';
 
-describe('<AddReviewModal />', () => {
+describe('<GatedSignInComponent />', () => {
   it('renders', () => {
     shallow(<GatedSignInComponent />);
   });

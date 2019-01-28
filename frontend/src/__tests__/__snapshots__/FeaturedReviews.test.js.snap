@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AddReviewModal /> matches snapshot 1`] = `
+exports[`<FeaturedReviewsComponent /> matches snapshot 1`] = `
 <styled.div>
   <h1>
     Featured Reviews

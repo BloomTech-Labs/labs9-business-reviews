@@ -3,7 +3,7 @@ import toJSON from 'enzyme-to-json';
 import React from 'react';
 import LandingNavComponent from '../components/LandingNav';
 
-describe('<AddReviewModal />', () => {
+describe('<LandingNavComponent />', () => {
   it('renders', () => {
     shallow(<LandingNavComponent />);
   });

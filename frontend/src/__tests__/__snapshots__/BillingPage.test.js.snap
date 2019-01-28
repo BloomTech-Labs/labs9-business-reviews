@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AddReviewModal /> matches snapshot 1`] = `
+exports[`<BillingPage /> matches snapshot 1`] = `
 <div>
   <styled.div>
     <SideBar />

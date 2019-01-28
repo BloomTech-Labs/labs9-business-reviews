@@ -3,7 +3,7 @@ import toJSON from 'enzyme-to-json';
 import React from 'react';
 import FeaturedReviewsComponent from '../components/FeaturedReviews';
 
-describe('<AddReviewModal />', () => {
+describe('<FeaturedReviewsComponent />', () => {
   it('renders', () => {
     shallow(<FeaturedReviewsComponent />);
   });

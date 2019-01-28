@@ -3,7 +3,7 @@ import toJSON from 'enzyme-to-json';
 import React from 'react';
 import BillingPage from '../components/BillingPage';
 
-describe('<AddReviewModal />', () => {
+describe('<BillingPage />', () => {
   it('renders', () => {
     shallow(<BillingPage />);
   });

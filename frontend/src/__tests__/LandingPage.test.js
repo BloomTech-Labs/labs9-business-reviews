@@ -1,14 +1,14 @@
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import React from 'react';
-import FooterComponent from '../components/Footer';
+import LandingPageComponent from '../components/LandingPage';
 
-describe('<FooterComponent />', () => {
+describe('<LandingPageComponent />', () => {
   it('renders', () => {
-    shallow(<FooterComponent />);
+    shallow(<LandingPageComponent />);
   });
   it('matches snapshot', () => {
-    const wrapper = shallow(<FooterComponent />);
+    const wrapper = shallow(<LandingPageComponent />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });
