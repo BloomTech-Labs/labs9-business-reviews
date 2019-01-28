@@ -48,10 +48,14 @@ const AuthForm = styled.form`
 `;
 
 class LoginForm extends Component {
-  state = {
-    email: '',
-    password: ''
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
+  
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -67,8 +71,9 @@ class LoginForm extends Component {
     );
     if (res.status === 500) {
       return alert('Login incorrect, please try again.');
-    }
-    alert(`Authenticated!`);
+    }    
+    console.log(`Authenticated!`);
+    this.props.history.push('/');
   };
 
   render() {

@@ -15,10 +15,10 @@ const AuthWrapper = styled.div`
   }
 `;
 
-const Login = () => {
+const Login = (props) => {
   return (
     <AuthWrapper>
-      <GatedSignIn />
+      <GatedSignIn {...props}/>
     </AuthWrapper>
   );
 };
