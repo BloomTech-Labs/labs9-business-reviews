@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import React from 'react';
-import SingleBusinessComponent from '../component/SingleBusiness';
+import SingleBusinessComponent from '../components/SingleBusiness';
 
 describe('SingleBusinessComponent />', () => {
   it('renders', () => {
