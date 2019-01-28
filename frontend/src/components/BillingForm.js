@@ -64,7 +64,7 @@ class BillingForm extends React.Component {
             amount={this.state.amount}
             name="Bonafind"
             description="Purchase Subscription"
-            stripeKey={process.env.STRIPE_SECRET}
+            stripeKey="pk_test_YRDXagNKMjZOXlX2ULVNUWbT"
             currency="USD"
             token={res => this.onToken(res)}
           >
