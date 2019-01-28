@@ -92,7 +92,7 @@ class SearchResult extends React.Component {
 
     this.state = {
       business: [],
-      reviewing: true,
+      reviewing: false,
       reviews: []
     };
   }
