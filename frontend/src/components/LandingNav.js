@@ -1,6 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
 import { backendLink } from '../assets/config';
@@ -132,7 +132,10 @@ const NavBar = styled.div`
 						transition: all 280ms ease-in-out;
 					}
 				}
-			}
+      }
+      .menu__user--logout {
+        cursor: pointer;
+      }
 		}
 	}
 `;
@@ -141,20 +144,23 @@ class LandingNav extends React.Component{
   state= {
     loggedIn:false
   }
+  handleLogout=()=>{
+    Axios.get(`${backendLink}/api/user/logout`, {withCredentials:"include"}).then(res => console.log("success", res.status)).catch(err => console.log('unable to logout', err));
+    this.setState({loggedIn:false})
+  }  
 	getCreds = async () => {
-		const res = await axios.get(`${backendLink}/api/user/me`, {
+		const res = await Axios.get(`${backendLink}/api/user/me`, {
 			withCredentials: 'include'
 		});
     if (!res.data.user) return null
     else{
-      console.log('user logged in')
+      console.log('user logged in', res.data.user)
       this.setState({loggedIn:true})
     }
 	};
   componentDidMount() {
     this.getCreds();
-  }
-  
+  }  
 	render() {
 		return (
 			<NavBar>
@@ -168,12 +174,11 @@ class LandingNav extends React.Component{
 						<Link to="/toprated">top rated</Link>
 					</div>
 					<div className="menu__user">
-						<Link to="/login" className="menu__user--login">
-							Login
-						</Link>
-						<Link to="/register" className="menu__user--signup">
-							Sign Up
-						</Link>
+            {this.state.loggedIn?<p onClick={this.handleLogout} to="/logout" className="menu__user--logout">Logout</p>:
+            <>
+            <Link to="/login" className="menu__user--login">Login</Link>
+						<Link to="/register" className="menu__user--signup">Sign Up</Link>
+            </>}						
 					</div>
 				</div>
 			</NavBar>
