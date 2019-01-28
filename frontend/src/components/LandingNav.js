@@ -7,7 +7,7 @@ const NavBar = styled.div`
   width: 100%;
   height: auto;
   background-color: #eed974;
-  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,500');
+  @import url('https://fonts.googleapis.com/css?family=Patua+One:300,500');
   @media (max-width: 900px) {
     background-color: white;
   }
@@ -19,7 +19,7 @@ const NavBar = styled.div`
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
-    font-family: 'Quicksand';
+    font-family: 'Patua One';
     @media (max-width: 900px) {
       flex-direction: column;
       padding: 0;
