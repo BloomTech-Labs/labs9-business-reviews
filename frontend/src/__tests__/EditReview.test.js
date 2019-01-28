@@ -5,10 +5,10 @@ import EditReviewComponent from '../components/EditReview';
 
 describe('<EditReviewComponent />', () => {
   it('renders', () => {
-    shallow(<EditReviewComponent />);
+    shallow(<EditReviewComponent match={{ params: '1' }} />);
   });
   it('matches snapshot', () => {
-    const wrapper = shallow(<EditReviewComponent />);
+    const wrapper = shallow(<EditReviewComponent match={{ params: '1' }} />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });

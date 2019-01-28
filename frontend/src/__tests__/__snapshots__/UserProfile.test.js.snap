@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfileComponent /> matches snapshot 1`] = `
+<div>
+  <styled.div>
+    <SideBar />
+    <MyReviews />
+  </styled.div>
+</div>
+`;

@@ -5,10 +5,10 @@ import UserProfileComponent from '../components/UserProfile';
 
 describe('UserProfileComponent />', () => {
   it('renders', () => {
-    shallow(<UserProfileComponent />);
+    shallow(<UserProfileComponent match={{ params: '1' }} />);
   });
   it('matches snapshot', () => {
-    const wrapper = shallow(<UserProfileComponent />);
+    const wrapper = shallow(<UserProfileComponent match={{ params: '1' }} />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 });
