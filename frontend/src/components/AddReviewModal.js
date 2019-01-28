@@ -9,28 +9,59 @@ const ModalStyles = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: rgba(4, 0, 0, 0.7);
+
   .review__modal {
-    width: 70%;
-    padding: 20px;
-    height: 200px;
-    border: 20px solid red;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    width: 50%;
+    height: 500px;
+    padding: 10px;
+    /* border: 1px solid grey; */
     background-color: white;
 
-    .review__modal--form {
-      border: 5px solid blue;
-      display: flex;
-      flex-direction: column;
-    }
+    .container {
+      margin: 0 auto;
 
-    .review__modal--label {
-      color: red;
+      .review__modal--form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .review__modal--form--field--title {
+          width: 400px;
+          height: 20px;
+          margin-bottom: 20px;
+          padding: 10px;
+          font-size: 1.5rem;
+        }
+
+        .review__modal--form--field--review {
+          width: 400px;
+          height: 120px;
+          margin-bottom: 20px;
+          padding: 10px;
+          font-size: 1.2rem;
+        }
+      }
+
+      .review__modal--buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+
+        .review__modal--buttons--btn {
+          background-color: #eed974;
+          height: 40px;
+          width: 120px;
+          margin-right: 20px;
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+      }
     }
   }
 `;
@@ -64,10 +95,59 @@ class AddReviewModal extends React.Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  componentDidMount = () => {
+    console.log('businessid', this.props.businessId);
+  };
   render() {
     return (
       <ModalStyles>
         <div className='review__modal'>
+
+          <div className='container'>
+            <h1>Add a Review</h1>
+            <form class='review__modal--form' onSubmit={this.handleSubmit}>
+              <label htmlFor='review-title'>Title</label>
+              <input
+                onChange={this.changeHandler}
+                name='title'
+                value={this.state.title}
+                className='review__modal--form--field--title'
+              />
+              <label htmlFor='review-body'>Your review</label>
+              <textarea
+                onChange={this.changeHandler}
+                name='body'
+                value={this.state.body}
+                className='review__modal--form--field--review'
+              />
+              <select
+                onChange={this.changeHandler}
+                name='rating'
+                value={this.state.rating}
+              >
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option defaultValue='5'>5</option>
+              </select>
+              <div className='review__modal--buttons'>
+                <button
+                  className='review__modal--buttons--btn'
+                  onClick={this.handleSubmit}
+                >
+                  Submit Review
+                </button>
+                <button
+                  className='review__modal--buttons--btn'
+                  onClick={this.props.toggleReviewing}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
           <h1>Add a Review</h1>
           <form className='review__modal--form' onSubmit={this.handleSubmit}>
             <label className='review__modal--label'>Title</label>

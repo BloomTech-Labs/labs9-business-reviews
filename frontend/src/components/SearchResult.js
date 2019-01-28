@@ -93,7 +93,7 @@ class SearchResult extends React.Component {
 
     this.state = {
       business: [],
-      reviewing: false,
+      reviewing: true,
       reviews: []
     };
   }
@@ -106,6 +106,7 @@ class SearchResult extends React.Component {
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
     Axios.get(`${backendLink}/api/business/${id}/reviews`)
+
       .then(res => this.setState({ reviews: res.data }))
       .catch(err => console.log(err));
   }
@@ -203,7 +204,7 @@ class SearchResult extends React.Component {
                   this.state.reviews.map(({ title, business_image, id, rating }) => (
                     <div key={id} className='review'>
                       <h4>{title}</h4>
-                      <img src={business_image} alt="reviewed business" className='review-img1' />
+                      <img src={business_image} alt="reviewed business" className='review-img1' /
                       <p>{`${rating} stars`}</p>
                     </div>
                   ))
