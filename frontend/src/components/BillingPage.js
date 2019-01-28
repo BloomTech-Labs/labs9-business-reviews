@@ -1,31 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import SideBar from './SideBar';
 import BillingForm from './BillingForm';
 
 const StyledBilling = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
-  height: 600px;
+  justify-content: center;
+  margin-top: 40px;
   .billing {
-    padding-left: 20px;
-  }
-  .payment-form {
-    width: 280px;
-    display: flex;
-    flex-direction: column;
-
-    border: 1px solid black;
-    padding: 10px;
-  }
-  .payment-form input {
-    width: 180px;
-    margin: 10px;
-    padding: 6px;
-  }
-  .input-div {
-    display: flex;
-    justify-content: center;
+    border: solid black 1px;
   }
   button {
     padding: 30px;
@@ -40,7 +23,6 @@ class BillingPage extends Component {
     return (
       <div>
         <StyledBilling>
-          <SideBar />
           <div className='billing'>
             <BillingForm>
               <button>Buy Now</button>
