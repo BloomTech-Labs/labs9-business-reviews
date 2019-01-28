@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
+import SearchBar from './SearchBar';
 
 const NavBar = styled.div`
   width: 100%;
@@ -119,6 +120,7 @@ function LandingNav() {
             Sign Up
           </a>
         </div>
+        <SearchBar />
       </div>
     </NavBar>
   );
