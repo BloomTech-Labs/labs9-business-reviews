@@ -204,7 +204,7 @@ class SearchResult extends React.Component {
                   this.state.reviews.map(({ title, business_image, id, rating }) => (
                     <div key={id} className='review'>
                       <h4>{title}</h4>
-                      <img src={business_image} alt="reviewed business" className='review-img1' /
+                      <img src={business_image} alt="reviewed business" className='review-img1' />
                       <p>{`${rating} stars`}</p>
                     </div>
                   ))
