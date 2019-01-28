@@ -17,7 +17,6 @@ const ModalStyles = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 10px solid red;
     width: 50%;
     height: 500px;
     padding: 10px;
@@ -25,7 +24,6 @@ const ModalStyles = styled.div`
     background-color: white;
 
     .container {
-      border: 10px solid yellowgreen;
       margin: 0 auto;
 
       .review__modal--form {
@@ -112,7 +110,7 @@ class AddReviewModal extends React.Component {
                 value={this.state.title}
                 className='review__modal--form--field--title'
               />
-              <label htmlFor='review-body' />
+              <label htmlFor='review-body'>Your review</label>
               <textarea
                 onChange={this.changeHandler}
                 name='body'

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const SearchBarStyles = styled.div`
-  width: 100%;
+  width: 70%;
   display: flex;
-  /* flex-flow: row wrap; */
   justify-content: center;
+  align-items: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
   form {
@@ -17,6 +17,12 @@ const SearchBarStyles = styled.div`
       width: 60%;
       height: 30px;
       padding-left: 15px;
+    }
+
+    .search__input {
+      height: 50px;
+      width: 550px;
+      font-size: 1.4rem;
     }
   }
   .button {
@@ -60,7 +66,11 @@ class SearchBar extends React.Component {
     return (
       <SearchBarStyles>
         <form>
-          <input id='dropdown' placeholder='Search...' />
+          <input
+            className='search__input'
+            id='dropdown'
+            placeholder='What are you looking for?'
+          />
         </form>
         <Link to={`/business/${this.state.business.place_id}`}>
           <button className='button'>Search</button>
