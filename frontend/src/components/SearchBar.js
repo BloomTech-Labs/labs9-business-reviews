@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const SearchBarStyles = styled.div`
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  /* flex-flow: row wrap; */
   justify-content: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -19,17 +19,14 @@ const SearchBarStyles = styled.div`
       padding-left: 15px;
     }
   }
-  .button-container {
-    margin-top: 20px;
-    .button {
-      background-color: #eed974;
-      height: 40px;
-      width: 120px;
-      /* background: whitesmoke; */
-      margin-right: 20px;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
+  .button {
+    background-color: #eed974;
+    height: 40px;
+    width: 120px;
+    /* background: whitesmoke; */
+    margin-right: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 `;
 
@@ -65,12 +62,9 @@ class SearchBar extends React.Component {
         <form>
           <input id='dropdown' placeholder='Search...' />
         </form>
-        <div className='button-container'>
-          <button className='button'>Review</button>
-          <Link to={`/business/${this.state.business.place_id}`}>
-            <button className='button'>Search</button>
-          </Link>
-        </div>
+        <Link to={`/business/${this.state.business.place_id}`}>
+          <button className='button'>Search</button>
+        </Link>
       </SearchBarStyles>
     );
   }
