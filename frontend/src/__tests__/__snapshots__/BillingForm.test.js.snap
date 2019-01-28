@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddReviewModal /> matches snapshot 1`] = `
+<styled.div>
+  <div
+    className="billing-form"
+  >
+    <h1>
+      Billing
+    </h1>
+    <p>
+      Here you can choose between a monthly or yearly subscription. Without a subscription, you can only read 3 reviews per day. But with a subscription you can view as many reviews as you like!
+    </p>
+    <form>
+      <input
+        name="subscription"
+        onClick={[Function]}
+        type="radio"
+        value="yearly"
+      />
+      1 Year Subscription - $9.99 
+      <br />
+      <input
+        name="subscription"
+        onClick={[Function]}
+        type="radio"
+        value="yearly"
+      />
+      1 Month Subscription - $0.99 
+      <br />
+    </form>
+    <ReactStripeCheckout
+      ComponentClass="span"
+      amount={99}
+      className="StripeCheckout"
+      currency="USD"
+      description="Purchase Subscription"
+      label="Pay With Card"
+      locale="auto"
+      name="Bonafind"
+      reconfigureOnUpdate={false}
+      stripeKey="pk_test_YRDXagNKMjZOXlX2ULVNUWbT"
+      token={[Function]}
+      triggerEvent="onClick"
+    />
+  </div>
+</styled.div>
+`;
