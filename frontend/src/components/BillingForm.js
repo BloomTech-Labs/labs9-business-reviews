@@ -5,10 +5,13 @@ import axios from 'axios';
 import { backendLink } from '../assets/config';
 
 const StyledBillingForm = styled.div`
-  .billing-form{
-    
-    padding: 20px;
+  background-color: white;
+  .billing-form{    
+    padding: 40px;
     max-width: 550px;
+  }
+  .radio-form {
+    padding: 15px;
   }
 `;
 
@@ -53,15 +56,15 @@ class BillingForm extends React.Component {
         <div className="billing-form">  
         <h1>Billing</h1>
           <p>Here you can choose between a monthly or yearly subscription. Without a subscription, you can only read 3 reviews per day. But with a subscription you can view as many reviews as you like!</p>
-          <form>
-            <input type="radio" name="subscription" value="yearly" onClick={this.annualSub} />1 Year Subscription - $9.99 <br/>
+          <form className="radio-form">
+            <input type="radio" name="subscription" value="yearly" onClick={this.annualSub} />1 Year Subscription - $9.99 <br/> <br/>
             <input type="radio" name="subscription" value="yearly" onClick={this.monthlySub} />1 Month Subscription - $0.99 <br/>
           </form>
           <StripeCheckout
             amount={this.state.amount}
             name="Bonafind"
             description="Purchase Subscription"
-            stripeKey="pk_test_YRDXagNKMjZOXlX2ULVNUWbT"
+            stripeKey={process.env.STRIPE_SECRET}
             currency="USD"
             token={res => this.onToken(res)}
           >
