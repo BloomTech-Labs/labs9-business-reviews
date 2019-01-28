@@ -92,7 +92,7 @@ class SearchResult extends React.Component {
 
     this.state = {
       business: [],
-      reviewing: false,
+      reviewing: true,
       reviews: []
     };
   }
@@ -105,21 +105,19 @@ class SearchResult extends React.Component {
       // .then(res => console.log(res.data.result.formatted_phone_number))
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
-      Axios.get(
-        `http://localhost:9000/api/business/${id}/reviews`
-      )
-        // .then(res => console.log(res.data.result.formatted_phone_number))
-        .then(res => this.setState({ reviews: res.data }))
-        .catch(err => console.log(err));  
+    Axios.get(`http://localhost:9000/api/business/${id}/reviews`)
+      // .then(res => console.log(res.data.result.formatted_phone_number))
+      .then(res => this.setState({ reviews: res.data }))
+      .catch(err => console.log(err));
   }
-  addBusiness =()=> {
-    let imageCC ='';
-    if(this.state.business.photos){
+  addBusiness = () => {
+    let imageCC = '';
+    if (this.state.business.photos) {
       const photos = this.state.business.photos;
       const references = [];
       photos.map(photo => references.push(photo.photo_reference));
       imageCC = references[0];
-    } 
+    }
 
     const { id } = this.props.match.params;
     Axios.post(`http://localhost:9000/api/business`, {
@@ -138,7 +136,7 @@ class SearchResult extends React.Component {
     this.setState({ reviewing: !this.state.reviewing });
   };
 
-  render() {  
+  render() {
     if (!this.state.business) return <p>Loading business...</p>;
     else {
       return (
@@ -192,13 +190,18 @@ class SearchResult extends React.Component {
             </div>
             <div className='review-container'>
               <h1>Reviews</h1>
-              <div className="reviews">
-                {this.state.reviews?this.state.reviews.map(({title, image, id, rating}) => (                <div key={id}className='review'>
+              <div className='reviews'>
+                {this.state.reviews ? (
+                  this.state.reviews.map(({ title, image, id, rating }) => (
+                    <div key={id} className='review'>
                       <h4>{title}</h4>
                       <div className='review-img1' />
-                      <p>{`${rating} stars`}</p>            
-                    </div>                  
-                )):<PlaceHolderReviews/>}
+                      <p>{`${rating} stars`}</p>
+                    </div>
+                  ))
+                ) : (
+                  <PlaceHolderReviews />
+                )}
               </div>
               <button onClick={this.toggleReviewing}>Add a Review</button>
             </div>

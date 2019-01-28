@@ -6,8 +6,8 @@ import logo from '../assets/logo.png';
 const NavBar = styled.div`
   width: 100%;
   height: auto;
-  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,500');
   background-color: #eed974;
+  @import url('https://fonts.googleapis.com/css?family=Quicksand:300,500');
   @media (max-width: 900px) {
     background-color: white;
   }

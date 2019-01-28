@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SearchBarStyles = styled.div`
   width: 100%;
@@ -22,9 +22,10 @@ const SearchBarStyles = styled.div`
   .button-container {
     margin-top: 20px;
     .button {
+      background-color: #eed974;
       height: 40px;
       width: 120px;
-      background: whitesmoke;
+      /* background: whitesmoke; */
       margin-right: 20px;
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -55,7 +56,6 @@ class SearchBar extends React.Component {
     dropdown.addListener('place_changed', () => {
       const place = dropdown.getPlace();
       this.setState({ business: place });
-      // id, adr_address, photos, place_id, rating, website
     });
   }
 
