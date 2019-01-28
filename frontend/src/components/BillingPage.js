@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import SideBar from './SideBar';
 import BillingForm from './BillingForm';
 
 const StyledBilling = styled.div`
-  width: 80%;
+  width: 100%;
   display: flex;
-  height: 600px;
+  justify-content: center;
+  // background-color: #142e41;
   .billing {
     padding-left: 20px;
   }
@@ -40,7 +40,6 @@ class BillingPage extends Component {
     return (
       <div>
         <StyledBilling>
-          <SideBar />
           <div className='billing'>
             <BillingForm>
               <button>Buy Now</button>
