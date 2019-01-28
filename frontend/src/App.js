@@ -29,7 +29,7 @@ function App() {
           {/* <Route path='/login' exact component={Login} /> */}
           <Route path='/updateuser' component={UpdateUser} />
           <Route path='/resetpassword' component={ResetPassword} />
-          <Route path='/login' component={Login} />
+          <Route path='/login' render={props=><Login {...props}/>} />
           <Route path='/updatepassword/:id' component={UpdatePassword} />
           <Route
             path='/business/:id'

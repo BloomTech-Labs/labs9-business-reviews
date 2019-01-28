@@ -19,7 +19,7 @@ export default class GatedSignIn extends Component {
   }
   render() {
     return (
-      <>{this.state.user.name ? <>{this.props.children}</> : <LoginForm />}</>
+      <>{this.state.user.name ? <>{this.props.children}</> : <LoginForm {...this.props} />}</>
     );
   }
 }
