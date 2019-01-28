@@ -7,7 +7,7 @@ import { backendLink } from '../assets/config';
 const StyledBillingForm = styled.div`
   background-color: white;
   .billing-form{    
-    padding: 20px;
+    padding: 40px;
     max-width: 550px;
   }
   .radio-form {
