@@ -24,59 +24,37 @@ export const PopularBusinessesStyles = styled.div`
     padding-bottom: 20px;
   }
   .business {
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Roboto;
-    font-weight: 800;
+    justify-content: space-between;    
     margin: 20px;
-    filter: drop-shadow(1px 1px 3px black);
     background: rgba(255, 255, 255, 0.8);
     margin-bottom: 50px;
     text-decoration: none;
-    /* max-height: 380px;
-    max-width: 380px; */
-    width: 380px;
-    height: 380px;
-
+    color: black;
+    :hover,:focus {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
     @media (max-width: 850px) {
       height: 80%;
       width: 80%;
       background-color: white;
     }
-
-    .business__img {
-      .business__img--image {
-        width: 100%;
-        height: 100%;
-      }
+    .business__img--image {
+      width: 100%;
     }
-
-    .business__text {
-      padding: 10px;
-      .business__text--name {
-        display: flex;
-        align-items: flex-end;
-        color: white;
-        height: 100px;
-        background-color: rgba(0, 0, 0, 0.75);
-        width: 100%;
-        height: 40px;
-        font-size: 1.4rem;
-        transform: translateY(-30px);
-      }
-      .business__text--rating {
-        font-size: 2rem;
-        transform: translateY(-30px);
-      }
+    h1,h4 {
+      font-family: Roboto;
+      font-weight: 200;
+      text-align:center;
+      width: 100%;
+      margin: 0;
     }
-  }
-  .business:hover,
-  .business:focus {
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-  }
+  }  
 `;
 
 class PopularBusinesses extends Component {
@@ -116,8 +94,8 @@ class PopularBusinesses extends Component {
                 src={image}
                 alt='reviewed business'
               />
-              <p className='business__text--name'>{name}</p>
-              <p className='business__text--rating'>{rating}</p>
+              <h4 className='business__text--name'>{name}</h4>
+              <h1 className='business__text--rating'>{rating}</h1>
             </Link>
         ))}
       </PopularBusinessesStyles>
