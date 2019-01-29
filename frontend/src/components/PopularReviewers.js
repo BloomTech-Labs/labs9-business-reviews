@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
 
 const PopularReviewersStyles = styled.div`
+  box-sizing: border-box;
+  padding-top: 20px;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
