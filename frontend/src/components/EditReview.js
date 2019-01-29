@@ -11,47 +11,78 @@ const StyledEdit = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
 
+  .container {
+    /* border: 10px solid red; */
+  }
+
+  label {
+    margin-bottom: 6px;
+    margin-right: 8px;
+  }
+
+  .review__input--title {
+    width: 400px;
+    height: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+  .review__input--body {
+    width: 400px;
+    height: 200px;
+    margin-bottom: 30px;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
+
+  .review__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .review__input--rating {
+    width: 100px;
+    font-size: 1.4rem;
+    margin-right: 30px;
+  }
+
+  .review__rating {
+    display: flex;
+    align-items: center;
+  }
+
+  .btn {
+    background-color: #eed974;
+    height: 40px;
+    width: 120px;
+    margin-right: 20px;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2),
+      0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
   form {
-    filter: drop-shadow(1px 1px 1px black);
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     border: 1px solid black;
-    background: #f1f1f1;
-    height: auto;
-    line-height: 0.2;
     text-decoration: none;
     color: black;
-    box-sizing: border-box;
     padding: 10px;
     margin-top: 35px;
-    width: 60%;
-    display: flex;
-    flex-flow: row wrap;
     justify-content: center;
     border-radius: 5px;
-    h1 {
-      width: 100%;
-    }
-    input {
-      width: 55%;
-      height: 30px;
-      margin: 0 10%;
-      margin-bottom: 20px;
-    }
+
     textarea {
-      width: 55%;
       height: 200px;
-      margin: 0 10%;
       resize: none;
-    }
-    select {
-      width: 10%;
-      margin: 0 10%;
     }
   }
   @media (max-width: 900px) {
     width: 100%;
     form {
       padding-top: 30px;
+
       width: 80%;
       height: auto;
       display: flex;
@@ -60,21 +91,21 @@ const StyledEdit = styled.div`
       h1 {
         width: 100%;
       }
+
       input {
-        width: 80%;
-        height: 30px;
-        margin-bottom: 15px;
+        width: 400px;
+        height: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        font-size: 1.5rem;
       }
+
       textarea {
         width: 80%;
         height: 200px;
         border: 1px solid whitesmoke;
         margin-bottom: 15px;
         resize: none;
-      }
-      select {
-        width: 10%;
-        margin: 0 5%;
       }
     }
   }
@@ -113,38 +144,51 @@ export default class EditReview extends Component {
       .then(res => this.setState(...res.data))
       .catch(err => console.log(err));
   }
+
   render() {
     console.log(this.state);
     return (
-      <StyledEdit className='edit-container'>
-        <form onSubmit={this.handleSubmit}>
-          <h1>Edit your review</h1>
-          <input
-            onChange={this.changeHandler}
-            name='title'
-            value={this.state.title}
-            className='review-title'
-          />
-          <textarea
-            onChange={this.changeHandler}
-            name='body'
-            value={this.state.body}
-            className='review-body'
-          />
-          <select
-            onChange={this.changeHandler}
-            name='rating'
-            value={this.state.rating}
-          >
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option defaultValue='5'>5</option>
-          </select>
-          <button onClick={this.handleSubmit}>Submit Review</button>
-          <button onClick={this.props.toggleReviewing}>Cancel</button>
-        </form>
+      <StyledEdit>
+        <div className='container'>
+          <form onSubmit={this.handleSubmit}>
+            <h1 className='review__headline'>Edit your review</h1>
+            <label htmlFor='review__title'>Title</label>
+            <input
+              onChange={this.changeHandler}
+              name='title'
+              value={this.state.title}
+              className='review__input--title'
+            />
+            <label htmlFor='review__title'>Review</label>
+            <textarea
+              onChange={this.changeHandler}
+              name='body'
+              value={this.state.body}
+              className='review__input--body'
+            />
+            <div className='review__rating'>
+              <label htmlFor='review__input--rating'>Rating</label>
+              <select
+                onChange={this.changeHandler}
+                name='rating'
+                value={this.state.rating}
+                className='review__input--rating'
+              >
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option defaultValue='5'>5</option>
+              </select>
+              <button className='btn' onClick={this.handleSubmit}>
+                Submit Review
+              </button>
+              <button className='btn' onClick={this.props.toggleReviewing}>
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
       </StyledEdit>
     );
   }
