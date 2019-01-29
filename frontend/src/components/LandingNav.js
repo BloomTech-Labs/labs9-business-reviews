@@ -18,10 +18,10 @@ const NavBar = styled.div`
 	.blur-container {
 		width: 100%;
 		height: 75px;
-		background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 0 auto;
     box-sizing: border-box;    
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 		.top-nav-items {
       box-sizing: border-box;
       max-width: 1200px;
