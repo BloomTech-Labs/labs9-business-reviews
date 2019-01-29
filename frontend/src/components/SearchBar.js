@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const SearchBarStyles = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,7 @@ const SearchBarStyles = styled.div`
   form {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     input {
       width: 60%;
@@ -20,19 +21,27 @@ const SearchBarStyles = styled.div`
     }
 
     .search__input {
+      color: white;
       height: 50px;
       width: 550px;
       font-size: 1.4rem;
+      margin-right: 30px;
+      border: none;
+
+      background-color: rgba(0, 0, 0, 0.5);
+      ::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
     }
-  }
-  .button {
-    background-color: #eed974;
-    height: 40px;
-    width: 120px;
-    /* background: whitesmoke; */
-    margin-right: 10px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .button {
+      background-color: #eed974;
+      font-size: 1.1rem;
+      height: 55px;
+      width: 120px;
+      margin-right: 10px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
   }
 `;
 
@@ -71,10 +80,10 @@ class SearchBar extends React.Component {
             id='dropdown'
             placeholder='What are you looking for?'
           />
+          <Link to={`/business/${this.state.business.place_id}`}>
+            <button className='button'>search</button>
+          </Link>
         </form>
-        <Link to={`/business/${this.state.business.place_id}`}>
-          <button className='button'>Search</button>
-        </Link>
       </SearchBarStyles>
     );
   }
