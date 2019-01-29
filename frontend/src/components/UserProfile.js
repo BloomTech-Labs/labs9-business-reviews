@@ -13,7 +13,6 @@ const StyledContainer = styled.div`
 class UserProfile extends React.Component {
   render() {
     const { id } = this.props.match.params;
-    console.log('the id',id)
     return (
       <div>
         <StyledContainer>
