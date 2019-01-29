@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LandingNav from './LandingNav';
 import MainContent from './MainContent';
 
 const Container = styled.div`
@@ -17,6 +18,7 @@ const Container = styled.div`
 export default function LandingPage() {
   return (
     <Container>
+      <LandingNav />
       <MainContent />
     </Container>
   );

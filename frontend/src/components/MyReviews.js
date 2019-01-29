@@ -5,8 +5,15 @@ import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
 import PlaceHolderReviews from './PlaceHolderReviews';
 
+const Container = styled.div`
+  width: 97%;
+  h1{
+    text-align: center;
+  }
+`;
+
 const StyledReviews = styled.div`
-  width: 80%;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: space-around;
@@ -110,38 +117,41 @@ class MyReviews extends Component {
   }
   render() {
     return (
-      <StyledReviews>
-        {this.state.reviews ? (
-          this.state.reviews.map(
-            ({ title, body, business_image, business_name, id, rating }) => (
-              <Link
-                to={`/user/${this.props.id}/review/${id}`}
-                key={id}
-                className="review"
-              >
-                <div className="review__imgContainer">
-                  <img
-                    className="review__imgContainer--img"
-                    src={`${business_image}`}
-                    alt="business"
-                  />
-                </div>
-                <p className="review__title">{title}</p>
-                <p className="review__business">{business_name}</p>
-                <p className="review__body">
-                  <span className="review__quote">&ldquo;</span> {body}
-                  <span className="review__quote">&rdquo;</span>
-                </p>
-                <div className="review__ratingContainer">
-                  <p className="review__ratingContainer--rating">{`${rating} stars`}</p>
-                </div>
-              </Link>
+      <Container>
+        <h1>My Reviews</h1>
+        <StyledReviews>
+          {this.state.reviews ? (
+            this.state.reviews.map(
+              ({ title, body, business_image, business_name, id, rating }) => (
+                <Link
+                  to={`/user/${this.props.id}/review/${id}`}
+                  key={id}
+                  className="review"
+                >
+                  <div className="review__imgContainer">
+                    <img
+                      className="review__imgContainer--img"
+                      src={`${business_image}`}
+                      alt="business"
+                    />
+                  </div>
+                  <p className="review__title">{title}</p>
+                  <p className="review__business">{business_name}</p>
+                  <p className="review__body">
+                    <span className="review__quote">&ldquo;</span> {body}
+                    <span className="review__quote">&rdquo;</span>
+                  </p>
+                  <div className="review__ratingContainer">
+                    <p className="review__ratingContainer--rating">{`${rating} stars`}</p>
+                  </div>
+                </Link>
+              )
             )
-          )
-        ) : (
-          <PlaceHolderReviews />
-        )}
-      </StyledReviews>
+          ) : (
+            <PlaceHolderReviews />
+          )}
+        </StyledReviews>
+      </Container>
     );
   }
 }

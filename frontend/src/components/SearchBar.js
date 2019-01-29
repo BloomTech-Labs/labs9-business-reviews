@@ -14,11 +14,13 @@ const SearchBarStyles = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    @media (max-width: 520px) {
+
+    @media(max-width:520px){
       flex-direction: column;
     }
     .search__input {
       color: white;
+
       height: 45px;
       width: 700px;
       font-size: 1.4rem;
@@ -26,11 +28,14 @@ const SearchBarStyles = styled.div`
       margin-right: 30px;
       border: 0.5px solid rgba(0, 0, 0, 0);
 
+
       background-color: rgba(0, 0, 0, 0.5);
       ::placeholder {
         color: rgba(255, 255, 255, 0.7);
       }
-      @media (max-width: 520px) {
+
+      @media(max-width:520px){
+
         width: 90%;
         margin: 0;
         margin-bottom: 30px;

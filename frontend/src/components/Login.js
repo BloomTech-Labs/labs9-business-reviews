@@ -1,6 +1,7 @@
 import React from 'react';
 import GatedSignIn from './GatedSignInComponent';
 import styled from 'styled-components';
+import NavBar from './NavBar';
 
 const AuthWrapper = styled.div`
   display: flex;
@@ -17,9 +18,13 @@ const AuthWrapper = styled.div`
 
 const Login = (props) => {
   return (
-    <AuthWrapper>
-      <GatedSignIn {...props}/>
-    </AuthWrapper>
+    <div>
+      <NavBar />
+      <AuthWrapper>
+        <GatedSignIn {...props}/>
+      </AuthWrapper>
+    </div>
+    
   );
 };
 
