@@ -14,23 +14,24 @@ const SearchBarStyles = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    input {
-      width: 60%;
-      height: 30px;
-      padding-left: 15px;
+    @media(max-width:520px){
+      flex-direction: column;
     }
-
     .search__input {
       color: white;
       height: 50px;
-      width: 550px;
+      max-width: 550px;
       font-size: 1.4rem;
       margin-right: 30px;
       border: none;
-
       background-color: rgba(0, 0, 0, 0.5);
       ::placeholder {
         color: rgba(255, 255, 255, 0.7);
+      }
+      @media(max-width:520px){
+        width: 90%;
+        margin: 0;
+        margin-bottom: 30px;
       }
     }
     .button {
