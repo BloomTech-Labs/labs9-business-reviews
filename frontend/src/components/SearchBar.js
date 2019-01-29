@@ -23,7 +23,9 @@ const SearchBarStyles = styled.div`
       max-width: 550px;
       font-size: 1.4rem;
       margin-right: 30px;
-      border: none;
+      border: 0.5 solid rgba(0, 0, 0, 0.5);
+
+
       background-color: rgba(0, 0, 0, 0.5);
       ::placeholder {
         color: rgba(255, 255, 255, 0.7);
