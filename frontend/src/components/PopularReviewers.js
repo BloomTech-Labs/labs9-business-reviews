@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
 
@@ -24,16 +24,9 @@ const PopularReviewersStyles = styled.div`
     font-weight: 100;
     text-align: center;
   }
-  .link {
-    text-decoration: none;
-    color: black;
-  }
-  .users {
+  .user {
     box-sizing: border-box;
-    border-radius: 10px;
-    filter: drop-shadow(3px 3px 3px black);
-    padding: 10px;
-    background: #f1f1f1;
+    background: #ffffff;
     height: auto;
     width: 20%;
     display: flex;
@@ -43,21 +36,32 @@ const PopularReviewersStyles = styled.div`
     line-height: 0.2;
     text-decoration: none;
     color: black;
+    position: relative; 
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    ::before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 500ms;
+    }
+    :hover::before {
+      opacity: 1;
+    }
     .users__name {
       font-size: 1.2rem;
+    }
+    img {
+      width: 100%;
+      height: auto;
     }
   }
 `;
 
-export const CardStyle = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  img {
-    max-width: 200px;
-    height: 200px;
-  }
-`;
 
 class PopularReviewers extends Component {
   constructor() {
@@ -68,10 +72,10 @@ class PopularReviewers extends Component {
   }
 
   componentDidMount() {
-    axios
+    Axios
       .get(`${backendLink}/api/user`)
       .then(response => {
-        const userData = [...response.data];
+        const userData = [...response.data]; 
         const slicedUserData = userData.slice(0, 8);
         this.setState(() => ({ users: slicedUserData }));
       })
@@ -85,14 +89,10 @@ class PopularReviewers extends Component {
       <PopularReviewersStyles>
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
-          <div className="users" key={id}>
-            <Link to={`/user/${id}`} className="link">
-              <CardStyle>
-                <img src={gravatar} alt="reviewer's profile" />
-                <p className="users__name">{name}</p>
-              </CardStyle>
-            </Link>
-          </div>
+          <Link to={`/user/${id}`}key={id} className="user">
+            <img src={gravatar} alt="reviewer's profile" />
+            <p className="users__name">{name}</p>
+          </Link>
         ))}
       </PopularReviewersStyles>
     );

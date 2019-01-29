@@ -15,7 +15,6 @@ export const PopularBusinessesStyles = styled.div`
   box-sizing: border-box;
   padding: 20px 40px;
   margin: 0 auto;
-  margin-bottom: 20px;
   display: flex;
   flex-flow: row wrap;
   height: auto;
