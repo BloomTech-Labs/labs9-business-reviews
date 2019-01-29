@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import BillingPage from './components/BillingPage';
 import Login from './components/Login';
-import LandingNav from './components/LandingNav';
 import Footer from './components/Footer';
 import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
@@ -22,7 +21,6 @@ const StyledContainer = styled.div`
 function App() {
   return (
     <div className='App'>
-      <LandingNav />
       <StyledContainer className='container'>
         <Route exact path='/' component={LandingPage} />
         <Route path='/billing' component={BillingPage} />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import BillingForm from './BillingForm';
+import NavBar from './NavBar';
 
 const StyledBilling = styled.div`
   width: 100%;
@@ -22,6 +23,7 @@ class BillingPage extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <StyledBilling>
           <div className='billing'>
             <BillingForm>
