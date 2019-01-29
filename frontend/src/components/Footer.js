@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const FooterStyles = styled.div`
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   a {
-    margin-top: 150px;
+    margin-top: 50px;
     margin-bottom: 50px;
     color: black;
     text-decoration: none;
