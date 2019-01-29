@@ -13,7 +13,7 @@ const NavBar = styled.div`
 	background-size: cover;
 	@import url('https://fonts.googleapis.com/css?family=Patua+One:300,500');
 	@media (max-width: 900px) {
-		background-color: white;
+
 	}
 	.blur-container {
 		width: 100%;
@@ -32,15 +32,15 @@ const NavBar = styled.div`
 			.menu__menuItems {
 				width: 50%;
 				height: auto;
-				font-size: 1.4rem;
 				display: flex;
 				align-items: center;
 				@media (max-width: 900px) {
 					width: 100%;
-					flex-direction: column;
+					flex-direction: row;
 					font-size: 2.6rem;
 				}
 				a {
+					font-size: 1.4rem;
 					box-sizing: border-box;
 					color: white;
 					width: 100%;
@@ -48,8 +48,8 @@ const NavBar = styled.div`
 					text-align: center;
 					margin: 10px;
 					@media (max-width: 900px) {
-						background: white;
 						color: white;
+						font-size: 1rem;
 						padding: 5px;
 						margin: 0;
 					}
@@ -61,20 +61,23 @@ const NavBar = styled.div`
 				width: 50%;
 				display: flex;
 				justify-content: flex-end;
-				font-size: 1.4rem;
+				
 				@media (max-width: 900px) {
+				box-sizing: border-box;
 					display: flex;
-					justify-content: center;
+					justify-content: flex end;
 					width: 100%;
 					color: white;
 					margin: 0;
 				}
 				.menu__user--text {
 					text-decoration: none;
+					font-size: 1.4rem;
 					color: white;
 					margin: 10px;
 					@media (max-width: 900px) {
 						color: white;
+						font-size: 1rem;
 					}
 				}
 			}
@@ -99,11 +102,11 @@ const NavBar = styled.div`
       margin-bottom: 30px;
 			border-radius: 50%;
 			@media (max-width: 900px) {
-				height: 400px;
-				width: 400px;
+				height: 225px;
+				width: 225px;
 				margin-bottom: 20px;
 				margin-top: 20px;
-				border-radius: 0;
+				border-radius: 50%;
 			}
 		}
 	}
