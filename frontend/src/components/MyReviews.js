@@ -11,7 +11,6 @@ const StyledReviews = styled.div`
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
-  font-family: Quicksand;
   padding: 20px;
 
   @media (max-width: 900px) {
@@ -118,23 +117,23 @@ class MyReviews extends Component {
               <Link
                 to={`/user/${this.props.id}/review/${id}`}
                 key={id}
-                className='review'
+                className="review"
               >
-                <div className='review__imgContainer'>
+                <div className="review__imgContainer">
                   <img
-                    className='review__imgContainer--img'
+                    className="review__imgContainer--img"
                     src={`${business_image}`}
-                    alt='business'
+                    alt="business"
                   />
                 </div>
-                <p className='review__title'>{title}</p>
-                <p className='review__business'>{business_name}</p>
-                <p className='review__body'>
-                  <span className='review__quote'>&ldquo;</span> {body}
-                  <span className='review__quote'>&rdquo;</span>
+                <p className="review__title">{title}</p>
+                <p className="review__business">{business_name}</p>
+                <p className="review__body">
+                  <span className="review__quote">&ldquo;</span> {body}
+                  <span className="review__quote">&rdquo;</span>
                 </p>
-                <div className='review__ratingContainer'>
-                  <p className='review__ratingContainer--rating'>{`${rating} stars`}</p>
+                <div className="review__ratingContainer">
+                  <p className="review__ratingContainer--rating">{`${rating} stars`}</p>
                 </div>
               </Link>
             )

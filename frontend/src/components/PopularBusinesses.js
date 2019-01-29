@@ -6,15 +6,20 @@ import SingleBusiness from './SingleBusiness';
 import { backendLink } from '../assets/config';
 
 export const PopularBusinessesStyles = styled.div`
+  box-sizing: border-box;
+  padding: 20px 40px;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   display: flex;
   flex-flow: row wrap;
-  width: 85%;
+  width: 80%;
   height: auto;
 
   h1 {
+    text-align: center;
     width: 100%;
+    font-weight: 100;
+    padding-bottom: 20px;
   }
   .link {
     text-decoration: none;
@@ -23,14 +28,25 @@ export const PopularBusinessesStyles = styled.div`
   .business {
     width: 200px;
     margin-right: 25px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    filter: drop-shadow(1px 1px 3px black);
+    padding: 20px;
+    background: #f1f1f1;
+    height: auto;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    line-height: 0.2;
+    text-decoration: none;
+    color: black;
 
     @media (max-width: 850px) {
       height: 80%;
       width: 80%;
       background-color: white;
-    }
-
-    .business__img {
     }
 
     .business__name {
@@ -40,11 +56,13 @@ export const PopularBusinessesStyles = styled.div`
 `;
 
 export const CardStyle = styled.div`
-  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   img {
-    width: 200px;
-    height: 200px;
+    max-width: 250px;
+    max-height: 250px;
     @media (max-width: 900px) {
       width: 400px;
       height: 400px;
@@ -88,15 +106,15 @@ class PopularBusinesses extends Component {
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
-          <div className='business' key={id}>
-            <Link className='link'  to={`/business/${id}`}>
+          <div className="business" key={id}>
+            <Link className="link" to={`/business/${id}`}>
               <CardStyle id={id}>
                 <img
-                  className='business__img'
+                  className="business__img"
                   src={image}
-                  alt='reviewed business'
+                  alt="reviewed business"
                 />
-                <p className='business__name'>{name}</p>
+                <p className="business__name">{name}</p>
                 <h2>{rating}</h2>
               </CardStyle>
             </Link>

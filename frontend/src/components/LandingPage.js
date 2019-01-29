@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
 import MainContent from './MainContent';
 
 const Container = styled.div`
@@ -9,15 +8,15 @@ const Container = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
+
   @media (max-width: 900px) {
-    background-color: #eed974;
+    background-color: white;
   }
 `;
 
 export default function LandingPage() {
   return (
     <Container>
-      <SearchBar />
       <MainContent />
     </Container>
   );

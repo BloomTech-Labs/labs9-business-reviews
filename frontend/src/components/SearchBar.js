@@ -26,6 +26,7 @@ const SearchBarStyles = styled.div`
       width: 550px;
       font-size: 1.4rem;
       margin-right: 30px;
+
       background-color: rgba(0, 0, 0, 0.5);
       ::placeholder {
         color: rgba(255, 255, 255, 0.7);
@@ -42,6 +43,8 @@ const SearchBarStyles = styled.div`
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
   }
+  }
+  
 `;
 
 class SearchBar extends React.Component {
