@@ -24,7 +24,7 @@ describe('GET BY ID test', () => {
 
   const user = {
     name: 'james',
-    email: 'jamessss@james.com',
+    email: 'jamestsest@james.com',
     password: 'james'
   };
   beforeEach(async () => {
@@ -43,7 +43,6 @@ describe('GET BY ID test', () => {
   });
 
   test('should be returning a defined user object', async () => {
-    console.log(singleUserId);
     const response = await request(server).get(`/api/user/${singleUserId}`);
     expect(response.body).toBeDefined();
   });
@@ -54,7 +53,7 @@ describe('Post test', () => {
 
   const user = {
     name: 'jamess',
-    email: 'jamesw@james.com',
+    email: 'jamesswtest@james.com',
     password: 'james'
   };
 

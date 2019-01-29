@@ -35,7 +35,7 @@ router.post('/register', authConfig.checkCreds, async (req, res) => {
       console.log(err);
       return res.status(500).json({ message: 'Internal server error' });
     }
-    res.json({ message: 'Done' });
+    res.json({ message: 'Done', id: singleUser.id });
   });
 });
 
@@ -123,10 +123,10 @@ router.put('/updatepassword/:token', async (req, res) => {
 router.get('/:id/reviews', (req, res) => {
   const { id } = req.params;
   db('reviews')
-  .where({reviewer_id:id})
-  .then(reviews => {
-    res.status(200).json(reviews)
-  })
-  .catch(err=>res.status(500).json(err))
+    .where({ reviewer_id: id })
+    .then(reviews => {
+      res.status(200).json(reviews);
+    })
+    .catch(err => res.status(500).json(err));
 });
 module.exports = router;
