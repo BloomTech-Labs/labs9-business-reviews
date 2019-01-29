@@ -6,8 +6,11 @@ import SearchBar from './SearchBar';
 
 const NavBar = styled.div`
   width: 100%;
-  height: auto;
-  background-color: #eed974;
+  height: 600px;
+  background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   @import url('https://fonts.googleapis.com/css?family=Patua+One:300,500');
   @media (max-width: 900px) {
     background-color: white;
