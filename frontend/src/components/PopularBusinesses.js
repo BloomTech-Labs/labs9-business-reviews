@@ -24,15 +24,10 @@ export const PopularBusinessesStyles = styled.div`
     font-weight: 100;
     padding-bottom: 20px;
   }
-  .link {
-    text-decoration: none;
-    color: black;
-  }
   .business {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     font-family: Roboto;
     font-weight: 800;
     margin: 20px;
@@ -40,7 +35,6 @@ export const PopularBusinessesStyles = styled.div`
     background: rgba(255, 255, 255, 0.8);
     margin-bottom: 50px;
     text-decoration: none;
-
     /* max-height: 380px;
     max-width: 380px; */
     width: 380px;
@@ -118,21 +112,15 @@ class PopularBusinesses extends Component {
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
-          <div className='business' key={id}>
-            <Link className='link' to={`/business/${id}`}>
-              <div className='business__img'>
-                <img
-                  className='business__img--image'
-                  src={image}
-                  alt='reviewed business'
-                />
-              </div>
-              <div className='business__text'>
-                <p className='business__text--name'>{name}</p>
-                <p className='business__text--rating'>{rating}</p>
-              </div>
+            <Link className='business'key={id} to={`/business/${id}`}>
+              <img
+                className='business__img--image'
+                src={image}
+                alt='reviewed business'
+              />
+              <p className='business__text--name'>{name}</p>
+              <p className='business__text--rating'>{rating}</p>
             </Link>
-          </div>
         ))}
         {this.state.isOpen ? (
           <SingleBusiness toggleModal={this.toggleModal} />
