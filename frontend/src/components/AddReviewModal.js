@@ -103,7 +103,6 @@ class AddReviewModal extends React.Component {
     return (
       <ModalStyles>
         <div className='review__modal'>
-
           <div className='container'>
             <h1>Add a Review</h1>
             <form class='review__modal--form' onSubmit={this.handleSubmit}>
@@ -147,7 +146,7 @@ class AddReviewModal extends React.Component {
                 </button>
               </div>
             </form>
-          </div>          
+          </div>
         </div>
       </ModalStyles>
     );
