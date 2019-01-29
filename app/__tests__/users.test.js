@@ -24,13 +24,14 @@ describe('GET BY ID test', () => {
 
   const user = {
     name: 'james',
-    email: 'jamessss@james.com',
+    email: 'jamestest@james.com',
     password: 'james'
   };
   beforeEach(async () => {
     const response = await request(server)
       .post('/api/user/register')
       .send(user);
+    console.log(response);
     const { id } = response.body;
     singleUserId = id;
   });
@@ -54,7 +55,7 @@ describe('Post test', () => {
 
   const user = {
     name: 'jamess',
-    email: 'jamesw@james.com',
+    email: 'jameswtest@james.com',
     password: 'james'
   };
 

@@ -43,7 +43,8 @@ describe('GET BY ID test', () => {
       .del();
   });
 
-  test('should be returning a defined user object', async () => {
+  test('should be returning a defined reviews object', async () => {
+    console.log(singleReviewId,'im the IDDDDDDDD');
     const response = await request(server).get(
       `/api/business/${singleReviewId}`
     );
