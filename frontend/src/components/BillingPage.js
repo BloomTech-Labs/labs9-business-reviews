@@ -7,7 +7,8 @@ const StyledBilling = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 80px;
+  margin-bottom: 110px;
   button {
     background-color: #eed974;
     font-size: 1.25rem;

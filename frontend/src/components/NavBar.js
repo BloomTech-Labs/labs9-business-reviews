@@ -9,7 +9,7 @@ const NavBarStyles = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 150px;
+  height: 130px;
   background: #142e41;
   .logo {
     height: 100px;
