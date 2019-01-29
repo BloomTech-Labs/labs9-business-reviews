@@ -11,6 +11,7 @@ const StyledBilling = styled.div`
     border: solid black 1px;
   }
   button {
+    background-color: #eed974;
     padding: 30px;
     font-size: 20px;
     width: 300px;
