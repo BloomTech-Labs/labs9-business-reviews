@@ -15,6 +15,7 @@ export const PopularBusinessesStyles = styled.div`
 
   h1 {
     width: 100%;
+    font-weight: 100;
   }
   .link {
     text-decoration: none;
@@ -88,15 +89,15 @@ class PopularBusinesses extends Component {
       <PopularBusinessesStyles>
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
-          <div className='business' key={id}>
-            <Link className='link'  to={`/business/${id}`}>
+          <div className="business" key={id}>
+            <Link className="link" to={`/business/${id}`}>
               <CardStyle id={id}>
                 <img
-                  className='business__img'
+                  className="business__img"
                   src={image}
-                  alt='reviewed business'
+                  alt="reviewed business"
                 />
-                <p className='business__name'>{name}</p>
+                <p className="business__name">{name}</p>
                 <h2>{rating}</h2>
               </CardStyle>
             </Link>
