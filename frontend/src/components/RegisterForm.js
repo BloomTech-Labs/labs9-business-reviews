@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { backendLink } from '../assets/config';
+import NavBar from './NavBar';
 
 const AuthInput = styled.input`
   width: 90%;
@@ -17,6 +18,7 @@ const RegisterDiv = styled.div`
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   height: 500px;
   margin-top: 50px;
+  margin-bottom: 50px;
 `;
 const AuthForm = styled.form`
   width: 100%;
@@ -64,18 +66,22 @@ class RegisterForm extends Component {
   };
   render() {
     return (
-      <RegisterDiv>
-        <AuthForm onSubmit={this.handleSubmit}>
-          <AuthHeader> Register for a account!</AuthHeader>
-          <label htmlFor="email"> Email</label>
-          <AuthInput type="email" name="email" onChange={this.handleChange} />
-          <label htmlFor="password"> Password</label>
-          <AuthInput type="text" name="password" onChange={this.handleChange} />
-          <label htmlFor="name">Name</label>
-          <AuthInput type="text" name="name" onChange={this.handleChange} />
-          <input type="submit" value="Register" className="btn" />
-        </AuthForm>
-      </RegisterDiv>
+      <div>
+        <NavBar />
+        <RegisterDiv>
+          <AuthForm onSubmit={this.handleSubmit}>
+            <AuthHeader> Register for a account!</AuthHeader>
+            <label htmlFor="email"> Email</label>
+            <AuthInput type="email" name="email" onChange={this.handleChange} />
+            <label htmlFor="password"> Password</label>
+            <AuthInput type="text" name="password" onChange={this.handleChange} />
+            <label htmlFor="name">Name</label>
+            <AuthInput type="text" name="name" onChange={this.handleChange} />
+            <input type="submit" value="Register" className="btn" />
+          </AuthForm>
+        </RegisterDiv>
+      </div>
+      
     );
   }
 }

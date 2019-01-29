@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
 import styled from 'styled-components';
+import NavBar from './NavBar';
 
 const UpdatePasswordDiv = styled.div`
   margin: 0 auto;
@@ -90,28 +91,32 @@ class UpdatePassword extends Component {
   };
   render() {
     return (
-      <UpdatePasswordDiv>
-        <div className="image-container">
-          <h1> Hey {this.state.user.name} wanna reset your password?</h1>
-        </div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Password</label>
-          <input
-            type="text"
-            value={this.state.password}
-            onChange={this.handleChange}
-            name="password"
-          />
-          <label>Confirm Password</label>
-          <input
-            type="text"
-            value={this.state.confirm_password}
-            onChange={this.handleChange}
-            name="confirm_password"
-          />
-          <input type="submit" value="update password" />
-        </form>
-      </UpdatePasswordDiv>
+      <div>
+        <NavBar/>
+        <UpdatePasswordDiv>
+          <div className="image-container">
+            <h1> Hey {this.state.user.name} wanna reset your password?</h1>
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            <label>Password</label>
+            <input
+              type="text"
+              value={this.state.password}
+              onChange={this.handleChange}
+              name="password"
+            />
+            <label>Confirm Password</label>
+            <input
+              type="text"
+              value={this.state.confirm_password}
+              onChange={this.handleChange}
+              name="confirm_password"
+            />
+            <input type="submit" value="update password" />
+          </form>
+        </UpdatePasswordDiv>
+      </div>
+      
     );
   }
 }
