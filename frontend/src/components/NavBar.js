@@ -7,11 +7,27 @@ import SearchBar from './SearchBar';
 const NavBarStyles = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  height: 150px;
+  background: #142e41;
   .logo {
     height: 100px;
     width: 100px;
     margin-left: 50px;
+  }
+  .nav-links {
+    width: 50%;
+		height: auto;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+    padding-left: 150px;
+    margin-right: 100px;
+  }
+  img {
+    border-radius: 100px;
   }
 `;
 
