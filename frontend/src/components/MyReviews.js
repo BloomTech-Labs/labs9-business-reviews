@@ -6,7 +6,7 @@ import { backendLink } from '../assets/config';
 import PlaceHolderReviews from './PlaceHolderReviews';
 
 const StyledReviews = styled.div`
-  width: 80%;
+  width: 100%;
   height: auto;
   display: flex;
   justify-content: space-around;
