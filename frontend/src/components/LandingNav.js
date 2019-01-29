@@ -104,18 +104,18 @@ const NavBar = styled.div`
 function LandingNav() {
   return (
     <NavBar>
-      <div className='inner-nav-container'>
-        <a href='/'>
-          <img src={logo} alt='logo' className='menu__logo--logo' />
+      <div className="inner-nav-container">
+        <a href="/">
+          <img src={logo} alt="logo" className="menu__logo--logo" />
         </a>
-        <div className='menu__menuItems'>
-          <a href='/addreview'>add a review</a>
-          <a href='/categories'>categories</a>
-          <a href='/toprated'>top rated</a>
+        <div className="menu__menuItems">
+          <a href="/addreview">add a review</a>
+          <a href="/categories">categories</a>
+          <a href="/toprated">top rated</a>
         </div>
-        <div className='menu__user'>
-          <Link to='/authenticate'>Sign In</Link>
-          <a href='/signup' className='menu__user--text'>
+        <div className="menu__user">
+          <Link to="/authenticate">Sign In</Link>
+          <a href="/signup" className="menu__user--text">
             Sign Up
           </a>
         </div>

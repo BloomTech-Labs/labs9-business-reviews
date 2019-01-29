@@ -10,8 +10,9 @@ const Login = styled.div`
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
   height: 500px;
 
-  .Login__text--link {
-    color: black;
+  .Login__text--link,
+  .Login__text {
+    font-weight: 100;
   }
 `;
 
@@ -23,7 +24,7 @@ const AuthInput = styled.input`
 `;
 const AuthHeader = styled.h1`
   padding-bottom: 25px;
-  font-family: Quicksand;
+  font-weight: 100;
   letter-spacing: 1.2px;
 `;
 
@@ -31,13 +32,9 @@ const AuthForm = styled.form`
   width: 100%;
   padding: 2rem;
 
-  label {
-    font-family: Quicksand;
-  }
   input[type='submit'] {
     background-color: #eed974;
     font-size: 1.25rem;
-    font-family: Quicksand;
     margin: 10px auto;
     padding: 10px;
     float: center;
@@ -48,14 +45,14 @@ const AuthForm = styled.form`
 `;
 
 class LoginForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       email: '',
       password: ''
     };
   }
-  
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -71,7 +68,7 @@ class LoginForm extends Component {
     );
     if (res.status === 500) {
       return alert('Login incorrect, please try again.');
-    }    
+    }
     console.log(`Authenticated!`);
     this.props.history.push('/');
   };
@@ -81,21 +78,21 @@ class LoginForm extends Component {
       <Login>
         <AuthForm onSubmit={this.handleSubmit}>
           <AuthHeader>Login to your account</AuthHeader>
-          <h4 className='Login__text'>
+          <h4 className="Login__text">
             Don't have an account?{' '}
-            <Link to='/register' className='Login__text--link'>
+            <Link to="/register" className="Login__text--link">
               Register here!
             </Link>
           </h4>
-          <label htmlFor='email'> Email</label>
-          <AuthInput type='email' name='email' onChange={this.handleChange} />
-          <label htmlFor='password'> Password</label>
+          <label htmlFor="email"> Email</label>
+          <AuthInput type="email" name="email" onChange={this.handleChange} />
+          <label htmlFor="password"> Password</label>
           <AuthInput
-            type='password'
-            name='password'
+            type="password"
+            name="password"
             onChange={this.handleChange}
           />
-          <input type='submit' value='Login' />
+          <input type="submit" value="Login" />
         </AuthForm>
       </Login>
     );
