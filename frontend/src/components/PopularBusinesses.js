@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
-import SingleBusiness from './SingleBusiness';
 import { backendLink } from '../assets/config';
 import image from '../assets/white-waves.png';
 
@@ -84,8 +83,7 @@ class PopularBusinesses extends Component {
   constructor() {
     super();
     this.state = {
-      businesses: [],
-      isOpen: false
+      businesses: []
     };
   }
   componentDidMount() {
@@ -122,9 +120,6 @@ class PopularBusinesses extends Component {
               <p className='business__text--rating'>{rating}</p>
             </Link>
         ))}
-        {this.state.isOpen ? (
-          <SingleBusiness toggleModal={this.toggleModal} />
-        ) : null}
       </PopularBusinessesStyles>
     );
   }
