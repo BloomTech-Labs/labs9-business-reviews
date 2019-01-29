@@ -7,7 +7,6 @@ import { backendLink } from '../assets/config';
 
 export const PopularBusinessesStyles = styled.div`
   box-sizing: border-box;
-  // padding-left: 40px;
   padding: 20px 40px;;
   margin: 0 auto;
   margin-bottom: 60px;
@@ -15,9 +14,6 @@ export const PopularBusinessesStyles = styled.div`
   flex-flow: row wrap;
   width: 80%;
   height: auto;
-  // border: 1px solid gray;
-  // border-radius: 25px;
-  // box-shadow: 2px 2px 5px;
 
   h1 {
     text-align: center;
@@ -36,8 +32,7 @@ export const PopularBusinessesStyles = styled.div`
     border-radius: 10px;
     filter: drop-shadow(1px 1px 3px black);
     padding: 20px;
-    border: 1px solid black;
-    background: white;
+    background: #f1f1f1;
     height: auto;
     width: 30%;
     display: flex;

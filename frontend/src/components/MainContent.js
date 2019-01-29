@@ -7,17 +7,17 @@ const MainContentContainer = styled.div`
   width: 100%;
 `;
 
-const PopularBusinessesContainer = styled.div`
+const PopularReviewersContainer = styled.div`
   background: #f1f1f1;
 `;
 
 function MainContent() {
   return (
     <MainContentContainer>
-      <PopularBusinessesContainer>
-        <PopularBusinesses />
-      </PopularBusinessesContainer>
-      <PopularReviewers />
+      <PopularBusinesses />
+      <PopularReviewersContainer>
+        <PopularReviewers />
+      </PopularReviewersContainer>
     </MainContentContainer>
   );
 }
