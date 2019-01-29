@@ -4,15 +4,20 @@ import styled from 'styled-components';
 import axios from 'axios';
 import SingleBusiness from './SingleBusiness';
 import { backendLink } from '../assets/config';
+import image from '../assets/white-waves.png';
 
 export const PopularBusinessesStyles = styled.div`
+  width: 100%;
+  background-image: url(${image});
+  background-repeat: repeat;
+  background-position: center;
+  /* background-size: cover; */
   box-sizing: border-box;
   padding: 20px 40px;
   margin: 0 auto;
   margin-bottom: 20px;
   display: flex;
   flex-flow: row wrap;
-  width: 80%;
   height: auto;
 
   h1 {
@@ -103,27 +108,29 @@ class PopularBusinesses extends Component {
   }
   render() {
     return (
-      <PopularBusinessesStyles>
-        <h1>Popular Businesses</h1>
-        {this.state.businesses.map(({ id, name, rating, image }) => (
-          <div className="business" key={id}>
-            <Link className="link" to={`/business/${id}`}>
-              <CardStyle id={id}>
-                <img
-                  className="business__img"
-                  src={image}
-                  alt="reviewed business"
-                />
-                <p className="business__name">{name}</p>
-                <h2>{rating}</h2>
-              </CardStyle>
-            </Link>
-          </div>
-        ))}
-        {this.state.isOpen ? (
-          <SingleBusiness toggleModal={this.toggleModal} />
-        ) : null}
-      </PopularBusinessesStyles>
+      <div className='popbizcontainer'>
+        <PopularBusinessesStyles>
+          <h1>Popular Businesses</h1>
+          {this.state.businesses.map(({ id, name, rating, image }) => (
+            <div className='business' key={id}>
+              <Link className='link' to={`/business/${id}`}>
+                <CardStyle id={id}>
+                  <img
+                    className='business__img'
+                    src={image}
+                    alt='reviewed business'
+                  />
+                  <p className='business__name'>{name}</p>
+                  <h2>{rating}</h2>
+                </CardStyle>
+              </Link>
+            </div>
+          ))}
+          {this.state.isOpen ? (
+            <SingleBusiness toggleModal={this.toggleModal} />
+          ) : null}
+        </PopularBusinessesStyles>
+      </div>
     );
   }
 }
