@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MyReviews from './MyReviews';
+import NavBar from './NavBar';
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -15,6 +16,7 @@ class UserProfile extends React.Component {
     const { id } = this.props.match.params;
     return (
       <div>
+        <NavBar />
         <StyledContainer>
           <MyReviews id={id} />
         </StyledContainer>
