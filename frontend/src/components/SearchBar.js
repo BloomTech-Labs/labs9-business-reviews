@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const SearchBarStyles = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
