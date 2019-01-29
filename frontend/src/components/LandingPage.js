@@ -8,8 +8,9 @@ const Container = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
+
   @media (max-width: 900px) {
-    background-color: #eed974;
+    background-color: white;
   }
 `;
 
