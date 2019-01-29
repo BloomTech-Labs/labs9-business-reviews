@@ -25,7 +25,7 @@ describe('GET BY ID test', () => {
   const review = {
     title: 'Big donuts',
     rating: 2.7,
-    body: 'Dougnuts for police',
+    body: 'Dousghnuuts for police',
     business_id: 1,
     reviewer_id: 1
   };
@@ -44,10 +44,7 @@ describe('GET BY ID test', () => {
   });
 
   test('should be returning a defined reviews object', async () => {
-    console.log(singleReviewId,'im the IDDDDDDDD');
-    const response = await request(server).get(
-      `/api/business/${singleReviewId}`
-    );
+    const response = await request(server).get(`/api/review/${singleReviewId}`);
     expect(response.body).toBeDefined();
   });
 });
