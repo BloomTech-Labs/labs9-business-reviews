@@ -24,7 +24,7 @@ const StyledBusiness = styled.div`
       font-size: 2.6rem;
     }
     .business__rating {
-      font-size: 2.6rem;
+      font-size: 4rem;
       margin-top: -2rem;
     }
     .business__details {
@@ -202,6 +202,7 @@ class SearchResult extends React.Component {
                 {this.state.reviews ? (
                   this.state.reviews.map(
                     ({ title, business_image, id, rating }) => (
+
                       <div key={id} className="review">
                         <h4>{title}</h4>
                         <img

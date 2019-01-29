@@ -11,10 +11,6 @@ const StyledEdit = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
 
-  .container {
-    /* border: 10px solid red; */
-  }
-
   label {
     margin-bottom: 6px;
     margin-right: 8px;
