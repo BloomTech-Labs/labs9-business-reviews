@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import BillingPage from './components/BillingPage';
 import Login from './components/Login';
-import LandingNav from './components/LandingNav';
 import Footer from './components/Footer';
 import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
@@ -20,9 +19,20 @@ const StyledContainer = styled.div`
 `;
 
 function App() {
+  // outline ring css property is disabled UNLESS a user hits the tab key- // this is for removing that unsightly focus ring but not disabling it
+  // entirely so as to perserve the accessability for mouse-less users.
+
+  function handleFirstTab(e) {
+    if (e.keyCode === 9) {
+      // tab key
+      document.body.classList.add('user-is-tabbing');
+      window.removeEventListener('keydown', handleFirstTab);
+    }
+  }
+
+  window.addEventListener('keydown', handleFirstTab);
   return (
     <div className='App'>
-      <LandingNav />
       <StyledContainer className='container'>
         <Route exact path='/' component={LandingPage} />
         <Route path='/billing' component={BillingPage} />
