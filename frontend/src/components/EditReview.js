@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { backendLink } from '../assets/config';
 import styled from 'styled-components';
+import NavBar from './NavBar';
 
 const StyledEdit = styled.div`
   box-sizing: border-box;
@@ -10,6 +11,7 @@ const StyledEdit = styled.div`
   justify-content: center;
   box-sizing: border-box;
   border-radius: 10px;
+  margin-bottom: 60px;
 
   label {
     margin-bottom: 6px;
@@ -144,48 +146,52 @@ export default class EditReview extends Component {
   render() {
     console.log(this.state);
     return (
-      <StyledEdit>
-        <div className='container'>
-          <form onSubmit={this.handleSubmit}>
-            <h1 className='review__headline'>Edit your review</h1>
-            <label htmlFor='review__title'>Title</label>
-            <input
-              onChange={this.changeHandler}
-              name='title'
-              value={this.state.title}
-              className='review__input--title'
-            />
-            <label htmlFor='review__title'>Review</label>
-            <textarea
-              onChange={this.changeHandler}
-              name='body'
-              value={this.state.body}
-              className='review__input--body'
-            />
-            <div className='review__rating'>
-              <label htmlFor='review__input--rating'>Rating</label>
-              <select
+      <div>
+        <NavBar/>
+        <StyledEdit>
+          <div className='container'>
+            <form onSubmit={this.handleSubmit}>
+              <h1 className='review__headline'>Edit your review</h1>
+              <label htmlFor='review__title'>Title</label>
+              <input
                 onChange={this.changeHandler}
-                name='rating'
-                value={this.state.rating}
-                className='review__input--rating'
-              >
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option defaultValue='5'>5</option>
-              </select>
-              <button className='btn' onClick={this.handleSubmit}>
-                Submit Review
-              </button>
-              <button className='btn' onClick={this.props.toggleReviewing}>
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
-      </StyledEdit>
+                name='title'
+                value={this.state.title}
+                className='review__input--title'
+              />
+              <label htmlFor='review__title'>Review</label>
+              <textarea
+                onChange={this.changeHandler}
+                name='body'
+                value={this.state.body}
+                className='review__input--body'
+              />
+              <div className='review__rating'>
+                <label htmlFor='review__input--rating'>Rating</label>
+                <select
+                  onChange={this.changeHandler}
+                  name='rating'
+                  value={this.state.rating}
+                  className='review__input--rating'
+                >
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option defaultValue='5'>5</option>
+                </select>
+                <button className='btn' onClick={this.handleSubmit}>
+                  Submit Review
+                </button>
+                <button className='btn' onClick={this.props.toggleReviewing}>
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </StyledEdit>
+      </div>
+      
     );
   }
 }
