@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
 import styled from 'styled-components';
+import NavBar from './NavBar';
 
 const ResetPasswordDiv = styled.div`
   width: 600px;
   margin: 0 auto;
+  margin-top: 200px;
+  margin-bottom: 300px;
   h1 {
     font-weight: 100;
     text-align: center;
@@ -62,20 +65,24 @@ class ResetPassword extends Component {
   };
   render() {
     return (
-      <ResetPasswordDiv>
-        <h1>Forgot your password?</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="email">Check Email:</label>
-          <input
-            type="text"
-            value={this.state.email}
-            onChange={this.handleChange}
-            name="email"
-            placeholder="Check your email see if it exists"
-          />
-          <input type="submit" value="➤" />
-        </form>
-      </ResetPasswordDiv>
+      <div>
+        <NavBar/>
+        <ResetPasswordDiv>
+          <h1>Forgot your password?</h1>
+          <form onSubmit={this.handleSubmit}>
+            <label htmlFor="email">Check Email:</label>
+            <input
+              type="text"
+              value={this.state.email}
+              onChange={this.handleChange}
+              name="email"
+              placeholder="Check your email see if it exists"
+            />
+            <input type="submit" value="➤" />
+          </form>
+        </ResetPasswordDiv>
+      </div>
+      
     );
   }
 }
