@@ -8,7 +8,7 @@ describe('GET request on Business', () => {
     expect(response.status).toBe(200);
   });
 
-  test('should return a defined object', async () => {
+  test('should return a defined Business object', async () => {
     const response = await request(server).get('/api/business');
     expect(response.body).toBeDefined();
   });
@@ -20,31 +20,26 @@ describe('GET request on Business', () => {
 });
 
 describe('GET BY ID test', () => {
-  let singleBusinessId;
-
   const business = {
     name: 'doughnuts',
     rating: 2,
-    image: 'store.jpg'
+    image: 'store.jpg',
+    id: Math.floor(Math.random() * 1000)
   };
   beforeEach(async () => {
-    const response = await request(server)
+    await request(server)
       .post('/api/business')
       .send(business);
-    const [id] = response.body;
-    singleBusinessId = id;
   });
 
   afterEach(async () => {
     await db('businesses')
-      .where({ id: singleBusinessId })
+      .where({ id: business.id })
       .del();
   });
 
-  test('should be returning a defined user object', async () => {
-    const response = await request(server).get(
-      `/api/business/${singleBusinessId}`
-    );
+  test('should be returning a defined business object', async () => {
+    const response = await request(server).get(`/api/business/${business.id}}`);
     expect(response.body).toBeDefined();
   });
 });
@@ -89,43 +84,40 @@ describe('PUT test', async () => {
   const business = {
     name: 'doughnuts',
     rating: 2,
-    image: 'store.jpg'
+    image: 'store.jpg',
+    id: Math.floor(Math.random() * 1000)
   };
 
   const updatedBusiness = {
     name: 'barbecue',
     rating: 5,
-    image: 'store.jpg'
+    image: 'store.jpg',
+    id: business.id
   };
-  let singleBusinessId;
 
   beforeEach(async () => {
-    const response = await request(server)
+    await request(server)
       .post('/api/business')
       .send(business);
-    const [id] = response.body;
-    singleBusinessId = id;
   });
   afterEach(async () => {
     await db('businesses')
-      .where({ id: singleBusinessId })
+      .where({ id: business.id })
       .del();
   });
 
   test('should be updating with the updated Business', async () => {
     await request(server)
-      .put(`/api/business/${singleBusinessId}`)
+      .put(`/api/business/${business.id}`)
       .send(updatedBusiness);
 
-    const response = await request(server).get(
-      `/api/business/${singleBusinessId}`
-    );
+    const response = await request(server).get(`/api/business/${business.id}`);
     expect(response.body).toEqual([
       {
         name: 'barbecue',
         rating: 5,
         image: 'store.jpg',
-        id: singleBusinessId
+        id: business.id
       }
     ]);
   });
