@@ -23,7 +23,7 @@ const NavBarStyles = styled.div`
   a {
     color: white;
     text-decoration: none;
-    padding-left: 150px;
+    padding-left: 50px;
     margin-right: 100px;
   }
   img {
@@ -43,6 +43,14 @@ function NavBar() {
         <a href="/addreview">add a review</a>
         <a href="/categories">categories</a>
         <a href="/toprated">top rated</a>
+      </div>
+      <div className="menu__user">
+        <Link to="/login" className="menu__user--text">
+          sign in
+        </Link>
+        <a href="/register" className="menu__user--text">
+          sign up
+        </a>
       </div>
     </NavBarStyles>
   )
