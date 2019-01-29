@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import SideBar from './SideBar';
 import MyReviews from './MyReviews';
 
 const StyledContainer = styled.div`
