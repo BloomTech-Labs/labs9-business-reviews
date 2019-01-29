@@ -7,13 +7,13 @@ const StyledBilling = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 40px;
-  .billing {
-    border: solid black 1px;
-  }
   button {
-    padding: 30px;
+    background-color: #eed974;
+    font-size: 1.25rem;
+    padding: 10px;
     font-size: 20px;
     width: 300px;
+    height: 70px;
     margin-top: 30px;
   }
 `;

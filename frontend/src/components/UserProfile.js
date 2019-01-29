@@ -18,7 +18,6 @@ class UserProfile extends React.Component {
     return (
       <div>
         <StyledContainer>
-          <SideBar />
           <MyReviews id={id} />
         </StyledContainer>
       </div>
