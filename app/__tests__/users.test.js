@@ -24,14 +24,13 @@ describe('GET BY ID test', () => {
 
   const user = {
     name: 'james',
-    email: 'jamestest@james.com',
+    email: 'jamestsest@james.com',
     password: 'james'
   };
   beforeEach(async () => {
     const response = await request(server)
       .post('/api/user/register')
       .send(user);
-    console.log(response);
     const { id } = response.body;
     singleUserId = id;
   });
@@ -44,7 +43,6 @@ describe('GET BY ID test', () => {
   });
 
   test('should be returning a defined user object', async () => {
-    console.log(singleUserId);
     const response = await request(server).get(`/api/user/${singleUserId}`);
     expect(response.body).toBeDefined();
   });
@@ -55,7 +53,7 @@ describe('Post test', () => {
 
   const user = {
     name: 'jamess',
-    email: 'jameswtest@james.com',
+    email: 'jamesswtest@james.com',
     password: 'james'
   };
 
