@@ -18,6 +18,7 @@ const PopularReviewersStyles = styled.div`
   h1 {
     width: 100%;
     font-weight: 100;
+    text-align: center;
   }
   .link {
     text-decoration: none;
