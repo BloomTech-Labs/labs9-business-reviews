@@ -26,7 +26,6 @@ const PopularReviewersStyles = styled.div`
   }
   .user {
     box-sizing: border-box;
-    /* filter: drop-shadow(3px 3px 3px black); */
     background: #ffffff;
     height: auto;
     width: 20%;
