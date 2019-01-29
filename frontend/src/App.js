@@ -16,7 +16,7 @@ import EditReview from './components/EditReview';
 
 const StyledContainer = styled.div`
   margin: 0 auto;
-  max-width: 1200px;
+  // max-width: 1200px;
 `;
 
 function App() {
