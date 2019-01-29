@@ -54,11 +54,11 @@ class BillingForm extends React.Component {
     return(
       <StyledBillingForm>
         <div className="billing-form">  
-        <h1>Billing</h1>
+        <h1>Bonafind Subscription</h1>
           <p>Here you can choose between a monthly or yearly subscription. Without a subscription, you can only read 3 reviews per day. But with a subscription you can view as many reviews as you like!</p>
           <form className="radio-form">
             <input type="radio" name="subscription" value="yearly" onClick={this.annualSub} />1 Year Subscription - $9.99 <br/> <br/>
-            <input type="radio" name="subscription" value="yearly" onClick={this.monthlySub} />1 Month Subscription - $0.99 <br/>
+            <input type="radio" name="subscription" value="monthly" onClick={this.monthlySub} />1 Month Subscription - $0.99 <br/>
           </form>
           <StripeCheckout
             amount={this.state.amount}
