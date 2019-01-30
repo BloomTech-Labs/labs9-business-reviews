@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import SearchBar from './SearchBar';
 
 const NavBarStyles = styled.div`
   display: flex;

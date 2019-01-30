@@ -12,7 +12,6 @@ const NavBar = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  @import url('https://fonts.googleapis.com/css?family=Patua+One:300,500');
   @media (max-width: 900px) {
   }
   .blur-container {
