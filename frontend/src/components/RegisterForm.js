@@ -58,11 +58,11 @@ class RegisterForm extends Component {
     }
 
     await axios.post(`${backendLink}/api/user/register`, this.state);
-    try {
-      alert(`Successful Registered your account!`);
+    try {           
+      this.props.history.push('/login');     
     } catch (err) {
       alert(err);
-    }
+    }    
   };
   render() {
     return (
@@ -74,7 +74,7 @@ class RegisterForm extends Component {
             <label htmlFor="email"> Email</label>
             <AuthInput type="email" name="email" onChange={this.handleChange} />
             <label htmlFor="password"> Password</label>
-            <AuthInput type="text" name="password" onChange={this.handleChange} />
+            <AuthInput type="password" name="password" onChange={this.handleChange} />
             <label htmlFor="name">Name</label>
             <AuthInput type="text" name="name" onChange={this.handleChange} />
             <input type="submit" value="Register" className="btn" />
