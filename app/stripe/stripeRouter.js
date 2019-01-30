@@ -7,6 +7,7 @@ const userModel = require('../db/userModel/userModel');
 router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
   const { token } = req.query;
+  const email = token.email;
   const response = await stripe.customers.create({
     email: email,
     source: token
