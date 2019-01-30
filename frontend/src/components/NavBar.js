@@ -17,7 +17,9 @@ const NavBarStyles = styled.div`
 		width: 100px;
 		margin-left: 50px;
 	}
-	.nav-links {
+	.nav_links {
+		display: flex;
+		justify-content: space-between;
 		width: 50%;
 		height: auto;
 	}
@@ -25,12 +27,32 @@ const NavBarStyles = styled.div`
 	p {
 		color: white;
 		text-decoration: none;
-		padding-left: 50px;
-		margin-right: 100px;
+		// padding-left: 50px;
+		// margin-right: 100px;
 		cursor: pointer;
 	}
 	img {
 		border-radius: 100px;
+	}
+	.menu__user {
+		display: flex;
+		justify-content: space-between;
+		width: 15%;
+		margin-right: 20px;
+	}
+
+	@media (max-width: 900px) {
+		flex-direction: column;
+		height: 300px;
+		align-items: center;
+		.nav_links {
+			flex-direction: column;
+			align-items: center;
+		}
+		.menu__user {
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 `;
 
