@@ -7,7 +7,7 @@ import PlaceHolderReviews from './PlaceHolderReviews';
 
 const Container = styled.div`
   width: 97%;
-  h1{
+  h1 {
     text-align: center;
   }
 `;
@@ -26,21 +26,19 @@ const StyledReviews = styled.div`
   }
 
   .review {
-    box-sizing: border-box;
-    border-radius: 10px;
-    filter: drop-shadow(3px 3px 3px black);
-    padding: 10px;
-    border: 1px solid black;
-    background: #f1f1f1;
-    height: auto;
-    width: 30%;
+    width: 22.5%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 50px;
-    line-height: 0.2;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     color: black;
+
+    :hover {
+      animation: shadow 0.2s;
+      animation-fill-mode: forwards;
+    }
 
     @media (max-width: 900px) {
       width: 500px;
@@ -49,64 +47,61 @@ const StyledReviews = styled.div`
       margin-bottom: 20px;
     }
 
-    .review__imgContainer {
-      width: 250px;
-      height: 150px;
-      margin-bottom: 30px;
+    .review__img {
+      width: 100%;
+    }
 
-      @media (max-width: 900px) {
-        display: flex;
-        justify-content: center;
-        width: 450px;
-      }
+    .review__title {
+      font-size: 1.4rem;
+      font-family: Roboto;
+    }
+    .review__business {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-top: -1.2rem;
+    }
 
-      .review__imgContainer--img {
-        max-width: 250px;
-        @media (max-width: 900px) {
-          width: 400px;
-        }
-      }
+    .review__body {
+      font-family: Roboto;
+      font-style: italic;
+      padding: 0 20px;
+    }
 
-      .review__title {
-        font-size: 2rem;
-      }
-      .review__business {
-        text-transform: uppercase;
-        font-weight: bold;
-      }
-      .review__body {
-        font-style: italic;
-        margin-bottom: 40px;
-      }
-      .review__quote {
-      }
+    .review__ratingContainer {
+      background-color: #eed974;
+      padding: 0 10px;
+      line-height: 0.8;
+    }
 
-      .review__ratingContainer {
-        background-color: #eed974;
-        padding: 0 10px;
-        line-height: 0.8;
-      }
+    p {
+      height: auto;
+    }
+    h4 {
+      width: 100%;
+      height: auto;
+      text-align: center;
+    }
+  }
 
-      .review__ratingContainer--rating {
-      }
-
-      p {
-        height: auto;
-      }
-      h4 {
-        width: 100%;
-        height: auto;
-        text-align: center;
-      }
+  @keyframes shadow {
+    0% {
+      box-shadow: none;
+    }
+    100% {
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
     }
   }
 `;
 
 class MyReviews extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      name: props.name,
+      gravatar: props.gravatar
     };
   }
   componentDidMount() {
@@ -118,7 +113,7 @@ class MyReviews extends Component {
   render() {
     return (
       <Container>
-        <h1>My Reviews</h1>
+        <h1>{this.state.name}</h1>
         <StyledReviews>
           {this.state.reviews ? (
             this.state.reviews.map(
@@ -126,24 +121,17 @@ class MyReviews extends Component {
                 <Link
                   to={`/user/${this.props.id}/review/${id}`}
                   key={id}
-                  className="review"
+                  className='review'
                 >
-                  <div className="review__imgContainer">
-                    <img
-                      className="review__imgContainer--img"
-                      src={`${business_image}`}
-                      alt="business"
-                    />
-                  </div>
-                  <p className="review__title">{title}</p>
-                  <p className="review__business">{business_name}</p>
-                  <p className="review__body">
-                    <span className="review__quote">&ldquo;</span> {body}
-                    <span className="review__quote">&rdquo;</span>
-                  </p>
-                  <div className="review__ratingContainer">
-                    <p className="review__ratingContainer--rating">{`${rating} stars`}</p>
-                  </div>
+                  <img
+                    className='review__img'
+                    src={`${business_image}`}
+                    alt='business'
+                  />
+                  <h2 className='review__title'>{title}</h2>
+                  <h3 className='review__business'>{business_name}</h3>
+                  <p className='review__body'>{body}</p>
+                  <h1 className='review__ratingContainer--rating'>{`${rating} stars`}</h1>
                 </Link>
               )
             )

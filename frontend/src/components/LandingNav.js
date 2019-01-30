@@ -1,66 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import axios from 'axios';
-import { backendLink } from '../assets/config';
+
+import background from '../assets/kitchen.jpg';
 import SearchBar from './SearchBar';
 
 const NavBar = styled.div`
-	width: 100%;
-	height: 600px;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url('https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	@media (max-width: 900px) {
-	}
-	.blur-container {
-		width: 100%;
-		height: 75px;
-		background-color: rgba(0, 0, 0, 0.5);
-		margin: 0 auto;
-		box-sizing: border-box;
-		margin-bottom: 70px;
-		.top-nav-items {
-			box-sizing: border-box;
-			max-width: 1200px;
-			height: auto;
-			display: flex;
-			padding-top: 20px;
-			margin: 0 auto;
-			.menu__menuItems {
-				width: 50%;
-				height: auto;
-				display: flex;
-				align-items: center;
-				@media (max-width: 900px) {
-					width: 100%;
-					flex-direction: row;
-					font-size: 2.6rem;
-				}
-				a {
-					font-size: 1.4rem;
-					box-sizing: border-box;
-					color: white;
-					width: 100%;
-					text-decoration: none;
-					text-align: center;
-					margin: 10px;
-					@media (max-width: 900px) {
-						color: white;
-						font-size: 1rem;
-						padding: 5px;
-						margin: 0;
-					}
-				}
-			}
-			.menu__user {
-				box-sizing: border-box;
-				color: black;
-				width: 50%;
-				display: flex;
-				justify-content: flex-end;
+  width: 100%;
+  height: 600px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(${background});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  @media (max-width: 900px) {
+  }
+  .blur-container {
+    width: 100%;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-bottom: 70px;
+    .top-nav-items {
+      box-sizing: border-box;
+      max-width: 1200px;
+      height: auto;
+      display: flex;
+      padding-top: 20px;
+      margin: 0 auto;
+      .menu__menuItems {
+        width: 50%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        @media (max-width: 900px) {
+          width: 100%;
+          flex-direction: row;
+          font-size: 2.6rem;
+        }
+        a {
+          font-size: 1.4rem;
+          box-sizing: border-box;
+          color: white;
+          width: 100%;
+          text-decoration: none;
+          text-align: center;
+          margin: 10px;
+          @media (max-width: 900px) {
+            color: white;
+            font-size: 1rem;
+            padding: 5px;
+            margin: 0;
+          }
+        }
+      }
+      .menu__user {
+        box-sizing: border-box;
+        color: black;
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+
 
 				@media (max-width: 900px) {
 					box-sizing: border-box;
