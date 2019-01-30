@@ -52,20 +52,6 @@ const StyledBusiness = styled.div`
         }
       }
     }
-    svg {
-      height: 35px;
-      width: 35px;
-      margin-right: 1.7rem;
-    }
-
-    .btn {
-      background-color: #eed974;
-      height: 40px;
-      width: 120px;
-      margin-right: 20px;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
 
     .review-container {
       display: flex;
@@ -80,23 +66,36 @@ const StyledBusiness = styled.div`
         justify-content: space-around;
         .review {
           width: 25%;
-          .review-img1 {
-            width: 85%;
-            height: 100px;
-            background: blue;
+
+          .review__title {
+            font-family: Roboto;
           }
-          .review-img2 {
-            width: 85%;
-            height: 100px;
-            background: red;
+
+          .review__rating {
+            margin-top: -1.3rem;
           }
-          .review-img3 {
+
+          .review__img {
             width: 85%;
             height: 100px;
-            background: green;
           }
         }
       }
+    }
+
+    svg {
+      height: 35px;
+      width: 35px;
+      margin-right: 1.7rem;
+    }
+
+    .btn {
+      background-color: #eed974;
+      height: 40px;
+      width: 120px;
+      margin-right: 20px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
   }
 `;
@@ -162,6 +161,7 @@ class SearchResult extends React.Component {
     }
     if (!this.state.business) return <p>Loading business...</p>;
     else {
+      console.log(this.state.business);
       return (
         <div>
           <NavBar />
@@ -220,13 +220,13 @@ class SearchResult extends React.Component {
                     this.state.reviews.map(
                       ({ title, business_image, id, rating }) => (
                         <div key={id} className='review'>
-                          <h4>{title}</h4>
+                          <p className='review__title'>{title}</p>
+                          <p className='review__rating'>{`${rating} stars`}</p>
                           <img
                             src={business_image}
                             alt='reviewed business'
-                            className='review-img1'
+                            className='review__img'
                           />
-                          <p>{`${rating} stars`}</p>
                         </div>
                       )
                     )
