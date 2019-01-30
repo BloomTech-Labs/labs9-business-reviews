@@ -58,11 +58,11 @@ class RegisterForm extends Component {
     }
 
     await axios.post(`${backendLink}/api/user/register`, this.state);
-    try {
-      alert(`Successful Registered your account!`);
+    try {           
+      this.props.history.push('/login');     
     } catch (err) {
       alert(err);
-    }
+    }    
   };
   render() {
     return (
