@@ -11,17 +11,17 @@ export const PopularBusinessesStyles = styled.div`
 	background-repeat: repeat;
 	background-position: center;
 	box-sizing: border-box;
-	padding: 20px 40px;
-	margin: 0 auto;
+  margin: 0 auto;
 	display: flex;
-	flex-flow: row wrap;
-	height: auto;
-
+  flex-flow: row wrap;
+  justify-content: space-around;  
+  height: auto;
+  padding: 30px;
 	h1 {
 		text-align: center;
 		width: 100%;
 		font-weight: 100;
-		padding-bottom: 20px;
+		padding-bottom: 10px;
 	}
 	.business {
 		width: 22.5%;
@@ -29,7 +29,6 @@ export const PopularBusinessesStyles = styled.div`
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-		margin: 10px;
 		background: rgba(255, 255, 255, 0.8);
 		text-decoration: none;
 		color: black;
