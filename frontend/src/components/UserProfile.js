@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import MyReviews from './MyReviews';
 import NavBar from './NavBar';
+import image from '../assets/white-waves.png';
 
 const StyledContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  background-image: url(${image});
   height: auto;
-  margin-top: 20px;
 `;
 
 class UserProfile extends React.Component {
@@ -18,7 +19,7 @@ class UserProfile extends React.Component {
       <div>
         <NavBar />
         <StyledContainer>
-          <MyReviews id={id} />
+          <MyReviews className='header' id={id} />
         </StyledContainer>
       </div>
     );
