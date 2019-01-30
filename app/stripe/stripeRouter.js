@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')('sk_test_hFDCdUMSwiOhnZrrInQJYrax');
-// (process.env.STRIPE_SECRET);
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
 const authConfig = require('../user/authConfig');
 const userModel = require('../db/userModel/userModel');
 
@@ -13,7 +12,7 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
     currency: 'USD',
     amount
   });
-  user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30;
+  user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30 * 12;
   await userModel.updateUser(user.id, user);
   res.json({ response });
 });
