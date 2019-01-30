@@ -102,7 +102,7 @@ class SearchResult extends React.Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     Axios.get(
-      `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
+      `https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
@@ -151,7 +151,7 @@ class SearchResult extends React.Component {
     else {
       return (
         <div>
-          <NavBar/>
+          <NavBar />
           <StyledBusiness>
             <div className='card'>
               <h1 className='business__name'>{this.state.business.name}</h1>
@@ -235,7 +235,6 @@ class SearchResult extends React.Component {
             ) : null}
           </StyledBusiness>
         </div>
-        
       );
     }
   }
