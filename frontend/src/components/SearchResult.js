@@ -57,6 +57,16 @@ const StyledBusiness = styled.div`
       width: 35px;
       margin-right: 1.7rem;
     }
+
+    .btn {
+      background-color: #eed974;
+      height: 40px;
+      width: 120px;
+      margin-right: 20px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
     .review-container {
       display: flex;
       width: 100%;
@@ -224,7 +234,9 @@ class SearchResult extends React.Component {
                     <PlaceHolderReviews />
                   )}
                 </div>
-                <button onClick={this.toggleReviewing}>Add a Review</button>
+                <button className='btn' onClick={this.toggleReviewing}>
+                  Add a Review
+                </button>
               </div>
             </div>
             {this.state.reviewing ? (
