@@ -209,7 +209,7 @@ class SearchResult extends React.Component {
                     className='business__website--text'
                     href={this.state.business.website}
                   >
-                    Website
+                    {this.state.business.website}
                   </a>
                 </div>
               </div>
