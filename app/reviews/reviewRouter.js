@@ -7,6 +7,8 @@ const db = require('../db/dbinit');
 //CREATE
 router.post('/', authConfig.isLoggedIn, (req, res) => {
   const [user] = req.user;
+  if (!user.subscription || user.subscription < Date.now())
+    return res.json({ message: 'Subscription is expired or nonexistent' });
   req.body.reviewer_id = user.id;
   const review = req.body;
   db('reviews')
