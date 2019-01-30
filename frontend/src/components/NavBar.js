@@ -74,7 +74,7 @@ class NavBar extends React.Component {
 							</Link>
 						</React.Fragment>
 					) : (
-						<p onClick={this.handleLogout}>Sign Out</p>
+						<p onClick={this.handleLogout}>sign out</p>
 					)}
 				</div>
 			</NavBarStyles>
