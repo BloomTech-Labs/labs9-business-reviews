@@ -41,30 +41,49 @@ const NavBarStyles = styled.div`
 
 	@media (max-width: 900px) {
 		flex-direction: column;
-		height: 500px;
+		height: 580px;
 		align-items: center;
 		justify-content: center;
+		padding-top: 20px;
+		background: white;
+		.logo-container {
+			width: 100%;
+		}
 		.logo {
 			width: 200px;
 			height: 200px;
 			margin: 0 auto;
 		}
 		.nav_links {
+			text-align: center;
 			font-size: 1.25rem;
 			flex-direction: column;
-			align-items: center;
-			justify-content: space-around;
+			justify-content: center;
+			width: 100%;
 			height: 40%;
 			margin-top: 20px;
+			a {
+				width: 100%;
+				border-top: 2px solid white;
+				padding: 20px 0px;
+				background: #142e41;
+			}
 		}
 		.menu__user {
+			width: 100%
 			font-size: 1.25rem;
 			flex-direction: column;
-			align-items: center;
+			text-align: center;
 			justify-content: space-around;
 			height: 20%;
 			padding-left: 15px;
 			margin-bottom: 15px;
+			a {
+				background: #142e41;
+				width: 100%;
+				border-top: 2px solid white;
+				padding: 20px 0px;
+			}
 		}
 	}
 `;
