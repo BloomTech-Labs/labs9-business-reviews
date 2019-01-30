@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-// import logo from '../assets/logo.png';
+import background from '../assets/kitchen.jpg';
 import SearchBar from './SearchBar';
 
 const NavBar = styled.div`
   width: 100%;
   height: 600px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
+    url(${background});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
