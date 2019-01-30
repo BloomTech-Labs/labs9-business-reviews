@@ -16,7 +16,7 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
     stripe.charges.create({
       amount: 999,
       description: "Yearly Subscription Charge",
-      currency: 'usd',
+      currency: "usd",
       customer: customer.id
     })
   })
@@ -37,7 +37,7 @@ router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
     stripe.charges.create({
       amount: 99,
       description: "Monthly Subscription Charge",
-      currency: 'usd',
+      currency: "usd",
       customer: customer.id
     })
   })
