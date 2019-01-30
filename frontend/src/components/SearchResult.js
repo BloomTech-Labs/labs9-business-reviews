@@ -25,12 +25,14 @@ const StyledBusiness = styled.div`
     padding: 15px;
     display: flex;
     flex-flow: column wrap;
+
     .business__name {
       font-size: 4rem;
+      margin-top: -1.6rem;
     }
     .business__rating {
       font-size: 4rem;
-      margin-top: -2rem;
+      margin-top: -4rem;
     }
     .business__details {
       .business__details--address {
@@ -97,6 +99,14 @@ const StyledBusiness = styled.div`
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
+
+    .openNow {
+      color: limegreen;
+    }
+
+    .closedNow {
+      color: red;
+    }
   }
 `;
 
@@ -159,17 +169,29 @@ class SearchResult extends React.Component {
       imageCC = references[0];
       imageURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`;
     }
+
+    let isOpen = false;
     if (!this.state.business) return <p>Loading business...</p>;
     else {
+      if (
+        this.state.business &&
+        this.state.business.opening_hours !== undefined
+      ) {
+        isOpen = this.state.business.opening_hours.open_now;
+        console.log(isOpen);
+      }
       console.log(this.state.business);
       return (
         <div>
           <NavBar />
           <StyledBusiness>
             <div className='card'>
+              <img src={imageURL} alt='Business' />
               <h1 className='business__name'>{this.state.business.name}</h1>
 
-              <h1 className='business__rating'>{this.state.business.rating}</h1>
+              <h1 className='business__rating'>
+                {this.state.business.rating} / 5
+              </h1>
 
               <div className='business__details'>
                 <div className='business__details--address'>
@@ -194,6 +216,18 @@ class SearchResult extends React.Component {
                     <path d='M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z' />
                   </svg>
                   {this.state.business.formatted_phone_number}
+                </div>
+
+                <div className='business__details--hours'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='24'
+                    height='24'
+                    viewBox='0 0 24 24'
+                  >
+                    <path d='M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z' />
+                  </svg>
+                  ${isOpen}
                 </div>
 
                 <div className='business__details--website'>
