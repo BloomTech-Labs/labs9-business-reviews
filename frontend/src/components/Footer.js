@@ -9,26 +9,22 @@ const FooterStyles = styled.div`
   padding-top: 50px;
   padding-bottom: 50px;
   background: #142e41;
+  color: white;
+
   span {
-    color: white;
-    padding-right: 40px;
+    padding-right: 300px;
   }
   a {
     color: white;
     text-decoration: none;
     padding: 5px;
   }
-  .copyright {
-    padding-right: 5px;
-    height: 15px;
-    width: 15px;
-  }
 `;
 
 function Footer() {
   return (
     <FooterStyles>
-      <span>© Bonafind</span>
+      <span>© 2019 Bonafind</span>
       <a href='https://github.com/Lambda-School-Labs/labs9-business-reviews'>
         Meet the Team
       </a>
