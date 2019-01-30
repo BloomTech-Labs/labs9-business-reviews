@@ -46,6 +46,12 @@ const ModalStyles = styled.div`
           padding: 10px;
           font-size: 1.2rem;
         }
+
+        .review__modal--form--rating {
+          width: 100px;
+          font-size: 1.4rem;
+          margin: 0 30px;
+        }
       }
 
       .review__modal--buttons {
@@ -63,6 +69,11 @@ const ModalStyles = styled.div`
         }
       }
     }
+  }
+  .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 class AddReviewModal extends React.Component {
@@ -120,30 +131,34 @@ class AddReviewModal extends React.Component {
                 value={this.state.body}
                 className='review__modal--form--field--review'
               />
-              <select
-                onChange={this.changeHandler}
-                name='rating'
-                value={this.state.rating}
-              >
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option defaultValue='5'>5</option>
-              </select>
-              <div className='review__modal--buttons'>
-                <button
-                  className='review__modal--buttons--btn'
-                  onClick={this.handleSubmit}
+              <div className='rating'>
+                <label htmlFor='review__input--rating'>Rating</label>
+                <select
+                  onChange={this.changeHandler}
+                  name='rating'
+                  value={this.state.rating}
+                  className='review__modal--form--rating'
                 >
-                  Submit Review
-                </button>
-                <button
-                  className='review__modal--buttons--btn'
-                  onClick={this.props.toggleReviewing}
-                >
-                  Cancel
-                </button>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option defaultValue='5'>5</option>
+                </select>
+                <div className='review__modal--buttons'>
+                  <button
+                    className='review__modal--buttons--btn'
+                    onClick={this.handleSubmit}
+                  >
+                    Submit Review
+                  </button>
+                  <button
+                    className='review__modal--buttons--btn'
+                    onClick={this.props.toggleReviewing}
+                  >
+                    Cancel
+                  </button>
+                </div>
               </div>
             </form>
           </div>
