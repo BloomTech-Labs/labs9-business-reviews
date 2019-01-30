@@ -102,10 +102,12 @@ const StyledReviews = styled.div`
 `;
 
 class MyReviews extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      reviews: []
+      reviews: [],
+      name: props.name,
+      gravatar: props.gravatar
     };
   }
   componentDidMount() {
@@ -117,7 +119,7 @@ class MyReviews extends Component {
   render() {
     return (
       <Container>
-        <h1>My Reviews</h1>
+        <h1>{this.state.name}</h1>
         <StyledReviews>
           {this.state.reviews ? (
             this.state.reviews.map(
