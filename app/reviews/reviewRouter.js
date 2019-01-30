@@ -44,9 +44,10 @@ router.get('/:id', (req, res) => {
 });
 //PUT
 router.put('/:id', authConfig.isLoggedIn, (req, res) => {
+  const [user] = req.user;
   const changes = req.body;
   const { id } = req.params;
-  if (changes.reviewer_id !== req.user.id)
+  if (changes.reviewer_id !== user.id)
     return res.json({ message: 'Not your review bounce' });
 
   db('reviews')
