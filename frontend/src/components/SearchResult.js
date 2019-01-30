@@ -130,7 +130,7 @@ class SearchResult extends React.Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     Axios.get(
-      `https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
+      `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
       .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
