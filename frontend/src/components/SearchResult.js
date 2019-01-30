@@ -15,7 +15,7 @@ const StyledBusiness = styled.div`
   justify-content: center;
   background-image: url(${image});
   line-height: 1.2;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   .card {
     border: 1px solid grey;
     background: white;
