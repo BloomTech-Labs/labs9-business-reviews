@@ -6,12 +6,12 @@ import { backendLink } from '../assets/config';
 
 const PopularReviewersStyles = styled.div`
   box-sizing: border-box;
-  padding-top: 20px;
   margin: 0 auto;
+  padding: 30px;
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
-  width: 85%;
+  width: 100%;
   height: auto;
   min-height: 450px;
   @media (max-width: 900px) {
@@ -28,7 +28,7 @@ const PopularReviewersStyles = styled.div`
     box-sizing: border-box;
     background: #ffffff;
     height: auto;
-    width: 20%;
+    width: 22.5%;
     display: flex;
     flex-direction: column;
     align-items: center;
