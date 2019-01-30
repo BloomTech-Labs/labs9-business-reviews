@@ -67,7 +67,7 @@ class RegisterForm extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar {...this.props}/>
         <RegisterDiv>
           <AuthForm onSubmit={this.handleSubmit}>
             <AuthHeader> Register for a account!</AuthHeader>

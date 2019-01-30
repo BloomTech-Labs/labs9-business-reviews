@@ -29,7 +29,6 @@ function App() {
       window.removeEventListener('keydown', handleFirstTab);
     }
   }
-
   window.addEventListener('keydown', handleFirstTab);
   return (
     <div className='App'>
