@@ -5,12 +5,15 @@ import AddReviewModal from './AddReviewModal';
 import PlaceHolderReviews from './PlaceHolderReviews';
 import { backendLink } from '../assets/config';
 import NavBar from './NavBar';
+import image from '../assets/white-waves.png';
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  background-image: url(${image});
   line-height: 1.75;
   margin-bottom: 50px;
   .card {
