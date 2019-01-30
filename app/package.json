@@ -4,7 +4,7 @@
   "description": "Business",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js && set NODE_ENV=PRODUCTION",
+    "start": "node index.js && set NODE_ENV=\"PRODUCTION\"",
     "dev": "nodemon index.js",
     "test": "jest --watch --verbose"
   },
