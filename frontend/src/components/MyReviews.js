@@ -67,16 +67,10 @@ const StyledReviews = styled.div`
       padding: 0 20px;
     }
 
-    .review__quote {
-    }
-
     .review__ratingContainer {
       background-color: #eed974;
       padding: 0 10px;
       line-height: 0.8;
-    }
-
-    .review__ratingContainer--rating {
     }
 
     p {
