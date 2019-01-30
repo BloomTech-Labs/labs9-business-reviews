@@ -7,7 +7,7 @@ import SearchBar from './SearchBar';
 const NavBar = styled.div`
   width: 100%;
   height: 600px;
-  background-image: url('https://images.unsplash.com/photo-1512805147242-c3e79caf64bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+  background-image: url('https://images.unsplash.com/photo-1428515613728-6b4607e44363?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
