@@ -6,6 +6,7 @@ const authConfig = require('../user/authConfig');
 const userModel = require('../db/userModel/userModel');
 
 router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
+  console.log('yearly');
   const [user] = req.user;
   const { token } = req.query;
   const email = token.email;
