@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
+import { backendLink } from '../assets/config';
 
 const ModalStyles = styled.div`
   position: fixed;
@@ -87,15 +88,19 @@ class AddReviewModal extends React.Component {
   }
   handleSubmit = e => {
     e.preventDefault();
-    Axios.post(`http://localhost:9000/api/review`, {
-      title: this.state.title,
-      body: this.state.body,
-      rating: this.state.rating,
-      business_image: this.props.imageUrl,
-      business_name: this.props.businessName,
-      business_id: this.props.businessId,
-      reviewer_id: 69
-    })
+    Axios.post(
+      `${backendLink}/api/review`,
+      {
+        title: this.state.title,
+        body: this.state.body,
+        rating: this.state.rating,
+        business_image: this.props.imageUrl,
+        business_name: this.props.businessName,
+        business_id: this.props.businessId,
+        reviewer_id: 69
+      },
+      { withCredentials: 'include' }
+    )
       .then(res => {
         console.log('Success!', res.status);
         this.setState({ title: '', body: '', rating: 0 });
