@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import axios from 'axios';
+import {backendLink} from '../assets/config';
 import background from '../assets/kitchen.jpg';
 import SearchBar from './SearchBar';
 
