@@ -35,8 +35,11 @@ const NavBarStyles = styled.div`
 
 class NavBar extends React.Component {
   state = { user: {} };
-  handleLogout = () =>{
-
+  handleLogout = async() =>{
+    const res = await axios.get(`${backendLink}/api/user/logout`, {
+			withCredentials: 'include'
+    });
+    console.log(res)
   }
 	async componentDidMount() {
 		const res = await axios.get(`${backendLink}/api/user/me`, {
@@ -60,7 +63,7 @@ class NavBar extends React.Component {
 					<a href="/toprated">top rated</a>
 				</div>
 				<div className="menu__user">
-          {!this.state.user?<><Link to="/login" className="menu__user--text">sign in</Link><Link to="/register"className="menu__user--text">sign up</Link></>:<p>Sign Out</p>}					
+          {!this.state.user?<><Link to="/login" className="menu__user--text">sign in</Link><Link to="/register"className="menu__user--text">sign up</Link></>:<p onClick={this.handleLogout}>Sign Out</p>}
 				</div>
 			</NavBarStyles>
 		);
