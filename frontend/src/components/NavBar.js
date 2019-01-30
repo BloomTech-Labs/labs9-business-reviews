@@ -17,7 +17,7 @@ const NavBarStyles = styled.div`
   }
   .nav-links {
     width: 50%;
-		height: auto;
+    height: auto;
   }
   a {
     color: white;
@@ -33,27 +33,26 @@ const NavBarStyles = styled.div`
 function NavBar() {
   return (
     <NavBarStyles>
-      <div className="logo_container">
-        <a href="/">
-          <img src={logo} alt="logo" className="logo" />
+      <div className='logo_container'>
+        <a href='/'>
+          <img src={logo} alt='logo' className='logo' />
         </a>
       </div>
-      <div className="nav_links">
-        <a href="/addreview">add a review</a>
-        <a href="/categories">categories</a>
-        <a href="/toprated">top rated</a>
+      <div className='nav_links'>
+        <a href='/addreview'>add a review</a>
+        <a href='/categories'>categories</a>
+        <a href='/toprated'>top rated</a>
       </div>
-      <div className="menu__user">
-        <Link to="/login" className="menu__user--text">
+      <div className='menu__user'>
+        <Link to='/login' className='menu__user--text'>
           sign in
         </Link>
-        <a href="/register" className="menu__user--text">
+        <a href='/register' className='menu__user--text'>
           sign up
         </a>
       </div>
     </NavBarStyles>
-  )
-  
+  );
 }
 
 export default NavBar;
