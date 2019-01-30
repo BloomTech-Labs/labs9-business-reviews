@@ -6,6 +6,7 @@ const userRouter = require('./user/userRouter');
 const reviewRouter = require('./reviews/reviewRouter');
 const businessRouter = require('./businesses/businessRouter');
 const stripeRouter = require('./stripe/stripeRouter');
+const postmark = require('postmark');
 const cors = require('cors');
 
 const server = express();
