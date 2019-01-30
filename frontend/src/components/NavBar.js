@@ -50,6 +50,7 @@ const NavBarStyles = styled.div`
 			margin: 0 auto;
 		}
 		.nav_links {
+			font-size: 1.25rem;
 			flex-direction: column;
 			align-items: center;
 			justify-content: space-around;
@@ -57,6 +58,7 @@ const NavBarStyles = styled.div`
 			margin-top: 20px;
 		}
 		.menu__user {
+			font-size: 1.25rem;
 			flex-direction: column;
 			align-items: center;
 			justify-content: space-around;
