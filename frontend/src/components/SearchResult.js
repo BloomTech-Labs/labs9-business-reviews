@@ -26,7 +26,7 @@ const StyledBusiness = styled.div`
     display: flex;
     flex-flow: column wrap;
     .business__name {
-      font-size: 2.6rem;
+      font-size: 4rem;
     }
     .business__rating {
       font-size: 4rem;
