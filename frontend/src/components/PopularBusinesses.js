@@ -41,6 +41,10 @@ export const PopularBusinessesStyles = styled.div`
     margin-bottom: 50px;
     text-decoration: none;
 
+    :hover {
+      animation: shadow 0.2s;
+      animation-fill-mode: forwards;
+    }
     /* max-height: 380px;
     max-width: 380px; */
     width: 380px;
@@ -78,11 +82,16 @@ export const PopularBusinessesStyles = styled.div`
       }
     }
   }
-  .business:hover,
-  .business:focus {
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
-      0 6px 20px 0 rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
+
+  @keyframes shadow {
+    0% {
+      box-shadow: none;
+    }
+    100% {
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
   }
 `;
 
