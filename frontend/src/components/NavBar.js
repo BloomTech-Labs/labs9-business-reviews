@@ -27,8 +27,6 @@ const NavBarStyles = styled.div`
 	p {
 		color: white;
 		text-decoration: none;
-		// padding-left: 50px;
-		// margin-right: 100px;
 		cursor: pointer;
 	}
 	img {
@@ -43,15 +41,28 @@ const NavBarStyles = styled.div`
 
 	@media (max-width: 900px) {
 		flex-direction: column;
-		height: 300px;
+		height: 500px;
 		align-items: center;
+		justify-content: center;
+		.logo {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+		}
 		.nav_links {
 			flex-direction: column;
 			align-items: center;
+			justify-content: space-around;
+			height: 40%;
+			margin-top: 20px;
 		}
 		.menu__user {
 			flex-direction: column;
 			align-items: center;
+			justify-content: space-around;
+			height: 20%;
+			padding-left: 15px;
+			margin-bottom: 15px;
 		}
 	}
 `;
@@ -87,7 +98,7 @@ class NavBar extends React.Component {
 				</div>
 				<div className="menu__user">
 					{!this.state.loggedIn ? (
-						<React.Fragment>
+						<React.Fragment className="fragment">
 							<Link to="/login" className="menu__user--text">
 								sign in
 							</Link>
