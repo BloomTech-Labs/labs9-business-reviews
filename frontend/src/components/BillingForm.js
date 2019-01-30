@@ -3,6 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
+import GatedSignInComponent from './GatedSignInComponent';
 
 const StyledBillingForm = styled.div`
   background-color: white;
@@ -20,43 +21,51 @@ class BillingForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      amount: 99
+      amount: null
     };
   }
 
   annualSub = () => {
     this.setState({ amount: 999 });
-    console.log('Amount', this.state.amount);
   };
 
   monthlySub = () => {
     this.setState({ amount: 99 });
-    console.log('Amount', this.state.amount);
   };
 
-  onToken = res => {
+  onToken = async res => {
     console.log('On Token Called!');
     console.log(res);
     console.log(res.id);
     if (this.state.amount === 99) {
-      axios
-        .post(`${backendLink}/api/billing/monthly?token=${res.id}`, null, {
+      const resp = await axios.post(
+        `${backendLink}/api/billing/monthly?amount=${this.state.amount}&token=${
+          res.id
+        }`,
+        undefined,
+        {
           withCredentials: 'include'
-        })
-        .then(response => console.log(response))
-        .catch(err => console.log(err));
+        }
+      );
+      console.log(resp);
     } else if (this.state.amount === 999) {
-      axios
-        .post(`${backendLink}/api/billing/yearly?token=${res.id}`, null, {
+      const resp = await axios.post(
+        `${backendLink}/api/billing/yearly?amount=${this.state.amount}&token=${
+          res.id
+        }`,
+        undefined,
+        {
           withCredentials: 'include'
-        })
-        .then(response => console.log(response))
-        .catch(err => console.log(err));
+        }
+      );
+      console.log(resp);
     } else return null;
   };
 
   render() {
     return (
+      <GatedSignInComponent>
+
       <StyledBillingForm>
         <div className="billing-form">
           <h1>Bonafind Subscription</h1>
@@ -71,7 +80,7 @@ class BillingForm extends React.Component {
               name="subscription"
               value="yearly"
               onClick={this.annualSub}
-            />
+              />
             1 Year Subscription - $9.99 <br /> <br />
             <input
               type="radio"
@@ -85,14 +94,15 @@ class BillingForm extends React.Component {
             amount={this.state.amount}
             name="Bonafind"
             description="Purchase Subscription"
-            stripeKey="pk_test_YRDXagNKMjZOXlX2ULVNUWbT"
+            stripeKey="pk_test_HN5T9K7E0yy6A9fZEqv62psB"
             currency="USD"
             token={res => this.onToken(res)}
-          >
+            >
             {this.props.children}
           </StripeCheckout>
         </div>
       </StyledBillingForm>
+            </GatedSignInComponent>
     );
   }
 }
