@@ -34,7 +34,10 @@ const NavBarStyles = styled.div`
 `;
 
 class NavBar extends React.Component {
-	state = { user: {} };
+  state = { user: {} };
+  handleLogout = () =>{
+
+  }
 	async componentDidMount() {
 		const res = await axios.get(`${backendLink}/api/user/me`, {
 			withCredentials: 'include'
