@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import copyright from '../assets/copyright.png';
 
 const FooterStyles = styled.div`
   width: 100%;
@@ -10,7 +9,7 @@ const FooterStyles = styled.div`
   padding-top: 50px;
   padding-bottom: 50px;
   background: #142e41;
-  span{
+  span {
     color: white;
     padding-right: 40px;
   }
@@ -26,13 +25,10 @@ const FooterStyles = styled.div`
   }
 `;
 
-// Needs an icon for copyright
-
 function Footer() {
   return (
     <FooterStyles>
-      <img src={copyright} alt="copyright" className="copyright" />
-      <span> Bonafind</span> 
+      <span>© Bonafind</span>
       <a href='https://github.com/Lambda-School-Labs/labs9-business-reviews'>
         Meet the Team
       </a>
