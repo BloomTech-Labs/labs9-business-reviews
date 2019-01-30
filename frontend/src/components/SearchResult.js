@@ -159,8 +159,17 @@ class SearchResult extends React.Component {
       imageCC = references[0];
       imageURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`;
     }
+
+    let isOpen = false;
     if (!this.state.business) return <p>Loading business...</p>;
     else {
+      if (
+        this.state.business &&
+        this.state.business.opening_hours !== undefined
+      ) {
+        isOpen = this.state.business.opening_hours.open_now;
+        console.log(isOpen);
+      }
       console.log(this.state.business);
       return (
         <div>
@@ -168,6 +177,8 @@ class SearchResult extends React.Component {
           <StyledBusiness>
             <div className='card'>
               <h1 className='business__name'>{this.state.business.name}</h1>
+
+              <img src={imageURL} alt='nope' />
 
               <h1 className='business__rating'>{this.state.business.rating}</h1>
 
