@@ -12,12 +12,15 @@ const NavBarStyles = styled.div`
 	width: 100%;
 	height: 130px;
 	background: #142e41;
+	font-size: 1.25rem;
 	.logo {
 		height: 100px;
 		width: 100px;
 		margin-left: 50px;
 	}
-	.nav-links {
+	.nav_links {
+		display: flex;
+		justify-content: space-between;
 		width: 50%;
 		height: auto;
 	}
@@ -25,12 +28,67 @@ const NavBarStyles = styled.div`
 	p {
 		color: white;
 		text-decoration: none;
-		padding-left: 50px;
-		margin-right: 100px;
 		cursor: pointer;
 	}
 	img {
 		border-radius: 100px;
+	}
+	.menu__user {
+		display: flex;
+		justify-content: space-between;
+		width: 15%;
+		margin-right: 20px;
+	}
+
+	@media (max-width: 900px) {
+		flex-direction: column;
+		height: 565px;
+		padding-top: 20px;
+		background: white;
+		.logo {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+		}
+		.nav_links {
+			text-align: center;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			height: 40%;
+			margin-top: 20px;
+			a {
+				width: 100%;
+				border-bottom: 2px solid white;
+				padding: 20px 0px;
+				background: #142e41;
+
+				:hover {
+					background: white;
+					color: #142e41;
+				}
+			}
+		}
+		.menu__user {
+			width: 100%
+			flex-direction: column;
+			text-align: center;
+			justify-content: space-around;
+			height: 20%;
+			padding-left: 15px;
+			margin-bottom: 15px;
+			a {
+				background: #142e41;
+				width: 100%;
+				border-top: 2px solid white;
+				padding: 20px 0px;
+
+				:hover {
+					background: white;
+					color: #142e41;
+				}
+			}
+		}
 	}
 `;
 
@@ -65,7 +123,7 @@ class NavBar extends React.Component {
 				</div>
 				<div className="menu__user">
 					{!this.state.loggedIn ? (
-						<React.Fragment>
+						<React.Fragment className="fragment">
 							<Link to="/login" className="menu__user--text">
 								sign in
 							</Link>
