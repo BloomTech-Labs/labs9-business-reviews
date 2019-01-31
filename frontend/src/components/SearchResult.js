@@ -32,30 +32,82 @@ const StyledBusiness = styled.div`
     display: flex;
     flex-flow: column wrap;
 
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+
+    .image__container {
+      overflow: auto;
+
+      .image__container--img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
     .business__name {
       font-family: 'Patua One';
       font-size: 4rem;
+      @media (max-width: 900px) {
+        font-size: 3rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
     }
     .business__rating {
-      font-size: 4rem;
       margin-top: -3.1rem;
+      font-size: 4rem;
+
+      @media (max-width: 900px) {
+        font-size: 3rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 2rem;
+        margin-top: 0;
+      }
     }
 
     .business__details--address {
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
+
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 0.75rem;
+      }
     }
     .business__details--phone {
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
+
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 0.75rem;
+      }
     }
 
     .business__details--hours {
       display: flex;
       align-items: flex-start;
       margin-bottom: 1rem;
+
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 0.75rem;
+      }
     }
 
     .business__details--website {
@@ -65,6 +117,13 @@ const StyledBusiness = styled.div`
       padding-right: 2rem;
       .business__website--text {
         text-decoration: none;
+        @media (max-width: 900px) {
+          font-size: 1rem;
+        }
+
+        @media (max-width: 600px) {
+          font-size: 0.75rem;
+        }
       }
     }
 
@@ -72,13 +131,16 @@ const StyledBusiness = styled.div`
       display: flex;
       width: 100%;
       flex-flow: row wrap;
-      h1 {
-        width: 100%;
+
+      .reviews__header {
+        font-family: 'Patua One';
       }
+
       .reviews {
         width: 100%;
         display: flex;
         justify-content: space-around;
+
         .review {
           width: 25%;
 
@@ -102,6 +164,17 @@ const StyledBusiness = styled.div`
       height: 35px;
       width: 35px;
       margin-right: 1.7rem;
+
+      @media (max-width: 900px) {
+        height: 25px;
+        width: 25px;
+        margin-right: 1.2rem;
+      }
+      @media (max-width: 600px) {
+        height: 20px;
+        width: 20px;
+        margin-right: 1rem;
+      }
     }
 
     .btn {
@@ -228,7 +301,13 @@ class SearchResult extends React.Component {
           <NavBar />
           <StyledBusiness>
             <div className='card'>
-              <img src={imageURL} alt='Business' />
+              <div className='image__container'>
+                <img
+                  className='image__container--img'
+                  src={imageURL}
+                  alt='Business'
+                />
+              </div>
               <h1 className='business__name'>{this.state.business.name}</h1>
 
               <h1 className='business__rating'>
@@ -267,7 +346,7 @@ class SearchResult extends React.Component {
                 </div>
               </div>
               <div className='review-container'>
-                <h1>Reviews</h1>
+                <h1 className='reviews__header'>Reviews</h1>
                 <div className='reviews'>
                   {this.state.reviews.map(
                     ({ title, business_image, id, rating }) => (

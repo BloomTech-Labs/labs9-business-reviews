@@ -105,6 +105,7 @@ class AddReviewModal extends React.Component {
         console.log('Success!', res.status);
         this.setState({ title: '', body: '', rating: 0 });
       })
+      .then(this.props.toggleReviewing)
       .catch(err => console.log('error', err));
     this.props.addBusiness();
     this.props.toggleReviewing(e);
