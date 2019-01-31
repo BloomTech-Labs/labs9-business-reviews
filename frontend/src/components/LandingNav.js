@@ -24,17 +24,18 @@ const NavBar = styled.div`
     box-sizing: border-box;
     margin-bottom: 70px;
     .top-nav-items {
+	  width: 100%
       box-sizing: border-box;
       max-width: 1200px;
       height: auto;
-      display: flex;
+	  display: flex;
       padding-top: 20px;
       margin: 0 auto;
       .menu__menuItems {
-        width: 50%;
+        width: 70%;
         height: auto;
         display: flex;
-        align-items: center;
+		align-items: center;
         @media (max-width: 900px) {
           width: 100%;
           font-size: 2.6rem;
@@ -58,7 +59,7 @@ const NavBar = styled.div`
       .menu__user {
         box-sizing: border-box;
         color: black;
-        width: 50%;
+        width: 30%;
         display: flex;
         justify-content: flex-end;
 
@@ -69,6 +70,9 @@ const NavBar = styled.div`
 				width: 100%;
 				color: white;
 				margin: 0;
+			}
+			@media (max-width: 600px){
+				justify-content: flex-end;
 			}
 			.menu__user--text, p {
 				text-decoration: none;
