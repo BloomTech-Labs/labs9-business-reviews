@@ -286,6 +286,7 @@ class SearchResult extends React.Component {
             </div>
             {this.state.reviewing ? (
               <AddReviewModal
+                {...this.props} 
                 imageURL={imageURL}
                 businessName={this.state.business.name}
                 addBusiness={this.addBusiness}
