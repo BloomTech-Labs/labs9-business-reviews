@@ -78,13 +78,18 @@ const StyledEdit = styled.div`
   }
   @media (max-width: 900px) {
     width: 100%;
+    .container{
+      display: flex;
+      justify-content: center;
+    }
     form {
       padding-top: 30px;
-
-      width: 80%;
+      background: white;
+      width: 100%;
       height: auto;
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: column wrap;
+      flex-wrap: wrap;
       justify-content: center;
       h1 {
         width: 100%;
