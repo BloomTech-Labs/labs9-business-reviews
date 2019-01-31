@@ -23,7 +23,6 @@ const SearchBarStyles = styled.div`
     }
     .search__input {
       color: white;
-
       height: 45px;
       width: 700px;
       font-size: 1.4rem;
@@ -38,8 +37,7 @@ const SearchBarStyles = styled.div`
       }
 
       @media(max-width:520px){
-
-        width: 90%;
+        width: 100%;
         margin: 0;
         margin-bottom: 15px;
       }
@@ -65,8 +63,11 @@ const SearchBarStyles = styled.div`
     form {
       display: inline-flex;
       .search__input {
-        margin-right: 10px;
+        margin-right: 20px;
         width: 75%;
+      }
+      .button {
+        margin-right: 20px;
       }
     }
   }
