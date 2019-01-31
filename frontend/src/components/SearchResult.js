@@ -260,22 +260,18 @@ class SearchResult extends React.Component {
               <div className='review-container'>
                 <h1>Reviews</h1>
                 <div className='reviews'>
-                  {this.state.reviews ? (
-                    this.state.reviews.map(
-                      ({ title, business_image, id, rating }) => (
-                        <div key={id} className='review'>
-                          <p className='review__title'>{title}</p>
-                          <p className='review__rating'>{`${rating} stars`}</p>
-                          <img
-                            src={business_image}
-                            alt='reviewed business'
-                            className='review__img'
-                          />
-                        </div>
-                      )
+                  {this.state.reviews.map(
+                    ({ title, business_image, id, rating }) => (
+                      <div key={id} className='review'>
+                        <p className='review__title'>{title}</p>
+                        <p className='review__rating'>{`${rating} stars`}</p>
+                        <img
+                          src={business_image}
+                          alt='reviewed business'
+                          className='review__img'
+                        />
+                      </div>
                     )
-                  ) : (
-                    <PlaceHolderReviews />
                   )}
                 </div>
                 <button className='btn' onClick={this.toggleReviewing}>
