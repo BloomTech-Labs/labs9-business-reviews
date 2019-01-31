@@ -113,11 +113,7 @@ const StyledEdit = styled.div`
   }
 
   @media (max-width:550px){
-    .container{
-      margin-bottom: 0px;
-    }
     form {
-      margin: 0px;
       h1 {
       font-size: 1.5rem;
       margin-bottom: 0px;
