@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const FooterStyles = styled.div`
   width: 100%;
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -12,12 +12,12 @@ const FooterStyles = styled.div`
   color: white;
 
   span {
-    padding-right: 300px;
+    // padding-right: 300px;
   }
   a {
     color: white;
     text-decoration: none;
-    padding: 5px;
+    padding: 10px;
   }
 `;
 

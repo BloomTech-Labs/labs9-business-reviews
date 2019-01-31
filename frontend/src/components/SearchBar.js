@@ -15,12 +15,14 @@ const SearchBarStyles = styled.div`
     align-items: center;
     width: 100%;
 
-    @media(max-width:520px){
+    @media(max-width:700px){
       flex-direction: column;
+      .search__input {
+        margin-bottom: 15px;
+      }
     }
     .search__input {
       color: white;
-
       height: 45px;
       width: 700px;
       font-size: 1.4rem;
@@ -35,10 +37,9 @@ const SearchBarStyles = styled.div`
       }
 
       @media(max-width:520px){
-
-        width: 90%;
+        width: 100%;
         margin: 0;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
       }
     }
 
@@ -55,6 +56,19 @@ const SearchBarStyles = styled.div`
       margin-right: 10px;
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+  @media (max-width: 900px){
+    margin-left: 10px;
+    form {
+      display: inline-flex;
+      .search__input {
+        margin-right: 20px;
+        width: 75%;
+      }
+      .button {
+        margin-right: 20px;
+      }
     }
   }
 `;

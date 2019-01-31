@@ -23,20 +23,20 @@ const NavBar = styled.div`
     box-sizing: border-box;
     margin-bottom: 70px;
     .top-nav-items {
+	  width: 100%
       box-sizing: border-box;
       max-width: 1200px;
       height: auto;
-      display: flex;
+	  display: flex;
       padding-top: 20px;
       margin: 0 auto;
       .menu__menuItems {
-        width: 50%;
+        width: 70%;
         height: auto;
         display: flex;
-        align-items: center;
+		align-items: center;
         @media (max-width: 900px) {
           width: 100%;
-          flex-direction: row;
           font-size: 2.6rem;
         }
         a {
@@ -58,63 +58,68 @@ const NavBar = styled.div`
       .menu__user {
         box-sizing: border-box;
         color: black;
-        width: 50%;
+        width: 30%;
         display: flex;
         justify-content: flex-end;
 
-        @media (max-width: 900px) {
-          box-sizing: border-box;
-          display: flex;
-          justify-content: flex end;
-          width: 100%;
-          color: white;
-          margin: 0;
-        }
-        .menu__user--text,
-        p {
-          text-decoration: none;
-          font-size: 1.4rem;
-          color: white;
-          margin: 10px;
-          @media (max-width: 900px) {
-            color: white;
-            font-size: 1rem;
-          }
-        }
-      }
-    }
-  }
-  .inner-nav-container {
-    max-width: 1200px;
-    height: auto;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row wrap;
-    font-family: 'Patua One';
-    @media (max-width: 900px) {
-      flex-direction: column;
-      padding: 0;
-    }
-    .menu__logo--logo {
-      height: 225px;
-      width: 225px;
-      margin-bottom: 30px;
-      border-radius: 50%;
-      @media (max-width: 900px) {
-        height: 225px;
-        width: 225px;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        border-radius: 50%;
-      }
-    }
-  }
+			@media (max-width: 900px) {
+				box-sizing: border-box;
+				display: flex;
+				justify-content: flex end;
+				width: 100%;
+				color: white;
+				margin: 0;
+			}
+			@media (max-width: 600px){
+				justify-content: flex-end;
+			}
+			.menu__user--text, p {
+				text-decoration: none;
+				font-size: 1.4rem;
+				color: white;
+				margin: 10px;
+				@media (max-width: 900px) {
+					color: white;
+					font-size: 1rem;
+				}
+			}
+			}
+		}
+	}
+	.inner-nav-container {
+		max-width: 1200px;
+		height: auto;
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: row wrap;
+		font-family: 'Patua One';
+		@media (max-width: 900px) {
+			flex-direction: column;
+			padding: 0;
+		}
+		.menu__logo--logo {
+			height: 225px;
+			width: 225px;
+			margin-bottom: 30px;
+			border-radius: 50%;
+			@media (max-width: 900px) {
+				height: 225px;
+				width: 225px;
+				margin-bottom: 20px;
+				margin-top: 20px;
+				border-radius: 50%;
+			}
+		}
+	}
 
-  svg {
-    filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
-  }
+	svg {
+		filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
+	}
+	@media(max-width:700px){
+		height: 650px;
+	}
 `;
 
 class LandingNav extends React.Component {
