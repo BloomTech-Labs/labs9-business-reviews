@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
-import PlaceHolderReviews from './PlaceHolderReviews';
 import { backendLink } from '../assets/config';
 import NavBar from './NavBar';
 import image from '../assets/white-waves.png';
@@ -19,7 +18,10 @@ const StyledBusiness = styled.div`
   justify-content: center;
   background-image: url(${image});
   line-height: 1.2;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
+  font-family: Roboto;
+
+
   .card {
     border: 1px solid grey;
     background: white;
@@ -31,6 +33,7 @@ const StyledBusiness = styled.div`
     flex-flow: column wrap;
 
     .business__name {
+      font-family: 'Patua One';
       font-size: 4rem;
     }
     .business__rating {
@@ -51,7 +54,7 @@ const StyledBusiness = styled.div`
 
     .business__details--hours {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 1rem;
     }
 
@@ -59,6 +62,7 @@ const StyledBusiness = styled.div`
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
+      padding-right: 2rem;
       .business__website--text {
         text-decoration: none;
       }
@@ -94,7 +98,7 @@ const StyledBusiness = styled.div`
       }
     }
 
-    svg {
+    .svg {
       height: 35px;
       width: 35px;
       margin-right: 1.7rem;
@@ -121,6 +125,10 @@ const StyledBusiness = styled.div`
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 10px;
+
+      @media (max-width: 1250px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
 `;
@@ -132,7 +140,8 @@ class SearchResult extends React.Component {
     this.state = {
       business: [],
       reviewing: false,
-      reviews: []
+      reviews: [],
+      hours: []
     };
   }
 
@@ -204,17 +213,16 @@ class SearchResult extends React.Component {
       }
 
       // creates an array- 'hours'- of hours for each day of the week
-      let hours;
+      let hours = [];
       if (
         this.state.business &&
         this.state.business.opening_hours !== undefined
       ) {
         hours = this.state.business.opening_hours.weekday_text;
-        // console.log('gimme hours', hours);
       }
 
-      // console.log(this.state.business);
-      console.log(hours);
+      console.log(hours[0]);
+
       return (
         <div>
           <NavBar />
@@ -229,22 +237,27 @@ class SearchResult extends React.Component {
 
               <div className='grid'>
                 <div className='business__details--address'>
-                  <img src={map} alt='map' />
+                  <img className='svg' src={map} alt='map' />
                   {this.state.business.formatted_address}
                 </div>
 
                 <div className='business__details--phone'>
-                  <img src={phone} alt='phone' />
+                  <img className='svg' src={phone} alt='phone' />
                   {this.state.business.formatted_phone_number}
                 </div>
 
                 <div className='business__details--hours'>
-                  <img src={calendar} alt='calendar' />
-                  <div className='business__details--hours--week'>{hours}</div>
+                  <img className='svg' src={calendar} alt='calendar' />
+                  <div className='business__details--hours--week'>
+                    {/* this will map out the hours for each day  */}
+                    {hours.map(hour => {
+                      return <div>{hour}</div>;
+                    })}
+                  </div>
                 </div>
 
                 <div className='business__details--website'>
-                  <img src={web} alt='web' />
+                  <img className='svg' src={web} alt='web' />
                   <a
                     className='business__website--text'
                     href={this.state.business.website}
@@ -256,22 +269,18 @@ class SearchResult extends React.Component {
               <div className='review-container'>
                 <h1>Reviews</h1>
                 <div className='reviews'>
-                  {this.state.reviews ? (
-                    this.state.reviews.map(
-                      ({ title, business_image, id, rating }) => (
-                        <div key={id} className='review'>
-                          <p className='review__title'>{title}</p>
-                          <p className='review__rating'>{`${rating} stars`}</p>
-                          <img
-                            src={business_image}
-                            alt='reviewed business'
-                            className='review__img'
-                          />
-                        </div>
-                      )
+                  {this.state.reviews.map(
+                    ({ title, business_image, id, rating }) => (
+                      <div key={id} className='review'>
+                        <p className='review__title'>{title}</p>
+                        <p className='review__rating'>{`${rating} stars`}</p>
+                        <img
+                          src={business_image}
+                          alt='reviewed business'
+                          className='review__img'
+                        />
+                      </div>
                     )
-                  ) : (
-                    <PlaceHolderReviews />
                   )}
                 </div>
                 <button className='btn' onClick={this.toggleReviewing}>
