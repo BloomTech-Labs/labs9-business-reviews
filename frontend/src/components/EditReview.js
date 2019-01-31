@@ -19,14 +19,14 @@ const StyledEdit = styled.div`
   }
 
   .review__input--title {
-    width: 400px;
+    width: 90%;
     height: 20px;
     margin-bottom: 20px;
     padding: 10px;
     font-size: 1.5rem;
   }
   .review__input--body {
-    width: 400px;
+    width: 90%;
     height: 200px;
     margin-bottom: 30px;
     padding: 10px;
@@ -89,27 +89,34 @@ const StyledEdit = styled.div`
       height: auto;
       display: flex;
       flex-flow: column wrap;
-      flex-wrap: wrap;
       justify-content: center;
       h1 {
         width: 100%;
       }
 
-      input {
-        width: 400px;
+      .review__input--title {
+        width: 80%;
         height: 20px;
         margin-bottom: 20px;
         padding: 10px;
-        font-size: 1.5rem;
+        font-size: 1rem;
       }
 
-      textarea {
+      .review__input--body {
         width: 80%;
         height: 200px;
-        border: 1px solid whitesmoke;
         margin-bottom: 15px;
         resize: none;
+        font-size: 1rem;
       }
+    }
+  }
+
+  @media (max-width:550px){
+    form {
+      margin: 20px;
+      h1 {
+      font-size: 1.5rem;
     }
   }
 `;
