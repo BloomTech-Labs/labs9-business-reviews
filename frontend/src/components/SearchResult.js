@@ -44,10 +44,9 @@ const StyledBusiness = styled.div`
         height: 100%;
 
         @media (max-width: 900px) {
-        width: 600px:
-        height: 100%;
-      }
-
+          width: 600px;
+          height: 100%;
+        }
       }
     }
 
