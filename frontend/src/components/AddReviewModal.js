@@ -21,7 +21,6 @@ const ModalStyles = styled.div`
     width: 50%;
     height: 500px;
     padding: 10px;
-    /* border: 1px solid grey; */
     background-color: white;
     @media(max-width: 900px){
       width: 75%;
@@ -35,7 +34,6 @@ const ModalStyles = styled.div`
       .review__modal--form {
         display: flex;
         width: 100%;
-        border: 1px solid pink;
         flex-flow: row wrap;
         align-items: center;
         .review__modal--form--field--title {
@@ -55,7 +53,7 @@ const ModalStyles = styled.div`
         }
 
         .review__modal--form--rating {
-          width: 100px;
+          width: 45px;
           font-size: 1.4rem;
           margin: 0 30px;
         }
@@ -67,13 +65,12 @@ const ModalStyles = styled.div`
         justify-content: center;
         margin-top: 10px;
         @media(max-width:500px){
-          width: 100%;
-          border: 1px solid blue;
+          width: 40%;
         }
         .review__modal--buttons--btn {
           background-color: #eed974;
           height: 40px;
-          width: 120px;
+          max-width: 50%;
           margin-right: 20px;
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
             0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -82,13 +79,12 @@ const ModalStyles = styled.div`
     }
   }
   .rating {
-    width:45%;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     @media(max-width:500px){
       width: 100%;
-      border: 1px solid red;
     }
   }
 `;
