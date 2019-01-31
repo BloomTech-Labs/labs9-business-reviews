@@ -113,10 +113,26 @@ const StyledEdit = styled.div`
   }
 
   @media (max-width:550px){
+    .container{
+      margin-bottom: 0px;
+    }
     form {
-      margin: 20px;
+      margin: 0px;
       h1 {
       font-size: 1.5rem;
+      margin-bottom: 0px;
+    }
+    .review__input--title {
+      height: 10px;
+    }
+    .review__input--body {
+      height: 125px;
+    }
+    .review__input--rating {
+      width: 40%;
+    }
+    .btn {
+      width: 40%
     }
   }
 `;
