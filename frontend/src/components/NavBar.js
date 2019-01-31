@@ -41,14 +41,9 @@ const NavBarStyles = styled.div`
 
 	@media (max-width: 900px) {
 		flex-direction: column;
-		height: 580px;
-		align-items: center;
-		justify-content: center;
+		height: 565px;
 		padding-top: 20px;
 		background: white;
-		.logo-container {
-			width: 100%;
-		}
 		.logo {
 			width: 200px;
 			height: 200px;
@@ -64,7 +59,7 @@ const NavBarStyles = styled.div`
 			margin-top: 20px;
 			a {
 				width: 100%;
-				border-top: 2px solid white;
+				border-bottom: 2px solid white;
 				padding: 20px 0px;
 				background: #142e41;
 			}
