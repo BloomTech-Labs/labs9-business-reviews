@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const StyledReviews = styled.div`
-box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
   height: auto;
   display: flex;
@@ -27,7 +27,7 @@ box-sizing: border-box;
 
   .review {
     width: 22.5%;
-    height: 400px;
+    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,13 +62,14 @@ box-sizing: border-box;
     .review__business {
       text-transform: uppercase;
       font-weight: bold;
-      margin-top: -1.2rem;
+      margin-top: 0rem;
     }
 
     .review__body {
       font-family: Roboto;
       font-style: italic;
       padding: 0 20px;
+      margin-top: 0rem;
     }
 
     .review__ratingContainer {
