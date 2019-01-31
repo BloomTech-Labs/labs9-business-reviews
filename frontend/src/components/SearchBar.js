@@ -41,7 +41,7 @@ const SearchBarStyles = styled.div`
 
         width: 90%;
         margin: 0;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
       }
     }
 
@@ -69,9 +69,6 @@ const SearchBarStyles = styled.div`
         width: 75%;
       }
     }
-  }
-  @media(max-width:700px){
-    
   }
 `;
 
