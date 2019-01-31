@@ -132,7 +132,8 @@ class SearchResult extends React.Component {
     this.state = {
       business: [],
       reviewing: false,
-      reviews: []
+      reviews: [],
+      hours: []
     };
   }
 
@@ -204,17 +205,16 @@ class SearchResult extends React.Component {
       }
 
       // creates an array- 'hours'- of hours for each day of the week
-      let hours;
+      let hours = [];
       if (
         this.state.business &&
         this.state.business.opening_hours !== undefined
       ) {
         hours = this.state.business.opening_hours.weekday_text;
-        // console.log('gimme hours', hours);
       }
 
-      // console.log(this.state.business);
-      console.log(hours);
+      console.log(hours[0]);
+
       return (
         <div>
           <NavBar />
@@ -240,7 +240,11 @@ class SearchResult extends React.Component {
 
                 <div className='business__details--hours'>
                   <img src={calendar} alt='calendar' />
-                  <div className='business__details--hours--week'>{hours}</div>
+                  <div className='business__details--hours--week'>
+                    {hours.map(hour => {
+                      return <div>{hour}</div>;
+                    })}
+                  </div>
                 </div>
 
                 <div className='business__details--website'>
