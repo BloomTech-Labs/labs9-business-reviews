@@ -15,8 +15,11 @@ const SearchBarStyles = styled.div`
     align-items: center;
     width: 100%;
 
-    @media(max-width:520px){
+    @media(max-width:700px){
       flex-direction: column;
+      .search__input {
+        margin-bottom: 15px;
+      }
     }
     .search__input {
       color: white;
@@ -56,6 +59,19 @@ const SearchBarStyles = styled.div`
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
+  }
+  @media (max-width: 900px){
+    margin-left: 10px;
+    form {
+      display: inline-flex;
+      .search__input {
+        margin-right: 10px;
+        width: 75%;
+      }
+    }
+  }
+  @media(max-width:700px){
+    
   }
 `;
 
