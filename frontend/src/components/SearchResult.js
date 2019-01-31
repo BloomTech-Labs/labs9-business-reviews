@@ -21,6 +21,7 @@ const StyledBusiness = styled.div`
   margin-bottom: 50px;
   font-family: Roboto;
 
+
   .card {
     border: 1px solid grey;
     background: white;
@@ -289,6 +290,7 @@ class SearchResult extends React.Component {
             </div>
             {this.state.reviewing ? (
               <AddReviewModal
+                {...this.props} 
                 imageURL={imageURL}
                 businessName={this.state.business.name}
                 addBusiness={this.addBusiness}

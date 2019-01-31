@@ -7,7 +7,6 @@ import { backendLink } from '../assets/config';
 const PopularReviewersStyles = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 30px;
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
@@ -17,8 +16,6 @@ const PopularReviewersStyles = styled.div`
 
   @media (max-width: 900px) {
     background-color: white;
-    width: 100%;
-    justify-content: space-around;
   }
 
   @keyframes shadow {
@@ -52,7 +49,12 @@ const PopularReviewersStyles = styled.div`
     color: black;
     position: relative;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-
+    @media(max-width: 900px){
+      width: 45%;
+    }
+    @media(max-width: 500px){
+      width: 90%;
+    }
     :hover {
       animation: shadow 0.2s;
       animation-fill-mode: forwards;
@@ -76,7 +78,6 @@ class PopularReviewers extends Component {
       users: []
     };
   }
-
   componentDidMount() {
     Axios.get(`${backendLink}/api/user`)
       .then(response => {

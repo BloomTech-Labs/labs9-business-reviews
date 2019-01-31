@@ -26,7 +26,6 @@ const ModalStyles = styled.div`
 
     .container {
       margin: 0 auto;
-
       .review__modal--form {
         display: flex;
         flex-direction: column;
@@ -83,7 +82,8 @@ class AddReviewModal extends React.Component {
     this.state = {
       title: '',
       body: '',
-      rating: 0
+      rating: 0,
+      user:{}
     };
   }
   handleSubmit = e => {
@@ -97,7 +97,7 @@ class AddReviewModal extends React.Component {
         business_image: this.props.imageUrl,
         business_name: this.props.businessName,
         business_id: this.props.businessId,
-        reviewer_id: 69
+        reviewer_id: this.state.user.id 
       },
       { withCredentials: 'include' }
     )
@@ -107,21 +107,28 @@ class AddReviewModal extends React.Component {
       })
       .catch(err => console.log('error', err));
     this.props.addBusiness();
+    this.props.toggleReviewing(e);
   };
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  componentDidMount = () => {
-    console.log('businessid', this.props.businessId);
+  async componentDidMount(){
+      const res = await Axios.get(`${backendLink}/api/user/me`, {
+        withCredentials: 'include'
+      });
+      if (!res.data.user) return null;
+      const [ user ] = res.data.user;
+      this.setState({ user});
   };
   render() {
     return (
       <ModalStyles>
         <div className='review__modal'>
           <div className='container'>
-            <h1>Add a Review</h1>
-            <form class='review__modal--form' onSubmit={this.handleSubmit}>
+            <h1>{this.props.businessName}</h1>
+            <h3>Add a Review</h3>
+            <form className='review__modal--form' onSubmit={this.handleSubmit}>
               <label htmlFor='review-title'>Title</label>
               <input
                 onChange={this.changeHandler}
