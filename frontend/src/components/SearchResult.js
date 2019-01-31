@@ -37,16 +37,10 @@ const StyledBusiness = styled.div`
 
     .image__container {
       overflow: auto;
-      border: 4px solid red;
 
       .image__container--img {
         width: 100%;
         height: 100%;
-
-        @media (max-width: 900px) {
-          width: 600px;
-          height: 100%;
-        }
       }
     }
 
