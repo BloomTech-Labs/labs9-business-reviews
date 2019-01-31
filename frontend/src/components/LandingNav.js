@@ -116,6 +116,9 @@ const NavBar = styled.div`
 	svg {
 		filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
 	}
+	@media(max-width:700px){
+		height: 650px;
+	}
 `;
 
 class LandingNav extends React.Component {
