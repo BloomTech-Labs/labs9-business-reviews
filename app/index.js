@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '../../.env' });
+require('dotenv').config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const authMiddleware = require('./authMiddlewares');
@@ -6,7 +6,6 @@ const userRouter = require('./user/userRouter');
 const reviewRouter = require('./reviews/reviewRouter');
 const businessRouter = require('./businesses/businessRouter');
 const stripeRouter = require('./stripe/stripeRouter');
-const postmark = require('postmark');
 const cors = require('cors');
 
 const server = express();
@@ -35,7 +34,7 @@ server.use('/api/billing', stripeRouter);
 require('./user/passport');
 
 // R O O T  R O U T E
-server.get('/', (req, res) => {
+server.get('/', async (req, res) => {
   res.send('API root.');
 });
 

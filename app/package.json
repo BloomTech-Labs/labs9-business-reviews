@@ -4,7 +4,7 @@
   "description": "Business",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js && set NODE_ENV=\"PRODUCTION\"",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "jest --watch --verbose"
   },
@@ -12,6 +12,7 @@
   "author": "carlo",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "bcryptjs": "^2.4.3",
     "connect-session-knex": "^1.4.0",
     "cookie-parser": "^1.4.3",
@@ -27,7 +28,6 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.8.0",
-    "postmark": "^2.2.4",
     "sqlite3": "^4.0.6",
     "stripe": "^6.20.1"
   },
