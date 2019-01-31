@@ -124,6 +124,10 @@ const StyledBusiness = styled.div`
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 10px;
+
+      @media (max-width: 1250px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
 `;
