@@ -35,6 +35,22 @@ const StyledBusiness = styled.div`
       width: 100%;
     }
 
+    .image__container {
+      overflow: auto;
+      border: 4px solid red;
+
+      .image__container--img {
+        width: 100%;
+        height: 100%;
+
+        @media (max-width: 900px) {
+        width: 600px:
+        height: 100%;
+      }
+
+      }
+    }
+
     .business__name {
       font-family: 'Patua One';
       font-size: 4rem;
@@ -291,7 +307,13 @@ class SearchResult extends React.Component {
           <NavBar />
           <StyledBusiness>
             <div className='card'>
-              <img src={imageURL} alt='Business' />
+              <div className='image__container'>
+                <img
+                  className='image__container--img'
+                  src={imageURL}
+                  alt='Business'
+                />
+              </div>
               <h1 className='business__name'>{this.state.business.name}</h1>
 
               <h1 className='business__rating'>
