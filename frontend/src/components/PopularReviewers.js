@@ -55,6 +55,9 @@ const PopularReviewersStyles = styled.div`
     @media(max-width: 900px){
       width: 45%;
     }
+    @media(max-width: 500px){
+      width: 90%;
+    }
     :hover {
       animation: shadow 0.2s;
       animation-fill-mode: forwards;
