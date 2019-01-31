@@ -33,31 +33,30 @@ const StyledBusiness = styled.div`
       font-size: 4rem;
       margin-top: -3.1rem;
     }
-    .business__details {
-      .business__details--address {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
-      .business__details--phone {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
 
-      .business__details--hours {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
+    .business__details--address {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .business__details--phone {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
 
-      .business__details--website {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-        .business__website--text {
-          text-decoration: none;
-        }
+    .business__details--hours {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .business__details--website {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      .business__website--text {
+        text-decoration: none;
       }
     }
 
@@ -112,6 +111,12 @@ const StyledBusiness = styled.div`
 
     .closedNow {
       color: red;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
     }
   }
 `;
@@ -204,7 +209,7 @@ class SearchResult extends React.Component {
                 {this.state.business.rating} / 5
               </h1>
 
-              <div className='business__details'>
+              <div className='grid'>
                 <div className='business__details--address'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
