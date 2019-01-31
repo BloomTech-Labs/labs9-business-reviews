@@ -11,6 +11,7 @@ const AuthInput = styled.input`
   margin: 10px auto;
 `;
 const RegisterDiv = styled.div`
+  background: white;
   display: flex;
   max-width: 500px;
   align-self: flex-end;
