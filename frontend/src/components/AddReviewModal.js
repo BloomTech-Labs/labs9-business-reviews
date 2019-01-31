@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
+import { backendLink } from '../assets/config';
 
 const ModalStyles = styled.div`
   position: fixed;
@@ -20,19 +21,23 @@ const ModalStyles = styled.div`
     width: 50%;
     height: 500px;
     padding: 10px;
-    /* border: 1px solid grey; */
     background-color: white;
-
+    @media(max-width: 900px){
+      width: 75%;
+    }
+    @media(max-width: 500px){
+      width: 90%;
+    }
     .container {
       margin: 0 auto;
-
+      width: 100%;
       .review__modal--form {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-
+        width: 100%;
+        flex-flow: row wrap;
+        align-items: center;
         .review__modal--form--field--title {
-          width: 400px;
+          width: 90%;
           height: 20px;
           margin-bottom: 20px;
           padding: 10px;
@@ -40,7 +45,7 @@ const ModalStyles = styled.div`
         }
 
         .review__modal--form--field--review {
-          width: 400px;
+          width: 90%;
           height: 120px;
           margin-bottom: 20px;
           padding: 10px;
@@ -48,21 +53,24 @@ const ModalStyles = styled.div`
         }
 
         .review__modal--form--rating {
-          width: 100px;
+          width: 45px;
           font-size: 1.4rem;
           margin: 0 30px;
         }
       }
 
       .review__modal--buttons {
+        box-sizing: border-box;
         display: flex;
         justify-content: center;
         margin-top: 10px;
-
+        @media(max-width:500px){
+          width: 40%;
+        }
         .review__modal--buttons--btn {
           background-color: #eed974;
           height: 40px;
-          width: 120px;
+          max-width: 50%;
           margin-right: 20px;
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
             0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -71,9 +79,13 @@ const ModalStyles = styled.div`
     }
   }
   .rating {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
+    @media(max-width:500px){
+      width: 100%;
+    }
   }
 `;
 class AddReviewModal extends React.Component {
@@ -82,41 +94,54 @@ class AddReviewModal extends React.Component {
     this.state = {
       title: '',
       body: '',
-      rating: 0
+      rating: 0,
+      user:{}
     };
   }
   handleSubmit = e => {
     e.preventDefault();
-    Axios.post(`http://localhost:9000/api/review`, {
-      title: this.state.title,
-      body: this.state.body,
-      rating: this.state.rating,
-      business_image: this.props.imageUrl,
-      business_name: this.props.businessName,
-      business_id: this.props.businessId,
-      reviewer_id: 69
-    })
+    Axios.post(
+      `${backendLink}/api/review`,
+      {
+        title: this.state.title,
+        body: this.state.body,
+        rating: this.state.rating,
+        business_image: this.props.imageUrl,
+        business_name: this.props.businessName,
+        business_id: this.props.businessId,
+        reviewer_id: this.state.user.id 
+      },
+      { withCredentials: 'include' }
+    )
       .then(res => {
         console.log('Success!', res.status);
         this.setState({ title: '', body: '', rating: 0 });
       })
+      .then(this.props.toggleReviewing)
       .catch(err => console.log('error', err));
     this.props.addBusiness();
+    this.props.toggleReviewing(e);
   };
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  componentDidMount = () => {
-    console.log('businessid', this.props.businessId);
+  async componentDidMount(){
+      const res = await Axios.get(`${backendLink}/api/user/me`, {
+        withCredentials: 'include'
+      });
+      if (!res.data.user) return null;
+      const [ user ] = res.data.user;
+      this.setState({ user});
   };
   render() {
     return (
       <ModalStyles>
         <div className='review__modal'>
           <div className='container'>
-            <h1>Add a Review</h1>
-            <form class='review__modal--form' onSubmit={this.handleSubmit}>
+            <h1>{this.props.businessName}</h1>
+            <h3>Add a Review</h3>
+            <form className='review__modal--form' onSubmit={this.handleSubmit}>
               <label htmlFor='review-title'>Title</label>
               <input
                 onChange={this.changeHandler}

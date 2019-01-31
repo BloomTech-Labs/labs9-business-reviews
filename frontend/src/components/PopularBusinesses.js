@@ -16,7 +16,10 @@ export const PopularBusinessesStyles = styled.div`
   flex-flow: row wrap;
   justify-content: space-around;
   height: auto;
-  padding: 30px;
+  padding-bottom: 10px;
+  @media(max-width:900px){
+    padding-bottom:0;
+  }
   h1 {
     text-align: center;
     width: 100%;
@@ -27,21 +30,20 @@ export const PopularBusinessesStyles = styled.div`
     width: 22.5%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     color: black;
-
+    margin-bottom: 50px;
+    @media(max-width: 900px){
+      width: 45%;
+    }
+    @media(max-width: 500px){
+      width: 90%;
+    }
     :hover {
       animation: shadow 0.2s;
       animation-fill-mode: forwards;
-    }
-
-    @media (max-width: 850px) {
-      height: 80%;
-      width: 80%;
-      background-color: white;
     }
     .business__img--image {
       width: 100%;

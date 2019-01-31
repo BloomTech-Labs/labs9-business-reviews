@@ -24,12 +24,21 @@ function makeANiceEmail(text) {
 
 router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
-  const { token, amount } = req.query;
-  const response = await stripe.charges.create({
-    source: token,
-    currency: 'USD',
-    amount
-  });
+  const { token } = req.query;
+  const email = token.email;
+  const response = await stripe.customers
+    .create({
+      email: email,
+      source: token
+    })
+    .then(customer => {
+      stripe.charges.create({
+        amount: 999,
+        description: 'Yearly Subscription Charge',
+        currency: 'usd',
+        customer: customer.id
+      });
+    });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30 * 12;
   await userModel.updateUser(user.id, user);
   const msg = {
@@ -38,40 +47,43 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
     subject: 'Bonafind Billing',
     text: 'Sent from labs 9 Business Review',
     html: makeANiceEmail(
-      `<a href=${
-        response.reciept_url
-      }> Here is your receipt from stripe! Cheers!</a>`
+      `This email is notifying you that you're getting a 1 year subscription to our site`
     )
   };
-  sgMail.send(msg, function(err, result) {
-    console.log(err.response.body);
-  });
+  await sgMail.send(msg);
   res.json({ response });
 });
 
 router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
-  const { token, amount } = req.query;
-  const response = await stripe.charges.create({
-    source: token,
-    currency: 'USD',
-    amount
-  });
+  const { token } = req.query;
+  const email = token.email;
+  const response = await stripe.customers
+    .create({
+      email: email,
+      source: token
+    })
+    .then(customer => {
+      stripe.charges.create({
+        amount: 99,
+        description: 'Monthly Subscription Charge',
+        currency: 'usd',
+        customer: customer.id
+      });
+    });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30;
   await userModel.updateUser(user.id, user);
   const msg = {
-    to: user.email.toString(),
-    from: 'bonafind.biz',
+    to: user.email,
+    from: 'bonafind@biz.com',
     subject: 'Bonafind Billing',
     text: 'Sent from labs 9 Business Review',
-    html: 'wassup'
+    html: makeANiceEmail(
+      `This email is notifying you that you're getting a 1 month subscription to our site`
+    )
   };
-  sgMail
-    .send(msg)
-    .then(() => {
-      res.json({ response });
-    })
-    .catch(err => console.log(err));
+  await sgMail.send(msg);
+  res.json({ response });
 });
 
 module.exports = router;

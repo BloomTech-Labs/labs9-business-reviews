@@ -13,6 +13,7 @@ const Container = styled.div`
 `;
 
 const StyledReviews = styled.div`
+  box-sizing: border-box;
   width: 100%;
   height: auto;
   display: flex;
@@ -22,11 +23,11 @@ const StyledReviews = styled.div`
 
   @media (max-width: 900px) {
     width: 100%;
-    flex-direction: column;
   }
 
   .review {
     width: 22.5%;
+    height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,15 +35,18 @@ const StyledReviews = styled.div`
     background: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     color: black;
-
     :hover {
       animation: shadow 0.2s;
       animation-fill-mode: forwards;
     }
 
     @media (max-width: 900px) {
-      width: 500px;
-      display: flex;
+      width: 45%;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 500px) {
+      width: 90%;
       margin: 0 auto;
       margin-bottom: 20px;
     }
@@ -58,13 +62,14 @@ const StyledReviews = styled.div`
     .review__business {
       text-transform: uppercase;
       font-weight: bold;
-      margin-top: -1.2rem;
+      margin-top: 0rem;
     }
 
     .review__body {
       font-family: Roboto;
       font-style: italic;
       padding: 0 20px;
+      margin-top: 0rem;
     }
 
     .review__ratingContainer {

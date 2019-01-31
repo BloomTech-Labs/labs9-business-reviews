@@ -11,6 +11,7 @@ const AuthInput = styled.input`
   margin: 10px auto;
 `;
 const RegisterDiv = styled.div`
+  background: white;
   display: flex;
   max-width: 500px;
   align-self: flex-end;
@@ -67,7 +68,7 @@ class RegisterForm extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar {...this.props}/>
         <RegisterDiv>
           <AuthForm onSubmit={this.handleSubmit}>
             <AuthHeader> Register for a account!</AuthHeader>
