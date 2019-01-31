@@ -62,6 +62,11 @@ const NavBarStyles = styled.div`
 				border-bottom: 2px solid white;
 				padding: 20px 0px;
 				background: #142e41;
+
+				:hover {
+					background: white;
+					color: #142e41;
+				}
 			}
 		}
 		.menu__user {
@@ -78,6 +83,11 @@ const NavBarStyles = styled.div`
 				width: 100%;
 				border-top: 2px solid white;
 				padding: 20px 0px;
+
+				:hover {
+					background: white;
+					color: #142e41;
+				}
 			}
 		}
 	}
