@@ -12,7 +12,7 @@ import UpdatePassword from './components/UpdatePassword';
 import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
 import EditReview from './components/EditReview';
-console.log('node environment', process.env.NODE_ENV);
+console.log('node environment:', process.env.NODE_ENV);
 
 const StyledContainer = styled.div`
   margin: 0 auto;

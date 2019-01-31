@@ -190,13 +190,23 @@ class SearchResult extends React.Component {
         this.state.business &&
         this.state.business.opening_hours !== undefined
       ) {
-        openBoolean = this.state.business.opening_hours.open_now;
-        console.log('vari: ', openBoolean);
+        // openBoolean = this.state.business.opening_hours.open_now;
         isOpen = 'Open';
       } else {
         isOpen = 'Closed';
       }
-      console.log(this.state.business);
+
+      let hours;
+      if (
+        this.state.business &&
+        this.state.business.opening_hours !== undefined
+      ) {
+        hours = this.state.business.opening_hours.weekday_text;
+        // console.log('gimme hours', hours);
+      }
+
+      // console.log(this.state.business);
+      console.log(hours);
       return (
         <div>
           <NavBar />
@@ -262,6 +272,7 @@ class SearchResult extends React.Component {
                     {this.state.business.website}
                   </a>
                 </div>
+                <h1>{hours}</h1>
               </div>
               <div className='review-container'>
                 <h1>Reviews</h1>
