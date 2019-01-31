@@ -37,7 +37,6 @@ const NavBar = styled.div`
         align-items: center;
         @media (max-width: 900px) {
           width: 100%;
-          flex-direction: row;
           font-size: 2.6rem;
         }
         a {
@@ -63,25 +62,24 @@ const NavBar = styled.div`
         display: flex;
         justify-content: flex-end;
 
-
+			@media (max-width: 900px) {
+				box-sizing: border-box;
+				display: flex;
+				justify-content: flex end;
+				width: 100%;
+				color: white;
+				margin: 0;
+			}
+			.menu__user--text, p {
+				text-decoration: none;
+				font-size: 1.4rem;
+				color: white;
+				margin: 10px;
 				@media (max-width: 900px) {
-					box-sizing: border-box;
-					display: flex;
-					justify-content: flex end;
-					width: 100%;
 					color: white;
-					margin: 0;
+					font-size: 1rem;
 				}
-				.menu__user--text, p {
-					text-decoration: none;
-					font-size: 1.4rem;
-					color: white;
-					margin: 10px;
-					@media (max-width: 900px) {
-						color: white;
-						font-size: 1rem;
-					}
-				}
+			}
 			}
 		}
 	}
