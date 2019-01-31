@@ -176,6 +176,9 @@ class SearchResult extends React.Component {
   };
 
   render() {
+    // creates a variable- imageCC- to store the Places ID for first image provided of the // // business from the Places API and then appends that ID to a string which is used for
+    // the image href source
+
     let imageCC = '';
     let imageURL = '';
     if (this.state.business.photos) {
@@ -186,7 +189,7 @@ class SearchResult extends React.Component {
       imageURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`;
     }
 
-    let openBoolean = false;
+    // creates a boolean variable- isOpen- that determines if the business is open
     let isOpen;
     if (!this.state.business) return <p>Loading business...</p>;
     else {
@@ -200,6 +203,7 @@ class SearchResult extends React.Component {
         isOpen = 'Closed';
       }
 
+      // creates an array- 'hours'- of hours for each day of the week
       let hours;
       if (
         this.state.business &&
@@ -236,7 +240,7 @@ class SearchResult extends React.Component {
 
                 <div className='business__details--hours'>
                   <img src={calendar} alt='calendar' />
-                  <span>{isOpen}</span>
+                  <div className='business__details--hours--week'>{hours}</div>
                 </div>
 
                 <div className='business__details--website'>
@@ -248,7 +252,6 @@ class SearchResult extends React.Component {
                     {this.state.business.website}
                   </a>
                 </div>
-                <h1>{hours}</h1>
               </div>
               <div className='review-container'>
                 <h1>Reviews</h1>
