@@ -77,7 +77,7 @@ const NavBarStyles = styled.div`
 			height: 20%;
 			padding-left: 15px;
 			margin-bottom: 15px;
-			a {
+			a, p {
 				background: #142e41;
 				width: 100%;
 				border-top: 2px solid white;
