@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
-import PlaceHolderReviews from './PlaceHolderReviews';
 import { backendLink } from '../assets/config';
 import NavBar from './NavBar';
 import image from '../assets/white-waves.png';
@@ -20,6 +19,8 @@ const StyledBusiness = styled.div`
   background-image: url(${image});
   line-height: 1.2;
   margin-bottom: 50px;
+  font-family: Roboto;
+
   .card {
     border: 1px solid grey;
     background: white;
@@ -31,6 +32,7 @@ const StyledBusiness = styled.div`
     flex-flow: column wrap;
 
     .business__name {
+      font-family: 'Patua One';
       font-size: 4rem;
     }
     .business__rating {
@@ -51,7 +53,7 @@ const StyledBusiness = styled.div`
 
     .business__details--hours {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 1rem;
     }
 
@@ -59,6 +61,7 @@ const StyledBusiness = styled.div`
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
+      padding-right: 2rem;
       .business__website--text {
         text-decoration: none;
       }
@@ -94,7 +97,7 @@ const StyledBusiness = styled.div`
       }
     }
 
-    svg {
+    .svg {
       height: 35px;
       width: 35px;
       margin-right: 1.7rem;
@@ -229,18 +232,19 @@ class SearchResult extends React.Component {
 
               <div className='grid'>
                 <div className='business__details--address'>
-                  <img src={map} alt='map' />
+                  <img className='svg' src={map} alt='map' />
                   {this.state.business.formatted_address}
                 </div>
 
                 <div className='business__details--phone'>
-                  <img src={phone} alt='phone' />
+                  <img className='svg' src={phone} alt='phone' />
                   {this.state.business.formatted_phone_number}
                 </div>
 
                 <div className='business__details--hours'>
-                  <img src={calendar} alt='calendar' />
+                  <img className='svg' src={calendar} alt='calendar' />
                   <div className='business__details--hours--week'>
+                    {/* this will map out the hours for each day  */}
                     {hours.map(hour => {
                       return <div>{hour}</div>;
                     })}
@@ -248,7 +252,7 @@ class SearchResult extends React.Component {
                 </div>
 
                 <div className='business__details--website'>
-                  <img src={web} alt='web' />
+                  <img className='svg' src={web} alt='web' />
                   <a
                     className='business__website--text'
                     href={this.state.business.website}
