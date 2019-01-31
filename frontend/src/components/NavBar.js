@@ -12,6 +12,7 @@ const NavBarStyles = styled.div`
 	width: 100%;
 	height: 130px;
 	background: #142e41;
+	font-size: 1.25rem;
 	.logo {
 		height: 100px;
 		width: 100px;
@@ -51,7 +52,6 @@ const NavBarStyles = styled.div`
 		}
 		.nav_links {
 			text-align: center;
-			font-size: 1.25rem;
 			flex-direction: column;
 			justify-content: center;
 			width: 100%;
@@ -71,7 +71,6 @@ const NavBarStyles = styled.div`
 		}
 		.menu__user {
 			width: 100%
-			font-size: 1.25rem;
 			flex-direction: column;
 			text-align: center;
 			justify-content: space-around;
