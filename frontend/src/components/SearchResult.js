@@ -18,9 +18,8 @@ const StyledBusiness = styled.div`
   justify-content: center;
   background-image: url(${image});
   line-height: 1.2;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   font-family: Roboto;
-
 
   .card {
     border: 1px solid grey;
@@ -369,7 +368,7 @@ class SearchResult extends React.Component {
             </div>
             {this.state.reviewing ? (
               <AddReviewModal
-                {...this.props} 
+                {...this.props}
                 imageURL={imageURL}
                 businessName={this.state.business.name}
                 addBusiness={this.addBusiness}
