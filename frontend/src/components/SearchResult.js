@@ -86,6 +86,7 @@ const StyledBusiness = styled.div`
       }
 
       .business__rating--number {
+        margin-left: 2rem;
       }
     }
 
