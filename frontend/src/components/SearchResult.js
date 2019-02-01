@@ -38,6 +38,9 @@ const StyledBusiness = styled.div`
     @media (max-width: 900px) {
       width: 100%;
     }
+    @media (max-width: 600px) {
+      padding-left: 4rem;
+    }
 
     .image__container {
       display: flex;
