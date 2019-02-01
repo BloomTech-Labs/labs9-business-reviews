@@ -4,11 +4,14 @@ import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
 import { backendLink } from '../assets/config';
 import NavBar from './NavBar';
+
 import image from '../assets/white-waves.png';
 import map from '../assets/map.svg';
 import phone from '../assets/phone.svg';
 import calendar from '../assets/calendar.svg';
 import web from '../assets/web.svg';
+import fullStar from '../assets/star-full.svg';
+import halfStar from '../assets/star-half.svg';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -288,6 +291,102 @@ class SearchResult extends React.Component {
           isOpen = <span className='open'>Open</span>;
         } else {
           isOpen = <span className='closed'>Closed</span>;
+        }
+      }
+
+      // creates a representation of the score by returning
+      // the appropriate number of SVG stars
+
+      let ratingValue = this.state.business.rating;
+      let rating;
+      if (!this.state.business.rating) return <p>Loading rating...</p>;
+      else {
+        if (ratingValue > 4.5) {
+          rating = (
+            <div className='starRating'>
+              <img src={fullStar} alt='star' />
+              <img src={fullStar} alt='star' />
+              <img src={fullStar} alt='star' />
+              <img src={fullStar} alt='star' />
+              <img src={fullStar} alt='star' />
+            </div>
+          );
+        } else if (ratingValue <= 4.5 && ratingValue > 4) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='halfStar' alt='half star' />
+            </div>
+          );
+        } else if (ratingValue <= 4 && ratingValue > 3.5) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+            </div>
+          );
+        } else if (ratingValue <= 3.5 && ratingValue > 3) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='halfStar' alt='half star' />
+            </div>
+          );
+        } else if (ratingValue <= 3 && ratingValue > 2.5) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+            </div>
+          );
+        } else if (ratingValue <= 2.5 && ratingValue > 2) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+              <img src='halfStar' alt='half star' />
+            </div>
+          );
+        } else if (ratingValue <= 2 && ratingValue > 2.5) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+              <img src='fullStar' alt='star' />
+            </div>
+          );
+        } else if (ratingValue <= 1.5 && ratingValue > 2) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+              <img src='halfStar' alt='half star' />
+            </div>
+          );
+        } else if (ratingValue <= 1 && ratingValue > 1.5) {
+          rating = (
+            <div className='starRating'>
+              <img src='fullStar' alt='star' />
+            </div>
+          );
+        } else if (ratingValue <= 0.5 && ratingValue > 1) {
+          rating = (
+            <div className='starRating'>
+              <img src='halfStar' alt='half star' />
+            </div>
+          );
+        } else {
+          rating = (
+            <div className='starRating'>
+              <h1>REALLY BAD</h1>
+            </div>
+          );
         }
       }
 
