@@ -40,11 +40,15 @@ const StyledBusiness = styled.div`
     }
 
     .image__container {
-      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
 
       .image__container--img {
-        width: 100%;
-        height: 100%;
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%;
       }
     }
 
