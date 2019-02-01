@@ -202,8 +202,10 @@ const StyledBusiness = styled.div`
       color: red;
     }
 
-    .fullStar {
-      /* filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg); */
+    .fullStar,
+    .halfStar {
+      height: 50px;
+      width: 50px;
     }
 
     .grid {
@@ -322,7 +324,7 @@ class SearchResult extends React.Component {
               <img className='fullStar' src={fullStar} alt='star' />
               <img className='fullStar' src={fullStar} alt='star' />
               <img className='fullStar' src={fullStar} alt='star' />
-              <img src={halfStar} alt='half star' />
+              <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 4 && ratingValue > 3.5) {
@@ -340,7 +342,7 @@ class SearchResult extends React.Component {
               <img className='fullStar' src={fullStar} alt='star' />
               <img className='fullStar' src={fullStar} alt='star' />
               <img className='fullStar' src={fullStar} alt='star' />
-              <img src={halfStar} alt='half star' />
+              <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 3 && ratingValue > 2.5) {
@@ -356,7 +358,7 @@ class SearchResult extends React.Component {
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
               <img className='fullStar' src={fullStar} alt='star' />
-              <img src={halfStar} alt='half star' />
+              <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 2 && ratingValue > 2.5) {
@@ -370,7 +372,7 @@ class SearchResult extends React.Component {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
-              <img src={halfStar} alt='half star' />
+              <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 1 && ratingValue > 1.5) {
@@ -382,7 +384,7 @@ class SearchResult extends React.Component {
         } else if (ratingValue <= 0.5 && ratingValue > 1) {
           rating = (
             <div className='starRating'>
-              <img src={halfStar} alt='half star' />
+              <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
         } else {
@@ -418,7 +420,8 @@ class SearchResult extends React.Component {
               <h1 className='business__name'>{this.state.business.name}</h1>
 
               <h1 className='business__rating'>
-                {/* {this.state.business.rating} / 5 */}
+                {this.state.business.rating}
+                {/* displays the rating in star SVGs */}
                 {rating}
               </h1>
 
