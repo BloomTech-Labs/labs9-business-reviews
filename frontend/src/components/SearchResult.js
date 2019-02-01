@@ -61,6 +61,10 @@ const StyledBusiness = styled.div`
     .business__rating {
       margin-top: -3.1rem;
       font-size: 4rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: -5rem;
 
       @media (max-width: 900px) {
         font-size: 3rem;
@@ -68,6 +72,20 @@ const StyledBusiness = styled.div`
       @media (max-width: 600px) {
         font-size: 2rem;
         margin-top: 0;
+      }
+
+      .business__rating--stars {
+        @media (max-width: 900px) {
+          height: 35px;
+          width: 35px;
+        }
+        @media (max-width: 600px) {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      .business__rating--number {
       }
     }
 
@@ -428,12 +446,13 @@ class SearchResult extends React.Component {
                 />
               </div>
               <h1 className='business__name'>{this.state.business.name}</h1>
-
-              <h1 className='business__rating'>
-                {this.state.business.rating}
+              <div className='business__rating'>
                 {/* displays the rating in star SVGs */}
-                {rating}
-              </h1>
+                <div className='business__rating--stars'>{rating}</div>
+                <p className='business__rating--number'>
+                  {this.state.business.rating}
+                </p>
+              </div>
 
               <div className='grid'>
                 <div className='business__details--address'>
