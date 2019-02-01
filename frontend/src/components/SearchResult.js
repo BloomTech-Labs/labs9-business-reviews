@@ -38,13 +38,29 @@ const StyledBusiness = styled.div`
     @media (max-width: 900px) {
       width: 100%;
     }
+    @media (max-width: 600px) {
+      padding-left: 2rem;
+      padding-right: 0.8rem;
+    }
 
     .image__container {
-      overflow: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      height: 400px;
+
+      @media (max-width: 900px) {
+        height: 300px;
+      }
+      @media (max-width: 600px) {
+        height: 150px;
+      }
 
       .image__container--img {
-        width: 100%;
-        height: 100%;
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%;
       }
     }
 
@@ -112,7 +128,7 @@ const StyledBusiness = styled.div`
 
     .business__details--hours {
       display: flex;
-      align-items: flex-start;
+      align-items: start;
       margin-bottom: 1rem;
 
       @media (max-width: 900px) {
@@ -121,6 +137,12 @@ const StyledBusiness = styled.div`
 
       @media (max-width: 600px) {
         font-size: 0.75rem;
+      }
+
+      .business__details--hours--week {
+        display: flex;
+        flex-direction: column;
+        align-self: start;
       }
     }
 
@@ -202,14 +224,14 @@ const StyledBusiness = styled.div`
 
     .open {
       text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-weight: bold;
       color: limegreen;
     }
 
     .closed {
       text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-weight: bold;
       color: red;
     }
@@ -265,6 +287,8 @@ class SearchResult extends React.Component {
 
       .then(res => this.setState({ reviews: res.data }))
       .catch(err => console.log(err));
+
+    console.log(this.state.business);
   }
 
   addBusiness = () => {
@@ -500,7 +524,7 @@ class SearchResult extends React.Component {
 
                     {/* this will map out the hours for each day  */}
                     {hours.map(hour => {
-                      return <div>{hour}</div>;
+                      return <div key={hour}>{hour}</div>;
                     })}
                   </div>
                 </div>
