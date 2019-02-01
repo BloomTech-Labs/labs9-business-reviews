@@ -126,7 +126,7 @@ class NavBar extends React.Component {
         </div>
         <div className='menu__user'>
           {!this.state.loggedIn ? (
-            <React.Fragment className='fragment'>
+            <React.Fragment>
               <Link to='/login' className='menu__user--text'>
                 sign in
               </Link>
