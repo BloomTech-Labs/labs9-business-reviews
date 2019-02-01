@@ -524,7 +524,7 @@ class SearchResult extends React.Component {
 
                     {/* this will map out the hours for each day  */}
                     {hours.map(hour => {
-                      return <div id={Math.random()}>{hour}</div>;
+                      return <div key={hour}>{hour}</div>;
                     })}
                   </div>
                 </div>
