@@ -148,8 +148,8 @@ class LandingNav extends React.Component {
         <div className='blur-container'>
           <div className='top-nav-items'>
             <div className='menu__menuItems'>
-              <a href='/addreview'>add a review</a>
-              <a href='/categories'>categories</a>
+              <a href='/categories'>businesses</a>
+              <a href='/addreview'>reviewers</a>
               <a href='/toprated'>top rated</a>
             </div>
             <div className='menu__user'>
@@ -163,7 +163,12 @@ class LandingNav extends React.Component {
                   </Link>
                 </React.Fragment>
               ) : (
-                <p onClick={this.handleLogout}>sign out</p>
+                <React.Fragment>
+                  <p onClick={this.handleLogout}>sign out</p>
+                  <Link to='/settings' className='menu__user--text'>
+                    settings
+                  </Link>
+                </React.Fragment>
               )}
             </div>
           </div>
