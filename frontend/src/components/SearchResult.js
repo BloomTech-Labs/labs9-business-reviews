@@ -202,6 +202,10 @@ const StyledBusiness = styled.div`
       color: red;
     }
 
+    .fullStar {
+      /* filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg); */
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -304,81 +308,81 @@ class SearchResult extends React.Component {
         if (ratingValue > 4.5) {
           rating = (
             <div className='starRating'>
-              <img src={fullStar} alt='star' />
-              <img src={fullStar} alt='star' />
-              <img src={fullStar} alt='star' />
-              <img src={fullStar} alt='star' />
-              <img src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
         } else if (ratingValue <= 4.5 && ratingValue > 4) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='halfStar' alt='half star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 4 && ratingValue > 3.5) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
         } else if (ratingValue <= 3.5 && ratingValue > 3) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='halfStar' alt='half star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 3 && ratingValue > 2.5) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
         } else if (ratingValue <= 2.5 && ratingValue > 2) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
-              <img src='halfStar' alt='half star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 2 && ratingValue > 2.5) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
-              <img src='fullStar' alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
         } else if (ratingValue <= 1.5 && ratingValue > 2) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
-              <img src='halfStar' alt='half star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img src={halfStar} alt='half star' />
             </div>
           );
         } else if (ratingValue <= 1 && ratingValue > 1.5) {
           rating = (
             <div className='starRating'>
-              <img src='fullStar' alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
         } else if (ratingValue <= 0.5 && ratingValue > 1) {
           rating = (
             <div className='starRating'>
-              <img src='halfStar' alt='half star' />
+              <img src={halfStar} alt='half star' />
             </div>
           );
         } else {
@@ -414,7 +418,8 @@ class SearchResult extends React.Component {
               <h1 className='business__name'>{this.state.business.name}</h1>
 
               <h1 className='business__rating'>
-                {this.state.business.rating} / 5
+                {/* {this.state.business.rating} / 5 */}
+                {rating}
               </h1>
 
               <div className='grid'>
