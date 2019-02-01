@@ -14,6 +14,7 @@ const NavBar = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  height: 75vh;
 
   .blur-container {
     width: 100%;
@@ -23,18 +24,18 @@ const NavBar = styled.div`
     box-sizing: border-box;
     margin-bottom: 70px;
     .top-nav-items {
-	  width: 100%
+      width: 100%;
       box-sizing: border-box;
       max-width: 1200px;
       height: auto;
-	  display: flex;
+      display: flex;
       padding-top: 20px;
       margin: 0 auto;
       .menu__menuItems {
         width: 70%;
         height: auto;
         display: flex;
-		align-items: center;
+        align-items: center;
         @media (max-width: 900px) {
           width: 100%;
           font-size: 2.6rem;
@@ -62,64 +63,65 @@ const NavBar = styled.div`
         display: flex;
         justify-content: flex-end;
 
-			@media (max-width: 900px) {
-				box-sizing: border-box;
-				display: flex;
-				justify-content: flex end;
-				width: 100%;
-				color: white;
-				margin: 0;
-			}
-			@media (max-width: 600px){
-				justify-content: flex-end;
-			}
-			.menu__user--text, p {
-				text-decoration: none;
-				font-size: 1.4rem;
-				color: white;
-				margin: 10px;
-				@media (max-width: 900px) {
-					color: white;
-					font-size: 1rem;
-				}
-			}
-			}
-		}
-	}
-	.inner-nav-container {
-		max-width: 1200px;
-		height: auto;
-		margin: 0 auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-flow: row wrap;
-		font-family: 'Patua One';
-		@media (max-width: 900px) {
-			flex-direction: column;
-			padding: 0;
-		}
-		.menu__logo--logo {
-			height: 225px;
-			width: 225px;
-			margin-bottom: 30px;
-			border-radius: 50%;
-			@media (max-width: 900px) {
-				height: 225px;
-				width: 225px;
-				margin-bottom: 20px;
-				margin-top: 20px;
-				border-radius: 50%;
-			}
-		}
-	}
+        @media (max-width: 900px) {
+          box-sizing: border-box;
+          display: flex;
+          justify-content: flex end;
+          width: 100%;
+          color: white;
+          margin: 0;
+        }
+        @media (max-width: 600px) {
+          justify-content: flex-end;
+        }
+        .menu__user--text,
+        p {
+          text-decoration: none;
+          font-size: 1.4rem;
+          color: white;
+          margin: 10px;
+          @media (max-width: 900px) {
+            color: white;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+  .inner-nav-container {
+    max-width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    font-family: 'Patua One';
+    @media (max-width: 900px) {
+      flex-direction: column;
+      padding: 0;
+    }
+    .menu__logo--logo {
+      height: 225px;
+      width: 225px;
+      margin-bottom: 30px;
+      border-radius: 50%;
+      @media (max-width: 900px) {
+        height: 225px;
+        width: 225px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        border-radius: 50%;
+      }
+    }
+  }
 
-	svg {
-		filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
-	}
-	@media(max-width:700px){
-		height: 650px;
-	}
+  svg {
+    filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
+  }
+  @media (max-width: 700px) {
+    height: 650px;
+  }
 `;
 
 class LandingNav extends React.Component {
@@ -146,9 +148,9 @@ class LandingNav extends React.Component {
         <div className='blur-container'>
           <div className='top-nav-items'>
             <div className='menu__menuItems'>
-              <a href='/addreview'>add a review</a>
-              <a href='/categories'>categories</a>
-              <a href='/toprated'>top rated</a>
+              <a href='#Businesses'>businesses</a>
+              <a href='#Reviewers'>reviewers</a>
+              <a href='/subscription'>go pro ✔</a>
             </div>
             <div className='menu__user'>
               {!this.state.loggedIn ? (
@@ -161,7 +163,12 @@ class LandingNav extends React.Component {
                   </Link>
                 </React.Fragment>
               ) : (
-                <p onClick={this.handleLogout}>sign out</p>
+                <React.Fragment>
+                  <p onClick={this.handleLogout}>sign out</p>
+                  <Link to='/settings' className='menu__user--text'>
+                    settings
+                  </Link>
+                </React.Fragment>
               )}
             </div>
           </div>

@@ -18,9 +18,8 @@ const StyledBusiness = styled.div`
   justify-content: center;
   background-image: url(${image});
   line-height: 1.2;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   font-family: Roboto;
-
 
   .card {
     border: 1px solid grey;
@@ -186,11 +185,17 @@ const StyledBusiness = styled.div`
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
-    .openNow {
+    .open {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: bold;
       color: limegreen;
     }
 
-    .closedNow {
+    .closed {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: bold;
       color: red;
     }
 
@@ -279,10 +284,11 @@ class SearchResult extends React.Component {
         this.state.business &&
         this.state.business.opening_hours !== undefined
       ) {
-        // openBoolean = this.state.business.opening_hours.open_now;
-        isOpen = 'Open';
-      } else {
-        isOpen = 'Closed';
+        if (this.state.business.opening_hours.open_now === true) {
+          isOpen = <span className='open'>Open</span>;
+        } else {
+          isOpen = <span className='closed'>Closed</span>;
+        }
       }
 
       // creates an array- 'hours'- of hours for each day of the week
@@ -293,8 +299,6 @@ class SearchResult extends React.Component {
       ) {
         hours = this.state.business.opening_hours.weekday_text;
       }
-
-      console.log(hours[0]);
 
       return (
         <div>
@@ -328,6 +332,8 @@ class SearchResult extends React.Component {
                 <div className='business__details--hours'>
                   <img className='svg' src={calendar} alt='calendar' />
                   <div className='business__details--hours--week'>
+                    <p className='business__details--currently'>{isOpen}</p>
+
                     {/* this will map out the hours for each day  */}
                     {hours.map(hour => {
                       return <div>{hour}</div>;
@@ -369,7 +375,7 @@ class SearchResult extends React.Component {
             </div>
             {this.state.reviewing ? (
               <AddReviewModal
-                {...this.props} 
+                {...this.props}
                 imageURL={imageURL}
                 businessName={this.state.business.name}
                 addBusiness={this.addBusiness}

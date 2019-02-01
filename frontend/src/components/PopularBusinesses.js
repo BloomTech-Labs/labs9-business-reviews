@@ -17,8 +17,8 @@ export const PopularBusinessesStyles = styled.div`
   justify-content: space-around;
   height: auto;
   padding-bottom: 10px;
-  @media(max-width:900px){
-    padding-bottom:0;
+  @media (max-width: 900px) {
+    padding-bottom: 0;
   }
   h1 {
     text-align: center;
@@ -35,10 +35,10 @@ export const PopularBusinessesStyles = styled.div`
     text-decoration: none;
     color: black;
     margin-bottom: 50px;
-    @media(max-width: 900px){
+    @media (max-width: 900px) {
       width: 45%;
     }
-    @media(max-width: 500px){
+    @media (max-width: 500px) {
       width: 90%;
     }
     :hover {
@@ -99,6 +99,8 @@ class PopularBusinesses extends Component {
   render() {
     return (
       <PopularBusinessesStyles>
+        {/* for navbar scroll */}
+        <div id='Businesses' />
         <h1>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
           <Link className='business' key={id} to={`/business/${id}`}>

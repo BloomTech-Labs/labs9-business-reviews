@@ -49,10 +49,10 @@ const PopularReviewersStyles = styled.div`
     color: black;
     position: relative;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    @media(max-width: 900px){
+    @media (max-width: 900px) {
       width: 45%;
     }
-    @media(max-width: 500px){
+    @media (max-width: 500px) {
       width: 90%;
     }
     :hover {
@@ -93,6 +93,8 @@ class PopularReviewers extends Component {
   render() {
     return (
       <PopularReviewersStyles>
+        {/* for navbar scroll */}
+        <div id='Reviewers' />
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
           <Link to={`/user/${id}`} key={id} className='user'>
