@@ -17,6 +17,7 @@ export const PopularBusinessesStyles = styled.div`
   justify-content: space-around;
   height: auto;
   padding-bottom: 10px;
+
   @media (max-width: 900px) {
     padding-bottom: 0;
   }
@@ -35,26 +36,35 @@ export const PopularBusinessesStyles = styled.div`
     text-decoration: none;
     color: black;
     margin-bottom: 50px;
+
     @media (max-width: 900px) {
       width: 45%;
     }
+
     @media (max-width: 500px) {
       width: 90%;
     }
+
     :hover {
       animation: shadow 0.2s;
       animation-fill-mode: forwards;
     }
+
     .business__img--image {
       width: 100%;
     }
-    h1,
-    h4 {
-      font-family: Roboto;
+
+    .business__text--name {
+      font-family: Patua One;
       font-weight: 200;
       text-align: center;
       width: 100%;
       margin-top: 5px;
+      font-size: 1.4rem;
+    }
+
+    .business__text--rating {
+      margin-top: -2rem;
     }
   }
 
@@ -67,6 +77,10 @@ export const PopularBusinessesStyles = styled.div`
         0 6px 20px 0 rgba(0, 0, 0, 0.15);
       transform: translateY(-2px);
     }
+  }
+
+  .business__header {
+    margin: 4rem 0 3rem;
   }
 `;
 
@@ -101,7 +115,7 @@ class PopularBusinesses extends Component {
       <PopularBusinessesStyles>
         {/* for navbar scroll */}
         <div id='Businesses' />
-        <h1>Popular Businesses</h1>
+        <h1 className='business__header'>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
           <Link className='business' key={id} to={`/business/${id}`}>
             <img
