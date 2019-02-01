@@ -307,7 +307,7 @@ class SearchResult extends React.Component {
       let rating;
       if (!this.state.business.rating) return <p>Loading rating...</p>;
       else {
-        if (ratingValue > 4.5) {
+        if (ratingValue === 5) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
@@ -317,7 +317,17 @@ class SearchResult extends React.Component {
               <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
-        } else if (ratingValue <= 4.5 && ratingValue > 4) {
+        } else if (ratingValue >= 4.5 && ratingValue < 5) {
+          rating = (
+            <div className='starRating'>
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='fullStar' src={fullStar} alt='star' />
+              <img className='halfStar' src={halfStar} alt='star' />
+            </div>
+          );
+        } else if (ratingValue >= 4 && ratingValue <= 4.5) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
@@ -327,7 +337,7 @@ class SearchResult extends React.Component {
               <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
-        } else if (ratingValue <= 4 && ratingValue > 3.5) {
+        } else if (ratingValue >= 3.5 && ratingValue <= 4) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
@@ -336,7 +346,7 @@ class SearchResult extends React.Component {
               <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
-        } else if (ratingValue <= 3.5 && ratingValue > 3) {
+        } else if (ratingValue >= 3 && ratingValue <= 3.5) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
@@ -345,7 +355,7 @@ class SearchResult extends React.Component {
               <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
-        } else if (ratingValue <= 3 && ratingValue > 2.5) {
+        } else if (ratingValue >= 2.5 && ratingValue <= 3) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
@@ -353,7 +363,7 @@ class SearchResult extends React.Component {
               <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
-        } else if (ratingValue <= 2.5 && ratingValue > 2) {
+        } else if (ratingValue >= 2 && ratingValue <= 2.5) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
@@ -361,27 +371,27 @@ class SearchResult extends React.Component {
               <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
-        } else if (ratingValue <= 2 && ratingValue > 2.5) {
+        } else if (ratingValue >= 1.5 && ratingValue <= 2) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
               <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
-        } else if (ratingValue <= 1.5 && ratingValue > 2) {
+        } else if (ratingValue >= 1 && ratingValue <= 1.5) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
               <img className='halfStar' src={halfStar} alt='half star' />
             </div>
           );
-        } else if (ratingValue <= 1 && ratingValue > 1.5) {
+        } else if (ratingValue >= 0.5 && ratingValue <= 1) {
           rating = (
             <div className='starRating'>
               <img className='fullStar' src={fullStar} alt='star' />
             </div>
           );
-        } else if (ratingValue <= 0.5 && ratingValue > 1) {
+        } else if (ratingValue >= 0 && ratingValue <= 0.5) {
           rating = (
             <div className='starRating'>
               <img className='halfStar' src={halfStar} alt='half star' />
