@@ -14,6 +14,7 @@ const NavBar = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  height: 75vh;
 
   .blur-container {
     width: 100%;
