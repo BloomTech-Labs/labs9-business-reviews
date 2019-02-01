@@ -12,6 +12,7 @@ import calendar from '../assets/calendar.svg';
 import web from '../assets/web.svg';
 import fullStar from '../assets/star-full.svg';
 import halfStar from '../assets/star-half.svg';
+import emptyStar from '../assets/star-empty.svg';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -75,14 +76,6 @@ const StyledBusiness = styled.div`
       }
 
       .business__rating--stars {
-        @media (max-width: 900px) {
-          height: 35px;
-          width: 35px;
-        }
-        @media (max-width: 600px) {
-          height: 20px;
-          width: 20px;
-        }
       }
 
       .business__rating--number {
@@ -222,9 +215,19 @@ const StyledBusiness = styled.div`
     }
 
     .fullStar,
-    .halfStar {
+    .halfStar,
+    .emptyStar {
       height: 50px;
       width: 50px;
+
+      @media (max-width: 900px) {
+        height: 35px;
+        width: 35px;
+      }
+      @media (max-width: 600px) {
+        height: 20px;
+        width: 20px;
+      }
     }
 
     .grid {
