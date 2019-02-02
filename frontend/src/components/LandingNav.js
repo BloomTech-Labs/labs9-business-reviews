@@ -18,19 +18,6 @@ import bg10 from '../assets/backgrounds/recordshop.jpeg';
 import bg11 from '../assets/backgrounds/suits.jpeg';
 
 let backgrounds = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11];
-// let backgrounds = [
-//   '../assets/backgrounds/artmuseum.jpeg',
-//   '../assets/backgrounds/bar.jpeg',
-//   '../assets/backgrounds/bowling.jpeg',
-//   '../assets/backgrounds/butcher.jpeg',
-//   '../assets/backgrounds/diner.jpeg',
-//   '../assets/backgrounds/donuts.jpeg',
-//   '../assets/backgrounds/kitchen.jpeg',
-//   '../assets/backgrounds/movietheater.jpeg',
-//   '../assets/backgrounds/produce.jpeg',
-//   '../assets/backgrounds/recordshop.jpeg',
-//   '../assets/backgrounds/suits.jpeg'
-// ];
 
 const NavBar = styled.div`
   width: 100%;
@@ -145,6 +132,9 @@ const NavBar = styled.div`
 
   svg {
     filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
+    animation: pulse 0.7s;
+    animation-iteration-count: 2;
+    animation-delay: 1s;
   }
   @media (max-width: 700px) {
     height: 650px;
