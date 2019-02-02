@@ -3,14 +3,41 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
-import background from '../assets/kitchen.jpg';
 import SearchBar from './SearchBar';
+
+import bg1 from '../assets/backgrounds/artmuseum.jpeg';
+import bg2 from '../assets/backgrounds/bar.jpeg';
+import bg3 from '../assets/backgrounds/bowling.jpeg';
+import bg4 from '../assets/backgrounds/butcher.jpeg';
+import bg5 from '../assets/backgrounds/diner.jpeg';
+import bg6 from '../assets/backgrounds/donuts.jpeg';
+import bg7 from '../assets/backgrounds/kitchen.jpeg';
+import bg8 from '../assets/backgrounds/movietheater.jpeg';
+import bg9 from '../assets/backgrounds/produce.jpeg';
+import bg10 from '../assets/backgrounds/recordshop.jpeg';
+import bg11 from '../assets/backgrounds/suits.jpeg';
+
+let backgrounds = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11];
+// let backgrounds = [
+//   '../assets/backgrounds/artmuseum.jpeg',
+//   '../assets/backgrounds/bar.jpeg',
+//   '../assets/backgrounds/bowling.jpeg',
+//   '../assets/backgrounds/butcher.jpeg',
+//   '../assets/backgrounds/diner.jpeg',
+//   '../assets/backgrounds/donuts.jpeg',
+//   '../assets/backgrounds/kitchen.jpeg',
+//   '../assets/backgrounds/movietheater.jpeg',
+//   '../assets/backgrounds/produce.jpeg',
+//   '../assets/backgrounds/recordshop.jpeg',
+//   '../assets/backgrounds/suits.jpeg'
+// ];
 
 const NavBar = styled.div`
   width: 100%;
   height: 600px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${background});
+    url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]});
+
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
