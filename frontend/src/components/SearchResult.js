@@ -533,6 +533,8 @@ class SearchResult extends React.Component {
                   <img className='svg' src={web} alt='web' />
                   <a
                     className='business__website--text'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     href={this.state.business.website}
                   >
                     {this.state.business.website}
