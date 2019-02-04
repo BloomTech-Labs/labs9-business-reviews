@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')('sk_test_hFDCdUMSwiOhnZrrInQJYrax');
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
 const authConfig = require('../user/authConfig');
 const userModel = require('../db/userModel/userModel');
 const sgMail = require('@sendgrid/mail');
