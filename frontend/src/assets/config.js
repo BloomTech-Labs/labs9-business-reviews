@@ -1,4 +1,4 @@
-Uncomment on Production
+// Uncomment on Production
 export const backendLink = `https://bonafind.herokuapp.com`;
 
 // export const backendLink =
