@@ -76,7 +76,7 @@ const NavBar = styled.div`
         width: 30%;
         display: flex;
         justify-content: flex-end;
-
+        align-items: center;
         @media (max-width: 900px) {
           box-sizing: border-box;
           display: flex;
@@ -87,6 +87,10 @@ const NavBar = styled.div`
         }
         @media (max-width: 600px) {
           justify-content: flex-end;
+        }
+        .menu__user--profile--image{
+          width:30px;
+          height:30px;
         }
         .menu__user--text,
         p {
@@ -160,6 +164,7 @@ class LandingNav extends React.Component {
     this.setState({ user, loggedIn: true });
   }
   render() {
+    console.log('gravatar', this.state.user.gravatar)
     return (
       <NavBar>
         <div className='blur-container'>
@@ -181,10 +186,8 @@ class LandingNav extends React.Component {
                 </React.Fragment>
               ) : (
                 <React.Fragment>
+                  <img src={this.state.user.gravatar} alt="My Profile" className='menu__user--profile--image'/>
                   <p onClick={this.handleLogout}>sign out</p>
-                  <Link to='/settings' className='menu__user--text'>
-                    settings
-                  </Link>
                 </React.Fragment>
               )}
             </div>
