@@ -87,10 +87,14 @@ const NavBarStyles = styled.div`
 				border-radius: 0px;
 				margin: 0;
 				padding: 0;
-				margin-left: 20%;
 			}
-			a,
-			p {
+      .img--link{
+        width: 50%;
+        padding: 0;
+        margin: 0;
+      }
+			p,.menu__user--text {
+        box-sizing: border-box;
 				background: #142e41;
 				width: 50%;
 				padding: 20px 0px;
@@ -145,7 +149,7 @@ class NavBar extends React.Component {
 						</React.Fragment>
 					) : (
 						<React.Fragment>
-							<Link to={`/user/${this.state.user.id}`}>
+							<Link to={`/user/${this.state.user.id}`} className="img--link">
 								<img
 									src={this.state.user.gravatar}
 									alt="My Profile"
