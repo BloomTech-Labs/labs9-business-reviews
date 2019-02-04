@@ -9,13 +9,19 @@ const SearchBarStyles = styled.div`
   align-items: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
+
+  @media (max-height: 690px) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   form {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 
-    @media(max-width:700px){
+    @media (max-width: 700px) {
       flex-direction: column;
       .search__input {
         margin-bottom: 15px;
@@ -30,13 +36,12 @@ const SearchBarStyles = styled.div`
       margin-right: 30px;
       border: 0.5px solid rgba(0, 0, 0, 0);
 
-
       background-color: rgba(0, 0, 0, 0.5);
       ::placeholder {
         color: rgba(255, 255, 255, 0.7);
       }
 
-      @media(max-width:520px){
+      @media (max-width: 520px) {
         width: 100%;
         margin: 0;
         margin-bottom: 15px;
@@ -58,7 +63,7 @@ const SearchBarStyles = styled.div`
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
   }
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     margin-left: 10px;
     form {
       display: inline-flex;
