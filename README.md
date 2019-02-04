@@ -8,13 +8,30 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. You will also add a `.env` file to the `frontend` and `app` directories to use a private key. The frontend api key can be obtained from the Google Developer console and must be named `REACT_APP_API_KEY` in the `/frontend/.env` file. 
+
+##### Check that the app is configured to be run locally.
+
+-Make sure that `/frontend/assets/config.js` looks like the screenshot below.
+(Updates 
+
+![assets.js config](https://user-images.githubusercontent.com/40773193/52238716-f3f41100-2889-11e9-9105-7955426d2d8a.png)
+
+-Make sure that `/app/index.js` looks like the screenshot below.
+(Configures cors to run between local servers)
+
+![index.js config](https://user-images.githubusercontent.com/40773193/52238718-f3f41100-2889-11e9-91e5-957825011c9e.png)
+
+From your command line:
 
 #### Front End
 
 ```bash
 # cd into frontend directory
 $ cd frontend
+
+# run npm to install dependencies
+$ npm install
 
 # start the development server
 $ npm run start
@@ -25,6 +42,9 @@ $ npm run start
 ```bash
 # cd into backend directory
 $ cd backend
+
+# run npm to install dependencies
+$ npm install
 
 # start the development server (Will run on http://localhost:9000)
 $ npm run start
