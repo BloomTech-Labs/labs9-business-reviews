@@ -153,6 +153,8 @@ export default class EditReview extends Component {
     })
       .then(res => {
         console.log('Success!', res);
+        if (res.data.message) return alert(res.data.message);
+        this.props.history.goBack();
       })
       .catch(err => console.log('error', err));
   };
