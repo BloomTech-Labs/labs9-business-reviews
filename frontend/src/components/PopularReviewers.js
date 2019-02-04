@@ -93,7 +93,7 @@ class PopularReviewers extends Component {
   render() {
     return (
       <PopularReviewersStyles>
-        {/* for navbar scroll */}
+        {/* this div is explicitly for the navbar scroll */}
         <div id='Reviewers' />
         <h1>Popular Reviewers</h1>
         {this.state.users.map(({ id, name, gravatar }) => (
