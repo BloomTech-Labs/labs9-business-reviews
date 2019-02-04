@@ -349,7 +349,7 @@ class SearchResult extends React.Component {
       // the appropriate number of SVG stars
       let ratingValue = this.state.business.rating;
       let rating;
-      if (!this.state.business.rating) return <p>Loading rating...</p>;
+      if (!this.state.business.rating) return ( <React.Fragment><NavBar/><p>Loading rating...</p></React.Fragment>);
       else {
         if (ratingValue === 5) {
           rating = (

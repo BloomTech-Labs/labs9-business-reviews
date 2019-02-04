@@ -18,18 +18,18 @@ import bg10 from '../assets/backgrounds/recordshop.jpeg';
 import bg11 from '../assets/backgrounds/suits.jpeg';
 import logo from '../assets/bonafind.png';
 
-let backgrounds = [bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11];
+let backgrounds = [ bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11 ];
 
 const NavBar = styled.div`
   height: auto;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]});
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 75vh;
 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 75vh;
 
   .logo {
     animation: pulse 0.7s;
@@ -107,71 +107,19 @@ const NavBar = styled.div`
         display: flex;
         justify-content: flex-end;
 
-        @media (max-width: 900px) {
-          box-sizing: border-box;
-          display: flex;
-          justify-content: flex end;
-          width: 100%;
-          color: white;
-          margin: 0;
-        }
-        @media (max-width: 600px) {
-          justify-content: flex-end;
-        }
-        .menu__user--text,
-        p {
-          text-decoration: none;
-          font-size: 1.4rem;
-          color: white;
-          margin: 10px;
-          @media (max-width: 900px) {
-            color: white;
-            font-size: 1rem;
-          }
-        }
-      }
-    }
-  }
-  .inner-nav-container {
-    max-width: 1200px;
-    height: auto;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row wrap;
-    font-family: 'Patua One';
-    @media (max-width: 900px) {
-      flex-direction: column;
-      padding: 0;
-    }
-    .menu__logo--logo {
-      height: 225px;
-      width: 225px;
-      margin-bottom: 30px;
-      border-radius: 50%;
-      @media (max-width: 900px) {
-        height: 225px;
-        width: 225px;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        border-radius: 50%;
-      }
-    }
-  }
-
-  svg {
-    filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
-    animation: pulse 0.7s;
-    animation-iteration-count: 2;
-    animation-delay: 1s;
-  }
-  @media (max-width: 700px) {
-    height: 650px;
-  }
+	svg {
+		filter: invert(1) sepia(0) saturate(0) hue-rotate(175deg);
+		animation: pulse 0.7s;
+		animation-iteration-count: 2;
+		animation-delay: 1s;
+	}
+	@media (max-width: 700px) {
+		height: 650px;
+	}
 `;
 
 class LandingNav extends React.Component {
+
   state = { user: {}, loggedIn: false };
   handleLogout = async () => {
     const res = await axios.get(`${backendLink}/api/user/logout`, {
