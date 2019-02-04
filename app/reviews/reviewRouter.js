@@ -4,11 +4,17 @@ const authConfig = require('../user/authConfig');
 
 const db = require('../db/dbinit');
 
+async function addReviewChecks(req, res, next) {
+  const [user] = req.user;
+ const usersReviews =  await db('reviews').where({reviewer_id:user.id});
+  if (!user.subscription || user.subscription < Date.now() || ) {
+    return res.json({ message: 'Subscription is expired or nonexistent' });
+  }
+  next();
+}
+
 //CREATE
 router.post('/', authConfig.isLoggedIn, (req, res) => {
-  const [user] = req.user;
-  if (!user.subscription || user.subscription < Date.now())
-    return res.json({ message: 'Subscription is expired or nonexistent' });
   req.body.reviewer_id = user.id;
   const review = req.body;
   db('reviews')
