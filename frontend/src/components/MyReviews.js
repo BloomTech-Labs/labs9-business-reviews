@@ -123,20 +123,16 @@ class MyReviews extends Component {
           {this.state.reviews ? (
             this.state.reviews.map(
               ({ title, body, business_image, business_name, id, rating }) => (
-                <Link
-                  to={`/user/${this.props.id}/review/${id}`}
-                  key={id}
-                  className='review'
-                >
+                <Link to={`/user/review/${id}`} key={id} className="review">
                   <img
-                    className='review__img'
+                    className="review__img"
                     src={`${business_image}`}
-                    alt='business'
+                    alt="business"
                   />
-                  <h2 className='review__title'>{title}</h2>
-                  <h3 className='review__business'>{business_name}</h3>
-                  <p className='review__body'>{body}</p>
-                  <h1 className='review__ratingContainer--rating'>{`${rating} stars`}</h1>
+                  <h2 className="review__title">{title}</h2>
+                  <h3 className="review__business">{business_name}</h3>
+                  <p className="review__body">{body}</p>
+                  <h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
                 </Link>
               )
             )

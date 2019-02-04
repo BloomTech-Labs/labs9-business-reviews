@@ -148,14 +148,11 @@ export default class EditReview extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { reviewId } = this.props.match.params;
-    Axios.put(`${backendLink}/api/review/${reviewId}`, {
-      title: this.state.title,
-      body: this.state.body,
-      rating: this.state.rating,
-      reviewer_id: `${this.props.match.params.userId}`
+    Axios.put(`${backendLink}/api/review/${reviewId}`, this.state, {
+      withCredentials: 'include'
     })
       .then(res => {
-        console.log('Success!', res.status);
+        console.log('Success!', res);
         this.setState({ title: '', body: '', rating: 1 });
       })
       .catch(err => console.log('error', err));
@@ -171,43 +168,43 @@ export default class EditReview extends Component {
     console.log(this.state);
     return (
       <div>
-        <NavBar/>
+        <NavBar />
         <StyledEdit>
-          <div className='container'>
+          <div className="container">
             <form onSubmit={this.handleSubmit}>
-              <h1 className='review__headline'>Edit your review</h1>
-              <label htmlFor='review__title'>Title</label>
+              <h1 className="review__headline">Edit your review</h1>
+              <label htmlFor="review__title">Title</label>
               <input
                 onChange={this.changeHandler}
-                name='title'
+                name="title"
                 value={this.state.title}
-                className='review__input--title'
+                className="review__input--title"
               />
-              <label htmlFor='review__title'>Review</label>
+              <label htmlFor="review__title">Review</label>
               <textarea
                 onChange={this.changeHandler}
-                name='body'
+                name="body"
                 value={this.state.body}
-                className='review__input--body'
+                className="review__input--body"
               />
-              <div className='review__rating'>
-                <label htmlFor='review__input--rating'>Rating</label>
+              <div className="review__rating">
+                <label htmlFor="review__input--rating">Rating</label>
                 <select
                   onChange={this.changeHandler}
-                  name='rating'
+                  name="rating"
                   value={this.state.rating}
-                  className='review__input--rating'
+                  className="review__input--rating"
                 >
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='4'>4</option>
-                  <option defaultValue='5'>5</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option defaultValue="5">5</option>
                 </select>
-                <button className='btn' onClick={this.handleSubmit}>
+                <button className="btn" onClick={this.handleSubmit}>
                   Submit Review
                 </button>
-                <button className='btn' onClick={this.props.toggleReviewing}>
+                <button className="btn" onClick={this.props.toggleReviewing}>
                   Cancel
                 </button>
               </div>
@@ -215,7 +212,6 @@ export default class EditReview extends Component {
           </div>
         </StyledEdit>
       </div>
-      
     );
   }
 }

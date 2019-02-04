@@ -32,28 +32,28 @@ function App() {
   }
   window.addEventListener('keydown', handleFirstTab);
   return (
-    <div className='App'>
-      <StyledContainer className='container'>
-        <Route exact path='/' component={LandingPage} />
-        <Route path='/billing' component={BillingPage} />
-        <Route path='/updateuser' component={UpdateUser} />
-        <Route path='/resetpassword' component={ResetPassword} />
-        <Route path='/login' render={props => <Login {...props} />} />
-        <Route path='/updatepassword/:id' component={UpdatePassword} />
+    <div className="App">
+      <StyledContainer className="container">
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/billing" component={BillingPage} />
+        <Route path="/updateuser" component={UpdateUser} />
+        <Route path="/resetpassword" component={ResetPassword} />
+        <Route path="/login" render={props => <Login {...props} />} />
+        <Route path="/updatepassword/:id" component={UpdatePassword} />
         <Route
-          path='/business/:id'
+          path="/business/:id"
           render={props => <SearchResult {...props} />}
         />
         <Route
           exact
-          path='/user/:id'
+          path="/user/:id"
           render={props => <UserProfile {...props} />}
         />
         <Route
-          path='/user/:userId/review/:reviewId'
+          path="/user/review/:reviewId"
           render={props => <EditReview {...props} />}
         />
-        <Route path='/register' component={RegisterForm} />
+        <Route path="/register" component={RegisterForm} />
       </StyledContainer>
       <Footer />
     </div>
