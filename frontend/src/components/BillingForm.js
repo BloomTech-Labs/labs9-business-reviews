@@ -35,7 +35,7 @@ class BillingForm extends React.Component {
 
   onToken = async res => {
     if (this.state.amount === 99) {
-      const resp = await axios.post(
+      await axios.post(
         `${backendLink}/api/billing/monthly?amount=${this.state.amount}&token=${
           res.id
         }`,
@@ -45,16 +45,12 @@ class BillingForm extends React.Component {
         }
       );
       try {
-        alert(
-          `${
-            resp.data.response.receipt_url
-          } is your receipt thanks for buying a monthly subscription`
-        );
+        alert('we sent you a email thanks for subscribing!!');
       } catch (err) {
         alert('payment did not succeed');
       }
     } else if (this.state.amount === 999) {
-      const resp = await axios.post(
+      await axios.post(
         `${backendLink}/api/billing/yearly?amount=${this.state.amount}&token=${
           res.id
         }`,
@@ -64,12 +60,9 @@ class BillingForm extends React.Component {
         }
       );
       try {
-        alert(
-          `${
-            resp.data.response.receipt_url
-          } is your receipt thanks for buying a yearly subscription`
-        );
+        alert('we sent you a email thanks for subscribing!');
       } catch (err) {
+        console.log(err);
         alert('payment did not succeed');
       }
     } else return null;
