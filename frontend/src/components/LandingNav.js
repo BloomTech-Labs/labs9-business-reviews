@@ -51,6 +51,7 @@ const NavBar = styled.div`
   }
 
   .logo__text {
+    display: none;
     @media (max-height: 560px) {
       display: inline-block;
       font-family: Patua One;
