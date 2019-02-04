@@ -287,8 +287,6 @@ class SearchResult extends React.Component {
 
       .then(res => this.setState({ reviews: res.data }))
       .catch(err => console.log(err));
-
-    console.log(this.state.business);
   }
 
   addBusiness = () => {
@@ -318,9 +316,10 @@ class SearchResult extends React.Component {
   };
 
   render() {
+    console.log(this.state.business);
+    
     // creates a variable- imageCC- to store the Places ID for first image provided of the // // business from the Places API and then appends that ID to a string which is used for
     // the image href source
-
     let imageCC = '';
     let imageURL = '';
     if (this.state.business.photos) {
@@ -348,10 +347,9 @@ class SearchResult extends React.Component {
 
       // creates a representation of the score by returning
       // the appropriate number of SVG stars
-
       let ratingValue = this.state.business.rating;
       let rating;
-      if (!this.state.business.rating) return <p>Loading rating...</p>;
+      if (!this.state.business.rating) return ( <React.Fragment><NavBar/><p>Loading rating...</p></React.Fragment>);
       else {
         if (ratingValue === 5) {
           rating = (
