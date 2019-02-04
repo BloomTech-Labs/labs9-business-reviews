@@ -29,7 +29,7 @@ const AuthHeader = styled.h1`
 `;
 
 const AuthForm = styled.form`
-background: white;
+  background: white;
   width: 100%;
   padding: 2rem;
 
