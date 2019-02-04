@@ -17,7 +17,7 @@ const NavBarStyles = styled.div`
 		height: 100px;
 		width: 100px;
 		margin-left: 50px;
-    border-radius: 100px;
+		border-radius: 100px;
 	}
 	.nav_links {
 		display: flex;
@@ -34,14 +34,14 @@ const NavBarStyles = styled.div`
 	.menu__user {
 		display: flex;
 		justify-content: space-between;
-    align-items: center;
+		align-items: center;
 		width: 15%;
 		margin-right: 20px;
-    .menu__user--profile--image{
-      width:50px;
-      height:50px;
-      border-radius: 100px;
-    }
+		.menu__user--profile--image {
+			width: 50px;
+			height: 50px;
+			border-radius: 100px;
+		}
 	}
 
 	@media (max-width: 900px) {
@@ -73,28 +73,28 @@ const NavBarStyles = styled.div`
 			}
 		}
 		.menu__user {
-      box-sizing: border-box;
+			box-sizing: border-box;
 			width: 100%;
 			flex-direction: row;
 			text-align: center;
-			justify-content: space-between;  
-      margin-right: 0;
+			justify-content: space-between;
+			margin-right: 0;
 			background: #142e41;
-      .menu__user--profile--image{
+			.menu__user--profile--image {
 				background: #142e41;
-        width: 50px;
-        height:50px;
-        border-radius: 0px;
-        margin: 0;
-        padding: 0;
-        margin-left: 20%;
-        }
+				width: 50px;
+				height: 50px;
+				border-radius: 0px;
+				margin: 0;
+				padding: 0;
+				margin-left: 20%;
+			}
 			a,
 			p {
 				background: #142e41;
 				width: 50%;
 				padding: 20px 0px;
-        margin: 0;
+				margin: 0;
 				:hover {
 					background: white;
 					color: #142e41;
@@ -145,11 +145,13 @@ class NavBar extends React.Component {
 						</React.Fragment>
 					) : (
 						<React.Fragment>
-							<img
-								src={this.state.user.gravatar}
-								alt="My Profile"
-								className="menu__user--profile--image"
-							/>
+							<Link to={`/user/${this.state.user.id}`}>
+								<img
+									src={this.state.user.gravatar}
+									alt="My Profile"
+									className="menu__user--profile--image"
+								/>
+							</Link>
 							<p onClick={this.handleLogout}>sign out</p>
 						</React.Fragment>
 					)}
