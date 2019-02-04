@@ -120,9 +120,9 @@ class NavBar extends React.Component {
           </a>
         </div>
         <div className='nav_links'>
-          <a href='/addreview'>add a review</a>
-          <a href='/categories'>categories</a>
-          <a href='/toprated'>top rated</a>
+          <a href='/#Businesses'>businesses</a>
+          <a href='/#Reviewers'>reviewers</a>
+          <a href='/subscription'>go pro ✔</a>
         </div>
         <div className='menu__user'>
           {!this.state.loggedIn ? (
