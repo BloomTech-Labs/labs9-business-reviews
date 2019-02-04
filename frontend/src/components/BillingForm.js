@@ -44,6 +44,7 @@ class BillingForm extends React.Component {
           withCredentials: 'include'
         }
       );
+      console.log(resp);
       try {
         alert(
           `${
