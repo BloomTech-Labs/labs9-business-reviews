@@ -114,8 +114,6 @@ class AddReviewModal extends React.Component {
       { withCredentials: 'include' }
     )
       .then(res => {
-        console.log(res.data.message);
-        console.log('Success!', res.status);
         if (res.data.message) return alert(res.data.message);
         this.setState({ title: '', body: '', rating: 0 });
       })
