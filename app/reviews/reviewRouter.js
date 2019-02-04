@@ -6,15 +6,27 @@ const db = require('../db/dbinit');
 
 async function addReviewChecks(req, res, next) {
   const [user] = req.user;
- const usersReviews =  await db('reviews').where({reviewer_id:user.id});
-  if (!user.subscription || user.subscription < Date.now() || ) {
-    return res.json({ message: 'Subscription is expired or nonexistent' });
+  const userReviews = await db('reviews').where({ reviewer_id: user.id });
+  if (!user.subscription) {
+    return res.json({ message: 'Subscription is  nonexistent' });
   }
-  next();
+  if (user.subscription < Date.now()) {
+    return res.json({ message: 'Subscription is expired' });
+  }
+  if (
+    (userReviews.length > 3 && user.subscription < Date.now()) ||
+    !user.subscripton
+  ) {
+    return res.json({
+      message: 'exceeded the maximum number of reviews for a paid user sorry :('
+    });
+  }
+  return next();
 }
 
 //CREATE
 router.post('/', authConfig.isLoggedIn, (req, res) => {
+  const [user] = req.user;
   req.body.reviewer_id = user.id;
   const review = req.body;
   db('reviews')
