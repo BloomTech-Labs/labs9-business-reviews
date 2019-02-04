@@ -34,13 +34,19 @@ const NavBarStyles = styled.div`
 	.menu__user {
 		display: flex;
 		justify-content: space-between;
+    align-items: center;
 		width: 15%;
 		margin-right: 20px;
+    .menu__user--profile--image{
+      width:50px;
+      height:50px;
+      border-radius: 100px;
+    }
 	}
 
 	@media (max-width: 900px) {
 		flex-direction: column;
-		height: 565px;
+		height: auto;
 		padding-top: 20px;
 		background: white;
 		.logo {
@@ -68,24 +74,17 @@ const NavBarStyles = styled.div`
 			}
 		}
 		.menu__user {
+      box-sizing: border-box;
 			width: 100%;
-			flex-direction: column;
+			flex-direction: row;
 			text-align: center;
-			justify-content: space-around;
-			height: 20%;
-			padding-left: 15px;
-			margin-bottom: 15px;
-      .menu__user--profile--image{
-        width:30px;
-        height:30px;
-      }
+			justify-content: space-around;  
+      margin-right: 0;
 			a,
 			p {
 				background: #142e41;
-				width: 100%;
-				border-top: 2px solid white;
+				width: 50%;
 				padding: 20px 0px;
-
 				:hover {
 					background: white;
 					color: #142e41;
