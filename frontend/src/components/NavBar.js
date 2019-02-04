@@ -59,7 +59,6 @@ const NavBarStyles = styled.div`
 			flex-direction: column;
 			justify-content: center;
 			width: 100%;
-			height: 40%;
 			margin-top: 20px;
 			a {
 				width: 100%;
@@ -78,13 +77,24 @@ const NavBarStyles = styled.div`
 			width: 100%;
 			flex-direction: row;
 			text-align: center;
-			justify-content: space-around;  
+			justify-content: space-between;  
       margin-right: 0;
+			background: #142e41;
+      .menu__user--profile--image{
+				background: #142e41;
+        width: 50px;
+        height:50px;
+        border-radius: 0px;
+        margin: 0;
+        padding: 0;
+        margin-left: 20%;
+        }
 			a,
 			p {
 				background: #142e41;
 				width: 50%;
 				padding: 20px 0px;
+        margin: 0;
 				:hover {
 					background: white;
 					color: #142e41;
