@@ -110,7 +110,6 @@ const StyledEdit = styled.div`
         font-size: 1rem;
       }
     }
-  }
 
   @media (max-width:550px){
     form {
@@ -130,6 +129,7 @@ const StyledEdit = styled.div`
     .btn {
       width: 40%
     }
+  }
   }
 `;
 
@@ -153,7 +153,6 @@ export default class EditReview extends Component {
     })
       .then(res => {
         console.log('Success!', res);
-        this.setState({ title: '', body: '', rating: 1 });
       })
       .catch(err => console.log('error', err));
   };
@@ -165,7 +164,6 @@ export default class EditReview extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <NavBar />
