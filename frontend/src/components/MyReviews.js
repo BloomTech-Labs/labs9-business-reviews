@@ -106,14 +106,24 @@ class MyReviews extends Component {
     this.state = {
       reviews: [],
       name: props.name,
-      gravatar: props.gravatar
+      gravatar: props.gravatar,
+      clickable: null
     };
   }
-  componentDidMount() {
-    const id = this.props.id;
-    Axios.get(`${backendLink}/api/user/${id}/reviews`)
+  async componentDidMount() {
+    const ids = this.props.id;
+    Axios.get(`${backendLink}/api/user/${ids}/reviews`)
       .then(res => this.setState({ reviews: res.data }))
       .catch(err => console.log(err));
+
+    const {
+      data: {
+        user: [{ id }]
+      }
+    } = await Axios.get(`${backendLink}/api/user/me`, {
+      withCredentials: 'include'
+    });
+    this.setState({ clickable: id === Number(ids) });
   }
   render() {
     return (
@@ -122,19 +132,36 @@ class MyReviews extends Component {
         <StyledReviews>
           {this.state.reviews ? (
             this.state.reviews.map(
-              ({ title, body, business_image, business_name, id, rating }) => (
-                <Link to={`/user/review/${id}`} key={id} className="review">
-                  <img
-                    className="review__img"
-                    src={`${business_image}`}
-                    alt="business"
-                  />
-                  <h2 className="review__title">{title}</h2>
-                  <h3 className="review__business">{business_name}</h3>
-                  <p className="review__body">{body}</p>
-                  <h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
-                </Link>
-              )
+              ({ title, body, business_image, business_name, id, rating }) => {
+                if (!this.state.clickable)
+                  return (
+                    <div key={id} className="review">
+                      <img
+                        className="review__img"
+                        src={`${business_image}`}
+                        alt="business"
+                      />
+                      <p>Cant click!</p>
+                      <h2 className="review__title">{title}</h2>
+                      <h3 className="review__business">{business_name}</h3>
+                      <p className="review__body">{body}</p>
+                      <h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
+                    </div>
+                  );
+                return (
+                  <Link to={`/user/review/${id}`} key={id} className="review">
+                    <img
+                      className="review__img"
+                      src={`${business_image}`}
+                      alt="business"
+                    />
+                    <h2 className="review__title">{title}</h2>
+                    <h3 className="review__business">{business_name}</h3>
+                    <p className="review__body">{body}</p>
+                    <h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
+                  </Link>
+                );
+              }
             )
           ) : (
             <PlaceHolderReviews />
