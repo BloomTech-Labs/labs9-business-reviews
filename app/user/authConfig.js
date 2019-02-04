@@ -17,7 +17,7 @@ exports.alreadyLoggedIn = alreadyLoggedIn;
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.send('Need to login to enter these parts bro');
+  res.json({ message: 'Need to be logged in to be able to use this feature' });
 }
 
 function alreadyLoggedIn(req, res, next) {

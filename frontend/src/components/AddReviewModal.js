@@ -22,10 +22,10 @@ const ModalStyles = styled.div`
     height: 500px;
     padding: 10px;
     background-color: white;
-    @media(max-width: 900px){
+    @media (max-width: 900px) {
       width: 75%;
     }
-    @media(max-width: 500px){
+    @media (max-width: 500px) {
       width: 90%;
     }
     .container {
@@ -64,7 +64,7 @@ const ModalStyles = styled.div`
         display: flex;
         justify-content: center;
         margin-top: 10px;
-        @media(max-width:500px){
+        @media (max-width: 500px) {
           width: 40%;
         }
         .review__modal--buttons--btn {
@@ -83,7 +83,7 @@ const ModalStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    @media(max-width:500px){
+    @media (max-width: 500px) {
       width: 100%;
     }
   }
@@ -95,7 +95,7 @@ class AddReviewModal extends React.Component {
       title: '',
       body: '',
       rating: 0,
-      user:{}
+      user: {}
     };
   }
   handleSubmit = e => {
@@ -109,12 +109,12 @@ class AddReviewModal extends React.Component {
         business_image: this.props.imageUrl,
         business_name: this.props.businessName,
         business_id: this.props.businessId,
-        reviewer_id: this.state.user.id 
+        reviewer_id: this.state.user.id
       },
       { withCredentials: 'include' }
     )
       .then(res => {
-        console.log('Success!', res.status);
+        if (res.data.message) return alert(res.data.message);
         this.setState({ title: '', body: '', rating: 0 });
       })
       .then(this.props.toggleReviewing)
@@ -126,59 +126,59 @@ class AddReviewModal extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  async componentDidMount(){
-      const res = await Axios.get(`${backendLink}/api/user/me`, {
-        withCredentials: 'include'
-      });
-      if (!res.data.user) return null;
-      const [ user ] = res.data.user;
-      this.setState({ user});
-  };
+  async componentDidMount() {
+    const res = await Axios.get(`${backendLink}/api/user/me`, {
+      withCredentials: 'include'
+    });
+    if (!res.data.user) return null;
+    const [user] = res.data.user;
+    this.setState({ user });
+  }
   render() {
     return (
       <ModalStyles>
-        <div className='review__modal'>
-          <div className='container'>
+        <div className="review__modal">
+          <div className="container">
             <h1>{this.props.businessName}</h1>
             <h3>Add a Review</h3>
-            <form className='review__modal--form' onSubmit={this.handleSubmit}>
-              <label htmlFor='review-title'>Title</label>
+            <form className="review__modal--form" onSubmit={this.handleSubmit}>
+              <label htmlFor="review-title">Title</label>
               <input
                 onChange={this.changeHandler}
-                name='title'
+                name="title"
                 value={this.state.title}
-                className='review__modal--form--field--title'
+                className="review__modal--form--field--title"
               />
-              <label htmlFor='review-body'>Your review</label>
+              <label htmlFor="review-body">Your review</label>
               <textarea
                 onChange={this.changeHandler}
-                name='body'
+                name="body"
                 value={this.state.body}
-                className='review__modal--form--field--review'
+                className="review__modal--form--field--review"
               />
-              <div className='rating'>
-                <label htmlFor='review__input--rating'>Rating</label>
+              <div className="rating">
+                <label htmlFor="review__input--rating">Rating</label>
                 <select
                   onChange={this.changeHandler}
-                  name='rating'
+                  name="rating"
                   value={this.state.rating}
-                  className='review__modal--form--rating'
+                  className="review__modal--form--rating"
                 >
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='4'>4</option>
-                  <option defaultValue='5'>5</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option defaultValue="5">5</option>
                 </select>
-                <div className='review__modal--buttons'>
+                <div className="review__modal--buttons">
                   <button
-                    className='review__modal--buttons--btn'
+                    className="review__modal--buttons--btn"
                     onClick={this.handleSubmit}
                   >
                     Submit Review
                   </button>
                   <button
-                    className='review__modal--buttons--btn'
+                    className="review__modal--buttons--btn"
                     onClick={this.props.toggleReviewing}
                   >
                     Cancel
