@@ -32,7 +32,6 @@ const NavBar = styled.div`
   height: 75vh;
 
   .logo {
-    border: 2px solid red;
     animation: pulse 0.7s;
     animation-iteration-count: 2;
     animation-delay: 1s;
@@ -55,6 +54,9 @@ const NavBar = styled.div`
     @media (max-height: 560px) {
       display: inline-block;
       font-family: Patua One;
+      font-size: 3.5rem;
+      color: white;
+      letter-spacing: 1rem;
     }
   }
 
@@ -220,6 +222,7 @@ class LandingNav extends React.Component {
         </div>
         <div className='inner-nav-container'>
           <img className='logo' src={logo} alt='logo' />
+          <p className='logo__text'>Bonafind</p>
           <SearchBar />
         </div>
       </NavBar>
