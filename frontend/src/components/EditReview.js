@@ -133,7 +133,7 @@ const StyledEdit = styled.div`
   }
 `;
 
-export default class EditReview extends Component {
+export default class extends Component {
   constructor() {
     super();
     this.state = {
@@ -148,6 +148,7 @@ export default class EditReview extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { reviewId } = this.props.match.params;
+    console.log(`${backendLink}/api/review/${reviewId}`);
     Axios.put(`${backendLink}/api/review/${reviewId}`, this.state, {
       withCredentials: 'include'
     })
