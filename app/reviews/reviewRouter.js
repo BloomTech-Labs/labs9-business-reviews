@@ -25,7 +25,7 @@ async function addReviewChecks(req, res, next) {
 }
 
 //CREATE
-router.post('/', authConfig.isLoggedIn, (req, res) => {
+router.post('/', authConfig.isLoggedIn, addReviewChecks, (req, res) => {
   const [user] = req.user;
   req.body.reviewer_id = user.id;
   const review = req.body;
