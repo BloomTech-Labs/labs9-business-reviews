@@ -164,7 +164,6 @@ class LandingNav extends React.Component {
     this.setState({ user, loggedIn: true });
   }
   render() {
-    console.log('gravatar', this.state.user.gravatar)
     return (
       <NavBar>
         <div className='blur-container'>
