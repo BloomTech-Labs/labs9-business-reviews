@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "dotenv": "^6.2.0",
     "enzyme": "^3.8.0",
