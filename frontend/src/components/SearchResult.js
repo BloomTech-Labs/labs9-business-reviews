@@ -21,7 +21,6 @@ const StyledBusiness = styled.div`
   line-height: 1.2;
   padding-bottom: 50px;
   font-family: Roboto;
-
   .card {
     border: 1px solid grey;
     background: white;
@@ -31,7 +30,6 @@ const StyledBusiness = styled.div`
     padding: 15px;
     display: flex;
     flex-flow: column wrap;
-
     @media (max-width: 900px) {
       width: 100%;
     }
@@ -39,28 +37,24 @@ const StyledBusiness = styled.div`
       padding-left: 2rem;
       padding-right: 0.8rem;
     }
-
     .image__container {
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
       height: 400px;
-
       @media (max-width: 900px) {
         height: 300px;
       }
       @media (max-width: 600px) {
         height: 150px;
       }
-
       .image__container--img {
         flex-shrink: 0;
         min-width: 100%;
         min-height: 100%;
       }
     }
-
     .business__name {
       font-family: 'Patua One';
       font-size: 4rem;
@@ -79,7 +73,6 @@ const StyledBusiness = styled.div`
       flex-direction: row;
       align-items: center;
       margin-top: -5rem;
-
       @media (max-width: 900px) {
         font-size: 3rem;
       }
@@ -87,24 +80,19 @@ const StyledBusiness = styled.div`
         font-size: 2rem;
         margin-top: 0;
       }
-
       .business__rating--stars {
       }
-
       .business__rating--number {
         margin-left: 2rem;
       }
     }
-
     .business__details--address {
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
-
       @media (max-width: 900px) {
         font-size: 1rem;
       }
-
       @media (max-width: 600px) {
         font-size: 0.75rem;
       }
@@ -113,16 +101,13 @@ const StyledBusiness = styled.div`
       display: flex;
       align-items: center;
       margin-bottom: 1rem;
-
       @media (max-width: 900px) {
         font-size: 1rem;
       }
-
       @media (max-width: 600px) {
         font-size: 0.75rem;
       }
     }
-
     .business__details--hours {
       display: flex;
       align-items: start;
@@ -131,18 +116,15 @@ const StyledBusiness = styled.div`
       @media (max-width: 900px) {
         font-size: 1rem;
       }
-
       @media (max-width: 600px) {
         font-size: 0.75rem;
       }
-
       .business__details--hours--week {
         display: flex;
         flex-direction: column;
         align-self: start;
       }
     }
-
     .business__details--website {
       display: flex;
       align-items: center;
@@ -153,40 +135,32 @@ const StyledBusiness = styled.div`
         @media (max-width: 900px) {
           font-size: 1rem;
         }
-
         @media (max-width: 600px) {
           font-size: 0.75rem;
         }
       }
     }
-
     .review-container {
       display: flex;
       width: 100%;
       flex-flow: row wrap;
-
       .reviews__header {
         font-family: 'Patua One';
       }
-
       .reviews {
         width: 100%;
         display: flex;
         justify-content: space-around;
         margin-top: 3rem;
-
         .review {
           width: 25%;
-
           .review__title {
             font-family: Roboto;
             font-style: italic;
           }
-
           .review__rating {
             margin-top: -1.3rem;
           }
-
           .review__img {
             width: 85%;
             height: 100px;
@@ -194,12 +168,10 @@ const StyledBusiness = styled.div`
         }
       }
     }
-
     .svg {
       height: 35px;
       width: 35px;
       margin-right: 1.7rem;
-
       @media (max-width: 900px) {
         height: 25px;
         width: 25px;
@@ -211,7 +183,6 @@ const StyledBusiness = styled.div`
         margin-right: 1rem;
       }
     }
-
     .btn {
       background-color: #eed974;
       height: 40px;
@@ -222,27 +193,23 @@ const StyledBusiness = styled.div`
       margin-top: 1rem;
       margin-left: 2rem;
     }
-
     .open {
       text-transform: uppercase;
       font-size: 1rem;
       font-weight: bold;
       color: limegreen;
     }
-
     .closed {
       text-transform: uppercase;
       font-size: 1rem;
       font-weight: bold;
       color: red;
     }
-
     .fullStar,
     .halfStar,
     .emptyStar {
       height: 50px;
       width: 50px;
-
       @media (max-width: 900px) {
         height: 35px;
         width: 35px;
@@ -252,12 +219,10 @@ const StyledBusiness = styled.div`
         width: 20px;
       }
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 10px;
-
       @media (max-width: 1250px) {
         grid-template-columns: repeat(1, 1fr);
       }
