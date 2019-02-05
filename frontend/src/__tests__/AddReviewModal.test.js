@@ -42,6 +42,7 @@ describe('<AddReviewModal />', () => {
   it('should contain a form', () => {
     let app = shallow(<AddReviewModal/>);
     expect(app.find("form").length).toBe(1);
+    expect(app.find(".review__modal--form").length).toBe(1);
   });
   it('should contain h3 element with text "Add a Review"', () => {
     let app = shallow(<AddReviewModal/>);
