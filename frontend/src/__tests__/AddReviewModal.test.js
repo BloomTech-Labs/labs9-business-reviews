@@ -23,4 +23,12 @@ describe('<AddReviewModal />', () => {
     let app = shallow(<AddReviewModal/>);
     expect(app.find(".container").length).toBe(1);
   });
+  it('should contain rating div', () => {
+    let app = shallow(<AddReviewModal/>);
+    expect(app.find(".rating").length).toBe(1);
+  });
+  it('should contain review__modal--buttons div', () => {
+    let app = shallow(<AddReviewModal/>);
+    expect(app.find(".review__modal--buttons").length).toBe(1);
+  });
 });
