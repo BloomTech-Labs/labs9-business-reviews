@@ -7,12 +7,12 @@ const db = require('../db/dbinit');
 async function addReviewChecks(req, res, next) {
   const [user] = req.user;
   const userReviews = await db('reviews').where({ reviewer_id: user.id });
-  if (!user.subcription && userReviews.length > 3) {
+  if (!user.subcription && userReviews.length >= 3) {
     return res.json({
       message: 'Your 3 free reviews are up. Please purchase a subscription'
     });
   }
-  if (user.subscription < Date.now()) {
+  if (user.subscription < Date.now() && user.subscription) {
     return res.json({
       message: 'Your Subscription is expired or invalid please renew!'
     });
