@@ -20,4 +20,16 @@ describe('ResetPasswordComponent />', () => {
     expect(app.find("h1").length).toBe(1);
     expect(app.find("h1").text()).toMatch("Forgot your password?");
   });
+  it('should contain one form element', () => {
+    let app = shallow(<ResetPasswordComponent/>);
+    expect(app.find("form").length).toBe(1);
+  });
+  it('should contain one label', () => {
+    let app = shallow(<ResetPasswordComponent/>);
+    expect(app.find("label").length).toBe(1);
+  });
+  it('should contain two input elements', () => {
+    let app = shallow(<ResetPasswordComponent/>);
+    expect(app.find("input").length).toBe(2);
+  });
 });
