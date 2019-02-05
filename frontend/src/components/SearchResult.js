@@ -146,6 +146,7 @@ const StyledBusiness = styled.div`
 			flex-flow: row wrap;
 			.reviews__header {
 				font-family: 'Patua One';
+        width: 50%;
 			}
 			.reviews {
 				width: 100%;
@@ -370,7 +371,6 @@ class SearchResult extends React.Component {
 								<button className="btn" onClick={this.toggleReviewing}>
 									Add a Review
 								</button>
-
 								<div className="reviews">
 									{this.state.reviews.map(({ title, business_image, id, rating }) => (
 										<div key={id} className="review">
