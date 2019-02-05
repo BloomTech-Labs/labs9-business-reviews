@@ -20,4 +20,8 @@ describe('<BillingPage />', () => {
     expect(app.find("div").length).toBe(2);
     expect(app.find(".billing").length).toBe(1);
   });
+  it('should contain one button', () => {
+    let app = shallow(<BillingPage/>);
+    expect(app.find('button').length).toBe(1);
+  });
 });
