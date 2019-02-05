@@ -24,4 +24,12 @@ describe('<BillingFormComponent />', () => {
     expect(app.find("h1").length).toBe(1);
     expect(app.find('h1').text()).toMatch("Bonafind Subscription");
   });
+  it('should contain 1 form', () => {
+    let app = shallow(<BillingFormComponent />);
+    expect(app.find("form").length).toBe(1);
+  });
+  it('should contain 2 inputs', () => {
+    let app = shallow(<BillingFormComponent />);
+    expect(app.find("input").length).toBe(2);
+  });
 });
