@@ -9,7 +9,6 @@ const SearchBarStyles = styled.div`
   align-items: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  transition: 1s all;
 
   @media (max-height: 690px) {
     padding-top: 0;
@@ -114,6 +113,7 @@ class SearchBar extends React.Component {
     return (
       <SearchBarStyles>
         <form>
+          z
           <input
             onChange={this.handleChange}
             className="search__input"
