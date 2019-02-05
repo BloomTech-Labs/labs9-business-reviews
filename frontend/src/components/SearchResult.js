@@ -4,15 +4,12 @@ import Axios from 'axios';
 import AddReviewModal from './AddReviewModal';
 import { backendLink } from '../assets/config';
 import NavBar from './NavBar';
-
+import Stars from './Stars';
 import image from '../assets/white-waves.png';
 import map from '../assets/map.svg';
 import phone from '../assets/phone.svg';
 import calendar from '../assets/calendar.svg';
 import web from '../assets/web.svg';
-import fullStar from '../assets/star-full.svg';
-import halfStar from '../assets/star-half.svg';
-import emptyStar from '../assets/star-empty.svg';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -320,8 +317,6 @@ class SearchResult extends React.Component {
   };
 
   render() {
-    console.log(this.state.business);
-
     // creates a variable- imageCC- to store the Places ID for first image provided of the // // business from the Places API and then appends that ID to a string which is used for
     // the image href source
     let imageCC = '';
@@ -349,10 +344,9 @@ class SearchResult extends React.Component {
         }
       }
 
-      // creates a representation of the score by returning
-      // the appropriate number of SVG stars
-      let ratingValue = this.state.business.rating;
-      let rating;
+
+      // confirms there is a rating coming back from the API call, will
+      // display a loading message until a rating is received.
       if (!this.state.business.rating)
         return (
           <React.Fragment>
@@ -360,129 +354,7 @@ class SearchResult extends React.Component {
             <p>Loading rating...</p>
           </React.Fragment>
         );
-      else {
-        if (ratingValue === 5) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-            </div>
-          );
-        } else if (ratingValue >= 4.5 && ratingValue < 5) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='halfStar' src={halfStar} alt='star' />
-            </div>
-          );
-        } else if (ratingValue >= 4 && ratingValue <= 4.5) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='halfStar' src={halfStar} alt='half star' />
-            </div>
-          );
-        } else if (ratingValue >= 3.5 && ratingValue <= 4) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else if (ratingValue >= 3 && ratingValue <= 3.5) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='halfStar' src={halfStar} alt='half star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else if (ratingValue >= 2.5 && ratingValue <= 3) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else if (ratingValue >= 2 && ratingValue <= 2.5) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='halfStar' src={halfStar} alt='half star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else if (ratingValue >= 1.5 && ratingValue <= 2) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else if (ratingValue >= 1 && ratingValue <= 1.5) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='halfStar' src={halfStar} alt='half star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else if (ratingValue >= 0.5 && ratingValue <= 1) {
-          rating = (
-            <div className='starRating'>
-              <img className='fullStar' src={fullStar} alt='star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else if (ratingValue >= 0 && ratingValue <= 0.5) {
-          rating = (
-            <div className='starRating'>
-              <img className='halfStar' src={halfStar} alt='half star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        } else {
-          rating = (
-            <div className='starRating'>
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-              <img className='emptyStar' src={emptyStar} alt='empty star' />
-            </div>
-          );
-        }
-      }
+
 
       // creates an array- 'hours'- of hours for each day of the week
       let hours = [];
@@ -507,8 +379,12 @@ class SearchResult extends React.Component {
               </div>
               <h1 className='business__name'>{this.state.business.name}</h1>
               <div className='business__rating'>
-                {/* displays the rating in star SVGs */}
-                <div className='business__rating--stars'>{rating}</div>
+
+                {/* passes the rating from state to the Stars component and, in turn, displays the rating in star SVGs */}
+                <Stars
+                  rating={this.state.business.rating}
+                  className='business__rating--stars'
+                />
                 <p className='business__rating--number'>
                   {this.state.business.rating}
                 </p>
@@ -549,15 +425,25 @@ class SearchResult extends React.Component {
                   </a>
                 </div>
               </div>
+
+
+              {/* other users' reviews */}
+              <div className='review-container'>
+                <h1 className='reviews__header'>Reviews</h1>
               <div className='review-container'>
                 <h1 className='reviews__header'>Reviews</h1>
                 <button className='btn' onClick={this.toggleReviewing}>
                   Add a Review
                 </button>
+
                 <div className='reviews'>
                   {this.state.reviews.map(
                     ({ title, business_image, id, rating }) => (
                       <div key={id} className='review'>
+
+                        <p className='review__title'>{title}</p>
+                        <p className='review__rating'>{`${rating} stars`}</p>
+
                         <img
                           src={business_image}
                           alt='reviewed business'
@@ -569,6 +455,11 @@ class SearchResult extends React.Component {
                     )
                   )}
                 </div>
+
+                <button className='btn' onClick={this.toggleReviewing}>
+                  Add a Review
+                </button>
+
               </div>
             </div>
             {this.state.reviewing ? (
