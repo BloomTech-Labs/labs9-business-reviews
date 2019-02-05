@@ -4,11 +4,25 @@ const authConfig = require('../user/authConfig');
 
 const db = require('../db/dbinit');
 
-//CREATE
-router.post('/', authConfig.isLoggedIn, (req, res) => {
+async function addReviewChecks(req, res, next) {
   const [user] = req.user;
-  if (!user.subscription || user.subscription < Date.now())
-    return res.json({ message: 'Subscription is expired or nonexistent' });
+  const userReviews = await db('reviews').where({ reviewer_id: user.id });
+  if (!user.subcription && userReviews.length >= 3) {
+    return res.json({
+      message: 'Your 3 free reviews are up. Please purchase a subscription'
+    });
+  }
+  if (user.subscription < Date.now() && user.subscription) {
+    return res.json({
+      message: 'Your Subscription is expired or invalid please renew!'
+    });
+  }
+  return next();
+}
+
+//CREATE
+router.post('/', authConfig.isLoggedIn, addReviewChecks, (req, res) => {
+  const [user] = req.user;
   req.body.reviewer_id = user.id;
   const review = req.body;
   db('reviews')
