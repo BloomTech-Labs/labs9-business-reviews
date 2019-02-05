@@ -11,4 +11,8 @@ describe('UpdateUserComponent />', () => {
     const wrapper = shallow(<UpdateUserComponent />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain NavBar', () => {
+    let app = shallow(<UpdateUserComponent />);
+    expect(app.find("NavBar").length).toBe(1);
+  });
 });

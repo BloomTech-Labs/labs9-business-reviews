@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBarComponent /> matches snapshot 1`] = `
+<styled.div>
+  <div
+    className="logo_container"
+  >
+    <a
+      href="/"
+    >
+      <img
+        alt="logo"
+        className="logo"
+        src="logo.png"
+      />
+    </a>
+  </div>
+  <div
+    className="nav_links"
+  >
+    <a
+      href="/addreview"
+    >
+      add a review
+    </a>
+    <a
+      href="/categories"
+    >
+      categories
+    </a>
+    <a
+      href="/toprated"
+    >
+      top rated
+    </a>
+  </div>
+  <div
+    className="menu__user"
+  >
+    <Link
+      className="menu__user--text"
+      replace={false}
+      to="/login"
+    >
+      sign in
+    </Link>
+    <Link
+      className="menu__user--text"
+      replace={false}
+      to="/register"
+    >
+      sign up
+    </Link>
+  </div>
+</styled.div>
+`;

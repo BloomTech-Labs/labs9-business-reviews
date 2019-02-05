@@ -11,4 +11,12 @@ describe('<LoginComponent />', () => {
     const wrapper = shallow(<LoginComponent />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain NavBar', () => {
+    let app = shallow(<LoginComponent />);
+    expect(app.find("NavBar").length).toBe(1);
+  });
+  it('should contain GatedSignIn', () => {
+    let app = shallow(<LoginComponent />);
+    expect(app.find("GatedSignIn").length).toBe(1);
+  });
 });
