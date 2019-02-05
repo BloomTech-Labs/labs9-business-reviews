@@ -313,8 +313,6 @@ class SearchResult extends React.Component {
   };
 
   render() {
-    console.log(this.state.business);
-
     // creates a variable- imageCC- to store the Places ID for first image provided of the // // business from the Places API and then appends that ID to a string which is used for
     // the image href source
     let imageCC = '';
@@ -342,9 +340,8 @@ class SearchResult extends React.Component {
         }
       }
 
-      // creates a representation of the score by returning
-      // the appropriate number of SVG stars
-      // let ratingValue = this.state.business.rating;
+      // confirms there is a rating coming back from the API call, will
+      // display a loading message until a rating is received.
       if (!this.state.business.rating)
         return (
           <React.Fragment>
@@ -352,9 +349,6 @@ class SearchResult extends React.Component {
             <p>Loading rating...</p>
           </React.Fragment>
         );
-      else {
-        // console.log({ stars });
-      }
 
       // creates an array- 'hours'- of hours for each day of the week
       let hours = [];
@@ -379,8 +373,7 @@ class SearchResult extends React.Component {
               </div>
               <h1 className='business__name'>{this.state.business.name}</h1>
               <div className='business__rating'>
-                {/* displays the rating in star SVGs */}
-                {/* <div className='business__rating--stars'>{stars}</div> */}
+                {/* passes the rating from state to the Stars component and, in turn, displays the rating in star SVGs */}
                 <Stars
                   rating={this.state.business.rating}
                   className='business__rating--stars'
@@ -390,6 +383,7 @@ class SearchResult extends React.Component {
                 </p>
               </div>
 
+              {/* business details */}
               <div className='grid'>
                 <div className='business__details--address'>
                   <img className='svg' src={map} alt='map' />
