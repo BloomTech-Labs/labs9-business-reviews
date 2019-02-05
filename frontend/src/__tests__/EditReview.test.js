@@ -19,4 +19,13 @@ describe('<EditReviewComponent />', () => {
     let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
     expect(app.find("div").length).toBe(3);
   });
+  it('should contain one form', () => {
+    let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
+    expect(app.find("form").length).toBe(1);
+  });
+  it('should contain one h1 element with text "Edit your review"', () => {
+    let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
+    expect(app.find("h1").length).toBe(1);
+    expect(app.find("h1").text()).toMatch("Edit your review");
+  });
 });
