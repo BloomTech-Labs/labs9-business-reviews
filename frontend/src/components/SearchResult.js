@@ -415,10 +415,6 @@ class SearchResult extends React.Component {
                       )
                     )}
                   </div>
-
-                  <button className='btn' onClick={this.toggleReviewing}>
-                    Add a Review
-                  </button>
                 </div>
               </div>
             </div>
