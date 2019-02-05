@@ -11,4 +11,13 @@ describe('ResetPasswordComponent />', () => {
     const wrapper = shallow(<ResetPasswordComponent />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain NavBar', () => {
+    let app = shallow(<ResetPasswordComponent/>);
+    expect(app.find("NavBar").length).toBe(1);
+  });
+  it('should contain one h1 with text "Forgot your password?"', () => {
+    let app = shallow(<ResetPasswordComponent/>);
+    expect(app.find("h1").length).toBe(1);
+    expect(app.find("h1").text()).toMatch("Forgot your password?");
+  });
 });
