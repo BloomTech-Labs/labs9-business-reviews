@@ -8,18 +8,6 @@ import emptyStar from '../assets/star-empty.svg';
 // the appropriate number of SVG stars
 
 export default class Stars extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      business: []
-    };
-  }
-
-  componentDidMount() {
-    console.log('ok!');
-  }
-
   render() {
     let ratingValue = this.props.rating;
     let stars;
@@ -145,9 +133,6 @@ export default class Stars extends React.Component {
         </div>
       );
     }
-
-    console.log(ratingValue);
-
     return stars;
   }
 }
