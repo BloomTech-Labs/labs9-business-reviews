@@ -11,4 +11,18 @@ describe('<LandingNavComponent />', () => {
     const wrapper = shallow(<LandingNavComponent />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain 6 divs', () => {
+    let app = shallow(<LandingNavComponent />);
+    expect(app.find("div").length).toBe(5);
+  });
+  it('should contain 3 a tags with proper text', () => {
+    let app = shallow(<LandingNavComponent />);
+    expect(app.contains(
+      <div className="menu__menuItems">
+        <a href="#Businesses">businesses</a>
+        <a href="#Reviewers">reviewers</a>
+        <a href="/subscription">go pro ✔</a>
+      </div>
+    )).toBe(true);
+  });
 });
