@@ -23,5 +23,13 @@ describe('UpdatePasswordComponent />', () => {
     let app = shallow(<UpdatePasswordComponent />);
     expect(app.find("form").length).toBe(1);
   });
+  it('should contain two label elements', () => {
+    let app = shallow(<UpdatePasswordComponent />);
+    expect(app.find("label").length).toBe(2);
+  });
+  it('should contain three input elements', () => {
+    let app = shallow(<UpdatePasswordComponent />);
+    expect(app.find("input").length).toBe(3);
+  });
 });
 
