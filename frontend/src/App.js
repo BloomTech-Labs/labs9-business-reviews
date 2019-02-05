@@ -16,7 +16,6 @@ console.log('node environment:', process.env.NODE_ENV);
 
 const StyledContainer = styled.div`
   margin: 0 auto;
-  max-width: 1200px;
 `;
 
 function App() {
