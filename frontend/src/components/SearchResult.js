@@ -173,12 +173,14 @@ const StyledBusiness = styled.div`
         width: 100%;
         display: flex;
         justify-content: space-around;
+        margin-top: 3rem;
 
         .review {
           width: 25%;
 
           .review__title {
             font-family: Roboto;
+            font-style: italic;
           }
 
           .review__rating {
@@ -217,6 +219,8 @@ const StyledBusiness = styled.div`
       margin-right: 20px;
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      margin-top: 1rem;
+      margin-left: 2rem;
     }
 
     .open {
@@ -340,6 +344,7 @@ class SearchResult extends React.Component {
         }
       }
 
+
       // confirms there is a rating coming back from the API call, will
       // display a loading message until a rating is received.
       if (!this.state.business.rating)
@@ -349,6 +354,7 @@ class SearchResult extends React.Component {
             <p>Loading rating...</p>
           </React.Fragment>
         );
+
 
       // creates an array- 'hours'- of hours for each day of the week
       let hours = [];
@@ -373,6 +379,7 @@ class SearchResult extends React.Component {
               </div>
               <h1 className='business__name'>{this.state.business.name}</h1>
               <div className='business__rating'>
+
                 {/* passes the rating from state to the Stars component and, in turn, displays the rating in star SVGs */}
                 <Stars
                   rating={this.state.business.rating}
@@ -383,7 +390,6 @@ class SearchResult extends React.Component {
                 </p>
               </div>
 
-              {/* business details */}
               <div className='grid'>
                 <div className='business__details--address'>
                   <img className='svg' src={map} alt='map' />
@@ -420,27 +426,40 @@ class SearchResult extends React.Component {
                 </div>
               </div>
 
+
               {/* other users' reviews */}
               <div className='review-container'>
                 <h1 className='reviews__header'>Reviews</h1>
+              <div className='review-container'>
+                <h1 className='reviews__header'>Reviews</h1>
+                <button className='btn' onClick={this.toggleReviewing}>
+                  Add a Review
+                </button>
+
                 <div className='reviews'>
                   {this.state.reviews.map(
                     ({ title, business_image, id, rating }) => (
                       <div key={id} className='review'>
+
                         <p className='review__title'>{title}</p>
                         <p className='review__rating'>{`${rating} stars`}</p>
+
                         <img
                           src={business_image}
                           alt='reviewed business'
                           className='review__img'
                         />
+                        <p className='review__title'>{title}</p>
+                        <p className='review__rating'>{`${rating} / 5`}</p>
                       </div>
                     )
                   )}
                 </div>
+
                 <button className='btn' onClick={this.toggleReviewing}>
                   Add a Review
                 </button>
+
               </div>
             </div>
             {this.state.reviewing ? (
