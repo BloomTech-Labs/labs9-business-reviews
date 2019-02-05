@@ -11,4 +11,12 @@ describe('<EditReviewComponent />', () => {
     const wrapper = shallow(<EditReviewComponent match={{ params: '1' }} />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain NavBar', () => {
+    let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
+    expect(app.find("NavBar").length).toBe(1);
+  });
+  it('should contain 4 divs', () => {
+    let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
+    expect(app.find("div").length).toBe(3);
+  });
 });
