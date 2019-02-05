@@ -11,4 +11,8 @@ describe('<BillingPage />', () => {
     const wrapper = shallow(<BillingPage />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain NavBar', () => {
+    let app = shallow(<BillingPage />);
+    expect(app.find("NavBar").length).toBe(1);
+  });
 });
