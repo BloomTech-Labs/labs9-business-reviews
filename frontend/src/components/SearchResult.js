@@ -344,7 +344,6 @@ class SearchResult extends React.Component {
         }
       }
 
-
       // confirms there is a rating coming back from the API call, will
       // display a loading message until a rating is received.
       if (!this.state.business.rating)
@@ -354,7 +353,6 @@ class SearchResult extends React.Component {
             <p>Loading rating...</p>
           </React.Fragment>
         );
-
 
       // creates an array- 'hours'- of hours for each day of the week
       let hours = [];
@@ -379,7 +377,6 @@ class SearchResult extends React.Component {
               </div>
               <h1 className='business__name'>{this.state.business.name}</h1>
               <div className='business__rating'>
-
                 {/* passes the rating from state to the Stars component and, in turn, displays the rating in star SVGs */}
                 <Stars
                   rating={this.state.business.rating}
@@ -426,40 +423,38 @@ class SearchResult extends React.Component {
                 </div>
               </div>
 
-
               {/* other users' reviews */}
               <div className='review-container'>
                 <h1 className='reviews__header'>Reviews</h1>
-              <div className='review-container'>
-                <h1 className='reviews__header'>Reviews</h1>
-                <button className='btn' onClick={this.toggleReviewing}>
-                  Add a Review
-                </button>
+                <div className='review-container'>
+                  <h1 className='reviews__header'>Reviews</h1>
+                  <button className='btn' onClick={this.toggleReviewing}>
+                    Add a Review
+                  </button>
 
-                <div className='reviews'>
-                  {this.state.reviews.map(
-                    ({ title, business_image, id, rating }) => (
-                      <div key={id} className='review'>
+                  <div className='reviews'>
+                    {this.state.reviews.map(
+                      ({ title, business_image, id, rating }) => (
+                        <div key={id} className='review'>
+                          <p className='review__title'>{title}</p>
+                          <p className='review__rating'>{`${rating} stars`}</p>
 
-                        <p className='review__title'>{title}</p>
-                        <p className='review__rating'>{`${rating} stars`}</p>
+                          <img
+                            src={business_image}
+                            alt='reviewed business'
+                            className='review__img'
+                          />
+                          <p className='review__title'>{title}</p>
+                          <p className='review__rating'>{`${rating} / 5`}</p>
+                        </div>
+                      )
+                    )}
+                  </div>
 
-                        <img
-                          src={business_image}
-                          alt='reviewed business'
-                          className='review__img'
-                        />
-                        <p className='review__title'>{title}</p>
-                        <p className='review__rating'>{`${rating} / 5`}</p>
-                      </div>
-                    )
-                  )}
+                  <button className='btn' onClick={this.toggleReviewing}>
+                    Add a Review
+                  </button>
                 </div>
-
-                <button className='btn' onClick={this.toggleReviewing}>
-                  Add a Review
-                </button>
-
               </div>
             </div>
             {this.state.reviewing ? (
