@@ -2,7 +2,7 @@
 
 exports[`<LandingPageComponent /> matches snapshot 1`] = `
 <styled.div>
-  <SearchBar />
+  <LandingNav />
   <MainContent />
 </styled.div>
 `;

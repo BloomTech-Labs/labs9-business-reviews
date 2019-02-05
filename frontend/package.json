@@ -35,10 +35,6 @@
     "react-test-renderer": "^16.7.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/src/jest.setup.js",
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/"
-    ]
   },
   "proxy": "http://localhost:9000"
 }

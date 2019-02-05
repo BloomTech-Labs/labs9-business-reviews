@@ -2,10 +2,22 @@
 
 exports[`<FooterComponent /> matches snapshot 1`] = `
 <styled.div>
-  <a
-    href="https://github.com/Lambda-School-Labs/labs9-business-reviews"
+  <span>
+    © 2019 Bonafind
+  </span>
+  <div
+    className="meetTheTeam"
   >
-    Meet the Team
-  </a>
+    <img
+      alt=""
+      className="github"
+      src="github.svg"
+    />
+    <a
+      href="https://github.com/Lambda-School-Labs/labs9-business-reviews"
+    >
+      Meet the Team
+    </a>
+  </div>
 </styled.div>
 `;

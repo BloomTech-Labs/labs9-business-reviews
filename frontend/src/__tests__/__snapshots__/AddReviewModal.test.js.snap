@@ -5,149 +5,97 @@ exports[`<AddReviewModal /> matches snapshot 1`] = `
   <div
     className="review__modal"
   >
-    <h1>
-      Add a Review
-    </h1>
-    <form
-      className="review__modal--form"
-      onSubmit={[Function]}
+    <div
+      className="container"
     >
-      <label
-        className="review__modal--label"
+      <h1 />
+      <h3>
+        Add a Review
+      </h3>
+      <form
+        className="review__modal--form"
+        onSubmit={[Function]}
       >
-        Title
-      </label>
-      <input
-        className="review__form--title"
-        name="title"
-        onChange={[Function]}
-        value=""
-      />
-      <label
-        htmlFor="review-body"
-      />
-      <textarea
-        className="review-body"
-        name="body"
-        onChange={[Function]}
-        value=""
-      />
-      <select
-        name="rating"
-        onChange={[Function]}
-        value={0}
-      >
-        <option
-          value="1"
+        <label
+          htmlFor="review-title"
         >
-          1
-        </option>
-        <option
-          value="2"
+          Title
+        </label>
+        <input
+          className="review__modal--form--field--title"
+          name="title"
+          onChange={[Function]}
+          value=""
+        />
+        <label
+          htmlFor="review-body"
         >
-          2
-        </option>
-        <option
-          value="3"
+          Your review
+        </label>
+        <textarea
+          className="review__modal--form--field--review"
+          name="body"
+          onChange={[Function]}
+          value=""
+        />
+        <div
+          className="rating"
         >
-          3
-        </option>
-        <option
-          value="4"
-        >
-          4
-        </option>
-        <option
-          defaultValue="5"
-        >
-          5
-        </option>
-      </select>
-      <button
-        onClick={[Function]}
-      >
-        Submit Review
-      </button>
-      <button>
-        Cancel
-      </button>
-    </form>
-  </div>
-</styled.div>
-`;
-
-exports[`<App /> matches snapshot 1`] = `
-<styled.div>
-  <div
-    className="review__modal"
-  >
-    <h1>
-      Add a Review
-    </h1>
-    <form
-      className="review__modal--form"
-      onSubmit={[Function]}
-    >
-      <label
-        className="review__modal--label"
-      >
-        Title
-      </label>
-      <input
-        className="review__form--title"
-        name="title"
-        onChange={[Function]}
-        value=""
-      />
-      <label
-        htmlFor="review-body"
-      />
-      <textarea
-        className="review-body"
-        name="body"
-        onChange={[Function]}
-        value=""
-      />
-      <select
-        name="rating"
-        onChange={[Function]}
-        value={0}
-      >
-        <option
-          value="1"
-        >
-          1
-        </option>
-        <option
-          value="2"
-        >
-          2
-        </option>
-        <option
-          value="3"
-        >
-          3
-        </option>
-        <option
-          value="4"
-        >
-          4
-        </option>
-        <option
-          defaultValue="5"
-        >
-          5
-        </option>
-      </select>
-      <button
-        onClick={[Function]}
-      >
-        Submit Review
-      </button>
-      <button>
-        Cancel
-      </button>
-    </form>
+          <label
+            htmlFor="review__input--rating"
+          >
+            Rating
+          </label>
+          <select
+            className="review__modal--form--rating"
+            name="rating"
+            onChange={[Function]}
+            value={0}
+          >
+            <option
+              value="1"
+            >
+              1
+            </option>
+            <option
+              value="2"
+            >
+              2
+            </option>
+            <option
+              value="3"
+            >
+              3
+            </option>
+            <option
+              value="4"
+            >
+              4
+            </option>
+            <option
+              defaultValue="5"
+            >
+              5
+            </option>
+          </select>
+          <div
+            className="review__modal--buttons"
+          >
+            <button
+              className="review__modal--buttons--btn"
+              onClick={[Function]}
+            >
+              Submit Review
+            </button>
+            <button
+              className="review__modal--buttons--btn"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </styled.div>
 `;
