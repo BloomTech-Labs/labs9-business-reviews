@@ -2,9 +2,11 @@
 
 exports[`UserProfileComponent /> matches snapshot 1`] = `
 <div>
+  <NavBar />
   <styled.div>
-    <SideBar />
-    <MyReviews />
+    <MyReviews
+      className="header"
+    />
   </styled.div>
 </div>
 `;

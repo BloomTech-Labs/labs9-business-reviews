@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. You will also add a `.env` file to the `frontend` and `app` directories to use a private key. The frontend api key can be obtained from the Google Developer console and must be named `REACT_APP_API_KEY` in the `/frontend/.env` file. 
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. You will also add a `.env` file to the `frontend` and `app` directories to use a private key. The frontend api key can be obtained from the Google Developer console and must be named `REACT_APP_API_KEY` in the `/frontend/.env` file. The backend stripe key can be obtained on the [Stripe](https://stripe.com/) dashboard after making an account on their website and must be named `STRIPE_SECRET` in the `/app/.env` file.
 
 ##### Check that the app is configured to be run locally.
 

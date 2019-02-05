@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<FeaturedReviewsComponent /> matches snapshot 1`] = `
-<styled.div>
-  <h1>
-    Featured Reviews
-  </h1>
-</styled.div>
-`;
