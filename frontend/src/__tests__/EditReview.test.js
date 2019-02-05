@@ -28,4 +28,12 @@ describe('<EditReviewComponent />', () => {
     expect(app.find("h1").length).toBe(1);
     expect(app.find("h1").text()).toMatch("Edit your review");
   });
+  it('should contain 3 labels', () => {
+    let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
+    expect(app.find("label").length).toBe(3);
+  });
+  it('should contain 2 buttons', () => {
+    let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
+    expect(app.find("button").length).toBe(2);
+  });
 });
