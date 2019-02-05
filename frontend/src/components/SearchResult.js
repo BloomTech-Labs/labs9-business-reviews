@@ -112,6 +112,7 @@ const StyledBusiness = styled.div`
 			display: flex;
 			align-items: start;
 			margin-bottom: 1rem;
+
 			@media (max-width: 900px) {
 				font-size: 1rem;
 			}
