@@ -11,4 +11,9 @@ describe('MainContentComponent />', () => {
     const wrapper = shallow(<MainContentComponent />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain PopularBusinesses and PopularReviewers', () => {
+    let main = shallow(<MainContentComponent />);
+    expect(main.find("PopularBusinesses").length).toBe(1);
+    expect(main.find("PopularReviewers").length).toBe(1);
+  })
 });
