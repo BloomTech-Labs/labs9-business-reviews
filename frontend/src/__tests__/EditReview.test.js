@@ -36,4 +36,8 @@ describe('<EditReviewComponent />', () => {
     let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
     expect(app.find("button").length).toBe(2);
   });
+  it('should contain 5 options', () => {
+    let app = shallow(<EditReviewComponent match={{ params: '1' }} />);
+    expect(app.find("option").length).toBe(5);
+  });
 });
