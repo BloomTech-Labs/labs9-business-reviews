@@ -176,12 +176,12 @@ class AddReviewModal extends React.Component {
                   >
                     Submit Review
                   </button>
-                  <a
+                  <button
                     className="review__modal--buttons--btn"
                     onClick={this.props.toggleReviewing}
                   >
                     Cancel
-                  </a>
+                  </button>
                 </div>
               </div>
             </form>
