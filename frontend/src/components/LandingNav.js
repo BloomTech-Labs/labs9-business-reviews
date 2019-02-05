@@ -4,53 +4,37 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
 import SearchBar from './SearchBar';
-
-import bg1 from '../assets/backgrounds/artmuseum.jpeg';
-import bg2 from '../assets/backgrounds/bar.jpeg';
-import bg3 from '../assets/backgrounds/bowling.jpeg';
-import bg4 from '../assets/backgrounds/butcher.jpeg';
-import bg5 from '../assets/backgrounds/diner.jpeg';
-import bg6 from '../assets/backgrounds/donuts.jpeg';
-import bg7 from '../assets/backgrounds/kitchen.jpeg';
-import bg8 from '../assets/backgrounds/movietheater.jpeg';
-import bg9 from '../assets/backgrounds/produce.jpeg';
-import bg10 from '../assets/backgrounds/recordshop.jpeg';
-import bg11 from '../assets/backgrounds/suits.jpeg';
 import logo from '../assets/bonafind.png';
-
-let backgrounds = [ bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11 ];
+import {background} from '../assets/backgrounds/backgrounds'
 
 const NavBar = styled.div`
 	width: 100%;
 	height: auto;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]});
+		url(${background});
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 	height: 75vh;
+
 	.logo {
 		animation: pulse 0.7s;
 		animation-iteration-count: 2;
 		animation-delay: 1s;
 
-		@media (max-height: 800px) {
+		@media (max-height: 830px) {
 			width: 300px;
 			height: 325px;
 		}
-		@media (max-height: 690px) {
-			width: 250px;
-			height: 270px;
-		}
 
-		@media (max-height: 560px) {
+		@media (max-height: 690px) {
 			display: none;
 		}
 	}
 
 	.logo__text {
 		display: none;
-		@media (max-height: 560px) {
+		@media (max-height: 690px) {
 			display: inline-block;
 			font-family: Patua One;
 			font-size: 3.5rem;
@@ -64,7 +48,11 @@ const NavBar = styled.div`
 		background-color: rgba(0, 0, 0, 0.5);
 		margin: 0 auto;
 		box-sizing: border-box;
-		margin-bottom: 70px;
+
+		@media (max-height: 800px) {
+			margin-bottom: none !important;
+		}
+
 		.top-nav-items {
 			width: 100%;
 			box-sizing: border-box;
@@ -73,6 +61,7 @@ const NavBar = styled.div`
 			display: flex;
 			padding-top: 20px;
 			margin: 0 auto;
+
 			.menu__menuItems {
 				width: 70%;
 				height: auto;
@@ -82,6 +71,7 @@ const NavBar = styled.div`
 					width: 100%;
 					font-size: 2.6rem;
 				}
+
 				a {
 					font-size: 1.4rem;
 					box-sizing: border-box;
@@ -98,6 +88,7 @@ const NavBar = styled.div`
 					}
 				}
 			}
+
 			.menu__user {
 				box-sizing: border-box;
 				color: black;
@@ -143,22 +134,10 @@ const NavBar = styled.div`
 		align-items: center;
 		flex-flow: row wrap;
 		font-family: 'Patua One';
+
 		@media (max-width: 900px) {
 			flex-direction: column;
 			padding: 0;
-		}
-		.menu__logo--logo {
-			height: 225px;
-			width: 225px;
-			margin-bottom: 30px;
-			border-radius: 50%;
-			@media (max-width: 900px) {
-				height: 225px;
-				width: 225px;
-				margin-bottom: 20px;
-				margin-top: 20px;
-				border-radius: 50%;
-			}
 		}
 	}
 `;
@@ -201,10 +180,14 @@ class LandingNav extends React.Component {
 								</React.Fragment>
 							) : (
 								<React.Fragment>
-									<p onClick={this.handleLogout}>sign out</p>
-									<Link to="/settings" className="menu__user--text">
-										settings
+									<Link to={`/user/${this.state.user.id}`} className="img--link">
+										<img
+											src={this.state.user.gravatar}
+											alt="My Profile"
+											className="menu__user--profile--image"
+										/>
 									</Link>
+									<p onClick={this.handleLogout}>sign out</p>
 								</React.Fragment>
 							)}
 						</div>
