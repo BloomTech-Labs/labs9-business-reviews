@@ -15,6 +15,10 @@ describe('<BillingPage />', () => {
     let app = shallow(<BillingPage />);
     expect(app.find("NavBar").length).toBe(1);
   });
+  it('should contain BillingForm', () => {
+    let app = shallow(<BillingPage />);
+    expect(app.find("BillingForm").length).toBe(1);
+  });
   it('should contain div with classname "billing"', () => {
     let app = shallow(<BillingPage/>);
     expect(app.find("div").length).toBe(2);
