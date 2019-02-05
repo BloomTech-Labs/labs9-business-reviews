@@ -31,4 +31,8 @@ describe('<AddReviewModal />', () => {
     let app = shallow(<AddReviewModal/>);
     expect(app.find(".review__modal--buttons").length).toBe(1);
   });
+  it('should contain 5 options', () => {
+    let app = shallow(<AddReviewModal/>);
+    expect(app.find("option").length).toBe(5);
+  });
 });
