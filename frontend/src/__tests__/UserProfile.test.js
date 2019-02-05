@@ -11,4 +11,12 @@ describe('UserProfileComponent />', () => {
     const wrapper = shallow(<UserProfileComponent match={{ params: '1' }} />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
+  it('should contain NavBar', () => {
+    let app = shallow(<UserProfileComponent match={{ params: '1' }} />);
+    expect(app.find("NavBar").length).toBe(1);
+  });
+  it('should contain MyReviews', () => {
+    let app = shallow(<UserProfileComponent match={{ params: '1' }} />);
+    expect(app.find("MyReviews").length).toBe(1);
+  });
 });
