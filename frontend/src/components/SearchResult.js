@@ -275,8 +275,7 @@ class SearchResult extends React.Component {
 			})
 			.catch((err) => console.log('error', err));
 	};
-	toggleReviewing = (e) => {
-		e.preventDefault();
+	toggleReviewing = () => {
 		this.setState({ reviewing: !this.state.reviewing });
 	};
 
