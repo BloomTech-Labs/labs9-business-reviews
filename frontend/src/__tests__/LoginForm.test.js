@@ -16,4 +16,16 @@ describe('<LoginComponent />', () => {
     expect(app.find("h4").length).toBe(1);
     expect(app.find("h4").text()).toMatch("Don't have an account?");
   });
+  it('should contain one Link', () => {
+    let app = shallow(<LoginFormComponent />);
+    expect(app.find("Link").length).toBe(1);
+  });
+  it('should contain 2 label elements', () => {
+    let app = shallow(<LoginFormComponent />);
+    expect(app.find("label").length).toBe(2);
+  });
+  it('should contain one input element', () => {
+    let app = shallow(<LoginFormComponent />);
+    expect(app.find("input").length).toBe(1);
+  });
 });
