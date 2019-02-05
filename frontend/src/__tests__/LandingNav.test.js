@@ -25,4 +25,8 @@ describe('<LandingNavComponent />', () => {
       </div>
     )).toBe(true);
   });
+  it('should contain SearchBar', () => {
+    let app = shallow(<LandingNavComponent />);
+    expect(app.find("SearchBar").length).toBe(1);
+  });
 });
