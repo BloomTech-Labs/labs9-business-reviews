@@ -123,6 +123,7 @@ class MyReviews extends Component {
     } = await Axios.get(`${backendLink}/api/user/me`, {
       withCredentials: 'include'
     });
+    if (!id) return this.setState({ clickable: false });
     this.setState({ clickable: id === Number(ids) });
   }
   render() {
