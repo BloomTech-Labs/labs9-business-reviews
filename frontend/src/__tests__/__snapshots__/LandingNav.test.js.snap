@@ -22,7 +22,7 @@ exports[`<LandingNavComponent /> matches snapshot 1`] = `
           reviewers
         </a>
         <a
-          href="/subscription"
+          href="/billing"
         >
           go pro ✔
         </a>
