@@ -108,7 +108,7 @@ class PopularBusinesses extends Component {
           .sort((a, b) =>
             a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0
           )
-          .slice(0, 4);
+          .slice(0, 8);
         //sets sorted array to this.state.businesses
         this.setState(() => ({ businesses: sortedAndSliced }));
       })
