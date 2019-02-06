@@ -52,12 +52,27 @@ const StyledReviews = styled.div`
 			margin-bottom: 20px;
 		}
 
-		.review__img {
+		.review_img {
 			width: 100%;
       max-height: 200px;
+      position: relative;
+      text-align: center;
+      color: white;
       img {
         width: 100%;
-        height: auto;
+        height: 200px;
+      }
+      .delete {
+        font-family: Roboto;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-weight: lighter;
+        background-color: black;
+        border: 1px solid white;
+        font-size: .2rem;
+        border-radius: 50%;
+        padding: 3px;
       }
 		}
 
@@ -158,6 +173,7 @@ class MyReviews extends Component {
 								<Link to={`/user/review/${id}`} key={id} className="review">
 									<div className="review_img">
                     <img className="review__img" src={`${business_image}`} alt="business"/>
+                    <div className="delete">X</div>
                   </div> 
 									<h2 className="review__business">{business_name}</h2>
 									<h4 className="review__title">{title}</h4>
