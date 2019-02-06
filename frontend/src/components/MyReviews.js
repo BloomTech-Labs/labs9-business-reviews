@@ -8,12 +8,13 @@ import Stars from './Stars'
 
 const StyledReviews = styled.div`
 	box-sizing: border-box;
-	max-width: 1200px;
+	width: 1200px;
 	height: auto;
 	display: flex;
 	justify-content: space-around;
 	flex-flow: row wrap;
 	padding: 20px;
+  border: 1px solid orange;
 	@media (max-width: 900px) {
 		width: 100%;
 	}
@@ -136,6 +137,12 @@ class MyReviews extends Component {
   handleUnclickable=()=>{
     alert("You can only edit your own reviews");
   }
+  handleDelete = (e)=>{
+    const id = e.target.id;
+    Axios.delete(`${backendLink}/api/review/${id}`)
+      .then(res=>console.log(res.status, res.data))
+      .catch(err=>console.log('error', err))
+  }
 	async componentDidMount() {
 		const ids = this.props.id;
 		Axios.get(`${backendLink}/api/user/${ids}/reviews`)
@@ -173,7 +180,7 @@ class MyReviews extends Component {
 								<Link to={`/user/review/${id}`} key={id} className="review">
 									<div className="review_img">
                     <img className="review__img" src={`${business_image}`} alt="business"/>
-                    <div className="delete">X</div>
+                    <div className="delete" id={id} onClick={this.handleDelete}>X</div>
                   </div> 
 									<h2 className="review__business">{business_name}</h2>
 									<h4 className="review__title">{title}</h4>
