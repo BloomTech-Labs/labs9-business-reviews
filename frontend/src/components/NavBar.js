@@ -133,8 +133,8 @@ class NavBar extends React.Component {
 					</a>
 				</div>
 				<div className="nav_links">
-					<a href="/">businesses</a>
-					<a href="/">reviewers</a>
+					<a href="/#Businesses">businesses</a>
+					<a href="/#Reviewers">reviewers</a>
 					<a href="/billing">go pro ✔</a>
 				</div>
 				<div className="menu__user">
