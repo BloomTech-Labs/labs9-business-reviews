@@ -11,7 +11,7 @@ import phone from '../assets/phone.svg';
 import calendar from '../assets/calendar.svg';
 import web from '../assets/web.svg';
 
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = 'AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE';
 
 const StyledBusiness = styled.div`
   width: 100%;
@@ -248,7 +248,10 @@ class SearchResult extends React.Component {
     Axios.get(
       `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
-      .then(res => this.setState({ business: res.data.result }))
+      .then(res => {
+        console.log(res);
+        this.setState({ business: res.data.result });
+      })
       .catch(err => console.log(err));
     Axios.get(`${backendLink}/api/business/${id}/reviews`)
       .then(res => this.setState({ reviews: res.data }))
@@ -277,9 +280,8 @@ class SearchResult extends React.Component {
       .catch(err => console.log('error', err));
   };
   toggleReviewing = () => {
-		this.setState({ reviewing: !this.state.reviewing });
-	};
-
+    this.setState({ reviewing: !this.state.reviewing });
+  };
 
   render() {
     // creates a variable- imageCC- to store the Places ID for first image provided of the // // business from the Places API and then appends that ID to a string which is used for
