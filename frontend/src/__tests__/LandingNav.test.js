@@ -21,7 +21,7 @@ describe('<LandingNavComponent />', () => {
       <div className="menu__menuItems">
         <a href="#Businesses">businesses</a>
         <a href="#Reviewers">reviewers</a>
-        <a href="/subscription">go pro ✔</a>
+        <a href="/billing">go pro ✔</a>
       </div>
     )).toBe(true);
   });

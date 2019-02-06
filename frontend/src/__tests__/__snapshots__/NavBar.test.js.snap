@@ -19,19 +19,19 @@ exports[`NavBarComponent /> matches snapshot 1`] = `
     className="nav_links"
   >
     <a
-      href="/addreview"
+      href="/#Businesses"
     >
-      add a review
+      businesses
     </a>
     <a
-      href="/categories"
+      href="/#Reviewers"
     >
-      categories
+      reviewers
     </a>
     <a
-      href="/toprated"
+      href="/billing"
     >
-      top rated
+      go pro ✔
     </a>
   </div>
   <div
