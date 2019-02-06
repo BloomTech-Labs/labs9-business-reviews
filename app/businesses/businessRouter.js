@@ -6,14 +6,15 @@ const db = require('../db/dbinit');
 // P O S T
 router.post('/', (req, res, next) => {
   const business = req.body;
+  console.log(business);
   db('businesses')
     .insert(business)
     .returning('id')
     .then(id => {
-      console.log(id, res, req);
+      res.status(201).json(id);
     })
     .catch(err => {
-      console.log(err, res, req);
+      res.status(500).json(err);
     });
 });
 
