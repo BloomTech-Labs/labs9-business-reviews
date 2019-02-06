@@ -149,7 +149,7 @@ class NavBar extends React.Component {
 						</React.Fragment>
 					) : (
 						<React.Fragment>
-							<Link to={`/user/${this.state.user.id}`} className="img--link">
+							<Link to={this.state.user.id?`/user/${this.state.user.id}`: '/'} className="img--link">
 								<img
 									src={this.state.user.gravatar}
 									alt="My Profile"
