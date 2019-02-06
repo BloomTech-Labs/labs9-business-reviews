@@ -91,30 +91,43 @@ class SearchBar extends React.Component {
           rating: 0,
           website: ''
         }
-      ]
+      ],
+      inputVal: ''
     };
   }
 
   componentDidMount() {
     const input = document.querySelector('#dropdown'); /// yooooooooo
+
     const dropdown = new window.google.maps.places.Autocomplete(input);
     dropdown.addListener('place_changed', () => {
       const place = dropdown.getPlace();
       this.setState({ business: place });
     });
   }
+  handleChange = e => {
+    this.setState({ inputVal: e.target.value });
+  };
 
   render() {
     return (
       <SearchBarStyles>
         <form>
+          z
           <input
-            className='search__input'
-            id='dropdown'
-            placeholder='What are you looking for?'
+            onChange={this.handleChange}
+            className="search__input"
+            id="dropdown"
+            placeholder="What are you looking for?"
           />
-          <Link to={`/business/${this.state.business.place_id}`}>
-            <button className='button'>search</button>
+          <Link
+            to={
+              this.state.inputVal
+                ? `/business/${this.state.business.place_id}`
+                : '/'
+            }
+          >
+            <button className="button">search</button>
           </Link>
         </form>
       </SearchBarStyles>
