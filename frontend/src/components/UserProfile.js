@@ -6,8 +6,9 @@ import image from '../assets/white-waves.png';
 
 const StyledContainer = styled.div`
   width: 100%;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-image: url(${image});
   height: auto;
 `;

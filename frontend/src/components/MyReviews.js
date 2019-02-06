@@ -3,30 +3,27 @@ import styled from 'styled-components';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
+import Stars from './Stars'
 
-const Container = styled.div`
-	width: 97%;
-	h1 {
-		text-align: center;
-	}
-`;
 
 const StyledReviews = styled.div`
 	box-sizing: border-box;
-	width: 100%;
+	max-width: 1200px;
 	height: auto;
 	display: flex;
 	justify-content: space-around;
 	flex-flow: row wrap;
 	padding: 20px;
-
 	@media (max-width: 900px) {
 		width: 100%;
 	}
-
+  h1{
+    width: 100%;
+    text-align:center;
+  }
 	.review {
-		width: 22.5%;
-		height: 450px;
+		width: 30%;
+		height: auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -52,6 +49,11 @@ const StyledReviews = styled.div`
 
 		.review__img {
 			width: 100%;
+      max-height: 200px;
+      img {
+        width: 100%;
+        height: auto;
+      }
 		}
 
 		.review__title {
@@ -107,7 +109,10 @@ class MyReviews extends Component {
 			gravatar: props.gravatar,
 			clickable: null
 		};
-	}
+  }
+  handleUnclickable=()=>{
+    alert("You can only edit your own reviews");
+  }
 	async componentDidMount() {
 		const ids = this.props.id;
 		Axios.get(`${backendLink}/api/user/${ids}/reviews`)
@@ -122,35 +127,42 @@ class MyReviews extends Component {
 	}
 	render() {
 		return (
-			<Container>
-				<h1>{this.state.name}</h1>
 				<StyledReviews>
+          <h1>Reviews</h1>
 					{this.state.reviews ? (
 						this.state.reviews.map(({ title, body, business_image, business_name, id, rating }) => {
 							if (!this.state.clickable)
 								return (
-									<div key={id} className="review">
-										<img className="review__img" src={`${business_image}`} alt="business" />
-										<p>Cant click!</p>
-										<h2 className="review__title">{title}</h2>
-										<h3 className="review__business">{business_name}</h3>
+									<div onClick={this.handleUnclickable} key={id} className="review">
+										<div className="review_img">
+                      <img src={`${business_image}`} alt="business" />
+                    </div>                    
+										<h2 className="review__business">{business_name}</h2>
+										<h4 className="review__title">{title}</h4>
 										<p className="review__body">{body}</p>
-										<h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
+										<Stars
+                      rating={rating}
+                      className="business__rating--stars"
+                    />
 									</div>
 								);
 							return (
 								<Link to={`/user/review/${id}`} key={id} className="review">
-									<img className="review__img" src={`${business_image}`} alt="business" />
-									<h2 className="review__title">{title}</h2>
-									<h3 className="review__business">{business_name}</h3>
+									<div className="review_img">
+                    <img className="review__img" src={`${business_image}`} alt="business"/>
+                  </div> 
+									<h2 className="review__business">{business_name}</h2>
+									<h4 className="review__title">{title}</h4>
 									<p className="review__body">{body}</p>
-									<h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
+									<Stars
+                      rating={rating}
+                      className="business__rating--stars"
+                    />
 								</Link>
 							);
 						})
 					) : null}
 				</StyledReviews>
-			</Container>
 		);
 	}
 }
