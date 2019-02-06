@@ -183,7 +183,7 @@ class LandingNav extends React.Component {
               ) : (
                 <React.Fragment>
                   <Link
-                    to={`/user/${this.state.user.id}`}
+                    to={this.state.user.id?`/user/${this.state.user.id}`: '/'}
                     className='img--link'
                   >
                     <img
