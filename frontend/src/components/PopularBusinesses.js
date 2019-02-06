@@ -29,6 +29,7 @@ export const PopularBusinessesStyles = styled.div`
   }
   .business {
     width: 22.5%;
+    max-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
