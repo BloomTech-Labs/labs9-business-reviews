@@ -276,10 +276,10 @@ class SearchResult extends React.Component {
       })
       .catch(err => console.log('error', err));
   };
-  toggleReviewing = e => {
-    e.preventDefault();
-    this.setState({ reviewing: !this.state.reviewing });
-  };
+  toggleReviewing = () => {
+		this.setState({ reviewing: !this.state.reviewing });
+	};
+
 
   render() {
     // creates a variable- imageCC- to store the Places ID for first image provided of the // // business from the Places API and then appends that ID to a string which is used for

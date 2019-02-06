@@ -82,7 +82,6 @@ class ResetPassword extends Component {
           </form>
         </ResetPasswordDiv>
       </div>
-      
     );
   }
 }
