@@ -113,7 +113,6 @@ class SearchBar extends React.Component {
     return (
       <SearchBarStyles>
         <form>
-          z
           <input
             onChange={this.handleChange}
             className="search__input"
