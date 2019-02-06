@@ -10,10 +10,10 @@ router.post('/', (req, res, next) => {
     .insert(business)
     .returning('id')
     .then(id => {
-      res.status(201).json(id);
+      console.log(id, res, req);
     })
     .catch(err => {
-      res.status(500).json(err);
+      console.log(err, res, req);
     });
 });
 
