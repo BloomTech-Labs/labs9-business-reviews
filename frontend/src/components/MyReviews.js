@@ -3,30 +3,32 @@ import styled from 'styled-components';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
+import Stars from './Stars'
 
-const Container = styled.div`
-	width: 97%;
-	h1 {
-		text-align: center;
-	}
-`;
 
 const StyledReviews = styled.div`
 	box-sizing: border-box;
-	width: 100%;
+	width: 1200px;
 	height: auto;
 	display: flex;
 	justify-content: space-around;
 	flex-flow: row wrap;
 	padding: 20px;
-
+  border: 1px solid orange;
 	@media (max-width: 900px) {
 		width: 100%;
 	}
-
+  h1{
+    margin-top: 0;
+    width: 100%;
+    text-align:center;
+    margin-bottom: 30px;
+    font-size: 3rem;
+  }
 	.review {
-		width: 22.5%;
-		height: 450px;
+    box-sizing: border-box;
+		width: 30%;
+		height: auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -34,6 +36,7 @@ const StyledReviews = styled.div`
 		background: rgba(255, 255, 255, 0.8);
 		text-decoration: none;
 		color: black;
+    padding-bottom: 20px;
 		:hover {
 			animation: shadow 0.2s;
 			animation-fill-mode: forwards;
@@ -50,8 +53,28 @@ const StyledReviews = styled.div`
 			margin-bottom: 20px;
 		}
 
-		.review__img {
+		.review_img {
 			width: 100%;
+      max-height: 200px;
+      position: relative;
+      text-align: center;
+      color: white;
+      img {
+        width: 100%;
+        height: 200px;
+      }
+      .delete {
+        font-family: Roboto;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-weight: lighter;
+        background-color: black;
+        border: 1px solid white;
+        font-size: .2rem;
+        border-radius: 50%;
+        padding: 3px;
+      }
 		}
 
 		.review__title {
@@ -59,9 +82,12 @@ const StyledReviews = styled.div`
 			font-family: Roboto;
 		}
 		.review__business {
+      text-align: center;
+      box-sizing: border-box;
 			text-transform: uppercase;
-			font-weight: bold;
 			margin-top: 0rem;
+      width: 100%;
+      padding: 0 20px;
 		}
 
 		.review__body {
@@ -71,7 +97,7 @@ const StyledReviews = styled.div`
 			margin-top: 0rem;
 		}
 
-		.review__ratingContainer {
+		.review__rating--stars {
 			background-color: #eed974;
 			padding: 0 10px;
 			line-height: 0.8;
@@ -107,7 +133,16 @@ class MyReviews extends Component {
 			gravatar: props.gravatar,
 			clickable: null
 		};
-	}
+  }
+  handleUnclickable=()=>{
+    alert("You can only edit your own reviews");
+  }
+  handleDelete = (e)=>{
+    const id = e.target.id;
+    Axios.delete(`${backendLink}/api/review/${id}`)
+      .then(res=>console.log(res.status, res.data))
+      .catch(err=>console.log('error', err))
+  }
 	async componentDidMount() {
 		const ids = this.props.id;
 		Axios.get(`${backendLink}/api/user/${ids}/reviews`)
@@ -122,35 +157,43 @@ class MyReviews extends Component {
 	}
 	render() {
 		return (
-			<Container>
-				<h1>{this.state.name}</h1>
 				<StyledReviews>
+          <h1>Reviews</h1>
 					{this.state.reviews ? (
 						this.state.reviews.map(({ title, body, business_image, business_name, id, rating }) => {
 							if (!this.state.clickable)
 								return (
-									<div key={id} className="review">
-										<img className="review__img" src={`${business_image}`} alt="business" />
-										<p>Cant click!</p>
-										<h2 className="review__title">{title}</h2>
-										<h3 className="review__business">{business_name}</h3>
+									<div onClick={this.handleUnclickable} key={id} className="review">
+										<div className="review_img">
+                      <img src={`${business_image}`} alt="business" />
+                    </div>                    
+										<h2 className="review__business">{business_name}</h2>
+										<h4 className="review__title">{title}</h4>
 										<p className="review__body">{body}</p>
-										<h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
+										<Stars
+                      rating={rating}
+                      className="business__rating--stars"
+                    />
 									</div>
 								);
 							return (
 								<Link to={`/user/review/${id}`} key={id} className="review">
-									<img className="review__img" src={`${business_image}`} alt="business" />
-									<h2 className="review__title">{title}</h2>
-									<h3 className="review__business">{business_name}</h3>
+									<div className="review_img">
+                    <img className="review__img" src={`${business_image}`} alt="business"/>
+                    <div className="delete" id={id} onClick={this.handleDelete}>X</div>
+                  </div> 
+									<h2 className="review__business">{business_name}</h2>
+									<h4 className="review__title">{title}</h4>
 									<p className="review__body">{body}</p>
-									<h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
+									<Stars
+                      rating={rating}
+                      className="business__rating--stars"
+                    />
 								</Link>
 							);
 						})
 					) : null}
 				</StyledReviews>
-			</Container>
 		);
 	}
 }
