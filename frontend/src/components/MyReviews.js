@@ -18,9 +18,11 @@ const StyledReviews = styled.div`
 		width: 100%;
 	}
   h1{
+    margin-top: 0;
     width: 100%;
     text-align:center;
     margin-bottom: 30px;
+    font-size: 3rem;
   }
 	.review {
     box-sizing: border-box;
