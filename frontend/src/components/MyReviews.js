@@ -20,8 +20,10 @@ const StyledReviews = styled.div`
   h1{
     width: 100%;
     text-align:center;
+    margin-bottom: 30px;
   }
 	.review {
+    box-sizing: border-box;
 		width: 30%;
 		height: auto;
 		display: flex;
@@ -31,6 +33,7 @@ const StyledReviews = styled.div`
 		background: rgba(255, 255, 255, 0.8);
 		text-decoration: none;
 		color: black;
+    padding-bottom: 20px;
 		:hover {
 			animation: shadow 0.2s;
 			animation-fill-mode: forwards;
@@ -61,9 +64,12 @@ const StyledReviews = styled.div`
 			font-family: Roboto;
 		}
 		.review__business {
+      text-align: center;
+      box-sizing: border-box;
 			text-transform: uppercase;
-			font-weight: bold;
 			margin-top: 0rem;
+      width: 100%;
+      padding: 0 20px;
 		}
 
 		.review__body {
@@ -73,7 +79,7 @@ const StyledReviews = styled.div`
 			margin-top: 0rem;
 		}
 
-		.review__ratingContainer {
+		.review__rating--stars {
 			background-color: #eed974;
 			padding: 0 10px;
 			line-height: 0.8;
