@@ -141,7 +141,7 @@ class MyReviews extends Component {
   handleDelete = (e)=>{
 		const id = e.target.id;
     Axios.delete(`${backendLink}/api/review/${id}`)
-      .then(res=>console.log(res.status, res.data))
+      .then(res=>console.log(res.status))
 			.catch(err=>console.log('error', err));
 		alert('Review Deleted');
   }
