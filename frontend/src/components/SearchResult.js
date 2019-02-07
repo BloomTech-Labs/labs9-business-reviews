@@ -151,81 +151,115 @@ const StyledBusiness = styled.div`
       .reviews {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: start;
+        padding: 3px;
         margin-top: 3rem;
+        border: 1px solid orange;
+
         .review {
-          width: 25%;
-          .review__title {
-            font-family: Roboto;
-            font-style: italic;
+          display: flex;
+          flex-direction: row;
+          
+
+          .review__gravatar {
+            border: 2px solid red;
+            display: flex;
+            flex-direction: row;
+            margin-right: 2rem;
+
+            .review__gravatar--img {
+              height: 95px;
+              width: 95px;
+              border-radius: 50%;
+            }
           }
-          .review__rating {
-            margin-top: -1.3rem;
-          }
-          .review__img {
-            width: 85%;
-            height: 100px;
+
+            .review__text {
+              border: 1px solid green;
+              line-height: .8;
+              
+              .review__text--title {
+                font-family: Patua One;
+                font-style: bold;
+                font-size: 2rem;
+                text-transform: uppercase;
+              }
+
+              .review__text--body {
+                font-style: italic;
+                font-size: 1.5rem;
+              }
+
+              .review__text--rating {
+                margin-top: -1.3rem;
+              }
+            }
+
+            .review__img {
+              /* width: 85%; */
+              /* height: 100px; */
+            }
           }
         }
       }
-    }
-    .svg {
-      height: 35px;
-      width: 35px;
-      margin-right: 1.7rem;
-      @media (max-width: 900px) {
-        height: 25px;
-        width: 25px;
-        margin-right: 1.2rem;
-      }
-      @media (max-width: 600px) {
-        height: 20px;
-        width: 20px;
-        margin-right: 1rem;
-      }
-    }
-    .btn {
-      background-color: #eed974;
-      height: 40px;
-      width: 120px;
-      margin-right: 20px;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      margin-top: 1rem;
-      margin-left: 2rem;
-    }
-    .open {
-      text-transform: uppercase;
-      font-size: 1rem;
-      font-weight: bold;
-      color: limegreen;
-    }
-    .closed {
-      text-transform: uppercase;
-      font-size: 1rem;
-      font-weight: bold;
-      color: red;
-    }
-    .fullStar,
-    .halfStar,
-    .emptyStar {
-      height: 50px;
-      width: 50px;
-      @media (max-width: 900px) {
+      .svg {
         height: 35px;
         width: 35px;
+        margin-right: 1.7rem;
+        @media (max-width: 900px) {
+          height: 25px;
+          width: 25px;
+          margin-right: 1.2rem;
+        }
+        @media (max-width: 600px) {
+          height: 20px;
+          width: 20px;
+          margin-right: 1rem;
+        }
       }
-      @media (max-width: 600px) {
-        height: 20px;
-        width: 20px;
+      .btn {
+        background-color: #eed974;
+        height: 40px;
+        width: 120px;
+        margin-right: 20px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-top: 1rem;
+        margin-left: 2rem;
       }
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 10px;
-      @media (max-width: 1250px) {
-        grid-template-columns: repeat(1, 1fr);
+      .open {
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: bold;
+        color: limegreen;
+      }
+      .closed {
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: bold;
+        color: red;
+      }
+      .fullStar,
+      .halfStar,
+      .emptyStar {
+        height: 50px;
+        width: 50px;
+        @media (max-width: 900px) {
+          height: 35px;
+          width: 35px;
+        }
+        @media (max-width: 600px) {
+          height: 20px;
+          width: 20px;
+        }
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        @media (max-width: 1250px) {
+          grid-template-columns: repeat(1, 1fr);
+        }
       }
     }
   }
@@ -387,20 +421,24 @@ class SearchResult extends React.Component {
                   Add a Review
                 </button>
                 <div className='reviews'>
-                  {this.state.reviews.map(({ title, id, rating, gravatar }) => (
-                    <div key={id} className='review'>
-                      <p className='review__title'>{title}</p>
-                      <p className='review__rating'>{`${rating} stars`}</p>
-
-                      <img
-                        src={gravatar}
-                        alt='reviewed business'
-                        className='review__img'
-                      />
-                      <p className='review__title'>{title}</p>
-                      <p className='review__rating'>{`${rating} / 5`}</p>
-                    </div>
-                  ))}
+                  {this.state.reviews.map(
+                    ({ title, id, body, rating, gravatar }) => (
+                      <div key={id} className='review'>
+                        <div className='review__gravatar'>
+                          <img
+                            src={gravatar}
+                            alt='reviewed business'
+                            className='review__gravatar--img'
+                          />
+                        </div>
+                        <div className='review__text'>
+                          <p className='review__text--title'>{title}</p>
+                          <p className='review__text--body'>{body}</p>
+                          <p className='review__text--rating'>{`${rating} / 5`}</p>
+                        </div>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
