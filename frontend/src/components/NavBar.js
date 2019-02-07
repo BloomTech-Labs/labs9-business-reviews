@@ -130,38 +130,36 @@ class NavBar extends React.Component {
   render() {
     return (
       <NavBarStyles>
-        <div className="logo_container">
-          <a href="/">
-            <img src={logo} alt="logo" className="logo" />
+        <div className='logo_container'>
+          <a href='/'>
+            <img src={logo} alt='logo' className='logo' />
           </a>
         </div>
-        <div className="nav_links">
-          <a href="/addreview">add a review</a>
-          <a href="/categories">categories</a>
-          <a href="/toprated">top rated</a>
+        <div className='nav_links'>
+          <a href='/addreview'>add a review</a>
+          <a href='/categories'>categories</a>
+          <a href='/toprated'>top rated</a>
         </div>
-        <div className="menu__user">
+        <div className='menu__user'>
           {!this.state.loggedIn ? (
             <React.Fragment>
-              <Link to="/login" className="menu__user--text">
+              <Link to='/login' className='menu__user--text'>
                 sign in
               </Link>
-              <Link to="/register" className="menu__user--text">
+              <Link to='/register' className='menu__user--text'>
                 sign up
               </Link>
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <Link to={`/user/${this.state.user.id}`} className="img--link">
+              <Link to={`/user/${this.state.user.id}`} className='img--link'>
                 <img
                   src={this.state.user.gravatar}
-                  alt="My Profile"
-                  className="menu__user--profile--image"
+                  alt='My Profile'
+                  className='menu__user--profile--image'
                 />
               </Link>
-              <Link to={`/updatepassword`}>
-                <p>reset password</p>
-              </Link>
+
               <p onClick={this.handleLogout}>sign out</p>
             </React.Fragment>
           )}
