@@ -4,7 +4,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET);
 const authConfig = require('../user/authConfig');
 const userModel = require('../db/userModel/userModel');
 const sgMail = require('@sendgrid/mail');
-const logo = require('../assets/logo.png');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 function makeANiceEmail(text) {
@@ -16,7 +15,6 @@ function makeANiceEmail(text) {
   line-height:2;
   font-size:20px;
   ">
-  <img src=${logo} alt="Bonafind Logo" />
   <h2>Hello There!</h2>
   <p>${text}</p>
   </div>
