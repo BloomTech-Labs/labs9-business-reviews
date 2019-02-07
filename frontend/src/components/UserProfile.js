@@ -7,13 +7,11 @@ import image from '../assets/white-waves.png';
 
 const StyledContainer = styled.div`
   width: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   background-image: url(${image});
   height: auto;
-
   .user__password {
     display: flex;
     width: 20%;

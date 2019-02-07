@@ -7,15 +7,30 @@ import Stars from './Stars';
 
 const StyledReviews = styled.div`
 	box-sizing: border-box;
-	width: 1200px;
+	width: 100%;
 	height: auto;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	flex-flow: row wrap;
 	padding: 20px;
 	@media (max-width: 900px) {
 		width: 100%;
 	}
+  .password-container {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    .reset-password {
+      font-weight: bold;
+      font-family: Roboto;
+      text-align: left;
+      text-decoration: none;
+      color: black;
+      border-bottom: 1px solid black;
+      margin-bottom: 30px;
+    }
+  }
+  
 	h1 {
 		margin-top: 0;
 		width: 100%;
@@ -159,8 +174,8 @@ class MyReviews extends Component {
 	}
 	render() {
 		return (
-			<StyledReviews>
-        {this.state.clickable?<Link to="/updatepassword" className="reset-password">Reset Password</Link>:null}
+			<StyledReviews>        
+        {this.state.clickable?<div className="password-container"><Link to="/updatepassword" className="reset-password">RESET PASSWORD</Link></div>:null}
 				<h1>My reviews</h1>
 				{this.state.reviews ? (
 					this.state.reviews.map(
