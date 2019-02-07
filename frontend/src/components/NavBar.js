@@ -137,8 +137,8 @@ class NavBar extends React.Component {
         </div>
         <div className='nav_links'>
           <a href="/#Businesses">businesses</a>
-					<a href="/#Reviewers">reviewers</a>
-					<a href="/billing">go pro ✔</a>
+	  <a href="/#Reviewers">reviewers</a>
+	  <a href="/billing">go pro ✔</a>
         </div>
         <div className='menu__user'>
           {!this.state.loggedIn ? (
