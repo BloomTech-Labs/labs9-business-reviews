@@ -4,7 +4,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET);
 const authConfig = require('../user/authConfig');
 const userModel = require('../db/userModel/userModel');
 const sgMail = require('@sendgrid/mail');
-const logo = require('../assets/logo.png');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 function makeANiceEmail(text) {
@@ -16,7 +15,6 @@ function makeANiceEmail(text) {
   line-height:2;
   font-size:20px;
   ">
-  <img src=${logo} alt="Bonafind Logo" />
   <h2>Hello There!</h2>
   <p>${text}</p>
   </div>
@@ -26,13 +24,12 @@ function makeANiceEmail(text) {
 router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
   const { token } = req.query;
-  const response = await stripe.charges
-    .create({
-      amount: 999,
-      source: token,
-      currency: 'usd',
-      description: 'Yearly Subscription Charge'
-    });
+  const response = await stripe.charges.create({
+    amount: 999,
+    source: token,
+    currency: 'usd',
+    description: 'Yearly Subscription Charge'
+  });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30 * 12;
   await userModel.updateUser(user.id, user);
   const msg = {
@@ -56,13 +53,12 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
 router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
   const { token } = req.query;
-  const response = await stripe.charges
-    .create({
-      amount: 99,
-      source: token,
-      currency: 'usd',
-      description: 'Monthly Subscription Charge'
-    });
+  const response = await stripe.charges.create({
+    amount: 99,
+    source: token,
+    currency: 'usd',
+    description: 'Monthly Subscription Charge'
+  });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30;
   await userModel.updateUser(user.id, user);
   const msg = {

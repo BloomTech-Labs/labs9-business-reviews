@@ -24,6 +24,7 @@ const StyledReviews = styled.div`
     font-size: 3rem;
   }
   .review {
+    margin: 0 2rem;
     box-sizing: border-box;
     width: 30%;
     height: auto;
@@ -142,15 +143,15 @@ class MyReviews extends Component {
   handleDelete = e => {
     const id = e.target.id;
     Axios.delete(`${backendLink}/api/review/${id}`)
-      .then(res=>console.log(res.status))
-			.catch(err=>console.log(err));
-		alert('Review Deleted');
-  }
-	async componentDidMount() {
-		const ids = this.props.id;
-		Axios.get(`${backendLink}/api/user/${ids}/reviews`)
-			.then((res) => this.setState({ reviews: res.data }))
-			.catch((err) => console.log(err));
+      .then(res => console.log(res.status))
+      .catch(err => console.log(err));
+    alert('Review Deleted');
+  };
+  async componentDidMount() {
+    const ids = this.props.id;
+    Axios.get(`${backendLink}/api/user/${ids}/reviews`)
+      .then(res => this.setState({ reviews: res.data }))
+      .catch(err => console.log(err));
 
     const {
       data: {
