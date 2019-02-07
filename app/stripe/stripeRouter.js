@@ -25,18 +25,12 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
   const { token } = req.query;
   const email = token.email;
-  const response = await stripe.customers
+  const response = await stripe.charges
     .create({
-      email: email,
-      source: token
-    })
-    .then(customer => {
-      stripe.charges.create({
-        amount: 999,
-        description: 'Yearly Subscription Charge',
-        currency: 'usd',
-        customer: customer.id
-      });
+      amount: 999,
+      source: token,
+      currency: 'usd',
+      description: 'Yearly Subscription Charge'
     });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30 * 12;
   await userModel.updateUser(user.id, user);
