@@ -20,7 +20,7 @@ const ModalStyles = styled.div`
     justify-content: center;
     width: 50%;
     height: 500px;
-    padding: 10px;
+    padding: 3rem;
     background-color: white;
     @media (max-width: 900px) {
       width: 75%;
@@ -67,13 +67,16 @@ const ModalStyles = styled.div`
         @media (max-width: 500px) {
           width: 40%;
         }
-        .review__modal--buttons--btn {
-          background-color: #eed974;
+
+        .link {
+          border: 1px solid black;
           height: 40px;
-          max-width: 50%;
-          margin-right: 20px;
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          width: 100px;
+          font-family: Roboto;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin-right: 1rem;
+          margin-top: -0.5rem;
         }
       }
     }
@@ -83,6 +86,7 @@ const ModalStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 40px;
     @media (max-width: 500px) {
       width: 100%;
     }
@@ -143,17 +147,18 @@ class AddReviewModal extends React.Component {
             <h1>{this.props.businessName}</h1>
             <h3>Add a Review</h3>
             <form className='review__modal--form' onSubmit={this.handleSubmit}>
-              <label htmlFor='review-title'>Title</label>
               <input
                 onChange={this.changeHandler}
                 name='title'
+                placeholder='Title'
                 value={this.state.title}
                 className='review__modal--form--field--title'
               />
-              <label htmlFor='review-body'>Your review</label>
+
               <textarea
                 onChange={this.changeHandler}
                 name='body'
+                placeholder='What did you think?'
                 value={this.state.body}
                 className='review__modal--form--field--review'
               />
@@ -172,16 +177,10 @@ class AddReviewModal extends React.Component {
                   <option defaultValue='5'>5</option>
                 </select>
                 <div className='review__modal--buttons'>
-                  <button
-                    className='review__modal--buttons--btn'
-                    onClick={this.handleSubmit}
-                  >
+                  <button className='link' onClick={this.handleSubmit}>
                     Submit Review
                   </button>
-                  <button
-                    className='review__modal--buttons--btn'
-                    onClick={this.props.toggleReviewing}
-                  >
+                  <button className='link' onClick={this.props.toggleReviewing}>
                     Cancel
                   </button>
                 </div>

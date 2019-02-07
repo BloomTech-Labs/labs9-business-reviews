@@ -8,11 +8,12 @@ import GatedSignIn from './GatedSignInComponent';
 const UpdatePasswordDiv = styled.div`
   margin: 0 auto;
   width: 600px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+
   .image-container {
     height: 200px;
-    background-image: url('https://i.imgur.com/81RTZEw.png');
-    background-size: cover;
-    clip-path: polygon(0 0, 1600px 0, 1600px 67%, 0 100%);
     width: 100%;
     h1 {
       font-weight: 100;
@@ -22,38 +23,38 @@ const UpdatePasswordDiv = styled.div`
     }
   }
 
+  .header {
+    margin-bottom: 4rem;
+  }
+
+  .link {
+    border: 1px solid black;
+    height: 40px;
+    width: 100px;
+    font-family: Roboto;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 1rem;
+    margin-top: -0.5rem;
+  }
+
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    label {
-      text-align: center;
-      margin: 10px 0px;
-    }
-    input[type='text'] {
+
+    input[type='password'] {
       width: 90%;
       padding: 5px;
       align-self: center;
       border: none;
-
-      border-bottom: 1px dashed #83a4c5;
-      transition: all 0.3s;
-      &:focus {
-        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.3);
-      }
+      font-size: 2rem;
+      border-bottom: 1px solid black;
+      margin-bottom: 2rem;
     }
     input[type='submit'] {
-      margin: 20px auto;
-      padding: 10px;
       width: 30%;
-      transition: all 0.3s;
       cursor: pointer;
-      box-shadow: 0 2px #0e83cd;
-      background-color: #0e83cd;
-      &:hover {
-        background: white;
-        box-shadow: 0 2px black;
-      }
     }
   }
 `;
@@ -95,25 +96,25 @@ class UpdatePassword extends Component {
       <GatedSignIn>
         <NavBar />
         <UpdatePasswordDiv>
-          <div className="image-container">
-            <h1> Hey {this.state.user.name} wanna reset your password?</h1>
+          <div className='header'>
+            <h1>Reset password for {this.state.user.name}</h1>
           </div>
           <form onSubmit={this.handleSubmit}>
             <label>Password</label>
             <input
-              type="text"
+              type='password'
               value={this.state.password}
               onChange={this.handleChange}
-              name="password"
+              name='password'
             />
             <label>Confirm Password</label>
             <input
-              type="text"
+              type='password'
               value={this.state.confirm_password}
               onChange={this.handleChange}
-              name="confirm_password"
+              name='confirm_password'
             />
-            <input type="submit" value="update password" />
+            <input className='link' type='submit' value='update password' />
           </form>
         </UpdatePasswordDiv>
       </GatedSignIn>
