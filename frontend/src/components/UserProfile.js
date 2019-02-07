@@ -37,11 +37,6 @@ class UserProfile extends React.Component {
       <div>
         <NavBar />
         <StyledContainer>
-          <div className='user__password'>
-            <Link className='user__password--link' to={`/updatepassword`}>
-              <p>reset password</p>
-            </Link>
-          </div>
           <MyReviews className='header' {...this.props} id={id} />
         </StyledContainer>
       </div>
