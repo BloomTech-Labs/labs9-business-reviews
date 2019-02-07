@@ -376,7 +376,7 @@ class SearchResult extends React.Component {
                     rel='noopener noreferrer'
                     href={this.state.business.website}
                   >
-                    {this.state.business.website}
+                    Website
                   </a>
                 </div>
               </div>
