@@ -7,7 +7,8 @@ import GatedSignIn from './GatedSignInComponent';
 
 const UpdatePasswordDiv = styled.div`
   margin: 0 auto;
-  width: 600px;
+  max-width: 600px;
+  margin-bottom: 100px;
   // display: flex;
   // flex-direction: column;
   // justify-content: center;
@@ -28,7 +29,10 @@ const UpdatePasswordDiv = styled.div`
   }
 
   .link {
-    border: 1px solid black;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid black;
     height: 40px;
     width: 100px;
     font-family: Roboto;

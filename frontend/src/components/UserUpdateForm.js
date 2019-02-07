@@ -10,7 +10,6 @@ const FormDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   img {
     width: 200px;
     border-radius: 50%;
