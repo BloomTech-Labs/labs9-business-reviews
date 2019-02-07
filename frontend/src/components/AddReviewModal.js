@@ -104,7 +104,6 @@ class AddReviewModal extends React.Component {
   }
   handleSubmit = e => {
     e.preventDefault();
-    console.log('image url yo', this.props.imageURL);
     Axios.post(
       `${backendLink}/api/review`,
       {

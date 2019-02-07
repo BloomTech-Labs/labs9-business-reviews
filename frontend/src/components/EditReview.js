@@ -148,16 +148,15 @@ export default class extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		const { reviewId } = this.props.match.params;
-		console.log(`${backendLink}/api/review/${reviewId}`);
 		Axios.put(`${backendLink}/api/review/${reviewId}`, this.state, {
 			withCredentials: 'include'
 		})
 			.then((res) => {
-				console.log('Success!', res);
+				console.log(res.status);
 				if (res.data.message) return alert(res.data.message);
 				this.props.history.goBack();
 			})
-			.catch((err) => console.log('error', err));
+			.catch((err) => console.log(err));
 	};
 	componentDidMount() {
 		const { reviewId } = this.props.match.params;

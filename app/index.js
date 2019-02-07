@@ -37,7 +37,6 @@ require('./user/passport');
 
 // R O O T  R O U T E
 server.get('/', (req, res) => {
-  console.log('node environment', process.env.NODE_ENV);
   res.status(200).json({ api: 'API root' });
 });
 

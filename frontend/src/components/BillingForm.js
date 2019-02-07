@@ -62,7 +62,6 @@ class BillingForm extends React.Component {
       try {
         alert('we sent you a email thanks for subscribing!');
       } catch (err) {
-        console.log(err);
         alert('payment did not succeed');
       }
     } else return null;
