@@ -69,7 +69,7 @@ const ModalStyles = styled.div`
         }
 
         .link {
-          border: 1px solid black;
+          border-bottom: 1px solid black;
           height: 40px;
           width: 100px;
           font-family: Roboto;
