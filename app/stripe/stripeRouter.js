@@ -41,7 +41,12 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
     subject: 'Bonafind Billing',
     text: 'Sent from labs 9 Business Review',
     html: makeANiceEmail(
-      `This email is notifying you that you're getting a 1 year subscription to our site`
+      `Congratulations! You are now signed up for a year long subscription to Bonafind!
+      
+      Thanks For your support!
+
+      - Team Bonafind
+      `
     )
   };
   await sgMail.send(msg);
@@ -66,7 +71,12 @@ router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
     subject: 'Bonafind Billing',
     text: 'Sent from labs 9 Business Review',
     html: makeANiceEmail(
-      `This email is notifying you that you're getting a 1 month subscription to our site`
+      `Congratulations! You are now signed up for a month long subscription to Bonafind!
+      
+      Thanks For your support!
+
+      - Team Bonafind
+      `
     )
   };
   await sgMail.send(msg);
