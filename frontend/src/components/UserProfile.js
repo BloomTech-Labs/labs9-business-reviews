@@ -7,13 +7,11 @@ import image from '../assets/white-waves.png';
 
 const StyledContainer = styled.div`
   width: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   background-image: url(${image});
   height: auto;
-
   .user__password {
     display: flex;
     width: 20%;
@@ -37,11 +35,6 @@ class UserProfile extends React.Component {
       <div>
         <NavBar />
         <StyledContainer>
-          <div className='user__password'>
-            <Link className='user__password--link' to={`/updatepassword`}>
-              <p>reset password</p>
-            </Link>
-          </div>
           <MyReviews className='header' {...this.props} id={id} />
         </StyledContainer>
       </div>

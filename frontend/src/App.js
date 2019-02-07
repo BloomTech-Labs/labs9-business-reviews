@@ -7,7 +7,6 @@ import Login from './components/Login';
 import Footer from './components/Footer';
 import SearchResult from './components/SearchResult';
 import UpdateUser from './components/UpdateUser';
-import ResetPassword from './components/ResetPassword';
 import UpdatePassword from './components/UpdatePassword';
 import UserProfile from './components/UserProfile';
 import RegisterForm from './components/RegisterForm';
