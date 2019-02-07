@@ -80,8 +80,6 @@ const StyledBusiness = styled.div`
         font-size: 2rem;
         margin-top: 0;
       }
-      .business__rating--stars {
-      }
       .business__rating--number {
         margin-left: 2rem;
       }
@@ -148,27 +146,62 @@ const StyledBusiness = styled.div`
         font-family: 'Patua One';
         width: 50%;
       }
+
       .reviews {
         width: 100%;
         display: flex;
-        justify-content: space-around;
-        margin-top: 3rem;
+        justify-content: start;
+        padding: 3px;
+        margin-top: 5rem;
+
         .review {
-          width: 25%;
-          .review__title {
-            font-family: Roboto;
-            font-style: italic;
+          display: flex;
+          flex-direction: row;
+          margin: 1rem 0;
+
+          .review__gravatar {
+            display: flex;
+            flex-direction: row;
+            margin-right: 2rem;
+
+            .review__gravatar--img {
+              height: 95px;
+              width: 95px;
+              border-radius: 50%;
+            }
           }
-          .review__rating {
-            margin-top: -1.3rem;
+
+          .review__text {
+            line-height: 0.8;
+
+            .review__text--title {
+              font-family: Patua One;
+              font-style: bold;
+              font-size: 1.8rem;
+              text-transform: uppercase;
+            }
+
+            .review__text--body {
+              font-style: italic;
+              font-size: 1.5rem;
+            }
+
+            .review__text--rating {
+              margin-top: -1.3rem;
+            }
           }
-          .review__img {
-            width: 85%;
-            height: 100px;
+
+          // reviewer stars
+          .emptyStar,
+          .halfStar,
+          .fullStar {
+            height: 1.5rem;
+            width: 1.5rem;
           }
         }
       }
     }
+
     .svg {
       height: 35px;
       width: 35px;
@@ -248,9 +281,7 @@ class SearchResult extends React.Component {
     Axios.get(
       `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
-      .then(res => {
-        this.setState({ business: res.data.result });
-      })
+      .then(res => this.setState({ business: res.data.result }))
       .catch(err => console.log(err));
     Axios.get(`${backendLink}/api/business/${id}/reviews`)
       .then(res => this.setState({ reviews: res.data }))
@@ -303,9 +334,9 @@ class SearchResult extends React.Component {
         this.state.business.opening_hours !== undefined
       ) {
         if (this.state.business.opening_hours.open_now === true) {
-          isOpen = <span className="open">Open</span>;
+          isOpen = <span className='open'>Open</span>;
         } else {
-          isOpen = <span className="closed">Closed</span>;
+          isOpen = <span className='closed'>Closed</span>;
         }
       }
 
@@ -332,50 +363,50 @@ class SearchResult extends React.Component {
         <div>
           <NavBar />
           <StyledBusiness>
-            <div className="card">
-              <div className="image__container">
+            <div className='card'>
+              <div className='image__container'>
                 <img
-                  className="image__container--img"
+                  className='image__container--img'
                   src={imageURL}
-                  alt="Business"
+                  alt='Business'
                 />
               </div>
-              <h1 className="business__name">{this.state.business.name}</h1>
-              <div className="business__rating">
+              <h1 className='business__name'>{this.state.business.name}</h1>
+              <div className='business__rating'>
                 {/* passes the rating from state to the Stars component and, in turn, displays the rating in star SVGs */}
                 <Stars
                   rating={this.state.business.rating}
-                  className="business__rating--stars"
+                  className='business__rating--stars'
                 />
-                <p className="business__rating--number">
+                <p className='business__rating--number'>
                   {this.state.business.rating}
                 </p>
               </div>
-              <div className="grid">
-                <div className="business__details--address">
-                  <img className="svg" src={map} alt="map" />
+              <div className='grid'>
+                <div className='business__details--address'>
+                  <img className='svg' src={map} alt='map' />
                   {this.state.business.formatted_address}
                 </div>
-                <div className="business__details--phone">
-                  <img className="svg" src={phone} alt="phone" />
+                <div className='business__details--phone'>
+                  <img className='svg' src={phone} alt='phone' />
                   {this.state.business.formatted_phone_number}
                 </div>
-                <div className="business__details--hours">
-                  <img className="svg" src={calendar} alt="calendar" />
-                  <div className="business__details--hours--week">
-                    <p className="business__details--currently">{isOpen}</p>
+                <div className='business__details--hours'>
+                  <img className='svg' src={calendar} alt='calendar' />
+                  <div className='business__details--hours--week'>
+                    <p className='business__details--currently'>{isOpen}</p>
                     {/* this will map out the hours for each day  */}
                     {hours.map(hour => {
                       return <div key={hour}>{hour}</div>;
                     })}
                   </div>
                 </div>
-                <div className="business__details--website">
-                  <img className="svg" src={web} alt="web" />
+                <div className='business__details--website'>
+                  <img className='svg' src={web} alt='web' />
                   <a
-                    className="business__website--text"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    className='business__website--text'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     href={this.state.business.website}
                   >
                     Website
@@ -383,26 +414,30 @@ class SearchResult extends React.Component {
                 </div>
               </div>
               {/* other users' reviews */}
-              <div className="review-container">
-                <h1 className="reviews__header">Reviews</h1>
-                <button className="btn" onClick={this.toggleReviewing}>
+              <div className='review-container'>
+                <h1 className='reviews__header'>Reviews</h1>
+                <button className='btn' onClick={this.toggleReviewing}>
                   Add a Review
                 </button>
-                <div className="reviews">
-                  {this.state.reviews.map(({ title, id, rating, gravatar }) => (
-                    <div key={id} className="review">
-                      <p className="review__title">{title}</p>
-                      <p className="review__rating">{`${rating} stars`}</p>
-
-                      <img
-                        src={gravatar}
-                        alt="reviewed business"
-                        className="review__img"
-                      />
-                      <p className="review__title">{title}</p>
-                      <p className="review__rating">{`${rating} / 5`}</p>
-                    </div>
-                  ))}
+                <div className='reviews'>
+                  {this.state.reviews.map(
+                    ({ title, id, body, rating, gravatar }) => (
+                      <div key={id} className='review'>
+                        <div className='review__gravatar'>
+                          <img
+                            src={gravatar}
+                            alt='reviewed business'
+                            className='review__gravatar--img'
+                          />
+                        </div>
+                        <div className='review__text'>
+                          <p className='review__text--title'>{title}</p>
+                          <p className='review__text--body'>{body}</p>
+                          <Stars rating={rating} className='review__stars' />
+                        </div>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
