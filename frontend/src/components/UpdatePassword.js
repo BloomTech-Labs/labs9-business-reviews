@@ -3,6 +3,7 @@ import axios from 'axios';
 import { backendLink } from '../assets/config';
 import styled from 'styled-components';
 import NavBar from './NavBar';
+import GatedSignIn from './GatedSignInComponent';
 
 const UpdatePasswordDiv = styled.div`
   margin: 0 auto;
@@ -64,12 +65,12 @@ class UpdatePassword extends Component {
     user: {}
   };
   async componentDidMount() {
-    const res = await axios.get(
-      `${backendLink}/api/user/tokenuser/${this.props.match.params.id}`,
-      { withCredentials: 'include' }
-    );
+    const res = await axios.get(`${backendLink}/api/user/me`, {
+      withCredentials: 'include'
+    });
     if (!res.data.user) return this.props.history.push('/resetpassword');
-    this.setState({ user: res.data.user });
+    const [user] = res.data.user;
+    this.setState({ user });
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -80,7 +81,7 @@ class UpdatePassword extends Component {
       return alert('passwords must match');
     try {
       const res = await axios.put(
-        `${backendLink}/api/user/updatepassword/${this.props.match.params.id}`,
+        `${backendLink}/api/user/updatepassword/${this.state.user.id}`,
         { password: this.state.password },
         { withCredentials: 'include' }
       );
@@ -91,8 +92,8 @@ class UpdatePassword extends Component {
   };
   render() {
     return (
-      <div>
-        <NavBar/>
+      <GatedSignIn>
+        <NavBar />
         <UpdatePasswordDiv>
           <div className="image-container">
             <h1> Hey {this.state.user.name} wanna reset your password?</h1>
@@ -115,8 +116,7 @@ class UpdatePassword extends Component {
             <input type="submit" value="update password" />
           </form>
         </UpdatePasswordDiv>
-      </div>
-      
+      </GatedSignIn>
     );
   }
 }

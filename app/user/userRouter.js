@@ -107,8 +107,8 @@ router.get('/tokenuser/:token', async (req, res) => {
   res.json({ user });
 });
 
-router.put('/updatepassword/:token', async (req, res) => {
-  const [user] = await userModel.getByResetToken(req.params.token);
+router.put('/updatepassword/:id', async (req, res) => {
+  const [user] = await userModel.getUserById(req.params.id);
   const hash = bcrypt.hashSync(req.body.password, 3);
   user.password = hash;
   user.reset_token = null;
