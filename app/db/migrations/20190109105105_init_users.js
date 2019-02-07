@@ -5,8 +5,8 @@ exports.up = function(knex, Promise) {
     user.string('email').unique();
     user.string('password').notNullable();
     user.date('subscription');
-    user.string('reset_token');
-    user.string('gravatar');
+    user.string('reset_token', 1000);
+    user.string('gravatar', 1000);
   });
 };
 

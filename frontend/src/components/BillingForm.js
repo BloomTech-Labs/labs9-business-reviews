@@ -76,8 +76,8 @@ class BillingForm extends React.Component {
             <h1>Bonafind Subscription</h1>
             <p>
               Here you can choose between a monthly or yearly subscription.
-              Without a subscription, you can create 3 reviews. But
-              with a subscription you can write as many reviews as you like!
+              Without a subscription, you can create 3 reviews. But with a
+              subscription you can write as many reviews as you like!
             </p>
             <form className="radio-form">
               <input
@@ -99,7 +99,7 @@ class BillingForm extends React.Component {
               amount={this.state.amount}
               name="Bonafind"
               description="Purchase Subscription"
-              stripeKey="pk_test_HN5T9K7E0yy6A9fZEqv62psB"
+              stripeKey="pk_test_YRDXagNKMjZOXlX2ULVNUWbT"
               currency="USD"
               token={res => this.onToken(res)}
             >

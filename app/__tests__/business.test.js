@@ -37,11 +37,6 @@ describe('GET BY ID test', () => {
       .where({ id: business.id })
       .del();
   });
-
-  test('should be returning a defined business object', async () => {
-    const response = await request(server).get(`/api/business/${business.id}}`);
-    expect(response.body).toBeDefined();
-  });
 });
 
 describe('POST business test', () => {
@@ -85,7 +80,7 @@ describe('PUT test', async () => {
     name: 'doughnuts',
     rating: 2,
     image: 'store.jpg',
-    id: Math.floor(Math.random() * 1000)
+    id: (Math.floor(Math.random() * 1000)).toString()
   };
 
   const updatedBusiness = {

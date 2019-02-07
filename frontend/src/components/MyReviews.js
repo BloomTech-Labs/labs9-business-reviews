@@ -3,174 +3,199 @@ import styled from 'styled-components';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import { backendLink } from '../assets/config';
-import PlaceHolderReviews from './PlaceHolderReviews';
+import Stars from './Stars'
 
-const Container = styled.div`
-  width: 97%;
-  h1 {
-    text-align: center;
-  }
-`;
 
 const StyledReviews = styled.div`
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
-  padding: 20px;
-
-  @media (max-width: 900px) {
+	box-sizing: border-box;
+	width: 1200px;
+	height: auto;
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap;
+	padding: 20px;
+  border: 1px solid orange;
+	@media (max-width: 900px) {
+		width: 100%;
+	}
+  h1{
+    margin-top: 0;
     width: 100%;
+    text-align:center;
+    margin-bottom: 30px;
+    font-size: 3rem;
   }
+	.review {
+    box-sizing: border-box;
+		width: 30%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		background: rgba(255, 255, 255, 0.8);
+		text-decoration: none;
+		color: black;
+    padding-bottom: 20px;
+		:hover {
+			animation: shadow 0.2s;
+			animation-fill-mode: forwards;
+		}
 
-  .review {
-    width: 22.5%;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    color: black;
-    :hover {
-      animation: shadow 0.2s;
-      animation-fill-mode: forwards;
-    }
+		@media (max-width: 900px) {
+			width: 45%;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+		@media (max-width: 500px) {
+			width: 90%;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
 
-    @media (max-width: 900px) {
-      width: 45%;
-      margin: 0 auto;
-      margin-bottom: 20px;
-    }
-    @media (max-width: 500px) {
-      width: 90%;
-      margin: 0 auto;
-      margin-bottom: 20px;
-    }
-
-    .review__img {
-      width: 100%;
-    }
-
-    .review__title {
-      font-size: 1.4rem;
-      font-family: Roboto;
-    }
-    .review__business {
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-top: 0rem;
-    }
-
-    .review__body {
-      font-family: Roboto;
-      font-style: italic;
-      padding: 0 20px;
-      margin-top: 0rem;
-    }
-
-    .review__ratingContainer {
-      background-color: #eed974;
-      padding: 0 10px;
-      line-height: 0.8;
-    }
-
-    p {
-      height: auto;
-    }
-    h4 {
-      width: 100%;
-      height: auto;
+		.review_img {
+			width: 100%;
+      max-height: 200px;
+      position: relative;
       text-align: center;
-    }
-  }
+      color: white;
+      img {
+        width: 100%;
+        height: 200px;
+      }
+      .delete {
+        font-family: Roboto;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-weight: lighter;
+        background-color: black;
+        border: 1px solid white;
+        font-size: .2rem;
+        border-radius: 50%;
+        padding: 3px;
+      }
+		}
 
-  @keyframes shadow {
-    0% {
-      box-shadow: none;
-    }
-    100% {
-      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.15);
-      transform: translateY(-2px);
-    }
-  }
+		.review__title {
+			font-size: 1.4rem;
+			font-family: Roboto;
+		}
+		.review__business {
+      text-align: center;
+      box-sizing: border-box;
+			text-transform: uppercase;
+			margin-top: 0rem;
+      width: 100%;
+      padding: 0 20px;
+		}
+
+		.review__body {
+			font-family: Roboto;
+			font-style: italic;
+			padding: 0 20px;
+			margin-top: 0rem;
+		}
+
+		.review__rating--stars {
+			background-color: #eed974;
+			padding: 0 10px;
+			line-height: 0.8;
+		}
+
+		p {
+			height: auto;
+		}
+		h4 {
+			width: 100%;
+			height: auto;
+			text-align: center;
+		}
+	}
+
+	@keyframes shadow {
+		0% {
+			box-shadow: none;
+		}
+		100% {
+			box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+			transform: translateY(-2px);
+		}
+	}
 `;
 
 class MyReviews extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reviews: [],
-      name: props.name,
-      gravatar: props.gravatar,
-      clickable: null
-    };
+	constructor(props) {
+		super(props);
+		this.state = {
+			reviews: [],
+			name: props.name,
+			gravatar: props.gravatar,
+			clickable: null
+		};
   }
-  async componentDidMount() {
-    const ids = this.props.id;
-    Axios.get(`${backendLink}/api/user/${ids}/reviews`)
-      .then(res => this.setState({ reviews: res.data }))
-      .catch(err => console.log(err));
+  handleUnclickable=()=>{
+    alert("You can only edit your own reviews");
+  }
+  handleDelete = (e)=>{
+    const id = e.target.id;
+    Axios.delete(`${backendLink}/api/review/${id}`)
+      .then(res=>console.log(res.status, res.data))
+      .catch(err=>console.log('error', err))
+  }
+	async componentDidMount() {
+		const ids = this.props.id;
+		Axios.get(`${backendLink}/api/user/${ids}/reviews`)
+			.then((res) => this.setState({ reviews: res.data }))
+			.catch((err) => console.log(err));
 
-    const {
-      data: {
-        user: [{ id }]
-      }
-    } = await Axios.get(`${backendLink}/api/user/me`, {
-      withCredentials: 'include'
-    });
-    if (!id) return this.setState({ clickable: false });
-    this.setState({ clickable: id === Number(ids) });
-  }
-  render() {
-    return (
-      <Container>
-        <h1>{this.state.name}</h1>
-        <StyledReviews>
-          {this.state.reviews ? (
-            this.state.reviews.map(
-              ({ title, body, business_image, business_name, id, rating }) => {
-                if (!this.state.clickable)
-                  return (
-                    <div key={id} className="review">
-                      <img
-                        className="review__img"
-                        src={`${business_image}`}
-                        alt="business"
-                      />
-                      <p>Cant click!</p>
-                      <h2 className="review__title">{title}</h2>
-                      <h3 className="review__business">{business_name}</h3>
-                      <p className="review__body">{body}</p>
-                      <h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
-                    </div>
-                  );
-                return (
-                  <Link to={`/user/review/${id}`} key={id} className="review">
-                    <img
-                      className="review__img"
-                      src={`${business_image}`}
-                      alt="business"
+		const { data: { user: [ { id } ] } } = await Axios.get(`${backendLink}/api/user/me`, {
+			withCredentials: 'include'
+		});
+		if (!id) return this.setState({ clickable: false });
+		this.setState({ clickable: id === Number(ids) });
+	}
+	render() {
+		return (
+				<StyledReviews>
+          <h1>Reviews</h1>
+					{this.state.reviews ? (
+						this.state.reviews.map(({ title, body, business_image, business_name, id, rating }) => {
+							if (!this.state.clickable)
+								return (
+									<div onClick={this.handleUnclickable} key={id} className="review">
+										<div className="review_img">
+                      <img src={`${business_image}`} alt="business" />
+                    </div>                    
+										<h2 className="review__business">{business_name}</h2>
+										<h4 className="review__title">{title}</h4>
+										<p className="review__body">{body}</p>
+										<Stars
+                      rating={rating}
+                      className="business__rating--stars"
                     />
-                    <h2 className="review__title">{title}</h2>
-                    <h3 className="review__business">{business_name}</h3>
-                    <p className="review__body">{body}</p>
-                    <h1 className="review__ratingContainer--rating">{`${rating} stars`}</h1>
-                  </Link>
-                );
-              }
-            )
-          ) : (
-            <PlaceHolderReviews />
-          )}
-        </StyledReviews>
-      </Container>
-    );
-  }
+									</div>
+								);
+							return (
+								<Link to={`/user/review/${id}`} key={id} className="review">
+									<div className="review_img">
+                    <img className="review__img" src={`${business_image}`} alt="business"/>
+                    <div className="delete" id={id} onClick={this.handleDelete}>X</div>
+                  </div> 
+									<h2 className="review__business">{business_name}</h2>
+									<h4 className="review__title">{title}</h4>
+									<p className="review__body">{body}</p>
+									<Stars
+                      rating={rating}
+                      className="business__rating--stars"
+                    />
+								</Link>
+							);
+						})
+					) : null}
+				</StyledReviews>
+		);
+	}
 }
 
 export default MyReviews;

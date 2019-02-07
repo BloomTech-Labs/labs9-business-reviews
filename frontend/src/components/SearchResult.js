@@ -11,7 +11,7 @@ import phone from '../assets/phone.svg';
 import calendar from '../assets/calendar.svg';
 import web from '../assets/web.svg';
 
-const API_KEY = 'AIzaSyCgxie-2MKM8N9ibIvYVGzuzvVSaXDonrE';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const StyledBusiness = styled.div`
   width: 100%;
@@ -249,7 +249,6 @@ class SearchResult extends React.Component {
       `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
       .then(res => {
-        console.log(res);
         this.setState({ business: res.data.result });
       })
       .catch(err => console.log(err));
@@ -294,8 +293,6 @@ class SearchResult extends React.Component {
       photos.map(photo => references.push(photo.photo_reference));
       imageCC = references[0];
       imageURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`;
-    } else {
-      return null;
     }
     // creates a boolean variable- isOpen- that determines if the business is open
     let isOpen;
@@ -381,7 +378,7 @@ class SearchResult extends React.Component {
                     rel="noopener noreferrer"
                     href={this.state.business.website}
                   >
-                    {this.state.business.website}
+                    Website
                   </a>
                 </div>
               </div>
@@ -392,22 +389,20 @@ class SearchResult extends React.Component {
                   Add a Review
                 </button>
                 <div className="reviews">
-                  {this.state.reviews.map(
-                    ({ title, business_image, id, rating }) => (
-                      <div key={id} className="review">
-                        <p className="review__title">{title}</p>
-                        <p className="review__rating">{`${rating} stars`}</p>
+                  {this.state.reviews.map(({ title, id, rating, gravatar }) => (
+                    <div key={id} className="review">
+                      <p className="review__title">{title}</p>
+                      <p className="review__rating">{`${rating} stars`}</p>
 
-                        <img
-                          src={business_image}
-                          alt="reviewed business"
-                          className="review__img"
-                        />
-                        <p className="review__title">{title}</p>
-                        <p className="review__rating">{`${rating} / 5`}</p>
-                      </div>
-                    )
-                  )}
+                      <img
+                        src={gravatar}
+                        alt="reviewed business"
+                        className="review__img"
+                      />
+                      <p className="review__title">{title}</p>
+                      <p className="review__rating">{`${rating} / 5`}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -52,6 +52,12 @@ export const PopularBusinessesStyles = styled.div`
 
     .business__img--image {
       width: 100%;
+      max-height: 200px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
 
     .business__text--name {
@@ -102,7 +108,7 @@ class PopularBusinesses extends Component {
           .sort((a, b) =>
             a.rating < b.rating ? 1 : b.rating < a.rating ? -1 : 0
           )
-          .slice(0, 4);
+          .slice(0, 8);
         //sets sorted array to this.state.businesses
         this.setState(() => ({ businesses: sortedAndSliced }));
       })
@@ -118,11 +124,12 @@ class PopularBusinesses extends Component {
         <h1 className='business__header'>Popular Businesses</h1>
         {this.state.businesses.map(({ id, name, rating, image }) => (
           <Link className='business' key={id} to={`/business/${id}`}>
-            <img
-              className='business__img--image'
-              src={image}
-              alt='reviewed business'
-            />
+            <div className='business__img--image'>
+              <img                
+                src={image}
+                alt='reviewed business'
+              />
+            </div>            
             <h4 className='business__text--name'>{name}</h4>
             <h1 className='business__text--rating'>{rating}</h1>
           </Link>
