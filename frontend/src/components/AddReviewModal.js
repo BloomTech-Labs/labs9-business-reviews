@@ -94,7 +94,7 @@ class AddReviewModal extends React.Component {
     this.state = {
       title: '',
       body: '',
-      rating: 0,
+      rating: 1,
       user: {}
     };
   }
