@@ -248,7 +248,9 @@ class SearchResult extends React.Component {
     Axios.get(
       `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${API_KEY}&placeid=${id}`
     )
-      .then(res => this.setState({ business: res.data.result }))
+      .then(res => {
+        this.setState({ business: res.data.result });
+      })
       .catch(err => console.log(err));
     Axios.get(`${backendLink}/api/business/${id}/reviews`)
       .then(res => this.setState({ reviews: res.data }))
@@ -301,9 +303,9 @@ class SearchResult extends React.Component {
         this.state.business.opening_hours !== undefined
       ) {
         if (this.state.business.opening_hours.open_now === true) {
-          isOpen = <span className='open'>Open</span>;
+          isOpen = <span className="open">Open</span>;
         } else {
-          isOpen = <span className='closed'>Closed</span>;
+          isOpen = <span className="closed">Closed</span>;
         }
       }
 
@@ -330,50 +332,50 @@ class SearchResult extends React.Component {
         <div>
           <NavBar />
           <StyledBusiness>
-            <div className='card'>
-              <div className='image__container'>
+            <div className="card">
+              <div className="image__container">
                 <img
-                  className='image__container--img'
+                  className="image__container--img"
                   src={imageURL}
-                  alt='Business'
+                  alt="Business"
                 />
               </div>
-              <h1 className='business__name'>{this.state.business.name}</h1>
-              <div className='business__rating'>
+              <h1 className="business__name">{this.state.business.name}</h1>
+              <div className="business__rating">
                 {/* passes the rating from state to the Stars component and, in turn, displays the rating in star SVGs */}
                 <Stars
                   rating={this.state.business.rating}
-                  className='business__rating--stars'
+                  className="business__rating--stars"
                 />
-                <p className='business__rating--number'>
+                <p className="business__rating--number">
                   {this.state.business.rating}
                 </p>
               </div>
-              <div className='grid'>
-                <div className='business__details--address'>
-                  <img className='svg' src={map} alt='map' />
+              <div className="grid">
+                <div className="business__details--address">
+                  <img className="svg" src={map} alt="map" />
                   {this.state.business.formatted_address}
                 </div>
-                <div className='business__details--phone'>
-                  <img className='svg' src={phone} alt='phone' />
+                <div className="business__details--phone">
+                  <img className="svg" src={phone} alt="phone" />
                   {this.state.business.formatted_phone_number}
                 </div>
-                <div className='business__details--hours'>
-                  <img className='svg' src={calendar} alt='calendar' />
-                  <div className='business__details--hours--week'>
-                    <p className='business__details--currently'>{isOpen}</p>
+                <div className="business__details--hours">
+                  <img className="svg" src={calendar} alt="calendar" />
+                  <div className="business__details--hours--week">
+                    <p className="business__details--currently">{isOpen}</p>
                     {/* this will map out the hours for each day  */}
                     {hours.map(hour => {
                       return <div key={hour}>{hour}</div>;
                     })}
                   </div>
                 </div>
-                <div className='business__details--website'>
-                  <img className='svg' src={web} alt='web' />
+                <div className="business__details--website">
+                  <img className="svg" src={web} alt="web" />
                   <a
-                    className='business__website--text'
-                    target='_blank'
-                    rel='noopener noreferrer'
+                    className="business__website--text"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href={this.state.business.website}
                   >
                     Website
@@ -381,24 +383,24 @@ class SearchResult extends React.Component {
                 </div>
               </div>
               {/* other users' reviews */}
-              <div className='review-container'>
-                <h1 className='reviews__header'>Reviews</h1>
-                <button className='btn' onClick={this.toggleReviewing}>
+              <div className="review-container">
+                <h1 className="reviews__header">Reviews</h1>
+                <button className="btn" onClick={this.toggleReviewing}>
                   Add a Review
                 </button>
-                <div className='reviews'>
+                <div className="reviews">
                   {this.state.reviews.map(({ title, id, rating, gravatar }) => (
-                    <div key={id} className='review'>
-                      <p className='review__title'>{title}</p>
-                      <p className='review__rating'>{`${rating} stars`}</p>
+                    <div key={id} className="review">
+                      <p className="review__title">{title}</p>
+                      <p className="review__rating">{`${rating} stars`}</p>
 
                       <img
                         src={gravatar}
-                        alt='reviewed business'
-                        className='review__img'
+                        alt="reviewed business"
+                        className="review__img"
                       />
-                      <p className='review__title'>{title}</p>
-                      <p className='review__rating'>{`${rating} / 5`}</p>
+                      <p className="review__title">{title}</p>
+                      <p className="review__rating">{`${rating} / 5`}</p>
                     </div>
                   ))}
                 </div>
