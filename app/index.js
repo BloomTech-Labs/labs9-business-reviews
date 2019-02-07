@@ -14,7 +14,7 @@ const server = express();
 const port = process.env.PORT || 9000;
 
 // uncomment this when on development on localhost:3000 //
-server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+server.use(cors({ credentials: true, origin: 'http://localhost:3000', AccessControlAllowOrigin: 'https://bonafind.herokuapp.com/' }));
 
 // process.env.NODE_ENV === "production"
 //   ? server.use(
