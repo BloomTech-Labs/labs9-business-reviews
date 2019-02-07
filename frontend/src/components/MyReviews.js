@@ -186,7 +186,9 @@ class MyReviews extends Component {
                       className='review'
                     >
                       <div className='review_img'>
-                        <img src={`${business_image}`} alt='business' />
+                        <Link to={`/buiness/${id}`}>
+                          <img src={`${business_image}`} alt='business' />
+                        </Link>
                       </div>
                       <h2 className='review__business'>{business_name}</h2>
                       <h4 className='review__title'>{title}</h4>
