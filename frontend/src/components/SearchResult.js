@@ -138,8 +138,15 @@ const StyledBusiness = styled.div`
         }
       }
     }
+
+    .reviews {
+      display: flex;
+      flex-direction: column;
+    }
+
     .review-container {
       display: flex;
+      flex-direction: column;
       width: 100%;
       flex-flow: row wrap;
       margin-top: 4rem;
