@@ -100,7 +100,7 @@ class AddReviewModal extends React.Component {
   }
   handleSubmit = e => {
     e.preventDefault();
-    console.log('image url yo', this.props.imageURL)
+    console.log('image url yo', this.props.imageURL);
     Axios.post(
       `${backendLink}/api/review`,
       {
@@ -110,7 +110,8 @@ class AddReviewModal extends React.Component {
         business_image: this.props.imageURL,
         business_name: this.props.businessName,
         business_id: this.props.businessId,
-        reviewer_id: this.state.user.id
+        reviewer_id: this.state.user.id,
+        gravatar: this.state.user.gravatar
       },
       { withCredentials: 'include' }
     )
@@ -137,48 +138,48 @@ class AddReviewModal extends React.Component {
   render() {
     return (
       <ModalStyles>
-        <div className="review__modal">
-          <div className="container">
+        <div className='review__modal'>
+          <div className='container'>
             <h1>{this.props.businessName}</h1>
             <h3>Add a Review</h3>
-            <form className="review__modal--form" onSubmit={this.handleSubmit}>
-              <label htmlFor="review-title">Title</label>
+            <form className='review__modal--form' onSubmit={this.handleSubmit}>
+              <label htmlFor='review-title'>Title</label>
               <input
                 onChange={this.changeHandler}
-                name="title"
+                name='title'
                 value={this.state.title}
-                className="review__modal--form--field--title"
+                className='review__modal--form--field--title'
               />
-              <label htmlFor="review-body">Your review</label>
+              <label htmlFor='review-body'>Your review</label>
               <textarea
                 onChange={this.changeHandler}
-                name="body"
+                name='body'
                 value={this.state.body}
-                className="review__modal--form--field--review"
+                className='review__modal--form--field--review'
               />
-              <div className="rating">
-                <label htmlFor="review__input--rating">Rating</label>
+              <div className='rating'>
+                <label htmlFor='review__input--rating'>Rating</label>
                 <select
                   onChange={this.changeHandler}
-                  name="rating"
+                  name='rating'
                   value={this.state.rating}
-                  className="review__modal--form--rating"
+                  className='review__modal--form--rating'
                 >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option defaultValue="5">5</option>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option defaultValue='5'>5</option>
                 </select>
-                <div className="review__modal--buttons">
+                <div className='review__modal--buttons'>
                   <button
-                    className="review__modal--buttons--btn"
+                    className='review__modal--buttons--btn'
                     onClick={this.handleSubmit}
                   >
                     Submit Review
                   </button>
                   <button
-                    className="review__modal--buttons--btn"
+                    className='review__modal--buttons--btn'
                     onClick={this.props.toggleReviewing}
                   >
                     Cancel
