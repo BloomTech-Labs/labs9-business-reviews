@@ -4,16 +4,29 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { backendLink } from '../assets/config';
 import GatedSignInComponent from './GatedSignInComponent';
+import image from '../assets/white-waves.png';
+
+const Container = styled.div`
+  background-image: url(${image});
+`;
 
 const StyledBillingForm = styled.div`
   background-color: white;
+
   .billing-form {
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
     padding: 40px;
     max-width: 500px;
   }
   .radio-form {
     padding: 15px;
+  }
+
+  .subscription__text {
+    font-family: Roboto;
+  }
+
+  .radio-form {
+    font-family: Roboto;
   }
 `;
 
@@ -71,42 +84,47 @@ class BillingForm extends React.Component {
   render() {
     return (
       <GatedSignInComponent>
-        <StyledBillingForm>
-          <div className="billing-form">
-            <h1>Bonafind Subscription</h1>
-            <p>
-              Here you can choose between a monthly or yearly subscription.
-              Without a subscription, you can create 3 reviews. But with a
-              subscription you can write as many reviews as you like!
-            </p>
-            <form className="radio-form">
-              <input
-                type="radio"
-                name="subscription"
-                value="yearly"
-                onClick={this.annualSub}
-              />
-              1 Year Subscription - $9.99 <br /> <br />
-              <input
-                type="radio"
-                name="subscription"
-                value="monthly"
-                onClick={this.monthlySub}
-              />
-              1 Month Subscription - $0.99 <br />
-            </form>
-            <StripeCheckout
-              amount={this.state.amount}
-              name="Bonafind"
-              description="Purchase Subscription"
-              stripeKey="pk_test_YRDXagNKMjZOXlX2ULVNUWbT"
-              currency="USD"
-              token={res => this.onToken(res)}
-            >
-              {this.props.children}
-            </StripeCheckout>
-          </div>
-        </StyledBillingForm>
+        <Container>
+          <StyledBillingForm>
+            <div className='billing-form'>
+              <h1>Bonafind Subscription</h1>
+              <p className='subscription__text'>
+                Bonafind is a free service for everything from finding
+                businesses around you to meeting people in places you'll go.
+                Free members are limited to 3 reviews. With a premium
+                membership, reviews are unlimited.
+              </p>
+              <form className='radio-form'>
+                <input
+                  type='radio'
+                  name='subscription'
+                  value='yearly'
+                  className='subscription__btn'
+                  onClick={this.annualSub}
+                />
+                1 Year Subscription: $9.99 <br /> <br />
+                <input
+                  type='radio'
+                  name='subscription'
+                  value='monthly'
+                  className='subscription__btn'
+                  onClick={this.monthlySub}
+                />
+                1 Month Subscription: $0.99 <br />
+              </form>
+              <StripeCheckout
+                amount={this.state.amount}
+                name='Bonafind'
+                description='Purchase Subscription'
+                stripeKey='pk_test_YRDXagNKMjZOXlX2ULVNUWbT'
+                currency='USD'
+                token={res => this.onToken(res)}
+              >
+                {this.props.children}
+              </StripeCheckout>
+            </div>
+          </StyledBillingForm>
+        </Container>
       </GatedSignInComponent>
     );
   }
