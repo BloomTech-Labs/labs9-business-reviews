@@ -125,7 +125,7 @@ const StyledBusiness = styled.div`
     }
     .business__details--website {
       display: flex;
-      align-items: center;
+      /* align-items: center; */
       margin-bottom: 1rem;
       padding-right: 2rem;
       .business__website--text {
@@ -142,9 +142,12 @@ const StyledBusiness = styled.div`
       display: flex;
       width: 100%;
       flex-flow: row wrap;
+      margin-top: 4rem;
+
       .reviews__header {
         font-family: 'Patua One';
-        width: 50%;
+        width: 20%;
+        margin: 0;
       }
 
       .reviews {
@@ -152,7 +155,7 @@ const StyledBusiness = styled.div`
         display: flex;
         justify-content: start;
         padding: 3px;
-        margin-top: 5rem;
+        /* margin-top: 5rem; */
 
         .review {
           display: flex;
@@ -217,16 +220,16 @@ const StyledBusiness = styled.div`
         margin-right: 1rem;
       }
     }
-    .btn {
-      background-color: #eed974;
+
+    .link {
+      border: 1px solid black;
       height: 40px;
-      width: 120px;
-      margin-right: 20px;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      margin-top: 1rem;
-      margin-left: 2rem;
+      width: 100px;
+      font-family: Roboto;
+      font-weight: bold;
+      text-transform: uppercase;
     }
+
     .open {
       text-transform: uppercase;
       font-size: 1rem;
@@ -256,7 +259,8 @@ const StyledBusiness = styled.div`
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: 10px;
+      row-gap: 40px;
+      column-gap: 20px;
       @media (max-width: 1250px) {
         grid-template-columns: repeat(1, 1fr);
       }
@@ -416,9 +420,10 @@ class SearchResult extends React.Component {
               {/* other users' reviews */}
               <div className='review-container'>
                 <h1 className='reviews__header'>Reviews</h1>
-                <button className='btn' onClick={this.toggleReviewing}>
+                <button className='link' onClick={this.toggleReviewing}>
                   Add a Review
                 </button>
+
                 <div className='reviews'>
                   {this.state.reviews.map(
                     ({ title, id, body, rating, gravatar }) => (
