@@ -51,10 +51,10 @@ router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
   const { token } = req.query;
   const response = await stripe.charges
     .create({
-      amount: 999,
+      amount: 99,
       source: token,
       currency: 'usd',
-      description: 'Yearly Subscription Charge'
+      description: 'Monthly Subscription Charge'
     });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30;
   await userModel.updateUser(user.id, user);
