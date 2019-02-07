@@ -4,6 +4,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET);
 const authConfig = require('../user/authConfig');
 const userModel = require('../db/userModel/userModel');
 const sgMail = require('@sendgrid/mail');
+const logo = require('../assets/logo.png');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 function makeANiceEmail(text) {
@@ -15,6 +16,7 @@ function makeANiceEmail(text) {
   line-height:2;
   font-size:20px;
   ">
+  <img src=${logo} alt="Bonafind Logo" />
   <h2>Hello There!</h2>
   <p>${text}</p>
   </div>
@@ -39,7 +41,12 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
     subject: 'Bonafind Billing',
     text: 'Sent from labs 9 Business Review',
     html: makeANiceEmail(
-      `This email is notifying you that you're getting a 1 year subscription to our site`
+      `Congratulations! You are now signed up for a year long subscription to Bonafind!
+      
+      Thanks For your support,
+
+      - Team Bonafind
+      `
     )
   };
   await sgMail.send(msg);
@@ -64,7 +71,12 @@ router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
     subject: 'Bonafind Billing',
     text: 'Sent from labs 9 Business Review',
     html: makeANiceEmail(
-      `This email is notifying you that you're getting a 1 month subscription to our site`
+      `Congratulations! You are now signed up for a month long subscription to Bonafind!
+      
+      Thanks For your support,
+
+      - Team Bonafind
+      `
     )
   };
   await sgMail.send(msg);
