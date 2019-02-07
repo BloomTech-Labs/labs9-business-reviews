@@ -11,7 +11,7 @@ import phone from '../assets/phone.svg';
 import calendar from '../assets/calendar.svg';
 import web from '../assets/web.svg';
 
-const API_KEY = 'AIzaSyCJBfHA6unIW_6p7vl9KMjTVgEbt0o9XsE';
+const API_KEY = 'AIzaSyCgxie-2MKM8N9ibIvYVGzuzvVSaXDonrE';
 
 const StyledBusiness = styled.div`
   width: 100%;
@@ -294,6 +294,8 @@ class SearchResult extends React.Component {
       photos.map(photo => references.push(photo.photo_reference));
       imageCC = references[0];
       imageURL = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`;
+    } else {
+      return null;
     }
     // creates a boolean variable- isOpen- that determines if the business is open
     let isOpen;
