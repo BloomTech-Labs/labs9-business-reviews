@@ -58,7 +58,7 @@ const StyledReviews = styled.div`
 			overflow: hidden;
 			img {
 				width: 100%;
-				heigth: auto;
+				height: auto;
 			}
 		}
 
@@ -87,7 +87,23 @@ const StyledReviews = styled.div`
 			padding: 0 10px;
 			line-height: 0.8;
 		}
-
+		.button-container {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			padding-top: 30px;
+			a, p {
+				border-bottom: 1px solid black;
+				font-family: Roboto;
+				text-align: center;
+				font-weight: bold;
+				padding: 10px 0;
+				width: 20%;
+				text-decoration:none;
+				color: black;
+				cursor: pointer;
+			}
+		}
 		p {
 			height: auto;
 		}
@@ -118,15 +134,16 @@ class MyReviews extends Component {
 			gravatar: props.gravatar,
 			clickable: null
 		};
-  }
+	}
   handleUnclickable=()=>{
     alert("You can only edit your own reviews");
   }
   handleDelete = (e)=>{
-    const id = e.target.id;
+		const id = e.target.id;
     Axios.delete(`${backendLink}/api/review/${id}`)
       .then(res=>console.log(res.status, res.data))
-      .catch(err=>console.log('error', err))
+			.catch(err=>console.log('error', err));
+		alert('Review Deleted');
   }
 	async componentDidMount() {
 		const ids = this.props.id;
@@ -145,7 +162,7 @@ class MyReviews extends Component {
 				<StyledReviews>
           <h1>Reviews</h1>
 					{this.state.reviews ? (
-						this.state.reviews.map(({ title, body, business_image, business_name, id, rating }) => {
+						this.state.reviews.map(({ title, body, business_image, business_name, reviewer_id, id, rating }) => {
 							if (!this.state.clickable)
 								return (
 									<div onClick={this.handleUnclickable} key={id} className="review">
@@ -173,8 +190,10 @@ class MyReviews extends Component {
                       rating={rating}
                       className="business__rating--stars"
                     />
-									<Link to={`/user/review/${id}`} >Edit</Link>
-									<a className="delete" id={id} onClick={this.handleDelete}>Delete</a>
+									<div className="button-container">
+										<Link to={`/user/review/${id}`} >EDIT</Link>
+										<Link to='/' id={id}onClick={this.handleDelete}>DELETE</Link>
+									</div>
 								</div>
 							);
 						})
