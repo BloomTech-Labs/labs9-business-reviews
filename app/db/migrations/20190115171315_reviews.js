@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
     review.string('business_name');
     review.string('business_id', 1000);
     review.integer('reviewer_id');
+    review.string('gravatar', 1000);
   });
 };
 exports.down = function(knex, Promise) {
