@@ -98,7 +98,7 @@ class AddReviewModal extends React.Component {
     this.state = {
       title: '',
       body: '',
-      rating: 0,
+      rating: 1,
       user: {}
     };
   }
@@ -121,7 +121,7 @@ class AddReviewModal extends React.Component {
     )
       .then(res => {
         if (res.data.message) return alert(res.data.message);
-        this.setState({ title: '', body: '', rating: 0 });
+        this.setState({ title: '', body: '', rating: 1 });
       })
       .then(this.props.toggleReviewing)
       .catch(err => console.log('error', err));

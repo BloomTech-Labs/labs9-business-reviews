@@ -250,10 +250,27 @@ const StyledBusiness = styled.div`
       @media (max-width: 900px) {
         height: 35px;
         width: 35px;
+        margin-right: 1.7rem;
+        @media (max-width: 900px) {
+          height: 25px;
+          width: 25px;
+          margin-right: 1.2rem;
+        }
+        @media (max-width: 600px) {
+          height: 20px;
+          width: 20px;
+          margin-right: 1rem;
+        }
       }
-      @media (max-width: 600px) {
-        height: 20px;
-        width: 20px;
+      .btn {
+        background-color: #eed974;
+        height: 40px;
+        width: 120px;
+        margin-right: 20px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-top: 1rem;
+        margin-left: 2rem;
       }
     }
     .grid {
@@ -439,6 +456,7 @@ class SearchResult extends React.Component {
                           <p className='review__text--title'>{title}</p>
                           <p className='review__text--body'>{body}</p>
                           <Stars rating={rating} className='review__stars' />
+
                         </div>
                       </div>
                     )
