@@ -14,7 +14,6 @@ const StyledReviews = styled.div`
 	justify-content: space-around;
 	flex-flow: row wrap;
 	padding: 20px;
-  border: 1px solid orange;
 	@media (max-width: 900px) {
 		width: 100%;
 	}
