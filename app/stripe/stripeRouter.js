@@ -24,13 +24,12 @@ function makeANiceEmail(text) {
 router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
   const { token } = req.query;
-  const response = await stripe.charges
-    .create({
-      amount: 999,
-      source: token,
-      currency: 'usd',
-      description: 'Yearly Subscription Charge'
-    });
+  const response = await stripe.charges.create({
+    amount: 999,
+    source: token,
+    currency: 'usd',
+    description: 'Yearly Subscription Charge'
+  });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30 * 12;
   await userModel.updateUser(user.id, user);
   const msg = {
@@ -54,13 +53,12 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
 router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
   const [user] = req.user;
   const { token } = req.query;
-  const response = await stripe.charges
-    .create({
-      amount: 99,
-      source: token,
-      currency: 'usd',
-      description: 'Monthly Subscription Charge'
-    });
+  const response = await stripe.charges.create({
+    amount: 99,
+    source: token,
+    currency: 'usd',
+    description: 'Monthly Subscription Charge'
+  });
   user.subscription = Date.now() + 1000 * 60 * 60 * 24 * 30;
   await userModel.updateUser(user.id, user);
   const msg = {
