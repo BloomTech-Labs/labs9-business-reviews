@@ -43,7 +43,7 @@ router.post('/yearly', authConfig.isLoggedIn, async (req, res) => {
     html: makeANiceEmail(
       `Congratulations! You are now signed up for a year long subscription to Bonafind!
       
-      Thanks For your support!
+      Thanks For your support,
 
       - Team Bonafind
       `
@@ -73,7 +73,7 @@ router.post('/monthly', authConfig.isLoggedIn, async (req, res) => {
     html: makeANiceEmail(
       `Congratulations! You are now signed up for a month long subscription to Bonafind!
       
-      Thanks For your support!
+      Thanks For your support,
 
       - Team Bonafind
       `
