@@ -14,7 +14,6 @@ const StyledReviews = styled.div`
 	justify-content: space-around;
 	flex-flow: row wrap;
 	padding: 20px;
-  border: 1px solid orange;
 	@media (max-width: 900px) {
 		width: 100%;
 	}
@@ -56,25 +55,11 @@ const StyledReviews = styled.div`
 		.review_img {
 			width: 100%;
       max-height: 200px;
-      position: relative;
-      text-align: center;
-      color: white;
-      img {
-        width: 100%;
-        height: 200px;
-      }
-      .delete {
-        font-family: Roboto;
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        font-weight: lighter;
-        background-color: black;
-        border: 1px solid white;
-        font-size: .2rem;
-        border-radius: 50%;
-        padding: 3px;
-      }
+			overflow: hidden;
+			img {
+				width: 100%;
+				heigth: auto;
+			}
 		}
 
 		.review__title {
@@ -177,11 +162,10 @@ class MyReviews extends Component {
 									</div>
 								);
 							return (
-								<Link to={`/user/review/${id}`} key={id} className="review">
+								<div key={id} className="review">
 									<div className="review_img">
-                    <img className="review__img" src={`${business_image}`} alt="business"/>
-                    <div className="delete" id={id} onClick={this.handleDelete}>X</div>
-                  </div> 
+                      <img src={`${business_image}`} alt="business" />
+                  </div>											
 									<h2 className="review__business">{business_name}</h2>
 									<h4 className="review__title">{title}</h4>
 									<p className="review__body">{body}</p>
@@ -189,7 +173,9 @@ class MyReviews extends Component {
                       rating={rating}
                       className="business__rating--stars"
                     />
-								</Link>
+									<Link to={`/user/review/${id}`} >Edit</Link>
+									<a className="delete" id={id} onClick={this.handleDelete}>Delete</a>
+								</div>
 							);
 						})
 					) : null}
