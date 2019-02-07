@@ -86,7 +86,7 @@ class UpdatePassword extends Component {
         { password: this.state.password },
         { withCredentials: 'include' }
       );
-      console.log(res);
+      console.log(res.status);
     } catch (err) {
       alert(err);
     }

@@ -312,9 +312,9 @@ class SearchResult extends React.Component {
       image: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${imageCC}&key=${API_KEY}`
     })
       .then(res => {
-        console.log('Successfully sent business to db!', res.status);
+        console.log(res.status);
       })
-      .catch(err => console.log('error', err));
+      .catch(err => console.log(err));
   };
   toggleReviewing = () => {
     this.setState({ reviewing: !this.state.reviewing });

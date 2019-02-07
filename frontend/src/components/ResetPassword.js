@@ -49,7 +49,6 @@ class ResetPassword extends Component {
   state = { email: '' };
 
   handleChange = e => {
-    console.log([e.target.name]);
     this.setState({ [e.target.name]: e.target.value });
   };
   handleSubmit = async e => {
@@ -57,7 +56,7 @@ class ResetPassword extends Component {
     const res = await axios.post(`${backendLink}/api/user/verify`, this.state, {
       withCredentials: true
     });
-    console.log(res);
+    console.log(res.status);
     if (res.data.error) {
       return alert(res.data.error);
     }

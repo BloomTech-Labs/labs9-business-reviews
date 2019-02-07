@@ -6,7 +6,6 @@ const db = require('../db/dbinit');
 // P O S T
 router.post('/', (req, res, next) => {
   const business = req.body;
-  console.log(business);
   db('businesses')
     .insert(business)
     .returning('id')

@@ -36,7 +36,6 @@ describe('GET BY ID test', () => {
   });
 
   afterEach(async () => {
-    console.log(singleUserId);
     await db('users')
       .where({ id: singleUserId })
       .del();

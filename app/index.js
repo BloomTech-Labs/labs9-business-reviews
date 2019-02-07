@@ -14,7 +14,7 @@ const server = express();
 const port = process.env.PORT || 9000;
 
 // uncomment this when on development on localhost:3000 //
-// server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+// server.use(cors({ credentials: true, origin: 'http://localhost:3000', AccessControlAllowOrigin: 'https://bonafind.herokuapp.com/' }));
 
 // process.env.NODE_ENV === "production"
 //   ? server.use(
@@ -22,7 +22,7 @@ const port = process.env.PORT || 9000;
 //     )
 //   : server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // use this cors on production //
-server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com' }));
+server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com', AccessControlAllowOrigin: 'https://bonafind.herokuapp.com/' }));
 
 server.use(cookieParser());
 authMiddleware(server);
@@ -37,7 +37,6 @@ require('./user/passport');
 
 // R O O T  R O U T E
 server.get('/', (req, res) => {
-  console.log('node environment', process.env.NODE_ENV);
   res.status(200).json({ api: 'API root' });
 });
 

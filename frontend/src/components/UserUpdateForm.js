@@ -64,7 +64,6 @@ class UserUpdateForm extends Component {
     e.preventDefault();
     const user = { ...this.state.user };
     delete user.id;
-    console.log(this.state.user.id);
     const res = await axios.put(
       `${backendLink}/api/user/${this.state.user.id}`,
       user,
@@ -73,7 +72,7 @@ class UserUpdateForm extends Component {
       }
     );
     if (res.data.error) {
-      return alert(res.data.error);
+      return console.log(res.data.error);
     }
     alert('successfully updated your credentials');
     return this.props.history.push('/');

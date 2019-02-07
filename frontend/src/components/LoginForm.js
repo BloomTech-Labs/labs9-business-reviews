@@ -70,7 +70,6 @@ class LoginForm extends Component {
     if (res.status === 500) {
       return alert('Login incorrect, please try again.');
     }
-    console.log(`Authenticated!`);
     this.props.history.push('/');
   };
 
