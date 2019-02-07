@@ -32,7 +32,6 @@ router.post('/register', authConfig.checkCreds, async (req, res) => {
   const [singleUser] = await userModel.verifyLoginEmail(email);
   req.login(singleUser.id, function(err) {
     if (err) {
-      console.log(err);
       return res.status(500).json({ message: 'Internal server error' });
     }
     res.json({ message: 'Done', id: singleUser.id });
