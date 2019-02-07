@@ -36,7 +36,6 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <Route path="/billing" component={BillingPage} />
         <Route path="/updateuser" component={UpdateUser} />
-        <Route path="/resetpassword" component={ResetPassword} />
         <Route path="/login" render={props => <Login {...props} />} />
         <Route path="/updatepassword" component={UpdatePassword} />
         <Route
