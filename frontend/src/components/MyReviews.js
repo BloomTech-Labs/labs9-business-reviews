@@ -55,25 +55,11 @@ const StyledReviews = styled.div`
 		.review_img {
 			width: 100%;
       max-height: 200px;
-      position: relative;
-      text-align: center;
-      color: white;
-      img {
-        width: 100%;
-        height: 200px;
-      }
-      .delete {
-        font-family: Roboto;
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        font-weight: lighter;
-        background-color: black;
-        border: 1px solid white;
-        font-size: .2rem;
-        border-radius: 50%;
-        padding: 3px;
-      }
+			overflow: hidden;
+			img {
+				width: 100%;
+				height: auto;
+			}
 		}
 
 		.review__title {
@@ -101,7 +87,23 @@ const StyledReviews = styled.div`
 			padding: 0 10px;
 			line-height: 0.8;
 		}
-
+		.button-container {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			padding-top: 30px;
+			a, p {
+				border-bottom: 1px solid black;
+				font-family: Roboto;
+				text-align: center;
+				font-weight: bold;
+				padding: 10px 0;
+				width: 20%;
+				text-decoration:none;
+				color: black;
+				cursor: pointer;
+			}
+		}
 		p {
 			height: auto;
 		}
@@ -132,15 +134,16 @@ class MyReviews extends Component {
 			gravatar: props.gravatar,
 			clickable: null
 		};
-  }
+	}
   handleUnclickable=()=>{
     alert("You can only edit your own reviews");
   }
   handleDelete = (e)=>{
-    const id = e.target.id;
+		const id = e.target.id;
     Axios.delete(`${backendLink}/api/review/${id}`)
       .then(res=>console.log(res.status, res.data))
-      .catch(err=>console.log('error', err))
+			.catch(err=>console.log('error', err));
+		alert('Review Deleted');
   }
 	async componentDidMount() {
 		const ids = this.props.id;
@@ -159,7 +162,7 @@ class MyReviews extends Component {
 				<StyledReviews>
           <h1>Reviews</h1>
 					{this.state.reviews ? (
-						this.state.reviews.map(({ title, body, business_image, business_name, id, rating }) => {
+						this.state.reviews.map(({ title, body, business_image, business_name, reviewer_id, id, rating }) => {
 							if (!this.state.clickable)
 								return (
 									<div onClick={this.handleUnclickable} key={id} className="review">
@@ -176,11 +179,10 @@ class MyReviews extends Component {
 									</div>
 								);
 							return (
-								<Link to={`/user/review/${id}`} key={id} className="review">
+								<div key={id} className="review">
 									<div className="review_img">
-                    <img className="review__img" src={`${business_image}`} alt="business"/>
-                    <div className="delete" id={id} onClick={this.handleDelete}>X</div>
-                  </div> 
+                      <img src={`${business_image}`} alt="business" />
+                  </div>											
 									<h2 className="review__business">{business_name}</h2>
 									<h4 className="review__title">{title}</h4>
 									<p className="review__body">{body}</p>
@@ -188,7 +190,11 @@ class MyReviews extends Component {
                       rating={rating}
                       className="business__rating--stars"
                     />
-								</Link>
+									<div className="button-container">
+										<Link to={`/user/review/${id}`} >EDIT</Link>
+										<Link to='/' id={id}onClick={this.handleDelete}>DELETE</Link>
+									</div>
+								</div>
 							);
 						})
 					) : null}

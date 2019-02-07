@@ -20,7 +20,7 @@ class UserProfile extends React.Component {
       <div>
         <NavBar />
         <StyledContainer>
-          <MyReviews className='header' id={id} />
+          <MyReviews className='header' {...this.props}id={id} />
         </StyledContainer>
       </div>
     );
