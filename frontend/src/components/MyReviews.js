@@ -28,6 +28,7 @@ const StyledReviews = styled.div`
       color: black;
       border-bottom: 1px solid black;
       margin-bottom: 30px;
+      font-size: 14px;
     }
   }
   
