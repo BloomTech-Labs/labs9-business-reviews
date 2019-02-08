@@ -21,8 +21,8 @@ const StyledBusiness = styled.div`
   line-height: 1.2;
   padding-bottom: 50px;
   font-family: Roboto;
+
   .card {
-    border: 1px solid grey;
     background: white;
     border-radius: 5px;
     width: 60%;

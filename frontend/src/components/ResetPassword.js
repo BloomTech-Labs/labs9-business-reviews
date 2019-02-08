@@ -8,7 +8,7 @@ const ResetPasswordDiv = styled.div`
   width: 600px;
   margin: 0 auto;
   margin-top: 200px;
-  margin-bottom: 300px;
+  margin-bottom: 1000px;
   h1 {
     font-weight: 100;
     text-align: center;
