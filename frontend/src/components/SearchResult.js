@@ -151,10 +151,24 @@ const StyledBusiness = styled.div`
       flex-flow: row wrap;
       margin-top: 4rem;
 
-      .reviews__header {
-        font-family: 'Patua One';
-        width: 20%;
-        margin: 0;
+      .review__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @media (max-width: 1050px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .reviews__header--text {
+          font-family: Patua One;
+          margin-right: 3rem;
+        }
+
+        .reviews__header--btn {
+          margin-bottom: 1rem;
+        }
       }
 
       .reviews {
@@ -427,12 +441,18 @@ class SearchResult extends React.Component {
                   </a>
                 </div>
               </div>
+
               {/* other users' reviews */}
               <div className='review-container'>
-                <h1 className='reviews__header'>Reviews</h1>
-                <button className='link' onClick={this.toggleReviewing}>
-                  Add a Review
-                </button>
+                <div className='review__header'>
+                  <h1 className='reviews__header--text'>Reviews</h1>
+                  <button
+                    className='reviews__header--btn link'
+                    onClick={this.toggleReviewing}
+                  >
+                    Add a Review
+                  </button>
+                </div>
 
                 <div className='reviews'>
                   {this.state.reviews.map(
