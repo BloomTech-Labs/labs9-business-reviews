@@ -56,6 +56,7 @@ const SearchBarStyles = styled.div`
     .button {
       background-color: #eed974;
       font-size: 1.1rem;
+      font-family: Roboto;
       height: 55px;
       width: 120px;
       margin-right: 10px;
@@ -115,9 +116,9 @@ class SearchBar extends React.Component {
         <form>
           <input
             onChange={this.handleChange}
-            className="search__input"
-            id="dropdown"
-            placeholder="What are you looking for?"
+            className='search__input'
+            id='dropdown'
+            placeholder='What are you looking for?'
           />
           <Link
             to={
@@ -126,7 +127,7 @@ class SearchBar extends React.Component {
                 : '/'
             }
           >
-            <button className="button">search</button>
+            <button className='button'>Search</button>
           </Link>
         </form>
       </SearchBarStyles>
