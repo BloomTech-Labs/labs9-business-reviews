@@ -1,5 +1,9 @@
-[Bonafind](https://bonafind.netlify.com/static/media/logo.99726a63.png "Bonafind")
+![Bonafind](https://bonafind.netlify.com/static/media/logo.99726a63.png)
 # Bonafind.biz
+Working demo at: [http://bonafind.netlify.com](http://bonafind.netlify.com)
+
+
+
 
 Bonafind is an application that will allow users to find and review local businesses and view popular businesses in their area.
 
