@@ -24,7 +24,7 @@ const StyledReviews = styled.div`
     font-size: 3rem;
   }
   .review {
-    margin: 2rem 2rem;
+    margin: 1rem 1rem;
     box-sizing: border-box;
     width: 30%;
     height: auto;
