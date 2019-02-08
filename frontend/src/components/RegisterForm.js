@@ -17,9 +17,9 @@ const RegisterDiv = styled.div`
   align-self: flex-end;
   margin: auto;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
-  height: 500px;
+  height: 100%;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 90px;
 `;
 const AuthForm = styled.form`
   width: 100%;
@@ -34,6 +34,10 @@ const AuthForm = styled.form`
     height: 70px;
     width: 95%;
     margin-bottom: 15px;
+  }
+
+  .gravatar {
+    font-family: Roboto;
   }
 `;
 
@@ -59,30 +63,39 @@ class RegisterForm extends Component {
     }
 
     await axios.post(`${backendLink}/api/user/register`, this.state);
-    try {           
-      this.props.history.push('/login');     
+    try {
+      this.props.history.push('/login');
     } catch (err) {
       alert(err);
-    }    
+    }
   };
   render() {
     return (
       <div>
-        <NavBar {...this.props}/>
+        <NavBar {...this.props} />
         <RegisterDiv>
           <AuthForm onSubmit={this.handleSubmit}>
             <AuthHeader> Register for a account!</AuthHeader>
-            <label htmlFor="email"> Email</label>
-            <AuthInput type="email" name="email" onChange={this.handleChange} />
-            <label htmlFor="password"> Password</label>
-            <AuthInput type="password" name="password" onChange={this.handleChange} />
-            <label htmlFor="name">Name</label>
-            <AuthInput type="text" name="name" onChange={this.handleChange} />
-            <input type="submit" value="Register" className="btn" />
+
+            <label htmlFor='email'> Email</label>
+            <AuthInput type='email' name='email' onChange={this.handleChange} />
+            <label htmlFor='password'> Password</label>
+            <AuthInput
+              type='password'
+              name='password'
+              onChange={this.handleChange}
+            />
+            <label htmlFor='name'>Name</label>
+            <AuthInput type='text' name='name' onChange={this.handleChange} />
+            <p className='gravatar'>
+              Bonafind uses <strong>Gravatar</strong> for our user avatars.
+              Don't have one? It's easy- sign up at{' '}
+              <a href='http://gravatar.com'>http://gravatar.com</a>
+            </p>
+            <input type='submit' value='Register' className='btn' />
           </AuthForm>
         </RegisterDiv>
       </div>
-      
     );
   }
 }
