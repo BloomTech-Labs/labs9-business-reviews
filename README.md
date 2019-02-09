@@ -1,4 +1,5 @@
-[Bonafind](https://bonafind.netlify.com/static/media/logo.99726a63.png "Bonafind")
+[Bonafind](https://bonafind.netlify.com/static/media/logo.99726a63.png 'Bonafind')
+
 # Bonafind.biz
 
 Bonafind is an application that will allow users to find and review local businesses and view popular businesses in their area.
@@ -14,7 +15,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 ##### Check that the app is configured to be run locally.
 
 -Make sure that `/frontend/assets/config.js` looks like the screenshot below.
-(Updates 
+(Updates
 
 ![assets.js config](https://user-images.githubusercontent.com/40773193/52238716-f3f41100-2889-11e9-9105-7955426d2d8a.png)
 
