@@ -79,7 +79,7 @@ class LoginForm extends Component {
 				<AuthForm onSubmit={this.handleSubmit}>
 					<AuthHeader>Login to your account</AuthHeader>
 					<h4 className="Login__text">
-						Don't have an account?{' '}
+						Don't have an account?
 						<Link to="/register" className="Login__text--link">
 							Register here!
 						</Link>
