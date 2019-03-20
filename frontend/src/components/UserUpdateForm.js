@@ -11,10 +11,6 @@ const FormDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  Link {
-    display: flex;
-    justify-content: center;
-  }
   p {
     display: flex;
     justify-content: center;
