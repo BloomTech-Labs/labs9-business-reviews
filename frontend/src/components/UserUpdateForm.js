@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import { backendLink } from '../assets/config';
 import styled from 'styled-components';
 import { withRouter } from 'react-router';
@@ -10,8 +11,16 @@ const FormDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  Link {
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+  }
   img {
-    width: 200px;
+    width: 100px;
     border-radius: 50%;
     margin: 0 auto;
   }
@@ -80,6 +89,7 @@ class UserUpdateForm extends Component {
     return (
       <FormDiv>
         <img src={this.state.user.gravatar} alt={this.state.user.name} />
+        <p><a href='http://gravatar.com'> Edit Gravatar </a></p>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name :</label>
           <input
@@ -95,6 +105,7 @@ class UserUpdateForm extends Component {
           />
           <input type="submit" value="Update User" />
         </form>
+        <Link to='/updatepassword'> Change Password </Link>
       </FormDiv>
     );
   }
