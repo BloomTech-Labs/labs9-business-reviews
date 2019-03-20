@@ -314,6 +314,9 @@ class SearchResult extends React.Component {
 		Axios.get(`${backendLink}/api/business/${id}/reviews`)
 			.then((res) => this.setState({ reviews: res.data }))
 			.catch((err) => console.log(err));
+		console.log(this.state)
+		console.log(API_KEY)
+
 	}
 
 	addBusiness = () => {
