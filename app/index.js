@@ -25,8 +25,8 @@ const port = process.env.PORT || 9000;
 server.use(
   cors({
     credentials: true,
-    origin: 'https://objective-curie-345595.netlify.com',
-    AccessControlAllowOrigin: 'https://arcane-headland-99879.herokuapp.com'
+    origin: 'https://bonafind.netlify.com',
+    AccessControlAllowOrigin: 'https://bonafind.herokuapp.com'
   })
 );
 
