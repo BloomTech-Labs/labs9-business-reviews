@@ -22,14 +22,13 @@ const port = process.env.PORT || 9000;
 //     )
 //   : server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // use this cors on production //
-// server.use(
-//   cors({
-//     credentials: true,
-//     origin: 'https://objective-curie-345595.netlify.com/',
-//     AccessControlAllowOrigin: 'https://arcane-headland-99879.herokuapp.com/'
-//   })
-// );
-server.use(cors())
+server.use(
+  cors({
+    credentials: true,
+    origin: 'https://objective-curie-345595.netlify.com/',
+    AccessControlAllowOrigin: 'https://arcane-headland-99879.herokuapp.com/'
+  })
+);
 
 server.use(cookieParser());
 authMiddleware(server);
