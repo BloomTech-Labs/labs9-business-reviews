@@ -25,7 +25,7 @@ const port = process.env.PORT || 9000;
 server.use(
   cors({
     credentials: true,
-    origin: 'objective-curie-345595.netlify.com',
+    origin: 'https://objective-curie-345595.netlify.com/register',
     AccessControlAllowOrigin: 'https://arcane-headland-99879.herokuapp.com/'
   })
 );
