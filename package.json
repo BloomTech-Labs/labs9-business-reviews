@@ -1,14 +1,14 @@
 {
-  "name": "business-reviews",
-  "version": "1.0.0",
-  "description": "Business",
+  "name": "Bonafind",
+  "version": "1.4.0",
+  "description": "An application that helps you find local businesses around you.",
   "main": "app/index.js",
   "scripts": {
     "start": "node app/index.js"
   },
   "keywords": [],
-  "author": "carlo",
-  "license": "ISC",
+  "author": "Edd Burke, Carlo Clamucha, Alex Dykas, Brad Mortensen",
+  "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^6.3.1",
     "bcryptjs": "^2.4.3",
