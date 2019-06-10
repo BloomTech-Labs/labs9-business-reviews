@@ -22,7 +22,16 @@ const port = process.env.PORT || 9000;
 //     )
 //   : server.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 // use this cors on production //
-server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com', AccessControlAllowOrigin: 'https://bonafind.herokuapp.com' }));
+server.use(
+  cors({
+    credentials: true,
+    origin: 'http://bonafind.com',
+    AccessControlAllowOrigin: 'https://bonafind.herokuapp.com'
+  })
+);
+
+// hotfix for domain issue
+// server.use(cors({ credentials: true, origin: 'https://bonafind.netlify.com', AccessControlAllowOrigin: 'https://bonafind.herokuapp.com' }));
 
 server.use(cookieParser());
 authMiddleware(server);
